@@ -1,6 +1,6 @@
 var firebase = require('firebase');
 var config = {
-    apiKey: "AIzaSyD-xiLUjS8VXNlgNNEihib4osYLDpFU130",
+    apiKey: "/* api key here */",
     authDomain: "preppy-dev.firebaseapp.com",
     databaseURL: "https://preppy-dev.firebaseio.com",
     projectId: "preppy-dev",
