@@ -3,6 +3,7 @@ import {StyleSheet} from 'react-native';
 
 export const headerStyles = StyleSheet.create({
     headerMain: {
+        marginTop: 15,
         backgroundColor: '#FDB52B',
         flex: 1,
         flexDirection: "row",
@@ -21,6 +22,8 @@ export const headerStyles = StyleSheet.create({
         textAlign: "center",
         width: "60%",
         color: "#FFFFFF",
-        fontFamily: "raleway"
+        fontWeight: "bold",
+        fontFamily: "Raleway",
+        fontSize: 24
     }
 });
