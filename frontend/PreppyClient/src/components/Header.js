@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, TouchableOpacity, Image} from 'react-native';
 import {headerStyles} from '../Styles';
 
 export default class Header extends Component {
@@ -15,6 +15,32 @@ export default class Header extends Component {
                 <Text style={headerStyles.headerTitle}>{this.props.title}</Text>
                 {this.props.children[1]}
             </View>
+        );
+    }
+}
+
+export class HeaderButton extends Component {
+
+    constructor() {
+        super();
+    }
+
+    render() {
+
+        return(
+            <TouchableOpacity
+                style={headerStyles.headerButtonContainer}
+                underlayColor='#fff'
+                onPress = {this.props.onPress}
+            >
+                <Image 
+                    source={
+                        this.props.type === "profile" ?
+                        require("../../assets/img/profileTemp.png") :
+                        null
+                    }
+                    style={headerStyles.headerButton}/>
+            </TouchableOpacity>
         );
     }
 }
