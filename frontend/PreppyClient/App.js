@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Platform, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Platform, StatusBar, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import Dashboard from './src/components/dashboard/Dashboard';
-import Header from './src/components/Header';
+import Header, {HeaderButton} from './src/components/Header';
 import {headerStyles} from './src/Styles';
 
 const instructions = Platform.select({
@@ -15,11 +15,16 @@ type Props = {};
 export default class App extends Component<Props> {
     render() {
         return (
-            <View>
-                <StatusBar barStyle="dark-content"/>
+            <View style={{backgroundColor: "black"}}>
+                <StatusBar barStyle="light-content"/>
                 <Header style={headerStyles.headerMain} title={"Dashboard"}>
-                    <Text style={headerStyles.headerLeftButton}>1</Text>
-                    <Text style={headerStyles.headerRightButton}>2</Text>
+                    <HeaderButton
+                        buttonText="Menu"
+                        type="profile"
+                     />
+                    <HeaderButton
+                        buttonText="Profile"
+                     />
                 </Header>
                 <Dashboard/>
             </View>
