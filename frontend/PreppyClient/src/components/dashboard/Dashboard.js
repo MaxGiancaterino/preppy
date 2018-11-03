@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View, ScrollView} from 'react-native';
 import BudgetDisplay from './BudgetDisplay';
+import {dashboardStyles} from './DashboardStyles';
 
 export default class Dashboard extends Component {
 
@@ -10,9 +11,9 @@ export default class Dashboard extends Component {
 
     render() {
         return(
-            <View>
+            <View style={dashboardStyles.dashboardMain}>
                 <ScrollView>
-                    <BudgetDisplay/>
+                    <BudgetDisplay amount="504.75"/>
                 </ScrollView>
             </View>
         );
