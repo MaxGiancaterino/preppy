@@ -6,8 +6,7 @@ export const dashboardStyles = StyleSheet.create({
         backgroundColor: "#FFFFE0",
     },
     budgetMain: {
-        paddingTop: 10,
-        paddingBottom: 10,
+        paddingVertical: 20,
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
@@ -15,12 +14,12 @@ export const dashboardStyles = StyleSheet.create({
     },
     budgetTextSmall: {
         fontFamily: "Raleway",
-        fontSize: 14,
+        fontSize: 20,
         fontWeight: "bold",
     },
     budgetTextMed: {
         fontFamily: "Raleway",
-        fontSize: 20,
+        fontSize: 30,
     },
     budgetTextBig: {
         fontFamily: "Raleway",
@@ -32,5 +31,9 @@ export const dashboardStyles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center"
+    },
+    underline: {
+        borderBottomWidth: 3,
+        borderBottomColor: "black",
     }
 });

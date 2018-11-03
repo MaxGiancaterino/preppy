@@ -13,7 +13,7 @@ export default class Dashboard extends Component {
         return(
             <View style={dashboardStyles.dashboardMain}>
                 <ScrollView>
-                    <BudgetDisplay amount="504.75"/>
+                    <BudgetDisplay amount="98.01"/>
                 </ScrollView>
             </View>
         );
