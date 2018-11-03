@@ -8,7 +8,7 @@ type Props = {};
 export default class App extends Component<Props> {
     render() {
         return (
-            <View>
+            <View style={{backgroundColor: "black"}}>
                 <StatusBar barStyle="light-content"/>
                 <Header style={headerStyles.headerMain} title={"Dashboard"}>
                     <HeaderButton
