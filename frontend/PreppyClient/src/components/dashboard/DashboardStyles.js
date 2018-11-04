@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
 
 export const dashboardStyles = StyleSheet.create({
     dashboardMain: {
         backgroundColor: "#FFFFE0",
+        height: Dimensions.get('window').height - 100
+    },
+    dashboardScroll: {
+        flex: 1
     },
 
     /* ---------------------------------- *
@@ -49,6 +53,8 @@ export const dashboardStyles = StyleSheet.create({
     buttonContainer: {
         flex: 1,
         flexDirection: "row",
+        borderBottomColor: "#777777",
+        borderBottomWidth: 2,
     },
     scheduleImage: {
         height: undefined,
@@ -87,9 +93,47 @@ export const dashboardStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 24,
         fontWeight: "bold",
-        color: "#FFFFFF",
+        color: "#FDB52B",
         textShadowColor: '#000000',
         textShadowOffset: {width: -1, height: 1},
         textShadowRadius: 5
     },
+
+    /* ---------------------------------- *
+     *  Recipe List
+     * ---------------------------------- */
+     recipeListMain: {
+         flex: 1,
+         flexDirection: "column",
+         alignItems: "stretch",
+     },
+     recipeListTitleContainer: {
+         paddingVertical: 20,
+     },
+     recipeListTitle: {
+         fontFamily: "Raleway",
+         fontSize: 20,
+         fontWeight: "bold",
+         textAlign: "center"
+     },
+     recommendedRecipeItem: {
+         backgroundColor: '#FDB52B',
+         marginHorizontal: 10,
+         marginTop: 10,
+         height: 100,
+         padding: 10,
+         borderRadius: 3,
+         borderBottomWidth: 5,
+         borderRightWidth: 5,
+         borderColor: '#DDA51B',
+         flex: 1,
+         flexDirection: "row",
+         justifyContent: "flex-start",
+         alignItems: "center"
+     },
+     recommendedRecipeTitle: {
+         fontFamily: 'Raleway',
+         color: "#FFFFFF",
+         fontSize: 24,
+     }
 });

@@ -1,6 +1,12 @@
 import React, {Component} from 'react';
 import {StyleSheet} from 'react-native';
 
+export const mainStyle = StyleSheet.create({
+    main: {
+        backgroundColor: "#000000",
+    }
+})
+
 export const headerStyles = StyleSheet.create({
     headerMain: {
         backgroundColor: '#FDB52B',
