@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+
+const PreppyOrange = "#FDB52B";
+
 
 export const mainStyle = StyleSheet.create({
     main: {
@@ -9,11 +12,11 @@ export const mainStyle = StyleSheet.create({
 
 export const headerStyles = StyleSheet.create({
     headerMain: {
-        backgroundColor: '#FDB52B',
+        backgroundColor: PreppyOrange,
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
-        maxHeight: 75,
+        maxHeight: 85,
     },
     headerButtonContainer: {
         width: "20%",
@@ -40,4 +43,19 @@ export const headerStyles = StyleSheet.create({
         width: "100%",
         height: 20, // Hardcoded for now. Will find a more robust solution later
     },
+});
+
+export const sidebarStyles = StyleSheet.create({
+    sidebarMain: {
+        position: "absolute",
+        width: 100,
+        //height: "100%",
+        marginTop: 24,
+        backgroundColor: "#FFFFFF",
+        borderRightWidth: 4,
+        borderBottomWidth: 4,
+        borderColor: PreppyOrange,
+        flex: -1,
+        flexDirection: "column"
+    }
 });

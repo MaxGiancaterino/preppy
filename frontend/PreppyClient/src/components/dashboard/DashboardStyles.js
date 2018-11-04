@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
+const PreppyOrange = "#FDB52B";
+
 export const dashboardStyles = StyleSheet.create({
     
     dashboardMain: {
-        backgroundColor: "#FFFFE0",
+        backgroundColor: "#FFFFFF",
         height: Dimensions.get('window').height,
         borderTopWidth: 3,
         flex: 1,
@@ -23,7 +25,7 @@ export const dashboardStyles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: "#FFFFE0",
+        backgroundColor: "#FFFFFF",
         borderBottomWidth: 2,
         borderBottomColor: "#777777",
     },
@@ -98,7 +100,7 @@ export const dashboardStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 24,
         fontWeight: "bold",
-        color: "#FDB52B",
+        color: PreppyOrange,
         textShadowColor: '#000000',
         textShadowOffset: {width: -1, height: 1},
         textShadowRadius: 3,
@@ -123,10 +125,10 @@ export const dashboardStyles = StyleSheet.create({
          textAlign: "center"
      },
      recommendedRecipeItem: {
-         backgroundColor: '#FDB52B',
+         backgroundColor: PreppyOrange,
          marginHorizontal: 10,
          marginTop: 10,
-         height: 100,
+         height: 60,
          padding: 10,
          borderRadius: 3,
          borderBottomWidth: 5,
