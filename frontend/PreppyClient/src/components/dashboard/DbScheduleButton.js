@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Text, TouchableHighlight, ImageBackground} from 'react-native';
+import {createStackNavigator} from 'react-navigation';
 import {dashboardStyles} from './DashboardStyles';
 
 export default class ScheduleButton extends Component {
@@ -8,11 +9,12 @@ export default class ScheduleButton extends Component {
         super();
     }
 
-    navigateToSchedule() {
-
+    navigateToSchedule = () => {
+        this.props.navigation.navigate("Schedule")
     }
 
     render() {
+        //navigateToSchedule();
         return(
             <TouchableHighlight
                 style={dashboardStyles.scheduleButton}

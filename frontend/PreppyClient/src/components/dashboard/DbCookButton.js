@@ -8,8 +8,8 @@ export default class CookButton extends Component {
         super();
     }
 
-    navigateToCooking() {
-
+    navigateToCooking = () => {
+        this.props.navigation.navigate("Cook")
     }
 
     render() {

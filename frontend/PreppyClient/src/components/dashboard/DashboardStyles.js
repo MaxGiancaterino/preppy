@@ -2,9 +2,14 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 export const dashboardStyles = StyleSheet.create({
+    
     dashboardMain: {
         backgroundColor: "#FFFFE0",
-        height: Dimensions.get('window').height - 100
+        height: Dimensions.get('window').height,
+        borderTopWidth: 3,
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start"
     },
     dashboardScroll: {
         flex: 1
@@ -96,7 +101,8 @@ export const dashboardStyles = StyleSheet.create({
         color: "#FDB52B",
         textShadowColor: '#000000',
         textShadowOffset: {width: -1, height: 1},
-        textShadowRadius: 5
+        textShadowRadius: 3,
+        padding: 2
     },
 
     /* ---------------------------------- *

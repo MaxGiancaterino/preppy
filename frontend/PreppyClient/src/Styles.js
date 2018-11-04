@@ -13,8 +13,7 @@ export const headerStyles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
-        minHeight: 75,
-        marginTop: 20, // Hardcoded for now. Will find a more robust solution later
+        maxHeight: 75,
     },
     headerButtonContainer: {
         width: "20%",
@@ -35,5 +34,10 @@ export const headerStyles = StyleSheet.create({
         fontFamily: "Raleway",
         width: "60%",
         fontSize: 24
-    }
+    },
+    statusBar: {
+        backgroundColor: "#000000",
+        width: "100%",
+        height: 20, // Hardcoded for now. Will find a more robust solution later
+    },
 });
