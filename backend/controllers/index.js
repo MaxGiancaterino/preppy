@@ -3,6 +3,7 @@ var express = require('express')
 	, User = require('../models/user.model');
 
 router.use('/user', require('./user.controller'));
+router.use('/account', require('./account.controller'));
 
 router.get('/', function(req, res) {
 	console.log("Welcome to Preppy's Backend API!");
