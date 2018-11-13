@@ -3,6 +3,10 @@ import {Text, View, ScrollView, Button} from 'react-native';
 
 export default class Schedule extends Component {
 
+    static navigationOptions = {
+        title: "Schedule",
+    };
+
     constructor() {
         super();
     }

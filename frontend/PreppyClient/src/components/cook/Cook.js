@@ -3,6 +3,10 @@ import {Text, View, ScrollView, Button} from 'react-native';
 
 export default class Cook extends Component {
 
+    static navigationOptions = {
+        title: "Cook",
+    };
+
     constructor() {
         super();
     }
