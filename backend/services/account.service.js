@@ -5,7 +5,8 @@ var database = require('../firebase/db');
 	"users": {
 		"nalvelo": {
 			"name": "Nikolas Alvelo",
-			"email": "nalvelo@seas.upenn.edu"
+			"email": "nalvelo@seas.upenn.edu",
+			""
 		}
 	}
 
