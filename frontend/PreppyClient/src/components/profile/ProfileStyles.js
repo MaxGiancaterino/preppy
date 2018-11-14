@@ -14,6 +14,15 @@ export const profileStyles = StyleSheet.create({
         justifyContent: "flex-start"
     },
     profileScroll: {
-        flex: 1
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "center",
     },
+    profileAvatar: {
+        width: "80%",
+        aspectRatio: 1,
+        marginVertical: 20,
+        borderWidth: 10,
+        borderColor: PreppyOrange
+    }
 });
