@@ -52,8 +52,17 @@ export default class Profile extends Component {
                         }
                         style={profileStyles.profileAvatar}
                     />
-                    <Text>{this.state.firstName}</Text>
-                    <Text>{this.state.lastName}</Text>
+                    <Text style={profileStyles.profileName}>{this.state.firstName} {this.state.lastName}</Text>
+                    <View style={profileStyles.profileInfoContainer}>
+                        <View style={profileStyles.profileInfoLabels}>
+                            <Text style={profileStyles.profileLabelText}>Username:</Text>
+                            <Text style={profileStyles.profileLabelText}>Email:</Text>
+                        </View>
+                        <View style={profileStyles.profileInfoValues}>
+                            <Text style={profileStyles.profileValueText}>{this.state.username}</Text>
+                            <Text style={profileStyles.profileValueText}>{this.state.email}</Text>
+                        </View>
+                    </View>
                 </ScrollView>
             </View>
         );

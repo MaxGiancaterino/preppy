@@ -24,5 +24,42 @@ export const profileStyles = StyleSheet.create({
         marginVertical: 20,
         borderWidth: 10,
         borderColor: PreppyOrange
-    }
+    },
+    profileName: {
+        fontFamily: "Raleway",
+        fontWeight: "bold",
+        fontSize: 36
+    },
+    profileInfoContainer: {
+        width: "100%",
+        paddingTop: 10,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "flex-start",
+    },
+    profileInfoLabels: {
+        maxWidth:"30%",
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "flex-end",
+    },
+    profileInfoValues: {
+        paddingLeft: 3,
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "flex-start",
+    },
+    profileLabelText: {
+        marginBottom: 5,
+        fontFamily: "Raleway",
+        fontWeight: "bold",
+        fontSize: 18,
+        color: PreppyOrange,
+    },
+    profileValueText: {
+        marginBottom: 5,
+        fontFamily: "Raleway",
+        fontWeight: "bold",
+        fontSize: 18,
+    },
 });
