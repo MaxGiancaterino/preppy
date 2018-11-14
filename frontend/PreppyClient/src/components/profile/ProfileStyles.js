@@ -62,4 +62,11 @@ export const profileStyles = StyleSheet.create({
         fontWeight: "bold",
         fontSize: 18,
     },
+    profileAvatar: {
+        width: "80%",
+        aspectRatio: 1,
+        marginVertical: 20,
+        borderWidth: 10,
+        borderColor: PreppyOrange
+    }
 });
