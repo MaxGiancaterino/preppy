@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
-import {Text, View, ScrollView, Button} from 'react-native';
+import {Text, View, ScrollView, Button, StatusBar} from 'react-native';
 import BudgetDisplay from './BudgetDisplay';
 import {dashboardStyles} from './DashboardStyles';
 import {headerStyles} from '../../Styles';
 import ScheduleButton from './DbScheduleButton';
 import CookButton from './DbCookButton';
 import RecommendedRecipe from './RecommendedRecipe';
-import Header, {HeaderButton} from '../Header';
-
+import {HeaderButton} from '../Header';
 
 export default class Dashboard extends Component {
+
+    static navigationOptions = {
+        title: "Dashboard",
+    };
 
     constructor() {
         super();
@@ -19,15 +22,9 @@ export default class Dashboard extends Component {
         let nav = this.props.navigation;
         return(
             <View style={dashboardStyles.dashboardMain}>
-                <Header title={"Dashboard"}>
-                    <HeaderButton
-                        buttonText="Menu"
-                        type="profile"
-                     />
-                    <HeaderButton
-                        buttonText="Profile"
-                     />
-                </Header>
+                <StatusBar
+                    barStyle="dark-content"
+                />
                 <ScrollView
                     showsVerticalScrollIndicator="false"
                     style={dashboardStyles.dashboardScroll}
