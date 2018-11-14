@@ -54,7 +54,7 @@ export default class SidebarPopout extends Component {
                     <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={closeMenu}>
                         <Text style={sidebarStyles.sidebarText}> Back </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={closeMenu}>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={this.navigateToProfile}>
                         <Text style={sidebarStyles.sidebarText}> View Profile </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={closeMenu}>

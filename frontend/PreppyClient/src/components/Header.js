@@ -3,11 +3,21 @@ import {Text, View, TouchableOpacity, Image, StatusBar} from 'react-native';
 import {headerStyles} from '../Styles';
 import SidebarPopout from './SidebarPopout';
 
+import UserData from "../UserData";
+
 export class HeaderButton extends Component {
 
     constructor() {
         super();
-        this.state = {active: false};
+    }
+
+    componentWillMount() {
+        this.setState({active: false, profileUri: null});
+        UserData.getUser().then((user) => {
+            this.setState({profileUri: user.avatar})
+        }).catch((error) => {
+            console.log(error.message);
+        });
     }
 
     deactivateMenu = () => {
@@ -17,6 +27,7 @@ export class HeaderButton extends Component {
     render() {
         let nav = this.props.navigation;
         const isActive = this.state.active;
+        const uriObject = {uri: this.state.profileUri}
 
         return(
             <View style={headerStyles.headerButtonContainer}>
@@ -27,9 +38,9 @@ export class HeaderButton extends Component {
                 >
                     <Image 
                         source={
-                            this.props.type === "profile" ?
-                            require("../../assets/img/profileTemp.png") :
-                            null
+                            this.state.profileUri ?
+                            uriObject : 
+                            require("../../assets/img/profileTemp.png")
                         }
                         style={headerStyles.headerButton}/>
                 </TouchableOpacity>
