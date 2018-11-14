@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, Modal, Animated, Button, Dimensions} from 'react-native';
+import {Text, View, Modal, Animated, Button, TouchableOpacity, Dimensions} from 'react-native';
 import {sidebarStyles} from '../Styles';
 
 
@@ -19,7 +19,7 @@ export default class SidebarPopout extends Component {
 
     componentDidMount() {
         Animated.timing(this.state.posAnim, {
-            toValue: Dimensions.get("window").width - 100,
+            toValue: Dimensions.get("window").width - 150,
             duration: 200,
         }).start();
     }
@@ -45,10 +45,18 @@ export default class SidebarPopout extends Component {
                 <Animated.View style={{
                     ...sidebarStyles.sidebarMain,
                     left: posAnim}}>
-                    <Button title="Back" onPress={closeMenu}/>
-                    <Button title="View Profile" onPress={this.navigateToProfile}/>
-                    <Button title="Edit Profile" onPress={closeMenu}/>
-                    <Button title="Logout" onPress={closeMenu}/>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={closeMenu}>
+                        <Text style={sidebarStyles.sidebarText}> Back </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={closeMenu}>
+                        <Text style={sidebarStyles.sidebarText}> View Profile </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={closeMenu}>
+                        <Text style={sidebarStyles.sidebarText}> Edit Profile </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={closeMenu}>
+                        <Text style={sidebarStyles.sidebarText}> Logout </Text>
+                    </TouchableOpacity>
                  </Animated.View>
             </Modal>
         );
