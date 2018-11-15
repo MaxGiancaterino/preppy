@@ -1,36 +1,97 @@
 {"recipes": [
     {
-        "name": "CHOCOLATE VELVET CHEESECAKE",
+        "imgURL": "https://images.media-allrecipes.com/userphotos/560x315/5406361.jpg",
+        "numServings": 4,
+        "name": "Chicken Marsala Over White Rice",
+        "rating": "4.44444465637207",
         "ingredients": [
-            "1 c. vanilla wafer crumbs",
-            "1/2 c. chopped pecans",
-            "3 Tbsp. granulated sugar",
-            "1/2 c. Parkay margarine",
-            "2 (8 oz.) pkg. Philadelphia cream cheese, softened",
-            "1/2 c. packed brown sugar",
-            "2 eggs",
-            "16 oz. pkg. semi-sweet chocolate pieces",
-            "2 Tbsp. milk",
-            "1 tsp. vanilla extract",
-            "2 c. sour cream",
-            "2 Tbsp. granulated sugar",
-            " mint candies (garnish)"
+            "1 cup uncooked white rice",
+            "2 cups water",
+            "1 cup all-purpose flour",
+            "salt to taste",
+            "ground black pepper to taste",
+            "1 pinch dried oregano to taste",
+            "1 pound skinless, boneless chicken cutlets, pounded to 1/4-inch thickness",
+            "1 tablespoon olive oil",
+            "2 tablespoons butter, divided",
+            "1 clove garlic, minced",
+            "1 cup sliced fresh mushrooms",
+            "salt and ground black pepper to taste",
+            "1/2 cup Marsala wine",
+            "1/2 cup chicken stock"
         ],
-        "prep": "Combine crumbs, nuts, 3 tablespoons granulated sugar and margarine. Press onto bottom of 9-inch spring-form pan. Bake at 325° for 10 minutes. Combine cream cheese and brown sugar, mixing at medium speed with electric mixer until well blended. Add eggs, one at a time, mixing well after each. Blend in chocolate, milk, and vanilla extract; pour over crust. Bake at 325° for 35 minutes. Combine sour cream and 2 tablespoons granulated sugar; carefully spread over cheesecake. Bake at 425° for 10 minutes. Loosen cake from rim of pan. Cool before removing rim of pan. Chill. Garnish with mint candies."
+        "pageURL": "https://www.allrecipes.com/recipe/219763/chicken-marsala-over-white-rice/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            "Bring the rice and water to a boil in a saucepan over high heat. Reduce heat to medium-low, cover, and simmer until the rice is tender, and the liquid has been absorbed, 20 to 25 minutes. Set rice aside.",
+            "In a large bowl, whisk the flour with salt, black pepper, and oregano. Gently press the chicken breasts into the flour mixture to coat, and shake off the excess flour.",
+            "Heat the olive oil and 1 tablespoon butter in a large skillet over medium-high heat. Arrange the chicken in the skillet and cook until the chicken is no longer pink inside and golden brown outside, 5 to 8 minutes per side. Drain the cooked chicken on a paper towel-lined plate.",
+            "Melt the remaining 1 tablespoon butter in the same skillet over medium heat while scraping up any brown bits with a spoon. Stir in the garlic; cook and stir until fragrant. Add the mushrooms, and cook and stir until they are tender and have released their liquid, about 10 minutes. Season with salt and black pepper, then stir in the Marsala wine and chicken stock.",
+            "Transfer the chicken back to the skillet, and spoon sauce over chicken pieces. Increase heat to medium-high, and bring to a boil. Cover, reduce heat to medium-low, and simmer until the the sauce is thickened, about 5 minutes more. Serve the chicken and sauce over the cooked rice."
+        ],
+        "prepTime": "55 m"
     },
     {
-        "name": "CHOCOLATE BROWNIE PIE",
+        "imgURL": "https://images.media-allrecipes.com/userphotos/250x250/848374.jpg",
+        "numServings": 4,
+        "name": "4 Star Chicken \"Marsala\" ( with Zinfindel)",
+        "rating": "3.83333325386047",
         "ingredients": [
-            "3 sq. baking chocolate",
-            "3 eggs",
-            "1/3 c. butter or margarine",
-            "1 1/2 c. granulated sugar",
-            "3/4 c. all-purpose flour, sifted",
-            "1/2 tsp. salt",
-            "1/3 c. milk",
-            "1 tsp. vanilla",
-            "1 c. chopped nuts"
+            "1/4 cup butter",
+            "1/4 cup olive oil",
+            "4 skinless, boneless chicken breast halves, pounded 1/2-inch thick",
+            "8 ounces mozzarella cheese, cut into 1/4-inch thick slices",
+            "1/4 cup chopped fresh parsley",
+            "16 capers, or to taste",
+            "2 tablespoons cornstarch",
+            "1/2 cup water",
+            "6 cloves garlic, minced",
+            "3/4 cup white Zinfandel wine",
+            "1 1/3 cups heavy cream",
+            "salt and ground black pepper to taste"
         ],
-        "prep": "Melt baking chocolate and let stand to cool. Beat eggs until very light. Cream butter. Gradually add sugar to the butter, beating until light and fluffy. Sift flour and salt together; set aside. Add the cooled chocolate and the eggs to the creamed mixture. Mix well. Alternately add flour mixture and milk (to which the vanilla has been added). Stir in nuts. Pour into a greased 9-inch pie pan. Bake at 375° for 45 to 50 minutes. Serve with ice cream, if desired."
+        "pageURL": "https://www.allrecipes.com/recipe/219764/4-star-chicken-marsala-with-zinfindel/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            "Preheat an oven to 200 degrees F (95 degrees C).",
+            "Melt the butter with the olive oil in a large skillet over medium-high heat. Pan fry the chicken breasts until golden brown on both sides, 5 to 7 minutes per side.",
+            "Place 2 ounces of mozzarella cheese on each chicken breast, then sprinkle parsley and capers on top. Reduce heat to medium, cover pan, and allow cheese to melt, about 3 minutes. Transfer the chicken to a large baking dish, and cover with aluminum foil.",
+            "Keep the chicken warm in the preheated oven while you finish the sauce.",
+            "Whisk together the cornstarch and water in a small bowl; set aside. Cook and stir the garlic over medium-low heat in the same skillet used to cook the chicken until fragrant, scraping up any bits of chicken and cheese, about 1 minute. Pour in the white Zinfandel wine, and simmer for 2 to 3 minutes. Add the heavy cream and bring to a simmer, stirring constantly, until the sauce begins to thicken. Gradually stir the cornstarch mixture into the cream sauce until thickened. Season with salt and black pepper.",
+            "To serve, pour the cream sauce over the chicken."
+        ],
+        "prepTime": "40 m"
+    },
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/560x315/1126009.jpg",
+        "numServings": 6,
+        "name": "Spicy Chicken Marsala",
+        "rating": "4.14285707473755",
+        "ingredients": [
+            "1 tablespoon vegetable oil",
+            "6 skinless, boneless chicken breast halves",
+            "1/4 pound bacon, chopped",
+            "2 shallots, minced",
+            "8 green onions, chopped",
+            "2 cloves garlic, minced",
+            "1 (14.5 ounce) can fire-roasted diced tomatoes with juice",
+            "1 cup Marsala wine",
+            "4 cubes chicken bouillon",
+            "2 teaspoons whole fresh rosemary leaves",
+            "1/2 cup half-and-half",
+            "2 cups grated Parmesan cheese",
+            "1 (16 ounce) package spaghetti"
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219765/spicy-chicken-marsala/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            "Heat a large cast-iron skillet over medium heat until very hot. Pour in the vegetable oil, tilt skillet to coat with oil, and place chicken breast halves into the hot skillet. Cook the chicken breasts until browned on each side, about 8 minutes per side.",
+            "Increase heat under skillet to medium-high, then stir in bacon, shallots, and green onions. Cook and stir until bacon begins to crisp, about 10 minutes.",
+            "Stir in garlic until fragrant, then add fire-roasted tomatoes, Marsala wine, chicken bouillon cubes, and rosemary. Bring to a boil, then reduce heat to low; simmer for about 1 hour.",
+            "Stir half-and-half and Parmesan cheese into the sauce over medium heat. Continue to cook until cheese melts, about 10 minutes. Remove skillet from heat, and allow the chicken and sauce to rest while cooking the pasta.",
+            "Fill a large pot with lightly salted water and bring to a rolling boil. Stir in the spaghetti and return to a boil. Cook until the pasta has cooked through but is still slightly firm to the bite, about 12 minutes. Drain well.",
+            "Transfer cooked spaghetti to a serving platter and serve topped with chicken breasts and sauce."
+        ],
+        "prepTime": "2 h 5 m"
     }
 ]}
