@@ -26,7 +26,7 @@ public class Main {
 		}
 		
 		// set the index to start at, if defined
-		int startingIndex = firstIndex;
+		int startingIndex = chickenMarsala;
 		if (args.length == 2) {
 			startingIndex = Integer.parseInt(args[1]);
 		}
@@ -45,13 +45,13 @@ public class Main {
 			}
 			
 			// retrieve and parse the recipe
-			Document doc = HTTPInterfacer.getCookbooksHTML(Integer.toString(currIndex));
+			Document doc = HTTPInterfacer.getAllrecipesHTML(indexStr);
 			if (doc != null) {
-				Recipe recipe = HTTPInterfacer.parseCookbooksHTML(doc);
+				Recipe recipe = HTTPInterfacer.parseAllrecipesHTML(doc);
 				recipes.add(recipe);
-				System.out.println(currIndex + ": " + recipe.name);
+				System.out.println(indexStr + ": " + recipe.name);
 			} else {
-				System.out.println(currIndex + ": NOT FOUND");
+				System.out.println(indexStr + ": NOT FOUND");
 			}
 			
 			// increment the index
@@ -68,102 +68,5 @@ public class Main {
 		// write all the recipes
 		System.out.println(recipes.size() + " RECIPES PARSED");
 		HTTPInterfacer.writeRecipeJSONs(recipes);
-		
-		/*
-		// parse organization file for UUIDs
-		System.out.println("Parsing organizations' UUIDs...");
-		ArrayList<String> orgUUIDsUnclean = new ArrayList<String>(CSVUtils.parseOrgFileUUIDs(args[0]));
-		ArrayList<String> orgUUIDs = new ArrayList<String>();
-		for (String s : orgUUIDsUnclean)
-			orgUUIDs.add(s.replace("-", ""));
-		orgUUIDsUnclean.clear();
-		Collections.sort(orgUUIDs);
-		System.out.println("...parsed " + orgUUIDs.size() + " org UUIDs");
-		
-		// create an iterator to go through organization UUIDs
-		Iterator<String> itUUIDs = orgUUIDs.iterator();
-		int subsetCounter = 0;
-		final int startingSubset = Integer.parseInt(args[1]);
-		final int numSubsets = Integer.parseInt(args[2]);
-		final int subsetSize = Integer.parseInt(args[3]);
-		for (int i = 0; i < startingSubset; i++) {
-			for (int j = 0; j < subsetSize; j++)
-				itUUIDs.next();
-			subsetCounter++;
-		}
-		while (itUUIDs.hasNext() && subsetCounter < startingSubset + numSubsets) {
-			// start clock
-			long startTime = System.currentTimeMillis();
-			
-			// dump a subset of org UUIDs into a smaller hashset
-			HashSet<String> subsetUUIDs = new HashSet<String>();
-			while (itUUIDs.hasNext() && subsetUUIDs.size() < subsetSize) {
-				subsetUUIDs.add(itUUIDs.next());
-			}
-			
-			// get the data of this subset of orgs
-			try {
-				System.out.println("Retrieving data from Crunchbase API...");
-				HTTPInterfacer.downloadData(subsetUUIDs);
-				System.out.println("...Retrieved " + 
-									orgs.size() + " orgs, " + 
-									investments.size() + " investments, " +
-									ipos.size() + " ipos, " +
-									acquisitions.size() + " acquisitions, " +
-									pastTeamJobs.size() + " past team jobs, " + 
-									currentTeamJobs.size() + " current team jobs, " +
-									boardJobs.size() + " board jobs, and " +
-									persons.size() + " persons");
-			} catch (ClientProtocolException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			// write all parsed and fetched data to file
-			System.out.println("Writing data subset " + subsetCounter + " to file...");
-			System.out.println("Writing orgs to file...");
-			Organization.writeOrgs("cache/orgs_" + subsetCounter, orgs);
-			System.out.println("Writing investments to file...");
-			Investment.writeInvestments("cache/investments_" + subsetCounter, investments);
-			System.out.println("Writing IPOs to file...");
-			IPO.writeIPOs("cache/ipos_" + subsetCounter, ipos);
-			System.out.println("Writing acquisitions to file...");
-			Acquisition.writeAcquisitions("cache/acquisitions_" + subsetCounter, acquisitions);
-			System.out.println("Writing past team jobs to file...");
-			Job.writeJobs("cache/past_team_jobs_" + subsetCounter, pastTeamJobs);
-			System.out.println("Writing current team jobs to file...");
-			Job.writeJobs("cache/current_team_jobs_" + subsetCounter, currentTeamJobs);
-			System.out.println("Writing board jobs to file...");
-			Job.writeJobs("cache/board_jobs_" + subsetCounter, boardJobs);
-			System.out.println("Writing persons to file...");
-			Person.writePersons("cache/persons_" + subsetCounter, persons);
-			System.out.println("Writing funding rounds to file...");
-			FundingRound.writeFundingRounds("cache/funding_rounds_" + subsetCounter, fundingRounds);
-			System.out.println("...done writing raw output to file");
-			
-			// stop clock
-			long endTime = System.currentTimeMillis();
-			long duration = (endTime - startTime);
-			long mins = duration / 60000;
-			long sec = (duration % 60000) / 1000;
-			System.out.println("This chunk took " + mins + " minutes and " + sec + " seconds");
-			
-			// empty out data structures
-			orgs.clear();
-			investments.clear();
-			ipos.clear();
-			acquisitions.clear();
-			pastTeamJobs.clear();
-			currentTeamJobs.clear();
-			boardJobs.clear();
-			persons.clear();
-			fundingRounds.clear();
-			
-			// increment file counter
-			subsetCounter++;
-		}
-		*/
 	}
-
 }

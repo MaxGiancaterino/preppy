@@ -49,6 +49,32 @@ public class HTTPInterfacer {
 	public static Recipe parseAllrecipesHTML(Document doc) {
 		Recipe ret = new Recipe();
 		ret.name = doc.select("#recipe-main-content").first().text();
+		Elements ingredientLists = doc.select("div#polaris-app ul");
+		for (Element l : ingredientLists) {
+			for (Element e : l.select("li")) {
+				String ingredientItem = e.select("label").first().attr("title");
+				if (!ingredientItem.isEmpty())
+					ret.ingredients.add(ingredientItem);
+			}
+		}
+		Elements directions = doc.select("ol.recipe-directions__list li");
+		for (Element e : directions) {
+			String directionItem = e.select("span").first().text();
+			if (!directionItem.isEmpty())
+				ret.preparation.add(directionItem);
+		}
+		ret.prepTime = doc.select("span.ready-in-time").first().text();
+		ret.numServings = Integer.parseInt(doc.select("meta#metaRecipeServings").first().attr("content"));
+		ret.imgURL = doc.select("img.rec-photo").first().attr("src");
+		ret.rating = doc.select("div.rating-stars").first().attr("data-ratingstars");
+		ret.pageURL = doc.baseUri();
+		Elements nutrition = doc.select("div.nutrition-body");
+		for (Element e : nutrition) {
+			String nutrientName = e.select("span.nutrient-name").first().text();
+			String nutrientValue = e.select("span.nutrient-value").first().text();
+			ret.nutrition.add(nutrientName + " " + nutrientValue);
+		}
+		ret.source = RecipeEnum.ALLRECIPES;
 		
 		return ret;
 	}
@@ -100,7 +126,9 @@ public class HTTPInterfacer {
 		for (int i = 0; i < prepChunks.size(); i++) {
 			prepString += prepChunks.get(i).text();
 		}
-		ret.preparation = prepString;
+		//ret.preparation = prepString;
+		
+		ret.source = RecipeEnum.COOKBOOKS;
 		
 		return ret;
 	}
