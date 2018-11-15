@@ -17,6 +17,12 @@ export default class SidebarPopout extends Component {
         this.props.onClose();
     }
 
+    navigateToLogin = () => {
+        this.props.navigation.navigate("Login");
+        this.props.onClose();
+    }
+
+
     componentDidMount() {
         Animated.timing(this.state.posAnim, {
             toValue: Dimensions.get("window").width - 150,

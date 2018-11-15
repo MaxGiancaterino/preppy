@@ -6,6 +6,7 @@ import Dashboard from './src/components/dashboard/Dashboard';
 import Schedule from './src/components/schedule/Schedule';
 import Cook from './src/components/cook/Cook';
 import Profile from './src/components/profile/Profile';
+import Login from './src/components/login/Login';
 
 import Header, {HeaderButton} from './src/components/Header';
 import {headerStyles, mainStyle} from './src/Styles';
@@ -26,6 +27,9 @@ const RootStack = createStackNavigator(
         },
         Profile: {
             screen: Profile
+        }, 
+        Login: {
+            screen: Login
         }
     },
     {
