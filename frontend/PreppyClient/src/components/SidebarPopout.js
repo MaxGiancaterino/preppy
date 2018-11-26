@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {Text, View, Modal, Animated, Button, Dimensions} from 'react-native';
+import {Text, View, Modal, Animated, Button, TouchableOpacity, Dimensions} from 'react-native';
 import {sidebarStyles} from '../Styles';
 
+import UserData from '../UserData';
 
 export default class SidebarPopout extends Component {
 
@@ -13,19 +14,24 @@ export default class SidebarPopout extends Component {
     }
 
     navigateToProfile = () => {
+        this.props.onClose();
         this.props.navigation.navigate("Profile");
-        this.props.onClose();
     }
 
+    // In addition to returning the user to the login screen, this function
+    // also wipes the user data from the front-end, logging them out
     navigateToLogin = () => {
-        this.props.navigation.navigate("Login");
         this.props.onClose();
+        UserData.logout().then(() => {
+            this.props.navigation.navigate("Login");
+        }).catch((error) => {
+            console.log(error.message);
+        });
     }
-
 
     componentDidMount() {
         Animated.timing(this.state.posAnim, {
-            toValue: Dimensions.get("window").width - 100,
+            toValue: Dimensions.get("window").width - 150,
             duration: 200,
         }).start();
     }
@@ -51,11 +57,18 @@ export default class SidebarPopout extends Component {
                 <Animated.View style={{
                     ...sidebarStyles.sidebarMain,
                     left: posAnim}}>
-                    <Button title="Back" onPress={closeMenu}/>
-                    <Button title="View Profile" onPress={this.navigateToProfile}/>
-                    <Button title="Edit Profile" onPress={closeMenu}/>
-                    <Button title="Login" onPress={this.navigateToLogin}/>
-                    <Button title="Logout" onPress={closeMenu}/>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={closeMenu}>
+                        <Text style={sidebarStyles.sidebarText}> Back </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={this.navigateToProfile}>
+                        <Text style={sidebarStyles.sidebarText}> View Profile </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={closeMenu}>
+                        <Text style={sidebarStyles.sidebarText}> Edit Profile </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={this.navigateToLogin}>
+                        <Text style={sidebarStyles.sidebarText}> Logout </Text>
+                    </TouchableOpacity>
                  </Animated.View>
             </Modal>
         );

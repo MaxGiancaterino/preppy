@@ -28,17 +28,39 @@ export const headerStyles = StyleSheet.create({
     },
 });
 
+const itemStyle = StyleSheet.create({
+    sidebarItem: {
+        paddingHorizontal: 10,
+        paddingVertical: 25,
+    },
+});
+
 export const sidebarStyles = StyleSheet.create({
     sidebarMain: {
         position: "absolute",
-        width: 100,
-        paddingTop: 24,
+        width: 150,
+        paddingTop: 80,
         backgroundColor: "#FFFFFF",
         borderLeftWidth: 4,
         borderBottomWidth: 4,
         borderColor: PreppyOrange,
-        borderRadius: 4,
+        borderBottomLeftRadius: 4,
         flex: -1,
         flexDirection: "column",
+    },
+    sidebarItemEven: {
+        ...itemStyle.sidebarItem,
+        backgroundColor: "#FFF3DD"
+    },
+    sidebarItemOdd: {
+        ...itemStyle.sidebarItem,
+        backgroundColor: "#FFFFFF"
+    },
+    sidebarText: {
+        fontFamily: "Raleway",
+        fontWeight: "bold",
+        fontSize: 20,
+        color: PreppyOrange,
+        textAlign: "center",
     }
 });
