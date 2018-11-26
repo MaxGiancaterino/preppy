@@ -6,9 +6,10 @@ import org.json.JSONObject;
 
 public class Recipe {
 	public String name = "";
-	public ArrayList<String> ingredients = new ArrayList<String>();
+	public ArrayList<IngredientListing> ingredients = new ArrayList<IngredientListing>();
 	public ArrayList<String> preparation = new ArrayList<String>();
-	public String prepTime = "";
+	public TimeUnit prepTime = null;
+	public TimeUnit cookTime = null;
 	public int numServings = -1;
 	public String imgURL = "";
 	public String rating = "";
@@ -19,13 +20,14 @@ public class Recipe {
 	public JSONObject getJSON() {
 		JSONObject rec = new JSONObject();
 		rec.put("name", name);
-		for (String i : ingredients) {
-			rec.append("ingredients", i);
+		for (IngredientListing i : ingredients) {
+			rec.append("ingredients", i.getJSON());
 		}
 		for (String i : preparation) {
 			rec.append("preparation", i);
 		}
-		rec.put("prepTime", prepTime);
+		rec.put("prepTime", prepTime.getJSON());
+		//rec.put("cookTime", cookTime.getJSON());
 		rec.put("numServings", numServings);
 		rec.put("imgURL", imgURL);
 		rec.put("rating", rating);

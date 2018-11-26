@@ -1,19 +1,14 @@
 package framework;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
 
-import org.apache.http.client.ClientProtocolException;
 import org.jsoup.nodes.Document;
 
 public class Main {
 	public static boolean DEBUG = true;
 	public static boolean PROGRESS = true;
+	
+	public static int requestDelayMS = 3000;
 	
 	public static final int firstIndex = 006663;
 	public static final int chickenMarsala = 219763;
@@ -47,7 +42,8 @@ public class Main {
 			// retrieve and parse the recipe
 			Document doc = HTTPInterfacer.getAllrecipesHTML(indexStr);
 			if (doc != null) {
-				Recipe recipe = HTTPInterfacer.parseAllrecipesHTML(doc);
+				HTMLParser.saveHTML(doc, "out/" + indexStr + ".html");
+				Recipe recipe = HTMLParser.parseAllrecipesHTML(doc);
 				recipes.add(recipe);
 				System.out.println(indexStr + ": " + recipe.name);
 			} else {
@@ -59,7 +55,7 @@ public class Main {
 			
 			// wait a few seconds so that the server doesn't think we're doxxing it
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(requestDelayMS);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -67,6 +63,6 @@ public class Main {
 		
 		// write all the recipes
 		System.out.println(recipes.size() + " RECIPES PARSED");
-		HTTPInterfacer.writeRecipeJSONs(recipes);
+		HTMLParser.writeRecipeJSONs(recipes);
 	}
 }
