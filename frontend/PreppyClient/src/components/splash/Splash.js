@@ -37,7 +37,7 @@ export default class Splash extends Component {
                 else {
                     nav.navigate("Login");
                 }
-            }, 2000);
+            }, 1000);
         }).catch((error) => {
             console.log(error.message);
         });

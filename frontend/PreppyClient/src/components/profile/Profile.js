@@ -15,23 +15,29 @@ export default class Profile extends Component {
             firstName: "",
             lastName: "",
             username: "",
-            email: ""
+            email: "",
+            weeklyBudget: 0,
         });
 
         var user = UserData.getUser();
         if (user != null) {
             this.setState({
-                avatar: user.avatar,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                username: user.username,
-                email: user.email
+                avatar:        user.avatar,
+                firstName:     user.firstName,
+                lastName:      user.lastName,
+                username:      user.username,
+                email:         user.email,
+                weeklyBudget:  user.weeklyBudget,
             });
         }
     }
 
     constructor() {
         super();
+    }
+
+    formatToMoney(value) {
+        return "$" + value.toFixed(2);
     }
 
     render() {
@@ -57,10 +63,12 @@ export default class Profile extends Component {
                         <View style={profileStyles.profileInfoLabels}>
                             <Text style={profileStyles.profileLabelText}>Username:</Text>
                             <Text style={profileStyles.profileLabelText}>Email:</Text>
+                            <Text style={profileStyles.profileLabelText}>Weekly Budget:</Text>
                         </View>
                         <View style={profileStyles.profileInfoValues}>
                             <Text style={profileStyles.profileValueText}>{this.state.username}</Text>
                             <Text style={profileStyles.profileValueText}>{this.state.email}</Text>
+                            <Text style={profileStyles.profileValueText}>{this.formatToMoney(this.state.weeklyBudget)}</Text>
                         </View>
                     </View>
                 </ScrollView>

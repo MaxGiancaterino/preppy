@@ -15,6 +15,7 @@ import {AsyncStorage} from 'react-native';
  // We should possibly consider using all user-management endpoints within this module
 export default UserData = {
 
+    // Load the current user data from AsyncStorage
     loadUser: async () => {
         try {
             const value = await AsyncStorage.getItem('key_user');
@@ -33,6 +34,7 @@ export default UserData = {
         }
     },
 
+    // Set the current user
     setUser: async (user) => {
         try {
             if (user != null) {
@@ -47,6 +49,7 @@ export default UserData = {
         }
     },
 
+    // Remove the current user's data from AsyncStorage
     logout: async() => {
         try {
             await AsyncStorage.removeItem('key_user');
@@ -58,10 +61,12 @@ export default UserData = {
         }
     },
 
+    // Determine if a user is logged in
     isLoggedIn: () => {
         return global.isLoggedIn;
     },
 
+    // Get the current user data
     getUser: () => {
         return global.currentUser;
     },

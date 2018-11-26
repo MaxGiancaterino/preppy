@@ -14,8 +14,8 @@ export default class SidebarPopout extends Component {
     }
 
     navigateToProfile = () => {
-        this.props.navigation.navigate("Profile");
         this.props.onClose();
+        this.props.navigation.navigate("Profile");
     }
 
     // In addition to returning the user to the login screen, this function
