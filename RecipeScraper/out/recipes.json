@@ -1,9 +1,39 @@
 {"recipes": [
     {
-        "imgURL": "https://images.media-allrecipes.com/userphotos/560x315/5406361.jpg",
+        "imgURL": "https://images.media-allrecipes.com/userphotos/5406361.jpg",
+        "nutrition": [
+            "562.45 calories",
+            "32.78 g protein",
+            "66.71 g carbohydrates",
+            "1.82 g dietary-fiber",
+            "2.92 g sugars",
+            "13.5 g fat",
+            "5.27 g saturated-fat",
+            "84.52 mg cholesterol",
+            "213.01 iu vitamin-a-iu",
+            "22.11 mg niacin-equivalents",
+            "0.61 mg vitamin-b6",
+            "0.79 mg vitamin-c",
+            "170.81 mcg folate",
+            "45.3 mg calcium",
+            "4.69 mg iron",
+            "49.02 mg magnesium",
+            "394.7 mg potassium",
+            "197.12 mg sodium",
+            "0.59 mg thiamin",
+            "121.49 calories-from-fat",
+            "48 percent-of-calories-from-carbs",
+            "21 percent-of-calories-from-fat",
+            "23 percent-of-calories-from-protein",
+            "8 percent-of-calories-from-sat-fat"
+        ],
         "numServings": 4,
         "name": "Chicken Marsala Over White Rice",
-        "rating": "4.42553186416626",
+        "cookTime": {
+            "count": 40,
+            "units": "mins"
+        },
+        "rating": "",
         "ingredients": [
             {
                 "unit": "cup",
@@ -11,7 +41,7 @@
                 "ingredient": "uncooked white rice"
             },
             {
-                "unit": "cups",
+                "unit": "cup",
                 "amount": 2,
                 "ingredient": "water"
             },
@@ -46,7 +76,7 @@
                 "ingredient": "olive oil"
             },
             {
-                "unit": "tablespoons",
+                "unit": "tablespoon",
                 "amount": 2,
                 "ingredient": "butter, divided"
             },
@@ -76,18 +106,33 @@
                 "ingredient": "chicken stock"
             }
         ],
-        "pageURL": "https://www.allrecipes.com/recipe/219763/chicken-marsala-over-white-rice/",
+        "pageURL": "https://www.allrecipes.com/recipe/219763/",
         "source": "ALLRECIPES",
         "preparation": [
-            "Bring the rice and water to a boil in a saucepan over high heat. Reduce heat to medium-low, cover, and simmer until the rice is tender, and the liquid has been absorbed, 20 to 25 minutes. Set rice aside.",
-            "In a large bowl, whisk the flour with salt, black pepper, and oregano. Gently press the chicken breasts into the flour mixture to coat, and shake off the excess flour.",
-            "Heat the olive oil and 1 tablespoon butter in a large skillet over medium-high heat. Arrange the chicken in the skillet and cook until the chicken is no longer pink inside and golden brown outside, 5 to 8 minutes per side. Drain the cooked chicken on a paper towel-lined plate.",
-            "Melt the remaining 1 tablespoon butter in the same skillet over medium heat while scraping up any brown bits with a spoon. Stir in the garlic; cook and stir until fragrant. Add the mushrooms, and cook and stir until they are tender and have released their liquid, about 10 minutes. Season with salt and black pepper, then stir in the Marsala wine and chicken stock.",
-            "Transfer the chicken back to the skillet, and spoon sauce over chicken pieces. Increase heat to medium-high, and bring to a boil. Cover, reduce heat to medium-low, and simmer until the the sauce is thickened, about 5 minutes more. Serve the chicken and sauce over the cooked rice."
+            {
+                "step": 1,
+                "text": "Bring the rice and water to a boil in a saucepan over high heat. Reduce heat to medium-low, cover, and simmer until the rice is tender, and the liquid has been absorbed, 20 to 25 minutes. Set rice aside."
+            },
+            {
+                "step": 2,
+                "text": "In a large bowl, whisk the flour with salt, black pepper, and oregano. Gently press the chicken breasts into the flour mixture to coat, and shake off the excess flour."
+            },
+            {
+                "step": 3,
+                "text": "Heat the olive oil and 1 tablespoon butter in a large skillet over medium-high heat. Arrange the chicken in the skillet and cook until the chicken is no longer pink inside and golden brown outside, 5 to 8 minutes per side. Drain the cooked chicken on a paper towel-lined plate."
+            },
+            {
+                "step": 4,
+                "text": "Melt the remaining 1 tablespoon butter in the same skillet over medium heat while scraping up any brown bits with a spoon. Stir in the garlic; cook and stir until fragrant. Add the mushrooms, and cook and stir until they are tender and have released their liquid, about 10 minutes. Season with salt and black pepper, then stir in the Marsala wine and chicken stock."
+            },
+            {
+                "step": 5,
+                "text": "Transfer the chicken back to the skillet, and spoon sauce over chicken pieces. Increase heat to medium-high, and bring to a boil. Cover, reduce heat to medium-low, and simmer until the the sauce is thickened, about 5 minutes more. Serve the chicken and sauce over the cooked rice."
+            }
         ],
         "prepTime": {
-            "count": 55,
-            "units": "m"
+            "count": 15,
+            "units": "mins"
         }
     },
     {
@@ -120,6 +165,10 @@
         ],
         "numServings": 4,
         "name": "4 Star Chicken \"Marsala\" ( with Zinfindel)",
+        "cookTime": {
+            "count": 25,
+            "units": "mins"
+        },
         "rating": "",
         "ingredients": [
             {
@@ -183,15 +232,33 @@
                 "ingredient": "salt and ground black pepper"
             }
         ],
-        "pageURL": "https://www.allrecipes.com/recipe/219764/4-star-chicken-marsala-with-zinfindel/",
+        "pageURL": "https://www.allrecipes.com/recipe/219764/",
         "source": "ALLRECIPES",
         "preparation": [
-            "Preheat an oven to 200 degrees F (95 degrees C).",
-            "Melt the butter with the olive oil in a large skillet over medium-high heat. Pan fry the chicken breasts until golden brown on both sides, 5 to 7 minutes per side.",
-            "Place 2 ounces of mozzarella cheese on each chicken breast, then sprinkle parsley and capers on top. Reduce heat to medium, cover pan, and allow cheese to melt, about 3 minutes. Transfer the chicken to a large baking dish, and cover with aluminum foil.",
-            "Keep the chicken warm in the preheated oven while you finish the sauce.",
-            "Whisk together the cornstarch and water in a small bowl; set aside. Cook and stir the garlic over medium-low heat in the same skillet used to cook the chicken until fragrant, scraping up any bits of chicken and cheese, about 1 minute. Pour in the white Zinfandel wine, and simmer for 2 to 3 minutes. Add the heavy cream and bring to a simmer, stirring constantly, until the sauce begins to thicken. Gradually stir the cornstarch mixture into the cream sauce until thickened. Season with salt and black pepper.",
-            "To serve, pour the cream sauce over the chicken."
+            {
+                "step": 1,
+                "text": "Preheat an oven to 200 degrees F (95 degrees C)."
+            },
+            {
+                "step": 2,
+                "text": "Melt the butter with the olive oil in a large skillet over medium-high heat. Pan fry the chicken breasts until golden brown on both sides, 5 to 7 minutes per side."
+            },
+            {
+                "step": 3,
+                "text": "Place 2 ounces of mozzarella cheese on each chicken breast, then sprinkle parsley and capers on top. Reduce heat to medium, cover pan, and allow cheese to melt, about 3 minutes. Transfer the chicken to a large baking dish, and cover with aluminum foil."
+            },
+            {
+                "step": 4,
+                "text": "Keep the chicken warm in the preheated oven while you finish the sauce."
+            },
+            {
+                "step": 5,
+                "text": "Whisk together the cornstarch and water in a small bowl; set aside. Cook and stir the garlic over medium-low heat in the same skillet used to cook the chicken until fragrant, scraping up any bits of chicken and cheese, about 1 minute. Pour in the white Zinfandel wine, and simmer for 2 to 3 minutes. Add the heavy cream and bring to a simmer, stirring constantly, until the sauce begins to thicken. Gradually stir the cornstarch mixture into the cream sauce until thickened. Season with salt and black pepper."
+            },
+            {
+                "step": 6,
+                "text": "To serve, pour the cream sauce over the chicken."
+            }
         ],
         "prepTime": {
             "count": 15,
@@ -202,6 +269,10 @@
         "imgURL": "https://images.media-allrecipes.com/userphotos/560x315/1126009.jpg",
         "numServings": 6,
         "name": "Spicy Chicken Marsala",
+        "cookTime": {
+            "count": 1,
+            "units": "h"
+        },
         "rating": "4.14285707473755",
         "ingredients": [
             {
@@ -273,16 +344,527 @@
         "pageURL": "https://www.allrecipes.com/recipe/219765/spicy-chicken-marsala/",
         "source": "ALLRECIPES",
         "preparation": [
-            "Heat a large cast-iron skillet over medium heat until very hot. Pour in the vegetable oil, tilt skillet to coat with oil, and place chicken breast halves into the hot skillet. Cook the chicken breasts until browned on each side, about 8 minutes per side.",
-            "Increase heat under skillet to medium-high, then stir in bacon, shallots, and green onions. Cook and stir until bacon begins to crisp, about 10 minutes.",
-            "Stir in garlic until fragrant, then add fire-roasted tomatoes, Marsala wine, chicken bouillon cubes, and rosemary. Bring to a boil, then reduce heat to low; simmer for about 1 hour.",
-            "Stir half-and-half and Parmesan cheese into the sauce over medium heat. Continue to cook until cheese melts, about 10 minutes. Remove skillet from heat, and allow the chicken and sauce to rest while cooking the pasta.",
-            "Fill a large pot with lightly salted water and bring to a rolling boil. Stir in the spaghetti and return to a boil. Cook until the pasta has cooked through but is still slightly firm to the bite, about 12 minutes. Drain well.",
-            "Transfer cooked spaghetti to a serving platter and serve topped with chicken breasts and sauce."
+            {
+                "step": 1,
+                "text": "Heat a large cast-iron skillet over medium heat until very hot. Pour in the vegetable oil, tilt skillet to coat with oil, and place chicken breast halves into the hot skillet. Cook the chicken breasts until browned on each side, about 8 minutes per side."
+            },
+            {
+                "step": 2,
+                "text": "Increase heat under skillet to medium-high, then stir in bacon, shallots, and green onions. Cook and stir until bacon begins to crisp, about 10 minutes."
+            },
+            {
+                "step": 3,
+                "text": "Stir in garlic until fragrant, then add fire-roasted tomatoes, Marsala wine, chicken bouillon cubes, and rosemary. Bring to a boil, then reduce heat to low; simmer for about 1 hour."
+            },
+            {
+                "step": 4,
+                "text": "Stir half-and-half and Parmesan cheese into the sauce over medium heat. Continue to cook until cheese melts, about 10 minutes. Remove skillet from heat, and allow the chicken and sauce to rest while cooking the pasta."
+            },
+            {
+                "step": 5,
+                "text": "Fill a large pot with lightly salted water and bring to a rolling boil. Stir in the spaghetti and return to a boil. Cook until the pasta has cooked through but is still slightly firm to the bite, about 12 minutes. Drain well."
+            },
+            {
+                "step": 6,
+                "text": "Transfer cooked spaghetti to a serving platter and serve topped with chicken breasts and sauce."
+            }
         ],
         "prepTime": {
-            "count": 2,
+            "count": 15,
+            "units": "m"
+        }
+    },
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/560x315/5979877.jpg",
+        "numServings": 8,
+        "name": "Cheater Baked Ziti",
+        "cookTime": {
+            "count": 35,
+            "units": "m"
+        },
+        "rating": "4.68085098266602",
+        "ingredients": [
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 (16 ounce) package dry ziti pasta"
+            },
+            {
+                "unit": "pound",
+                "amount": 1,
+                "ingredient": "bulk hot italian sausage"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 (16 ounce) jar spaghetti sauce"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 (16 ounce) jar alfredo sauce"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 (8 ounce) package shredded italian cheese blend"
+            }
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219766/cheater-baked-ziti/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            {
+                "step": 1,
+                "text": "Preheat an oven to 350 degrees F (175 degrees C)."
+            },
+            {
+                "step": 2,
+                "text": "Fill a large pot with lightly salted water and bring to a boil. Stir in the ziti, and return to a boil. Cook the pasta uncovered, stirring occasionally, until the pasta has cooked through but is still slightly firm, about 12 minutes. Drain well."
+            },
+            {
+                "step": 3,
+                "text": "While the pasta is cooking, heat a large skillet over medium-high heat and stir in the sausage. Cook and stir until the sausage is crumbly, evenly browned, and no longer pink. Drain and discard any excess grease. Stir in the pasta, spaghetti sauce, and Alfredo sauce. Transfer the mixture into a large baking dish, and top with the Italian cheese blend."
+            },
+            {
+                "step": 4,
+                "text": "Bake in the preheated oven until the sauce is bubbly and the cheese is melted, about 15 minutes."
+            }
+        ],
+        "prepTime": {
+            "count": 5,
+            "units": "m"
+        }
+    },
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/560x315/2547412.jpg",
+        "numServings": 8,
+        "name": "Buttery Alfredo Sauce",
+        "cookTime": {
+            "count": 35,
+            "units": "m"
+        },
+        "rating": "4.78773593902588",
+        "ingredients": [
+            {
+                "unit": "cup",
+                "amount": 1,
+                "ingredient": "unsalted butter"
+            },
+            {
+                "unit": "tablespoons",
+                "amount": 0.5,
+                "ingredient": "minced garlic"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 1,
+                "ingredient": "all-purpose flour"
+            },
+            {
+                "unit": "cups",
+                "amount": 4,
+                "ingredient": "heavy cream"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.25,
+                "ingredient": "whole milk"
+            },
+            {
+                "unit": "ounces",
+                "amount": 8,
+                "ingredient": "freshly shredded parmesan cheese"
+            },
+            {
+                "unit": "ounces",
+                "amount": 2,
+                "ingredient": "shredded fontina cheese"
+            },
+            {
+                "unit": "teaspoon",
+                "amount": 0.5,
+                "ingredient": "salt"
+            },
+            {
+                "unit": "teaspoon",
+                "amount": 1,
+                "ingredient": "ground black pepper"
+            }
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219767/buttery-alfredo-sauce/",
+        "source": "ALLRECIPES",
+        "preparation": [{
+            "step": 1,
+            "text": "Melt the butter in a large pot over medium heat. Stir in the garlic and flour, and cook and stir until the garlic is fragrant but not browned, about 1 minute. Whisk in heavy cream and milk, whisking constantly until the mixture is hot and slightly thickened, about 10 minutes. Gradually stir in the Parmesan cheese and fontina cheese. Season with salt and black pepper. Continue to simmer until the cheese has melted and the sauce is thickened, stirring often, 20 to 30 more minutes."
+        }],
+        "prepTime": {
+            "count": 10,
+            "units": "m"
+        }
+    },
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/2594547.jpg",
+        "nutrition": [
+            "726.69 calories",
+            "31.31 g protein",
+            "51.43 g carbohydrates",
+            "2.12 g dietary-fiber",
+            "6.03 g sugars",
+            "44.95 g fat",
+            "17.44 g saturated-fat",
+            "108.43 mg cholesterol",
+            "622.99 iu vitamin-a-iu",
+            "9.15 mg niacin-equivalents",
+            "0.18 mg vitamin-b6",
+            "16.72 mg vitamin-c",
+            "133.7 mcg folate",
+            "88.99 mg calcium",
+            "21.27 mg iron",
+            "41.1 mg magnesium",
+            "571.17 mg potassium",
+            "1230.49 mg sodium",
+            "0.11 mg thiamin",
+            "404.51 calories-from-fat",
+            "27 percent-of-calories-from-carbs",
+            "54 percent-of-calories-from-fat",
+            "16 percent-of-calories-from-protein",
+            "21 percent-of-calories-from-sat-fat"
+        ],
+        "numServings": 4,
+        "name": "Creamy Linguine with Clam Sauce",
+        "cookTime": {
+            "count": 35,
+            "units": "mins"
+        },
+        "rating": "",
+        "ingredients": [
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 (8 ounce) package linguine pasta"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 2,
+                "ingredient": "butter"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 1,
+                "ingredient": "olive oil"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.25,
+                "ingredient": "minced sweet onion"
+            },
+            {
+                "unit": "clove",
+                "amount": 2,
+                "ingredient": "garlic, minced"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 (10 ounce) can baby clams, drained with juices reserved (such as bumble bee(r))"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 1,
+                "ingredient": "dry white wine"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 (16 ounce) jar alfredo sauce (such as classico(r))"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "1 teaspoon grated parmesan cheese, or (optional)"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "1 pinch crushed red pepper flakes, or (optional)"
+            }
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219768/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            {
+                "step": 1,
+                "text": "Fill a large pot with lightly salted water and bring to a rolling boil over high heat. Once the water is boiling, stir in the linguine, and return to a boil. Cook the pasta, stirring occasionally, until cooked through but still slightly firm, about 11 minutes. Drain well."
+            },
+            {
+                "step": 2,
+                "text": "Heat the butter and olive oil in a skillet over medium heat until it begins to brown slightly. Stir in the onion; cook and stir until the onion becomes lightly golden, about 10 minutes. Stir in the garlic and cook for 1 minute more. Add the reserved clam juice and wine. Simmer until reduced by half, about 15 minutes. Stir in the Alfredo sauce and clams; cook and stir until heated through, about 5 minutes."
+            },
+            {
+                "step": 3,
+                "text": "Serve the clam sauce over the linguine, and sprinkle with Parmesan cheese and red pepper flakes."
+            }
+        ],
+        "prepTime": {
+            "count": 10,
+            "units": "mins"
+        }
+    },
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/778737.jpg",
+        "nutrition": [
+            "704.55 calories",
+            "30.59 g protein",
+            "49.79 g carbohydrates",
+            "2.52 g dietary-fiber",
+            "6.44 g sugars",
+            "43.9 g fat",
+            "17.47 g saturated-fat",
+            "100.31 mg cholesterol",
+            "161.56 iu vitamin-a-iu",
+            "12.94 mg niacin-equivalents",
+            "0.39 mg vitamin-b6",
+            "2.14 mg vitamin-c",
+            "120.08 mcg folate",
+            "90.83 mg calcium",
+            "2.52 mg iron",
+            "46.61 mg magnesium",
+            "306.2 mg potassium",
+            "1555.31 mg sodium",
+            "0.1 mg thiamin",
+            "395.13 calories-from-fat",
+            "27 percent-of-calories-from-carbs",
+            "55 percent-of-calories-from-fat",
+            "17 percent-of-calories-from-protein",
+            "21 percent-of-calories-from-sat-fat"
+        ],
+        "numServings": 8,
+        "name": "Dirty Alfredo",
+        "cookTime": {
+            "count": 30,
+            "units": "mins"
+        },
+        "rating": "",
+        "ingredients": [
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 (16 ounce) box fettuccine"
+            },
+            {
+                "unit": "pound",
+                "amount": 0.5,
+                "ingredient": "bacon"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 2,
+                "ingredient": "butter"
+            },
+            {
+                "unit": "pound",
+                "amount": 1,
+                "ingredient": "chicken breast tenderloins, cut into bite-size pieces"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1 large onion, diced"
+            },
+            {
+                "unit": "clove",
+                "amount": 4,
+                "ingredient": "garlic, chopped"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "2 (16 ounce) jar alfredo sauce"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.5,
+                "ingredient": "grated parmesan cheese"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 1,
+                "ingredient": "italian seasoning"
+            },
+            {
+                "unit": "teaspoon",
+                "amount": 0.5,
+                "ingredient": "garlic salt"
+            }
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219769/dirty-alfredo/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            {
+                "step": 1,
+                "text": "Bring a large pot of lightly salted water to a rolling boil. Cook the fettuccini in the boiling water until cooked through yet firm to the bite, about 8 minutes; drain."
+            },
+            {
+                "step": 2,
+                "text": "Cook the bacon in a large, deep skillet over medium-high heat until evenly browned, about 10 minutes; drain on a paper towel-lined plate. Finely chop bacon and set aside."
+            },
+            {
+                "step": 3,
+                "text": "Melt butter in a large skillet over medium heat. Cook and stir the chicken, onion, and garlic in the butter until chicken is browned, about 5 minutes. Stir in the alfredo sauce, Parmesan cheese, Italian seasoning, and garlic salt; continue to cook and stir until the chicken is no longer pink in the center and the sauce is heated through, about 5 minutes more. Add the chopped bacon and mix to serve."
+            }
+        ],
+        "prepTime": {
+            "count": 15,
+            "units": "mins"
+        }
+    },
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/560x315/1054123.jpg",
+        "numServings": 8,
+        "name": "Turnip and Potato Soup",
+        "cookTime": {
+            "count": 30,
+            "units": "m"
+        },
+        "rating": "4.64516115188599",
+        "ingredients": [
+            {
+                "unit": "pound",
+                "amount": 1,
+                "ingredient": "bacon, cut into 1/2-inch dice"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 1,
+                "ingredient": "bacon drippings"
+            },
+            {
+                "unit": "cups",
+                "amount": 2,
+                "ingredient": "diced onion (1/2-inch dice)"
+            },
+            {
+                "unit": "cups",
+                "amount": 2,
+                "ingredient": "diced potato (1/2-inch dice)"
+            },
+            {
+                "unit": "cups",
+                "amount": 2,
+                "ingredient": "diced turnip (1/2-inch dice)"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "4 sprigs fresh thyme"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "water, to cover"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 1,
+                "ingredient": "butter"
+            },
+            {
+                "unit": "cup",
+                "amount": 1,
+                "ingredient": "torn kale leaves"
+            },
+            {
+                "unit": "cup",
+                "amount": 1,
+                "ingredient": "heavy cream"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "salt and ground black pepper"
+            }
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219770/turnip-and-potato-soup/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            {
+                "step": 1,
+                "text": "Cook the bacon in a large saucepan over medium heat until the fat begins to render, about 4 minutes; remove from heat, and drain most of the rendered bacon drippings, reserving about 1 tablespoon in the skillet."
+            },
+            {
+                "step": 2,
+                "text": "Return the pan with the bacon and reserved drippings to medium heat; cook and stir the onion in the bacon and fat until translucent, about 4 minutes more. Stir the potato and turnip into the bacon mixture; cook and stir until the potato and turnip pieces are warmed, about 2 minutes."
+            },
+            {
+                "step": 3,
+                "text": "Add the thyme to the saucepan with enough water to cover the vegetable mixture; bring the water to a boil, reduce heat to medium-low, and cook at a brisk simmer until the potato and turnip are tender, 15 to 20 minutes."
+            },
+            {
+                "step": 4,
+                "text": "Heat butter in a small skillet. Cook and stir the kale leaves until they wilt, 2 to 3 minutes. Reduce heat to medium-low, and cook another 1 to 2 minutes. Stir the kale and the cream into the simmering soup; allow to simmer together another 2 to 3 minutes. Remove thyme sprigs before serving."
+            }
+        ],
+        "prepTime": {
+            "count": 20,
+            "units": "m"
+        }
+    },
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/560x315/958861.jpg",
+        "numServings": 10,
+        "name": "Lorene's Slow Cooker Potato Soup",
+        "cookTime": {
+            "count": 6,
             "units": "h"
+        },
+        "rating": "3.5",
+        "ingredients": [
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "2 large onions, diced"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "4 stalks celery, chopped"
+            },
+            {
+                "unit": "pounds",
+                "amount": 4,
+                "ingredient": "potatoes, diced"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 1,
+                "ingredient": "dried dill weed"
+            },
+            {
+                "unit": "tablespoons",
+                "amount": 2,
+                "ingredient": "olive oil"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "vegetable broth to cover"
+            }
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219772/lorenes-slow-cooker-potato-soup/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            {
+                "step": 1,
+                "text": "Combine the onions, celery, potatoes, and dill weed in a slow cooker; drizzle the olive oil over the mixture. Pour the vegetable broth into the slow cooker."
+            },
+            {
+                "step": 2,
+                "text": "Cook on High until the vegetables are tender, about 6 hours."
+            }
+        ],
+        "prepTime": {
+            "count": 15,
+            "units": "m"
         }
     }
 ]}

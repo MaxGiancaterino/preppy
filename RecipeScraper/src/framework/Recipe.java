@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class Recipe {
 	public String name = "";
 	public ArrayList<IngredientListing> ingredients = new ArrayList<IngredientListing>();
-	public ArrayList<String> preparation = new ArrayList<String>();
+	public ArrayList<PrepStep> preparation = new ArrayList<PrepStep>();
 	public TimeUnit prepTime = null;
 	public TimeUnit cookTime = null;
 	public int numServings = -1;
@@ -23,11 +23,11 @@ public class Recipe {
 		for (IngredientListing i : ingredients) {
 			rec.append("ingredients", i.getJSON());
 		}
-		for (String i : preparation) {
-			rec.append("preparation", i);
+		for (PrepStep i : preparation) {
+			rec.append("preparation", i.getJSON());
 		}
 		rec.put("prepTime", prepTime.getJSON());
-		//rec.put("cookTime", cookTime.getJSON());
+		rec.put("cookTime", cookTime.getJSON());
 		rec.put("numServings", numServings);
 		rec.put("imgURL", imgURL);
 		rec.put("rating", rating);

@@ -29,10 +29,15 @@ public class HTMLParser {
 		
 		// parse the direction
 		Elements directions = doc.select("li.instructions-section-item");
-		for (Element e : directions) {
+		for (int i = 0; i < directions.size(); i++) {
+			Element e = directions.get(i);
 			String directionItem = e.select("div.section-body p").first().text();
-			if (!directionItem.isEmpty())
-				ret.preparation.add(directionItem);
+			if (!directionItem.isEmpty()) {
+				PrepStep step = new PrepStep();
+				step.instruction = directionItem;
+				step.stepNumber = i + 1;
+				ret.preparation.add(step);
+			}
 		}
 		
 		// parse the prep time, cook time, num servings
@@ -61,8 +66,11 @@ public class HTMLParser {
 	public static Recipe parseAllrecipesOld(Document doc) {
 		System.out.println("detected OLD html format");
 		
+		// create blank recipe and parse name
 		Recipe ret = new Recipe();
 		ret.name = doc.select("#recipe-main-content").first().text();
+		
+		// parse ingredients
 		Elements ingredientLists = doc.select("div#polaris-app ul");
 		for (Element l : ingredientLists) {
 			for (Element e : l.select("li")) {
@@ -71,22 +79,31 @@ public class HTMLParser {
 					ret.ingredients.add(IngredientListing.parseIngredientListing(ingredientItem));
 			}
 		}
+		
+		// parse directions
 		Elements directions = doc.select("ol.recipe-directions__list li");
-		for (Element e : directions) {
+		for (int i = 0; i < directions.size(); i++) {
+			Element e = directions.get(i);
 			String directionItem = e.select("span").first().text();
-			if (!directionItem.isEmpty())
-				ret.preparation.add(directionItem);
+			if (!directionItem.isEmpty()) {
+				PrepStep step = new PrepStep();
+				step.instruction = directionItem;
+				step.stepNumber = i + 1;
+				ret.preparation.add(step);
+			}
 		}
 		
 		// parse prep and cook time
-		ret.prepTime = TimeUnit.parseTimeUnit(doc.select("span.ready-in-time").first().text());
-		//ret.cookTime = doc
+		ret.prepTime = TimeUnit.parseTimeUnit(doc.select("time[itemprop=prepTime]").first().text());
+		ret.cookTime = TimeUnit.parseTimeUnit(doc.select("time[itemprop=cookTime]").first().text());
 		
 		// parse misc
 		ret.numServings = Integer.parseInt(doc.select("meta#metaRecipeServings").first().attr("content"));
 		ret.imgURL = doc.select("img.rec-photo").first().attr("src");
 		ret.rating = doc.select("div.rating-stars").first().attr("data-ratingstars");
 		ret.pageURL = doc.baseUri();
+		
+		// parse nutrition
 		Elements nutrition = doc.select("div.nutrition-body");
 		for (Element e : nutrition) {
 			String nutrientName = e.select("span.nutrient-name").first().text();

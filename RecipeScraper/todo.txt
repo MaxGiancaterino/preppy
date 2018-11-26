@@ -1,0 +1,5 @@
+-prepTime and cookTime sometimes don't include second part of unit: 
+	"1 hr 30 min" would be parsed as "1 hr" and "30 min" would be left out
+-continue improving parsing of ingredient quantities
+-find a way to parse rating in new HTML style
+-fix old HTML style's nutrition parsing
