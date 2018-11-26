@@ -17,6 +17,12 @@ export default class SidebarPopout extends Component {
         this.props.onClose();
     }
 
+    navigateToLogin = () => {
+        this.props.navigation.navigate("Login");
+        this.props.onClose();
+    }
+
+
     componentDidMount() {
         Animated.timing(this.state.posAnim, {
             toValue: Dimensions.get("window").width - 100,
@@ -48,6 +54,7 @@ export default class SidebarPopout extends Component {
                     <Button title="Back" onPress={closeMenu}/>
                     <Button title="View Profile" onPress={this.navigateToProfile}/>
                     <Button title="Edit Profile" onPress={closeMenu}/>
+                    <Button title="Login" onPress={this.navigateToLogin}/>
                     <Button title="Logout" onPress={closeMenu}/>
                  </Animated.View>
             </Modal>
