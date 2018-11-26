@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Platform, StatusBar, StyleSheet, Text, View, TouchableOpacity, AppRegistry, AsyncStorage} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 
+import Splash from './src/components/splash/Splash';
 import Dashboard from './src/components/dashboard/Dashboard';
 import Schedule from './src/components/schedule/Schedule';
 import Cook from './src/components/cook/Cook';
@@ -16,6 +17,12 @@ import UserData from './src/UserData';
 
 const RootStack = createStackNavigator(
     {
+        Splash: {
+            screen: Splash
+        },
+        Login: {
+            screen: Login
+        },
         Dashboard: {
             screen: Dashboard
         },
@@ -28,9 +35,6 @@ const RootStack = createStackNavigator(
         Profile: {
             screen: Profile
         }, 
-        Login: {
-            screen: Login
-        }
     },
     {
         navigationOptions: ({navigation}) => ({
@@ -41,17 +45,12 @@ const RootStack = createStackNavigator(
             headerRight: <HeaderButton type="profile" navigation={navigation}/>
         })
     },
-    {
-        intitialRouteName: "Dashboard",
-    },
  );
 
 export default class App extends Component {
 
-    componentWillMount() {
-        // Note: This is just for testing purposes. Please don't leave this in
-        var sampleUser = User.getSampleUser();
-        UserData.setUser(sampleUser);
+    constructor() {
+        super();
     }
 
     render() {

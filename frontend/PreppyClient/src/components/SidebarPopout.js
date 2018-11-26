@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Text, View, Modal, Animated, Button, TouchableOpacity, Dimensions} from 'react-native';
 import {sidebarStyles} from '../Styles';
 
+import UserData from '../UserData';
 
 export default class SidebarPopout extends Component {
 
@@ -17,11 +18,16 @@ export default class SidebarPopout extends Component {
         this.props.onClose();
     }
 
+    // In addition to returning the user to the login screen, this function
+    // also wipes the user data from the front-end, logging them out
     navigateToLogin = () => {
-        this.props.navigation.navigate("Login");
         this.props.onClose();
+        UserData.logout().then(() => {
+            this.props.navigation.navigate("Login");
+        }).catch((error) => {
+            console.log(error.message);
+        });
     }
-
 
     componentDidMount() {
         Animated.timing(this.state.posAnim, {
@@ -60,7 +66,7 @@ export default class SidebarPopout extends Component {
                     <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={closeMenu}>
                         <Text style={sidebarStyles.sidebarText}> Edit Profile </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={closeMenu}>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={this.navigateToLogin}>
                         <Text style={sidebarStyles.sidebarText}> Logout </Text>
                     </TouchableOpacity>
                  </Animated.View>

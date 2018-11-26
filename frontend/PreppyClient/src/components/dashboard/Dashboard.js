@@ -10,19 +10,21 @@ import {HeaderButton} from '../Header';
 
 import UserData from '../../UserData';
 
+import User from '../../models/User';
+
 export default class Dashboard extends Component {
 
     static navigationOptions = {
         title: "Dashboard",
+        headerLeft: null,
     };
 
     componentWillMount() {
-        this.setState({budget: 0});
-        UserData.getUser().then((user) => {
-            this.setState({budget: user.remainingBudget})
-        }).catch((error) => {
-            console.log(error.message);
-        });
+        var user = UserData.getUser();
+        if (user == null) {
+            user = new User();
+        }
+        this.setState({budget: user.remainingBudget});
     }
 
     constructor() {

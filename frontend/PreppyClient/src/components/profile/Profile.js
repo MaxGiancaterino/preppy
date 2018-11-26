@@ -17,7 +17,9 @@ export default class Profile extends Component {
             username: "",
             email: ""
         });
-        UserData.getUser().then((user) => {
+
+        var user = UserData.getUser();
+        if (user != null) {
             this.setState({
                 avatar: user.avatar,
                 firstName: user.firstName,
@@ -25,9 +27,7 @@ export default class Profile extends Component {
                 username: user.username,
                 email: user.email
             });
-        }).catch((error) => {
-            console.log(error.message);
-        });
+        }
     }
 
     constructor() {
