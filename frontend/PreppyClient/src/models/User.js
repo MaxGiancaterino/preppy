@@ -1,15 +1,20 @@
+import Recipe from "./Recipe";
 
 export default class User {
 
-    constructor() {
-        this.userId = -1;
-        this.firstName = "";
-        this.lastName = "";
-        this.username = "";
-        this.avatar = null;
-        this.email = "";
-        this.weeklyBudget = 0;
-        this.remainingBudget = 0;
+    constructor(userData = {}) {
+        this.userId = userData.hasOwnProperty("userId") ? userData.userId : -1;
+        this.firstName = userData.hasOwnProperty("firstName") ? userData.firstName : "";
+        this.lastName = userData.hasOwnProperty("lastName") ? userData.lastName : "";
+        this.username = userData.hasOwnProperty("username") ? userData.username : "";
+        this.avatar = userData.hasOwnProperty("avatar") ? userData.avatar : "";
+        this.email = userData.hasOwnProperty("email") ? userData.email : "";
+        this.weeklyBudget = userData.hasOwnProperty("weeklyBudget") ? userData.weeklyBudget : 0;
+        this.remainingBudget = userData.hasOwnProperty("remainingBudget") ? userData.remainingBudget : 0;
+    }
+
+    getSuggestedRecipes() {
+        return [Recipe.getSampleRecipe];
     }
 
     static getSampleUser() {

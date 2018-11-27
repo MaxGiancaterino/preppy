@@ -21,10 +21,10 @@ export default class Dashboard extends Component {
 
     componentWillMount() {
         var user = UserData.getUser();
-        if (user == null) {
-            user = new User();
-        }
-        this.setState({budget: user.remainingBudget});
+        this.setState({
+            budget: user.remainingBudget,
+            suggestedRecipes: user.getSuggestedRecipes()
+        });
     }
 
     constructor() {

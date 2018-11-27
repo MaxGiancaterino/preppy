@@ -1,4 +1,5 @@
 import {AsyncStorage} from 'react-native';
+import User from './models/User';
 
 /*
  * UserData serves as an interface to React Native's AsyncStorage class. AsyncStorage can store data
@@ -20,7 +21,7 @@ export default UserData = {
         try {
             const value = await AsyncStorage.getItem('key_user');
             if (value !== null) {
-                global.currentUser = JSON.parse(value);
+                global.currentUser = new User(JSON.parse(value));
                 global.isLoggedIn = true;
                 return global.currentUser;
             }
@@ -40,7 +41,7 @@ export default UserData = {
             if (user != null) {
                 var json = JSON.stringify(user);
                 const value = await AsyncStorage.setItem('key_user', json);
-                global.currentUser = user;
+                global.currentUser = new User(user);
                 global.isLoggedIn = true;
             }
         }
@@ -68,7 +69,12 @@ export default UserData = {
 
     // Get the current user data
     getUser: () => {
-        return global.currentUser;
+        if (global.currentUser == null) {
+            return new User();
+        }
+        else {
+            return global.currentUser;
+        }
     },
         
 }
