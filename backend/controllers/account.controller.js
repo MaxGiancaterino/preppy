@@ -15,11 +15,7 @@ router.post('/', function (req, res) {
 	accountService.create(account);
 });
 
-router.post('/:user/login', function (req, res) {
-
-});
-
-router.get('/:user', function (req, res) {
+router.get('/:uid', function (req, res) {
 	var username = req.params.user;
 	accountService.get(username, function (snapshot) {
 		res.send(snapshot);

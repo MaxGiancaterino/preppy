@@ -1,4 +1,6 @@
 var admin = require('../firebase/admin.js');
+var database = require('../firebase/db');
+var firebase = require('../firebase/firebase');
 
 exports.create = function(user, next) {
 	admin.auth().createUser({
@@ -18,9 +20,6 @@ exports.create = function(user, next) {
 			console.log("Error creating new user:", error);
 			next(null, error);
 		});
-}
-
-exports.update = function() {
 }
 
 exports.get = function(uid, next) {
@@ -44,4 +43,25 @@ exports.delete = function(id, next) {
 	    	console.log("Error deleting user:", error);
 	    	next(error);
 	  	});
+}
+
+exports.login = function(email, password, next) {
+	firebase.auth().signInWithEmailAndPassword(email, password)
+		.then(function(user) {
+			next(user);
+		})
+		.catch(function(error) {
+			console.log("Error logging in");
+			next(null, error);
+		})
+}
+
+exports.logout = function(next) {
+	firebase.auth().signOut()
+		.then(function(res) {
+			next(res);
+		})
+		.catch(function(err) {
+			next(null, err);
+		});
 }
