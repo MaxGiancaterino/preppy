@@ -31,6 +31,7 @@ public class Main {
 		
 		// grab the HTML page and parse the recipe
 		int currIndex = startingIndex;
+		int numComplete = 0;
 		ArrayList<Recipe> recipes = new ArrayList<Recipe>();
 		while (currIndex < (startingIndex + numToParse)) {
 			// convert the current ID to a string, and pad it with 0s
@@ -41,17 +42,22 @@ public class Main {
 			
 			// retrieve and parse the recipe
 			Document doc = HTTPInterfacer.getAllrecipesHTML(indexStr);
+			String nameString;
 			if (doc != null) {
 				HTMLParser.saveHTML(doc, "out/" + indexStr + ".html");
 				Recipe recipe = HTMLParser.parseAllrecipesHTML(doc);
 				recipes.add(recipe);
-				System.out.println(indexStr + ": " + recipe.name);
+				nameString = recipe.name;
 			} else {
-				System.out.println(indexStr + ": NOT FOUND");
+				nameString = "NOT FOUND";
 			}
 			
-			// increment the index
+			// print progress
+			System.out.println("(" + numComplete + "/" + numToParse + ") " + indexStr + ": " + nameString);
+			
+			// increment the index and counter
 			currIndex++;
+			numComplete++;
 			
 			// wait a few seconds so that the server doesn't think we're doxxing it
 			try {

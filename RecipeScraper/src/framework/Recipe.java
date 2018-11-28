@@ -16,6 +16,7 @@ public class Recipe {
 	public String pageURL = "";
 	public ArrayList<String> nutrition = new ArrayList<String>();
 	public RecipeEnum source;
+	public boolean allRecipesNewFormat = false;
 	
 	public JSONObject getJSON() {
 		JSONObject rec = new JSONObject();
