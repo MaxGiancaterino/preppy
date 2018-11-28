@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, ScrollView, Button, StatusBar} from 'react-native';
+import {Text, View, ScrollView, Button, StatusBar, AsyncStorage} from 'react-native';
 import BudgetDisplay from './BudgetDisplay';
 import {dashboardStyles} from './DashboardStyles';
 import {headerStyles} from '../../Styles';
@@ -8,11 +8,24 @@ import CookButton from './DbCookButton';
 import RecommendedRecipe from './RecommendedRecipe';
 import {HeaderButton} from '../Header';
 
+import UserData from '../../UserData';
+
+import User from '../../models/User';
+
 export default class Dashboard extends Component {
 
     static navigationOptions = {
         title: "Dashboard",
+        headerLeft: null,
     };
+
+    componentWillMount() {
+        var user = UserData.getUser();
+        if (user == null) {
+            user = new User();
+        }
+        this.setState({budget: user.remainingBudget});
+    }
 
     constructor() {
         super();
@@ -20,6 +33,10 @@ export default class Dashboard extends Component {
 
     render() {
         let nav = this.props.navigation;
+        var budget = this.state.budget;
+        if (isNaN(budget)) {
+            budget = 0;
+        }
         return(
             <View style={dashboardStyles.dashboardMain}>
                 <StatusBar
@@ -29,7 +46,7 @@ export default class Dashboard extends Component {
                     showsVerticalScrollIndicator="false"
                     style={dashboardStyles.dashboardScroll}
                 >
-                    <BudgetDisplay amount="98.01"/>
+                    <BudgetDisplay amount={budget}/>
                     <View style={dashboardStyles.buttonContainer}>
                         <ScheduleButton navigation={nav}/>
                         <CookButton navigation={nav}/>

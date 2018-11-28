@@ -1,9 +1,11 @@
 {
   "dependencies": {
+    "@google-cloud/storage": "^2.3.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "firebase": "^5.5.5",
     "firebase-admin": "^6.1.0",
+    "nodemon": "^1.18.7",
     "swagger-ui-express": "^4.0.1"
   }
 }

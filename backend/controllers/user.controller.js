@@ -1,25 +1,50 @@
 var express = require('express')
 	, router = express.Router()
-	, userService = require('../services/user.service');
-
-/*	{	email: String,
-		phoneNumber: String,
-		password: String,
-		displayName: String,
-		photoUrl: String, 	}
-*/
+	, userService = require('../services/user.service')
+	, accountService = require('../services/account.service');
 
 router.post('/', function (req, res) {
 	var user = req.body;
-	console.log(user);
+	user.photoUrl = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
 	userService.create(user, function(user, error) {
 		if (error) {
 			console.log(error);
 			res.send(error);
 		} else {
-			res.send(user);
+			accountService.create(user, function(account, err) {
+				if (err) {
+					res.send(err);
+				} else {
+					console.log(account);
+					res.send(account);
+				}
+			});
 		}
 	});
+});
+
+router.post('/login', function (req, res) {
+	var email = req.body.email;
+	var password = req.body.password;
+	userService.login(email, password, function(account, error) {
+		if (error) {
+			console.log(error);
+			res.send(error);
+		} else {
+			res.send(account);
+		}
+	});
+});
+
+router.post('/logout', function (req, res) {
+	userService.logout(function (resp, err) {
+		if (err) {
+			console.log(err);
+			res.send(err); 
+		} else {
+			res.send(resp.user);
+		}
+	})
 });
 
 router.get('/:uid', function (req, res) {

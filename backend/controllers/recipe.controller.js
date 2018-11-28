@@ -2,10 +2,26 @@ var express = require('express')
 	, router = express.Router()
 	, recipeService = require('../services/recipe.service');
 
-router.post('/:id', function (req, res) {
-	var recipe = req.body;
-	console.log(recipe);
-	recipeService.input(recipe, function(data, error) {
+router.post('/', function (req, res) {
+	var recipeFile = require('../models/recipes.json');
+	var recipes = recipeFile.recipes;
+	var idx = 0;
+	recipes.forEach(function(recipe) {
+		recipe.id = idx;
+		idx++;
+	});
+	recipeService.upload(recipes, function(data, error) {
+		if (error) {
+			console.log(error);
+			res.send(error);
+		} else {
+			res.send(data);
+		}
+	});
+});
+
+router.get('/', function (req, res) {
+	recipeService.all(function(data, error) {
 		if (error) {
 			console.log(error);
 			res.send(error);

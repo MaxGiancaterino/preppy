@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, ScrollView, Button} from 'react-native';
+import {Text, View, ScrollView, Button, Image} from 'react-native';
 import Header, {HeaderButton} from '../Header';
 import {profileStyles} from './ProfileStyles';
 import {headerStyles} from '../../Styles';
@@ -9,19 +9,68 @@ export default class Profile extends Component {
         title: "My Profile",
     };
 
+    componentWillMount() {
+        this.setState({
+            avatar: null,
+            firstName: "",
+            lastName: "",
+            username: "",
+            email: "",
+            weeklyBudget: 0,
+        });
+
+        var user = UserData.getUser();
+        if (user != null) {
+            this.setState({
+                avatar:        user.avatar,
+                firstName:     user.firstName,
+                lastName:      user.lastName,
+                username:      user.username,
+                email:         user.email,
+                weeklyBudget:  user.weeklyBudget,
+            });
+        }
+    }
+
     constructor() {
         super();
     }
 
+    formatToMoney(value) {
+        return "$" + value.toFixed(2);
+    }
+
     render() {
         let nav = this.props.navigation;
+        const uriObject = {uri: this.state.avatar}
+
         return(
             <View style={profileStyles.profileMain}>
                 <ScrollView
                     showsVerticalScrollIndicator="false"
-                    style={profileStyles.profileScroll}
+                    contentContainerStyle={profileStyles.profileScroll}
                 >
-                    <Text>This is the profile</Text>
+                    <Image 
+                        source={
+                            this.state.avatar ?
+                            uriObject : 
+                            require("../../../assets/img/profileTemp.png")
+                        }
+                        style={profileStyles.profileAvatar}
+                    />
+                    <Text style={profileStyles.profileName}>{this.state.firstName} {this.state.lastName}</Text>
+                    <View style={profileStyles.profileInfoContainer}>
+                        <View style={profileStyles.profileInfoLabels}>
+                            <Text style={profileStyles.profileLabelText}>Username:</Text>
+                            <Text style={profileStyles.profileLabelText}>Email:</Text>
+                            <Text style={profileStyles.profileLabelText}>Weekly Budget:</Text>
+                        </View>
+                        <View style={profileStyles.profileInfoValues}>
+                            <Text style={profileStyles.profileValueText}>{this.state.username}</Text>
+                            <Text style={profileStyles.profileValueText}>{this.state.email}</Text>
+                            <Text style={profileStyles.profileValueText}>{this.formatToMoney(this.state.weeklyBudget)}</Text>
+                        </View>
+                    </View>
                 </ScrollView>
             </View>
         );

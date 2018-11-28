@@ -1,25 +1,36 @@
 import React, {Component} from 'react';
 import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableOpacity} from 'react-native';
-import Header, {HeaderButton} from '../Header';
 import {loginStyles} from './LoginStyles';
-import {headerStyles} from '../../Styles';
+import UserData from '../../UserData';
+
+import User from '../../models/User';
 
 export default class Login extends Component {
 
 	static navigationOptions = {
         title: "Login",
+        header: null,
     };
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
         	username: "",
-       		password: ""
+       		password: "",
         }
     }
 
 	submit() {
-		//TO DO
+        // TODO: Replace the sample user with the actual user data found
+        // in Firebase. The following UserData.setUser call is used to
+        // pass this data to the front end and shouldn't be changed 
+        var user = User.getSampleUser();
+
+        UserData.setUser(user).then(() => {
+            this.props.navigation.navigate("Dashboard");
+        }).catch((error) => {
+            console.log(error.message);
+        });
 	}
 
 	forgot_password() {
@@ -56,7 +67,7 @@ export default class Login extends Component {
 	    			</View>
 	    			<View style={loginStyles.signInButton}>
 	    				<Button
-	    					onPress={this.submit}
+	    					onPress={() => {this.submit()}}
 		    				title="Sign in"
 		    				color="#FFFFFF"
 		    			/>

@@ -1,0 +1,267 @@
+{"recipes": [
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/5406361.jpg",
+        "nutrition": [
+            "562.45 calories",
+            "32.78 g protein",
+            "66.71 g carbohydrates",
+            "1.82 g dietary-fiber",
+            "2.92 g sugars",
+            "13.5 g fat",
+            "5.27 g saturated-fat",
+            "84.52 mg cholesterol",
+            "213.01 iu vitamin-a-iu",
+            "22.11 mg niacin-equivalents",
+            "0.61 mg vitamin-b6",
+            "0.79 mg vitamin-c",
+            "170.81 mcg folate",
+            "45.3 mg calcium",
+            "4.69 mg iron",
+            "49.02 mg magnesium",
+            "394.7 mg potassium",
+            "197.12 mg sodium",
+            "0.59 mg thiamin",
+            "121.49 calories-from-fat",
+            "48 percent-of-calories-from-carbs",
+            "21 percent-of-calories-from-fat",
+            "23 percent-of-calories-from-protein",
+            "8 percent-of-calories-from-sat-fat"
+        ],
+        "numServings": 4,
+        "name": "Chicken Marsala Over White Rice",
+        "cookTime": {
+            "count": 40,
+            "units": "mins"
+        },
+        "rating": "",
+        "ingredients": [
+            {
+                "unit": "cup",
+                "amount": 1,
+                "ingredient": "uncooked white rice"
+            },
+            {
+                "unit": "cup",
+                "amount": 2,
+                "ingredient": "water"
+            },
+            {
+                "unit": "cup",
+                "amount": 1,
+                "ingredient": "all-purpose flour"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "salt"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "ground black pepper"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "1 pinch dried oregano"
+            },
+            {
+                "unit": "pound",
+                "amount": 1,
+                "ingredient": "skinless, boneless chicken cutlets, pounded to 1/4-inch thickness"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 1,
+                "ingredient": "olive oil"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 2,
+                "ingredient": "butter, divided"
+            },
+            {
+                "unit": "clove",
+                "amount": 1,
+                "ingredient": "garlic, minced"
+            },
+            {
+                "unit": "cup",
+                "amount": 1,
+                "ingredient": "sliced fresh mushrooms"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "salt and ground black pepper"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.5,
+                "ingredient": "marsala wine"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.5,
+                "ingredient": "chicken stock"
+            }
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219763/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            {
+                "step": 1,
+                "text": "Bring the rice and water to a boil in a saucepan over high heat. Reduce heat to medium-low, cover, and simmer until the rice is tender, and the liquid has been absorbed, 20 to 25 minutes. Set rice aside."
+            },
+            {
+                "step": 2,
+                "text": "In a large bowl, whisk the flour with salt, black pepper, and oregano. Gently press the chicken breasts into the flour mixture to coat, and shake off the excess flour."
+            },
+            {
+                "step": 3,
+                "text": "Heat the olive oil and 1 tablespoon butter in a large skillet over medium-high heat. Arrange the chicken in the skillet and cook until the chicken is no longer pink inside and golden brown outside, 5 to 8 minutes per side. Drain the cooked chicken on a paper towel-lined plate."
+            },
+            {
+                "step": 4,
+                "text": "Melt the remaining 1 tablespoon butter in the same skillet over medium heat while scraping up any brown bits with a spoon. Stir in the garlic; cook and stir until fragrant. Add the mushrooms, and cook and stir until they are tender and have released their liquid, about 10 minutes. Season with salt and black pepper, then stir in the Marsala wine and chicken stock."
+            },
+            {
+                "step": 5,
+                "text": "Transfer the chicken back to the skillet, and spoon sauce over chicken pieces. Increase heat to medium-high, and bring to a boil. Cover, reduce heat to medium-low, and simmer until the the sauce is thickened, about 5 minutes more. Serve the chicken and sauce over the cooked rice."
+            }
+        ],
+        "prepTime": {
+            "count": 15,
+            "units": "mins"
+        }
+    },
+    {
+        "imgURL": "https://images.media-allrecipes.com/userphotos/848374.jpg",
+        "nutrition": [
+            "842.59 calories",
+            "42.47 g protein",
+            "10.14 g carbohydrates",
+            "0.38 g dietary-fiber",
+            "0.83 g sugars",
+            "67.2 g fat",
+            "34.2 g saturated-fat",
+            "247.37 mg cholesterol",
+            "2133.47 iu vitamin-a-iu",
+            "20.42 mg niacin-equivalents",
+            "0.63 mg vitamin-b6",
+            "7.04 mg vitamin-c",
+            "18.71 mcg folate",
+            "531.25 mg calcium",
+            "1.67 mg iron",
+            "52.79 mg magnesium",
+            "407.03 mg potassium",
+            "650.53 mg sodium",
+            "0.11 mg thiamin",
+            "604.77 calories-from-fat",
+            "4 percent-of-calories-from-carbs",
+            "71 percent-of-calories-from-fat",
+            "20 percent-of-calories-from-protein",
+            "36 percent-of-calories-from-sat-fat"
+        ],
+        "numServings": 4,
+        "name": "4 Star Chicken \"Marsala\" ( with Zinfindel)",
+        "cookTime": {
+            "count": 25,
+            "units": "mins"
+        },
+        "rating": "",
+        "ingredients": [
+            {
+                "unit": "cup",
+                "amount": 0.25,
+                "ingredient": "butter"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.25,
+                "ingredient": "olive oil"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "4 skinless, boneless chicken breast halves, pounded 1/2-inch thick"
+            },
+            {
+                "unit": "ounce",
+                "amount": 8,
+                "ingredient": "mozzarella cheese, cut into 1/4-inch thick slices"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.25,
+                "ingredient": "chopped fresh parsley"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "16 capers, or"
+            },
+            {
+                "unit": "tablespoon",
+                "amount": 2,
+                "ingredient": "cornstarch"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.5,
+                "ingredient": "water"
+            },
+            {
+                "unit": "clove",
+                "amount": 6,
+                "ingredient": "garlic, minced"
+            },
+            {
+                "unit": "cup",
+                "amount": 0.75,
+                "ingredient": "white zinfandel wine"
+            },
+            {
+                "unit": "",
+                "amount": 0,
+                "ingredient": "1\u2009⅓333337306976 cup heavy cream"
+            },
+            {
+                "unit": "to taste",
+                "amount": 0,
+                "ingredient": "salt and ground black pepper"
+            }
+        ],
+        "pageURL": "https://www.allrecipes.com/recipe/219764/",
+        "source": "ALLRECIPES",
+        "preparation": [
+            {
+                "step": 1,
+                "text": "Preheat an oven to 200 degrees F (95 degrees C)."
+            },
+            {
+                "step": 2,
+                "text": "Melt the butter with the olive oil in a large skillet over medium-high heat. Pan fry the chicken breasts until golden brown on both sides, 5 to 7 minutes per side."
+            },
+            {
+                "step": 3,
+                "text": "Place 2 ounces of mozzarella cheese on each chicken breast, then sprinkle parsley and capers on top. Reduce heat to medium, cover pan, and allow cheese to melt, about 3 minutes. Transfer the chicken to a large baking dish, and cover with aluminum foil."
+            },
+            {
+                "step": 4,
+                "text": "Keep the chicken warm in the preheated oven while you finish the sauce."
+            },
+            {
+                "step": 5,
+                "text": "Whisk together the cornstarch and water in a small bowl; set aside. Cook and stir the garlic over medium-low heat in the same skillet used to cook the chicken until fragrant, scraping up any bits of chicken and cheese, about 1 minute. Pour in the white Zinfandel wine, and simmer for 2 to 3 minutes. Add the heavy cream and bring to a simmer, stirring constantly, until the sauce begins to thicken. Gradually stir the cornstarch mixture into the cream sauce until thickened. Season with salt and black pepper."
+            },
+            {
+                "step": 6,
+                "text": "To serve, pour the cream sauce over the chicken."
+            }
+        ],
+        "prepTime": {
+            "count": 15,
+            "units": "mins"
+        }
+    }]}
