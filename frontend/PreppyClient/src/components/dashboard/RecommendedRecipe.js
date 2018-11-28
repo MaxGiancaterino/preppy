@@ -4,12 +4,17 @@ import {dashboardStyles} from './DashboardStyles';
 
 export default class RecommendedRecipe extends Component {
 
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
     }
 
-    navigateToRecipe() {
-
+    navigateToRecipe = () => {
+        this.props.navigation.navigate("Recipe", {
+            // I'm passing the rid separately in case we decide we want to fetch recipe data
+            // from the backend on the recipe page itself.
+            recipeId: this.props.recipe.rid,
+            recipe: this.props.recipe,
+        });
     }
 
     render() {
@@ -19,7 +24,7 @@ export default class RecommendedRecipe extends Component {
                 onPress={this.navigateToRecipe}
             >
                 <Text style={dashboardStyles.recommendedRecipeTitle}>
-                    {this.props.recipeName}
+                    {this.props.recipe.recipeName}
                 </Text>
             </TouchableOpacity>
         );

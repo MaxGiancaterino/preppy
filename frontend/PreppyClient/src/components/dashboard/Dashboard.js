@@ -32,14 +32,14 @@ export default class Dashboard extends Component {
     }
 
     render() {
-        let nav = this.props.navigation;
+        const nav = this.props.navigation;
         var budget = this.state.budget;
         if (isNaN(budget)) {
             budget = 0;
         }
 
-        const recipeNames = this.state.suggestedRecipes.map(r => [r.recipeName, r.rid]);
-        const recipeButtons = recipeNames.map((name) => <RecommendedRecipe recipeName={name[0]} key={name[1]} />);
+        const recipeButtons = this.state.suggestedRecipes.map((recipe) =>
+            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.rid} />);
 
         return(
             <View style={dashboardStyles.dashboardMain}>
@@ -62,6 +62,7 @@ export default class Dashboard extends Component {
                     </View>
 
                     {recipeButtons}
+                    <View style={{height: 10}}/>
                 </ScrollView>
             </View>
         );
