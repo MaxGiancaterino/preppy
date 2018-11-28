@@ -29,13 +29,13 @@ export default class Recipe {
                 "1 1/4 cups Thai peanut sauce",
                 "5 (2-ounce) dressing containers"
             ];
+
+            // Please excuse the line lengths. Splitting the strings into multiple lines messes up the formatting,
+            // even if the newline is escaped
             sampleRecipe.prepSteps = [
-                "Fill a large pot with lightly salted water and bring to a rolling boil. Drop in soba noodles and return to a boil. \
-                Cook uncovered, stirring occasionally, until tender yet firm to the bite, about 7 minutes. Drain.",
+                "Fill a large pot with lightly salted water and bring to a rolling boil. Drop in soba noodles and return to a boil. Cook uncovered, stirring occasionally, until tender yet firm to the bite, about 7 minutes. Drain.",
                 "Toss noodles with sesame oil in a medium bowl. Divide noodles evenly between the 5 containers.",
-                "Top noodles with edamame, carrot, green onions, and cilantro, dividing them evenly between the 5 containers. \
-                Place lids on containers. Pour 1/4 cup peanut sauce into each dressing container. Refrigerate until ready to eat.\
-                Mix 1 dressing container with 1 serving of soba salad to serve."
+                "Top noodles with edamame, carrot, green onions, and cilantro, dividing them evenly between the 5 containers. Place lids on containers. Pour 1/4 cup peanut sauce into each dressing container. Refrigerate until ready to eat. Mix 1 dressing container with 1 serving of soba salad to serve."
             ];
             sampleRecipe.prepTime = 35;
             sampleRecipe.numServings = 5;
@@ -59,9 +59,7 @@ export default class Recipe {
                 "salt and pepper to taste",
             ];
             sampleRecipe.prepSteps = [
-                "In a large pot over medium heat, melt butter. Cook onion and celery in butter until just tender, \
-                5 minutes. Pour in chicken and vegetable broths and stir in chicken, noodles, carrots, basil, \
-                oregano, salt and pepper. Bring to a boil, then reduce heat and simmer 20 minutes before serving." 
+                "In a large pot over medium heat, melt butter. Cook onion and celery in butter until just tender, 5 minutes. Pour in chicken and vegetable broths and stir in chicken, noodles, carrots, basil, oregano, salt and pepper. Bring to a boil, then reduce heat and simmer 20 minutes before serving." 
             ];
             sampleRecipe.prepTime = 20;
             sampleRecipe.numServings = 6;
