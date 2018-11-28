@@ -1,28 +1,28 @@
 import React, {Component} from 'react';
 import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableOpacity} from 'react-native';
 import Header, {HeaderButton} from '../Header';
-import {loginStyles} from './LoginStyles';
+import {pantryStyles} from './CreateAccountStyles';
 import {headerStyles} from '../../Styles';
 
-export default class Login extends Component {
+export default class CreateAccount extends Component {
 
-	static navigationOptions = {
-        title: "Login",
+    static navigationOptions = {
+        title: "CreateAccount",
     };
 
     constructor() {
         super();
         this.state = {
-        	username: "",
-       		password: ""
+            username: "",
+            password: ""
         }
     }
 
     render() {
-    	return(
-    		<View style={CreateAccountStyles.createAccountMain}>
+        return(
+            <View style={CreateAccountStyles.createAccountMain}>
 
-    		</View>
+            </View>
         );
     }
 }
