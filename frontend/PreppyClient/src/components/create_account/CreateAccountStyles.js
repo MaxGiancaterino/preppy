@@ -56,6 +56,6 @@ export const createAccountStyles = StyleSheet.create({
         justifyContent: "center",
         margin: 5,
         width: "80%",
-        backgroundColor: "#FDB52B"
+        backgroundColor: PreppyOrange
     },
 });

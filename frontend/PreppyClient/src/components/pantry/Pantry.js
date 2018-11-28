@@ -12,15 +12,40 @@ export default class Pantry extends Component {
 
     constructor() {
         super();
-        this.state = {
-            username: "",
-            password: ""
-        }
+        // this.state = {
+        //     username: "",
+        //     password: ""
+        // }
+        this.state = {ingredients: null};
+    }
+
+    add_ingredient() {
+        // TO DO
+        
     }
 
     render() {
+        const recipe = this.state.recipe;
+
         return(
             <View style={pantryStyles.pantryMain}>
+                
+                <View style={pantryStyles.addIngredientButton}>
+                    <Button
+                        onPress={() => {this.add_ingredient()}}
+                        title="Add ingredient"
+                        color="#FDB52B"
+                    />
+                </View>
+
+                <ScrollView
+                    style={pantryStyles.pantryScroll}
+                    showsVerticalScrollIndicator="false"
+                >
+
+                    <Text style={pantryStyles.sectionTitle}>My Ingredients</Text>
+
+                </ScrollView>
 
             </View>
         );
