@@ -9,7 +9,7 @@ export default class PantryButton extends Component {
     }
 
     navigateToPantry = () => {
-        //this.props.navigation.navigate("Cook")
+        this.props.navigation.navigate("Pantry")
     }
 
     render() {

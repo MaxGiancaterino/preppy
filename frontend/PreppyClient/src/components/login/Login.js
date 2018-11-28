@@ -39,6 +39,7 @@ export default class Login extends Component {
 
 	create_account() {
 		//TO DO
+		this.props.navigation.navigate("CreateAccount");
 	}
 
     render() {

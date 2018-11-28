@@ -3,7 +3,7 @@ import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
 
-export const PantryStyles = StyleSheet.create({
+export const pantryStyles = StyleSheet.create({
     
     pantryMain: {
         backgroundColor: "#FFFFFF",

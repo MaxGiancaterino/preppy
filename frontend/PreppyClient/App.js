@@ -9,6 +9,8 @@ import Schedule from './src/components/schedule/Schedule';
 import Cook from './src/components/cook/Cook';
 import Profile from './src/components/profile/Profile';
 import RecipePage from './src/components/recipe_page/RecipePage';
+import Pantry from './src/components/pantry/Pantry';
+import CreateAccount from './src/components/create_account/CreateAccount'
 
 
 import Header, {HeaderButton} from './src/components/Header';
@@ -40,6 +42,12 @@ const RootStack = createStackNavigator(
         Recipe: {
             screen: RecipePage
         },
+        Pantry: {
+            screen: Pantry
+        }, 
+        CreateAccount: {
+            screen: CreateAccount
+        }
     },
     {
         navigationOptions: ({navigation}) => ({

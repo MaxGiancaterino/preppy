@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableOpacity} from 'react-native';
 import Header, {HeaderButton} from '../Header';
-import {createAccountStyles} from './PantryStyles';
+import {pantryStyles} from './PantryStyles';
 import {headerStyles} from '../../Styles';
 
 export default class Pantry extends Component {
@@ -20,7 +20,7 @@ export default class Pantry extends Component {
 
     render() {
         return(
-            <View style={PantryStyles.pantryMain}>
+            <View style={pantryStyles.pantryMain}>
 
             </View>
         );
