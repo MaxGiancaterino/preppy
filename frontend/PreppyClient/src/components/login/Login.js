@@ -38,7 +38,7 @@ export default class Login extends Component {
 	}
 
 	create_account() {
-		//TO DO
+		this.props.navigation.navigate("CreateAccount");
 	}
 
     render() {
@@ -74,7 +74,7 @@ export default class Login extends Component {
 	    			</View>
 	    			<View style={loginStyles.createAccountButton}>
 	    				<Button
-	    					onPress={this.create_account}
+	    					onPress={() => {this.create_account()}}
 	    			 		title="Create account"
 	    				/>
 	    			</View>

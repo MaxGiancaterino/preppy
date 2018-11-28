@@ -5,6 +5,7 @@ import {dashboardStyles} from './DashboardStyles';
 import {headerStyles} from '../../Styles';
 import ScheduleButton from './DbScheduleButton';
 import CookButton from './DbCookButton';
+import PantryButton from './DbPantryButton';
 import RecommendedRecipe from './RecommendedRecipe';
 import {HeaderButton} from '../Header';
 
@@ -21,10 +22,10 @@ export default class Dashboard extends Component {
 
     componentWillMount() {
         var user = UserData.getUser();
-        if (user == null) {
-            user = new User();
-        }
-        this.setState({budget: user.remainingBudget});
+        this.setState({
+            budget: user.remainingBudget,
+            suggestedRecipes: user.getSuggestedRecipes()
+        });
     }
 
     constructor() {
@@ -32,11 +33,15 @@ export default class Dashboard extends Component {
     }
 
     render() {
-        let nav = this.props.navigation;
+        const nav = this.props.navigation;
         var budget = this.state.budget;
         if (isNaN(budget)) {
             budget = 0;
         }
+
+        const recipeButtons = this.state.suggestedRecipes.map((recipe) =>
+            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.rid} />);
+
         return(
             <View style={dashboardStyles.dashboardMain}>
                 <StatusBar
@@ -51,15 +56,15 @@ export default class Dashboard extends Component {
                         <ScheduleButton navigation={nav}/>
                         <CookButton navigation={nav}/>
                     </View>
+                    <PantryButton navigation={nav}/>
                     <View style={dashboardStyles.recipeListTitleContainer}>
                         <Text style={dashboardStyles.recipeListTitle}>
                             Recipes Recommended For You:
                         </Text>
                     </View>
-                    <RecommendedRecipe recipeName = "Test Recipe"/>
-                    <RecommendedRecipe recipeName = "Test Recipe"/>
-                    <RecommendedRecipe recipeName = "Test Recipe"/>
-                    <RecommendedRecipe recipeName = "Test Recipe"/>
+
+                    {recipeButtons}
+                    <View style={{height: 10}}/>
                 </ScrollView>
             </View>
         );
