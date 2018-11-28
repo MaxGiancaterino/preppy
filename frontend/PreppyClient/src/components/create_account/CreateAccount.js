@@ -27,8 +27,8 @@ export default class CreateAccount extends Component {
     }
 
     create_account() {
-        // TO DO: create the account 
-        //this.props.navigation.navigate("CreateAccount");
+        // TO DO: create the account in backend
+        
     }
 
     render() {

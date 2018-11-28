@@ -13,15 +13,6 @@ export const createAccountStyles = StyleSheet.create({
         flexDirection: "column",
         justifyContent: "flex-start"
     }, 
-    headerContainer: {
-        width: "100%",
-        paddingBottom: 10,
-        paddingTop: 10,
-        flex: 1,
-        //flexDirection: "column",
-        //justifyContent: "flex-start",
-        //alignItems: "center"
-    },
     appName: {
         textAlign: 'center',
         fontFamily: "Raleway",
