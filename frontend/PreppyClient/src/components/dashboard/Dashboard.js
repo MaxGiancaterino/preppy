@@ -37,6 +37,10 @@ export default class Dashboard extends Component {
         if (isNaN(budget)) {
             budget = 0;
         }
+
+        const recipeNames = this.state.suggestedRecipes.map(r => [r.recipeName, r.rid]);
+        const recipeButtons = recipeNames.map((name) => <RecommendedRecipe recipeName={name[0]} key={name[1]} />);
+
         return(
             <View style={dashboardStyles.dashboardMain}>
                 <StatusBar
@@ -56,10 +60,8 @@ export default class Dashboard extends Component {
                             Recipes Recommended For You:
                         </Text>
                     </View>
-                    <RecommendedRecipe recipeName = "Test Recipe"/>
-                    <RecommendedRecipe recipeName = "Test Recipe"/>
-                    <RecommendedRecipe recipeName = "Test Recipe"/>
-                    <RecommendedRecipe recipeName = "Test Recipe"/>
+
+                    {recipeButtons}
                 </ScrollView>
             </View>
         );

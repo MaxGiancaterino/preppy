@@ -14,7 +14,7 @@ export default class User {
     }
 
     getSuggestedRecipes() {
-        return [Recipe.getSampleRecipe];
+        return [Recipe.getSampleRecipe(0), Recipe.getSampleRecipe(1)];
     }
 
     static getSampleUser() {

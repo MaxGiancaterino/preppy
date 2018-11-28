@@ -4,8 +4,8 @@ import {dashboardStyles} from './DashboardStyles';
 
 export default class RecommendedRecipe extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
 
     navigateToRecipe() {

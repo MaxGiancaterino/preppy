@@ -8,7 +8,6 @@ export const dashboardStyles = StyleSheet.create({
     dashboardMain: {
         backgroundColor: "#FFFFFF",
         height: Dimensions.get('window').height,
-        borderTopWidth: 3,
         flex: 1,
         flexDirection: "column",
         justifyContent: "flex-start"
@@ -128,7 +127,7 @@ export const dashboardStyles = StyleSheet.create({
          backgroundColor: PreppyOrange,
          marginHorizontal: 10,
          marginTop: 10,
-         height: 60,
+         minHeight: 60,
          padding: 10,
          borderRadius: 3,
          borderBottomWidth: 5,
