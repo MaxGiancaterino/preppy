@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
+const PreppyLight = "#FFEED1";
 
 export const dashboardStyles = StyleSheet.create({
     
@@ -95,6 +96,23 @@ export const dashboardStyles = StyleSheet.create({
         borderLeftWidth: 1,
         borderLeftColor: "#777777",
     },
+    pantryImage: {
+        height: undefined,
+        width: undefined,
+        flex: 1,
+        alignSelf: "stretch",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        alignItems: "flex-end",
+        paddingRight: 15,
+        paddingBottom: 15,
+    },
+    pantryButton: {
+        width: "100%",
+        height: 100,
+        borderBottomWidth: 1,
+        borderBottomColor: "#777777",
+    },
     buttonText: {
         fontFamily: "Raleway",
         fontSize: 24,
@@ -133,6 +151,7 @@ export const dashboardStyles = StyleSheet.create({
          borderBottomWidth: 5,
          borderRightWidth: 5,
          borderColor: '#DDA51B',
+
          flex: 1,
          flexDirection: "row",
          justifyContent: "flex-start",
