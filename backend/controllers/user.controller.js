@@ -15,7 +15,6 @@ router.post('/', function (req, res) {
 				if (err) {
 					res.send(err);
 				} else {
-					console.log(account);
 					res.send(account);
 				}
 			});
@@ -49,7 +48,6 @@ router.post('/logout', function (req, res) {
 
 router.get('/:uid', function (req, res) {
 	var uid = req.params.uid;
-  	console.log("Getting User: %s", uid);
   	userService.get(uid, function(user, error) {
   		if (error) {
   			console.log(error);
@@ -62,7 +60,6 @@ router.get('/:uid', function (req, res) {
 
 router.delete('/:uid', function (req, res) {
 	var uid = req.params.uid;
-	console.log("Deleting User: %s", uid);
 	userService.delete(uid, function(error) {
 		if (error) {
 			console.log(error);
@@ -72,7 +69,5 @@ router.delete('/:uid', function (req, res) {
 		}
 	});
 });
-
-
 
 module.exports = router;

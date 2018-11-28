@@ -36,3 +36,18 @@ exports.all = function(next) {
 			next(snapshot.val());
 		});
 }
+
+exports.list = function(queue, next) {
+	var list = [];
+	database.ref('/recipes/')
+		.once('value')
+		.then(function(res) {
+			res.forEach(function(item) {
+				var recipe = item.val();
+				if (queue.includes(recipe.id)) {
+					list.push(recipe);
+				}
+			});
+			next(list);
+		});
+}

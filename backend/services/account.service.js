@@ -1,18 +1,5 @@
 var database = require('../firebase/db');
 
-/*
-
-	"users": {
-		"nalvelo": {
-			"name": "Nikolas Alvelo",
-			"email": "nalvelo@seas.upenn.edu",
-			""
-		}
-	}
-
-
-*/
-
 exports.create = function(userData, next) {
 	var user = {
 		name: userData.displayName,
