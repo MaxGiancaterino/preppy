@@ -5,12 +5,12 @@ var express = require('express')
 /*	{	email: String,
 		phoneNumber: String,
 		password: String,
-		displayName: String,
-		photoUrl: String, 	}
+		displayName: String	}
 */
 
 router.post('/', function (req, res) {
 	var user = req.body;
+	user.photoUrl = "http://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
 	console.log(user);
 	userService.create(user, function(user, error) {
 		if (error) {

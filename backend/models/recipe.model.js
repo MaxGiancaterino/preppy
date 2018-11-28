@@ -64,7 +64,7 @@ exports.testRecipe =
 	"nutrition": [
 		{
 			"count": "565",
-			"unit": "calories"
+			"unit": "calories",
 			"macro": "calories"
 		},
 		{
