@@ -10,7 +10,6 @@ import RecommendedRecipe from './RecommendedRecipe';
 import {HeaderButton} from '../Header';
 
 import UserData from '../../UserData';
-
 import User from '../../models/User';
 
 export default class Dashboard extends Component {

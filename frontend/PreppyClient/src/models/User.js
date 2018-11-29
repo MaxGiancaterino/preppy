@@ -17,6 +17,14 @@ export default class User {
         return [Recipe.getSampleRecipe(0), Recipe.getSampleRecipe(1)];
     }
 
+    getUpcomingMeals(amount) {
+        return [Recipe.getSampleRecipe(0)];
+    }
+
+    getFavoritedRecipes() {
+        return [Recipe.getSampleRecipe(1)];
+    }
+
     static getSampleUser() {
         var sampleUser = new User();
         sampleUser.userId = 0;
