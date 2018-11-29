@@ -8,8 +8,8 @@ public class Recipe {
 	public String name = "";
 	public ArrayList<IngredientListing> ingredients = new ArrayList<IngredientListing>();
 	public ArrayList<PrepStep> preparation = new ArrayList<PrepStep>();
-	public TimeUnit prepTime = null;
-	public TimeUnit cookTime = null;
+	public TimeUnit prepTime = new TimeUnit();
+	public TimeUnit cookTime = new TimeUnit();
 	public int numServings = -1;
 	public String imgURL = "";
 	public String rating = "";

@@ -14,61 +14,97 @@ public class Main {
 	public static final int chickenMarsala = 219763;
 	
 	public static void main(String[] args) {
-		if (args.length > 2) {
-			System.out.println("incorrect usage. optionally takes one argument:");
-			System.out.println("(numRecipes) [startingRecipeID]");
+		if (args.length > 3) {
+			System.out.println("Incorrect usage. Use:");
+			System.out.println("(refreshRecipes) [numRecipes] [startingRecipeID]");
+			System.out.println("Set (refreshRecipes) to 0 to parse or 1 to download");
 			System.exit(1);
 		}
 		
-		// set the index to start at, if defined
+		// parse variables
+		int mode = Integer.parseInt(args[0]);
+		int numToDownload = 0;
 		int startingIndex = chickenMarsala;
-		if (args.length == 2) {
-			startingIndex = Integer.parseInt(args[1]);
+		if (args.length >= 2) {
+			numToDownload = Integer.parseInt(args[1]);
+		}
+		if (args.length == 3) {
+			startingIndex = Integer.parseInt(args[2]);
 		}
 		
-		// set the number of recipes to parse
-		int numToParse = Integer.parseInt(args[0]);
-		
-		// grab the HTML page and parse the recipe
-		int currIndex = startingIndex;
-		int numComplete = 0;
-		ArrayList<Recipe> recipes = new ArrayList<Recipe>();
-		while (currIndex < (startingIndex + numToParse)) {
-			// convert the current ID to a string, and pad it with 0s
-			String indexStr = Integer.toString(currIndex);
-			while (indexStr.length() < 6) {
-				indexStr = "0" + indexStr;
+		// check the current mode
+		if (mode == 1) { // download recipes
+			System.out.println("Downloading " + numToDownload + " recipes");
+			System.out.println("Starting at " + startingIndex);
+			
+			int currIndex = startingIndex;
+			int numComplete = 0;
+			int numSuccess = 0;
+			while (currIndex < (startingIndex + numToDownload)) {
+				// convert the current ID to a string, and pad it with 0s
+				String indexStr = Integer.toString(currIndex);
+				while (indexStr.length() < 6) {
+					indexStr = "0" + indexStr;
+				}
+				
+				// retrieve and parse the recipe
+				Document doc = HTTPInterfacer.getAllrecipesHTML(indexStr);
+				String nameString;
+				if (doc != null) {
+					HTTPInterfacer.saveHTML(doc, "recipecache/" + indexStr + ".html");
+					nameString = "SUCCESS";
+					numSuccess++;
+				} else {
+					nameString = "NOT FOUND";
+				}
+				
+				// increment the index and counter
+				currIndex++;
+				numComplete++;
+				
+				// print progress
+				System.out.println("(" + numComplete + "/" + numToDownload + ") " + indexStr + ": " + nameString);
+				
+				// wait a few seconds so that the server doesn't think we're doxxing it
+				try {
+					Thread.sleep(requestDelayMS);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 			
-			// retrieve and parse the recipe
-			Document doc = HTTPInterfacer.getAllrecipesHTML(indexStr);
-			String nameString;
-			if (doc != null) {
-				HTMLParser.saveHTML(doc, "out/" + indexStr + ".html");
+			System.out.println(numSuccess + " RECIPES DOWNLOADED");
+		} else { // parse recipes
+			System.out.println("Parsing all existing recipes");
+			
+			ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+			final int numToLoad = 1000000;
+			for (int i = 0; i < numToLoad; i++) {
+				
+				// convert the current ID to a string, and pad it with 0s
+				String indexStr = Integer.toString(i);
+				while (indexStr.length() < 6) {
+					indexStr = "0" + indexStr;
+				}
+				
+				// open the file, convert to document
+				Document doc = HTTPInterfacer.loadHTML("recipecache/" + indexStr + ".html");
+				if (doc == null) { // if this recipe hasn't been downloaded
+					continue;
+				}
+				System.out.println(indexStr);
 				Recipe recipe = HTMLParser.parseAllrecipesHTML(doc);
 				recipes.add(recipe);
-				nameString = recipe.name;
-			} else {
-				nameString = "NOT FOUND";
+				
+				// print progress at a milestone
+				if (i % 1000 == 0) {
+					System.out.println(((double)i / (double)numToLoad) * 100.0 + "% done parsing");
+				}
 			}
 			
-			// print progress
-			System.out.println("(" + numComplete + "/" + numToParse + ") " + indexStr + ": " + nameString);
-			
-			// increment the index and counter
-			currIndex++;
-			numComplete++;
-			
-			// wait a few seconds so that the server doesn't think we're doxxing it
-			try {
-				Thread.sleep(requestDelayMS);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			// write all the recipes
+			System.out.println(recipes.size() + " RECIPES PARSED");
+			HTMLParser.writeRecipeJSONs(recipes);
 		}
-		
-		// write all the recipes
-		System.out.println(recipes.size() + " RECIPES PARSED");
-		HTMLParser.writeRecipeJSONs(recipes);
 	}
 }
