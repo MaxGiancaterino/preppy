@@ -4,6 +4,11 @@ import Header, {HeaderButton} from '../Header';
 import {pantryStyles} from './PantryStyles';
 import {headerStyles} from '../../Styles';
 
+import IngredientItem from './IngredientItem';
+
+import User from '../../models/User';
+import Ingredient from '../../models/Ingredient';
+
 export default class Pantry extends Component {
 
     static navigationOptions = {
@@ -19,13 +24,24 @@ export default class Pantry extends Component {
         this.state = {ingredients: null};
     }
 
+    componentWillMount() {
+        var user = UserData.getUser();
+        this.setState({
+            ingredients: user.getSampleIngredients(),
+        });
+    }
+
     add_ingredient() {
         // TO DO
         
     }
 
     render() {
-        const recipe = this.state.recipe;
+
+        var iKey = 0;
+        const ingredients = this.state.ingredients.map(ingredient => 
+            <IngredientItem itemText={ingredient} key={iKey++}/>
+        );
 
         return(
             <View style={pantryStyles.pantryMain}>
@@ -44,6 +60,7 @@ export default class Pantry extends Component {
                 >
 
                     <Text style={pantryStyles.sectionTitle}>My Ingredients</Text>
+                    {ingredients}
 
                 </ScrollView>
 

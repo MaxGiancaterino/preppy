@@ -24,7 +24,8 @@ export default class Dashboard extends Component {
         var user = UserData.getUser();
         this.setState({
             budget: user.remainingBudget,
-            suggestedRecipes: user.getSuggestedRecipes()
+            suggestedRecipes: user.getSuggestedRecipes(),
+            samplePantry: user.getSampleIngredients(),
         });
     }
 

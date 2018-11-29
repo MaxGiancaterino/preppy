@@ -33,5 +33,23 @@ export const pantryStyles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 5,
     },
-    
+
+    ////////////////////////////////
+    // INGREDIENT styling
+    ////////////////////////////////
+
+    ingredientItemMain: {
+        backgroundColor: PreppyLight,
+        marginVertical: 6,
+        marginHorizontal: 10,
+        borderRadius: 6,
+        padding: 7,
+    },
+    ingredientItemText: {
+        fontFamily: "Raleway",
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "#000000"
+    },
+
 });

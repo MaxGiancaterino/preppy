@@ -19,7 +19,7 @@ export default class User {
     }
 
     getSampleIngredients() {
-        return Ingredient.getSampleIngredients;
+        return Ingredient.getSampleIngredients();
     }
 
     static getSampleUser() {
