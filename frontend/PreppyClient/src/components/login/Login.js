@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableOpacity} from 'react-native';
 import {loginStyles} from './LoginStyles';
 import UserData from '../../UserData';
-
 import User from '../../models/User';
+import axios from 'axios';
 
 export default class Login extends Component {
 
@@ -21,16 +21,21 @@ export default class Login extends Component {
     }
 
 	submit() {
-        // TODO: Replace the sample user with the actual user data found
-        // in Firebase. The following UserData.setUser call is used to
-        // pass this data to the front end and shouldn't be changed 
-        var user = User.getSampleUser();
-
-        UserData.setUser(user).then(() => {
-            this.props.navigation.navigate("Dashboard");
-        }).catch((error) => {
-            console.log(error.message);
-        });
+		var credentials = {
+			username: this.state.username,
+			password: this.state.password
+		}
+		axios.post('http://preppy-dev.appspot.com/user/login', { credentials })
+			.then(res => {
+				axios.post('http://preppy-dev.appspot.com/account/' + res.uid, {})
+				.then(res => {
+					UserData.setUser(res).then(() => {
+						this.props.navigation.navigate("Dashboard");
+					}).catch((error) => {
+						console.log(error.message);
+					});
+				});
+			});
 	}
 
 	forgot_password() {
@@ -49,7 +54,7 @@ export default class Login extends Component {
  					<View style={loginStyles.inputBox}>
  						<TextInput style={loginStyles.input}
 		    				onChangeText={(username) => this.setState({username})}
-		    				placeholder='Username'
+		    				placeholder='Email'
 		    			/>
     				</View>
     				<View style={loginStyles.inputBox}>

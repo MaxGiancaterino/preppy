@@ -2,13 +2,14 @@ var database = require('../firebase/db');
 
 exports.create = function(userData, next) {
 	var user = {
-		name: userData.displayName,
-		email: userData.email,
+		displayName: userData.displayName,
+		username: userData.email,
 		phoneNumber: userData.phoneNumber,
 		cookingQueue: [-1],
-		weeklyBudget: 0.00,
-		photoUrl: userData.photoURL,
-		uid: userData.uid
+		weeklyBudget: 0,
+		remainingBudget: 0,
+		avatar: userData.photoURL,
+		userId: userData.uid
 	};
 	database.ref('users/' + userData.uid)
 		.set(user)

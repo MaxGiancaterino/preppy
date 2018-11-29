@@ -3,6 +3,7 @@ import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableO
 import Header, {HeaderButton} from '../Header';
 import {createAccountStyles} from './CreateAccountStyles';
 import {headerStyles} from '../../Styles';
+import axios from 'axios';
 
 export default class CreateAccount extends Component {
 
@@ -27,8 +28,18 @@ export default class CreateAccount extends Component {
     }
 
     create_account() {
-        // TO DO: create the account in backend
-        
+        const user = {
+            email: this.state.username,
+            phoneNumber: this.state.phoneNumber,
+            password: this.state.password,
+            displayName: this.state.displayName
+        };
+        axios.post('http://preppy-dev.appspot.com/user', { user })
+            .then((res) => {
+                UserData.setUser(res).then(() => {
+                    this.props.navigation.navigate("Dashboard");
+                });
+            });
     }
 
     render() {

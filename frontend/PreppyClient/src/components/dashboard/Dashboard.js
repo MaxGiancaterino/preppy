@@ -12,6 +12,7 @@ import {HeaderButton} from '../Header';
 import UserData from '../../UserData';
 
 import User from '../../models/User';
+import axios from 'axios';
 
 export default class Dashboard extends Component {
 
@@ -22,10 +23,14 @@ export default class Dashboard extends Component {
 
     componentWillMount() {
         var user = UserData.getUser();
-        this.setState({
-            budget: user.remainingBudget,
-            suggestedRecipes: user.getSuggestedRecipes()
-        });
+        var randomRecipes = [5, 29, 500, 969];
+        axios.post("http://preppy-dev.appspot.com/recipe/queue", { randomRecipes })
+            .then(recipes => {
+                this.setState({
+                    budget: user.remainingBudget,
+                    suggestedRecipes: recipes
+                });
+            });
     }
 
     constructor() {
@@ -40,7 +45,7 @@ export default class Dashboard extends Component {
         }
 
         const recipeButtons = this.state.suggestedRecipes.map((recipe) =>
-            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.rid} />);
+            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.id} />);
 
         return(
             <View style={dashboardStyles.dashboardMain}>
