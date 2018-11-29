@@ -2,7 +2,6 @@ var database = require('../firebase/db');
 
 exports.upload = function(recipeData, next) {
 	recipeData.forEach(function(recipe) {
-		console.log(recipe);
 		database.ref('recipes/' + recipe.id).set({
 			id: recipe.id,
 			name: recipe.name,
@@ -34,5 +33,20 @@ exports.all = function(next) {
 		.once('value')
 		.then(function(snapshot) {
 			next(snapshot.val());
+		});
+}
+
+exports.list = function(queue, next) {
+	var list = [];
+	database.ref('/recipes/')
+		.once('value')
+		.then(function(res) {
+			res.forEach(function(item) {
+				var recipe = item.val();
+				if (queue.includes(recipe.id)) {
+					list.push(recipe);
+				}
+			});
+			next(list);
 		});
 }

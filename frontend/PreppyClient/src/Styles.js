@@ -14,6 +14,8 @@ export const headerStyles = StyleSheet.create({
     headerMain: {
         backgroundColor: PreppyOrange,
         height: 60,
+        borderBottomWidth: 3,
+        borderBottomColor: "#000000",
     },
     headerButton: {
         height: 50,

@@ -42,7 +42,8 @@ export class HeaderButton extends Component {
                                 uriObject : 
                                 require("../../assets/img/profileTemp.png")
                             }
-                            style={headerStyles.headerButton}/>
+                            style={headerStyles.headerButton}
+                        />
                     </TouchableOpacity>
                 </View>
             );

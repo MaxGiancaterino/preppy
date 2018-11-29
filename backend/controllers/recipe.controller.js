@@ -31,6 +31,18 @@ router.get('/', function (req, res) {
 	});
 });
 
+router.get('/queue', function(req, res) {
+	var ids = req.body.queue;
+	var list = [];
+	recipeService.list(ids, function(data, error) {
+		if (error) {
+			res.send(error);
+		} else {
+			res.send(data);
+		}
+	});
+});
+
 router.get('/:id', function (req, res) {
 	var id = req.params.id;
 	recipeService.get(id, function(data, error) {
