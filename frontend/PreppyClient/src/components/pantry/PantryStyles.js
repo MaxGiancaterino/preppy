@@ -33,4 +33,5 @@ export const pantryStyles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 5,
     },
+    
 });

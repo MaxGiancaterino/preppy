@@ -1,4 +1,5 @@
 import Recipe from "./Recipe";
+import Ingredient from "./Ingredient";
 
 export default class User {
 
@@ -15,6 +16,10 @@ export default class User {
 
     getSuggestedRecipes() {
         return [Recipe.getSampleRecipe(0), Recipe.getSampleRecipe(1)];
+    }
+
+    getSampleIngredients() {
+        return Ingredient.getSampleIngredients;
     }
 
     static getSampleUser() {
