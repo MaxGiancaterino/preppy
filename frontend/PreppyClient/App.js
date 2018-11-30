@@ -11,6 +11,7 @@ import Profile from './src/components/profile/Profile';
 import RecipePage from './src/components/recipe_page/RecipePage';
 import Pantry from './src/components/pantry/Pantry';
 import CreateAccount from './src/components/create_account/CreateAccount'
+import RecipeExplore from './src/components/recipe_explore/RecipeExplore'
 
 
 import Header, {HeaderButton} from './src/components/Header';
@@ -47,6 +48,9 @@ const RootStack = createStackNavigator(
         }, 
         CreateAccount: {
             screen: CreateAccount
+        },
+        RecipeExplore: {
+            screen: RecipeExplore
         }
     },
     {
