@@ -1,16 +1,21 @@
 var database = require('../firebase/db');
 
-exports.input = function(recipeData, next) {
-	database.ref('recipes/' + recipeData.id).set({
-		id: recipeData.id,
-		name: recipeData.name,
-		ingredients: recipeData.ingredients,
-		prepSteps: recipeData.prepSteps,
-		imageURL: recipeData.imageURL,
-		sourceURL: recipeData.sourceURL,
-		prepTime: recipeData.prepTime,
-		numServings: recipeData.numServings,
-		nutrition: recipeData.nutrition
+exports.upload = function(recipeData, next) {
+	recipeData.forEach(function(recipe) {
+		database.ref('recipes/' + recipe.id).set({
+			id: recipe.id,
+			name: recipe.name,
+			ingredients: recipe.ingredients,
+			preparation: recipe.preparation,
+			imgURL: recipe.imgURL,
+			pageURL: recipe.pageURL,
+			cookTime: recipe.cookTime,
+			prepTime: recipe.prepTime,
+			numServings: recipe.numServings,
+			nutrition: recipe.nutrition,
+			rating: recipe.rating,
+			source: recipe.source
+		});
 	});
 	next("success");
 }
@@ -23,23 +28,25 @@ exports.get = function(id, next) {
 			});
 }
 
+exports.all = function(next) {
+	database.ref('/recipes/')
+		.once('value')
+		.then(function(snapshot) {
+			next(snapshot.val());
+		});
+}
 
-/*
-	
-  id: Integer,
-  name: String,
-  ingredients: 
-    [ { ingredientName: String,
-        unit: String,
-        quantity: Integer } ],
-  prepSteps : [ { 
-    step: Integer,
-    stepText: String} ],
-  imageLink: String,
-  sourceURL: String,
-  prepTime: 
-  { count: Integer,
-    units: String },
-  numServings: Integer
-
-*/
+exports.list = function(queue, next) {
+	var list = [];
+	database.ref('/recipes/')
+		.once('value')
+		.then(function(res) {
+			res.forEach(function(item) {
+				var recipe = item.val();
+				if (queue.includes(recipe.id)) {
+					list.push(recipe);
+				}
+			});
+			next(list);
+		});
+}

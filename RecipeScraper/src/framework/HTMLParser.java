@@ -12,12 +12,13 @@ import org.jsoup.select.Elements;
 
 public class HTMLParser {
 	
-	public static Recipe parseAllrecipesNew(Document doc) {
-		System.out.println("detected NEW html format");
-		
+	public static Recipe parseAllrecipesNew(Document doc) {		
 		// create the item, parse the name
 		Recipe ret = new Recipe();
 		ret.name = doc.select("div.intro h1.headline").first().text();
+		
+		// parse the URL
+		ret.pageURL = doc.select("link[rel=canonical]").first().attr("href");
 		
 		// parse the ingredient list
 		Elements ingredients = doc.select("li.ingredients-item");
@@ -42,14 +43,29 @@ public class HTMLParser {
 		
 		// parse the prep time, cook time, num servings
 		Elements metaInformation = doc.select("div.recipe-meta-item");
+		for (Element e : metaInformation) {
+			if (e.text().toLowerCase().contains("prep")) {
+				ret.prepTime = TimeUnit.parseTimeUnit(e.select("div.recipe-meta-item-body").first().text());
+			} else if (e.text().toLowerCase().contains("cook")) {
+				ret.cookTime = TimeUnit.parseTimeUnit(e.select("div.recipe-meta-item-body").first().text());
+			} else if (e.text().toLowerCase().contains("servings")) {
+				ret.numServings = Integer.parseInt(e.select("div.recipe-meta-item-body").first().text());
+			}
+		}
+		
+		/*
 		ret.prepTime = TimeUnit.parseTimeUnit(metaInformation.get(0).select("div.recipe-meta-item-body").first().text());
 		ret.cookTime = TimeUnit.parseTimeUnit(metaInformation.get(1).select("div.recipe-meta-item-body").first().text());
 		ret.numServings = Integer.parseInt(metaInformation.get(3).select("div.recipe-meta-item-body").first().text());
+		*/
 
 		// parse remaining details
-		ret.imgURL = doc.select("span.lazy-image.ugc-photos-link").first().attr("data-src");
+		if (doc.select("span.lazy-image.ugc-photos-link").size() > 0) {
+			ret.imgURL = doc.select("span.lazy-image.ugc-photos-link").first().attr("data-src");
+		} else {
+			ret.imgURL = "null";
+		}
 		//ret.rating = doc.select("div.rating-stars").first().attr("data-ratingstars");
-		ret.pageURL = doc.baseUri();
 		
 		// parse nutrition (work on this)
 		String nutrition = doc.select("div.recipe-nutrition-section div.section-body").first().text();
@@ -60,15 +76,19 @@ public class HTMLParser {
 			ret.nutrition.add(currItem);
 		}
 		
+		// set format specifier
+		ret.allRecipesNewFormat = true;
+		
 		return ret;
 	}
 	
-	public static Recipe parseAllrecipesOld(Document doc) {
-		System.out.println("detected OLD html format");
-		
+	public static Recipe parseAllrecipesOld(Document doc) {		
 		// create blank recipe and parse name
 		Recipe ret = new Recipe();
 		ret.name = doc.select("#recipe-main-content").first().text();
+		
+		// parse the URL
+		ret.pageURL = doc.select("link[rel=canonical]").first().attr("href");
 		
 		// parse ingredients
 		Elements ingredientLists = doc.select("div#polaris-app ul");
@@ -94,22 +114,67 @@ public class HTMLParser {
 		}
 		
 		// parse prep and cook time
-		ret.prepTime = TimeUnit.parseTimeUnit(doc.select("time[itemprop=prepTime]").first().text());
-		ret.cookTime = TimeUnit.parseTimeUnit(doc.select("time[itemprop=cookTime]").first().text());
+		// for some recipes, cook time and/or prep time are not present
+		if (doc.select("time[itemprop=prepTime]").size() > 0) {
+			ret.prepTime = TimeUnit.parseTimeUnit(doc.select("time[itemprop=prepTime]").first().text());
+		}
+		if (doc.select("time[itemprop=cookTime]").size() > 0) {
+			ret.cookTime = TimeUnit.parseTimeUnit(doc.select("time[itemprop=cookTime]").first().text());
+		}
 		
 		// parse misc
 		ret.numServings = Integer.parseInt(doc.select("meta#metaRecipeServings").first().attr("content"));
 		ret.imgURL = doc.select("img.rec-photo").first().attr("src");
 		ret.rating = doc.select("div.rating-stars").first().attr("data-ratingstars");
-		ret.pageURL = doc.baseUri();
 		
 		// parse nutrition
-		Elements nutrition = doc.select("div.nutrition-body");
-		for (Element e : nutrition) {
-			String nutrientName = e.select("span.nutrient-name").first().text();
-			String nutrientValue = e.select("span.nutrient-value").first().text();
-			ret.nutrition.add(nutrientName + " " + nutrientValue);
+		// two formats: "footnote" format and "nutrition" format
+		if (doc.select("section[itemprop=nutrition]").size() > 0) {
+			String calorieContent = doc.select("span[itemprop=calories]").first().text();
+			String fatContent = doc.select("span[itemprop=fatContent]").first().text() + "g fat";
+			String carbContent = doc.select("span[itemprop=carbohydrateContent]").first().text() + "g carbohydrates";
+			String proteinContent = doc.select("span[itemprop=proteinContent]").first().text() + "g protein";
+			String cholesterolContent = doc.select("span[itemprop=cholesterolContent]").first().text() + "mg cholesterol";
+			String sodiumContent = doc.select("span[itemprop=sodiumContent]").first().text() + "mg sodium";
+			calorieContent = calorieContent.replaceAll(";", "").trim();
+			fatContent = fatContent.trim();
+			carbContent = carbContent.trim();
+			proteinContent = proteinContent.trim();
+			cholesterolContent = cholesterolContent.trim();
+			sodiumContent = sodiumContent.trim();
+			ret.nutrition.add(calorieContent);
+			ret.nutrition.add(fatContent);
+			ret.nutrition.add(carbContent);
+			ret.nutrition.add(proteinContent);
+			ret.nutrition.add(cholesterolContent);
+			ret.nutrition.add(sodiumContent);
+		} else {
+			Elements els = doc.select("section.recipe-footnotes ul li");
+			
+			// get the line item that actually contains nutritional info
+			String nutritionString = null;
+			for (int i = 0; i < els.size(); i++) {
+				if (els.get(i).text().contains("Nutrition Information Per Serving")) {
+					nutritionString = els.get(i).text();
+					break;
+				}
+			}
+			
+			// check for null
+			if (nutritionString == null) {
+				ret.nutrition.add("not available");
+			} else {
+				// parse the nutrients
+				nutritionString = nutritionString.replaceAll("Nutrition Information Per Serving: ", "");
+				String[] nutrientArray = nutritionString.split(", ");
+				for (String s : nutrientArray) {
+					ret.nutrition.add(s);
+				}
+			}
 		}
+		
+		// set format specifier
+		ret.allRecipesNewFormat = false;
 		
 		return ret;
 	}
@@ -155,17 +220,6 @@ public class HTMLParser {
 		ret.source = RecipeEnum.COOKBOOKS;
 		
 		return ret;
-	}
-	
-	// save this document object as a text file
-	public static void saveHTML(Document d, String filename) {
-		try {
-			PrintWriter writer = new PrintWriter(filename, "UTF-8");
-			writer.print(d.html());
-			writer.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public static void writeRecipeJSONs(ArrayList<Recipe> recipes) {

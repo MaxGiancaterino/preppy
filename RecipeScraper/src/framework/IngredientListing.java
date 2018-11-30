@@ -101,11 +101,17 @@ public class IngredientListing {
 		}
 		
 		// try getting the quantity
-		String quantityString = tokens[unitIndex - 1];
-		double quantity = parseDouble(quantityString);
-		if (quantity == -1.0) {
+		double quantity;
+		if (unitIndex == 0) { // if no amount is specified for the unit, assume 1
+			quantity = 1;
+		} else { // if amount was specified, parse it
+			String quantityString = tokens[unitIndex - 1];
+			quantity = parseDouble(quantityString);
+		}
+		
+		if (quantity == -1.0) { // if the quantity could not be parsed
 			ret.ingredient = ingredString;
-		} else {
+		} else { // if the quantity was successfully parsed
 			ret.quantity = quantity;
 			ret.unit = tokens[unitIndex];
 			for (int i = unitIndex + 1; i < tokens.length; i++) {
