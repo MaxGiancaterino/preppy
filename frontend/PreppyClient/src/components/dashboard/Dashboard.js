@@ -12,7 +12,6 @@ import {HeaderButton} from '../Header';
 import UserData from '../../UserData';
 
 import User from '../../models/User';
-import axios from 'axios';
 
 export default class Dashboard extends Component {
 

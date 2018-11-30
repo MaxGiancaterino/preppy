@@ -3,7 +3,6 @@ import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableO
 import {loginStyles} from './LoginStyles';
 import UserData from '../../UserData';
 import User from '../../models/User';
-import axios from 'axios';
 
 export default class Login extends Component {
 

@@ -7,8 +7,6 @@ import RecipeItem from './RecipeItem';
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
 
-import axios from 'axios';
-
 export default class RecipePage extends Component {
     static navigationOptions = {
         title: "Recipe",

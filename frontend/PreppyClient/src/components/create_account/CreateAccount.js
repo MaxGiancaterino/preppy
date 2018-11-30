@@ -3,7 +3,6 @@ import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableO
 import Header, {HeaderButton} from '../Header';
 import {createAccountStyles} from './CreateAccountStyles';
 import {headerStyles} from '../../Styles';
-import axios from 'axios';
 
 export default class CreateAccount extends Component {
 
