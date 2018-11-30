@@ -12,8 +12,7 @@ export default class Profile extends Component {
     componentWillMount() {
         this.setState({
             avatar: null,
-            firstName: "",
-            lastName: "",
+            displayName: "",
             username: "",
             email: "",
             weeklyBudget: 0,
@@ -23,8 +22,7 @@ export default class Profile extends Component {
         if (user != null) {
             this.setState({
                 avatar:        user.avatar,
-                firstName:     user.firstName,
-                lastName:      user.lastName,
+                displayName: user.displayName,
                 username:      user.username,
                 email:         user.email,
                 weeklyBudget:  user.weeklyBudget,
@@ -58,7 +56,7 @@ export default class Profile extends Component {
                         }
                         style={profileStyles.profileAvatar}
                     />
-                    <Text style={profileStyles.profileName}>{this.state.firstName} {this.state.lastName}</Text>
+                    <Text style={profileStyles.profileName}>{this.state.displayName}</Text>
                     <View style={profileStyles.profileInfoContainer}>
                         <View style={profileStyles.profileInfoLabels}>
                             <Text style={profileStyles.profileLabelText}>Username:</Text>

@@ -31,7 +31,7 @@ router.get('/', function (req, res) {
 	});
 });
 
-router.get('/queue', function(req, res) {
+router.post('/queue', function(req, res) {
 	var ids = req.body.queue;
 	var list = [];
 	recipeService.list(ids, function(data, error) {

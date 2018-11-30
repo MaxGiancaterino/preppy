@@ -12,6 +12,8 @@ import {HeaderButton} from '../Header';
 import UserData from '../../UserData';
 
 import User from '../../models/User';
+import Recipe from '../../models/Recipe';
+
 
 export default class Dashboard extends Component {
 
@@ -20,17 +22,29 @@ export default class Dashboard extends Component {
         headerLeft: null,
     };
 
-    componentWillMount() {
-        var user = UserData.getUser();
-        this.setState({
-            budget: user.remainingBudget,
-            suggestedRecipes: user.getSuggestedRecipes(),
-            samplePantry: user.getSampleIngredients(),
-        });
-    }
-
     constructor() {
         super();
+        this.state = {budget: 0, suggestedRecipes: []}
+    }
+
+    componentWillMount() {
+        var user = UserData.getUser();
+        var randomRecipes = {queue: [1, 2, 3, 4]};
+        /*fetch('http://preppy-dev.appspot.com/recipe/queue', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ randomRecipes })
+        }).then(res => res.json()).then(recipes => {
+                alert(JSON.stringify(recipes));
+                this.setState({
+                    budget: user.remainingBudget,
+                    suggestedRecipes: recipes
+                });
+            });*/
+        
     }
 
     render() {
@@ -40,8 +54,9 @@ export default class Dashboard extends Component {
             budget = 0;
         }
 
-        const recipeButtons = this.state.suggestedRecipes.map((recipe) =>
-            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.rid} />);
+        var recipeButtons = this.state.suggestedRecipes.map((recipe) =>
+            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.id}/>
+        );
 
         return(
             <View style={dashboardStyles.dashboardMain}>

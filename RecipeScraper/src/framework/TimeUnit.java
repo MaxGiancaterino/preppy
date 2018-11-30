@@ -3,7 +3,7 @@ package framework;
 import org.json.JSONObject;
 
 public class TimeUnit {
-	public String units = "";
+	public String units = "min";
 	public int count = 0;
 	
 	public JSONObject getJSON() {
