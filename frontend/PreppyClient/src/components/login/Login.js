@@ -25,10 +25,22 @@ export default class Login extends Component {
 			username: this.state.username,
 			password: this.state.password
 		}
-		axios.post('http://preppy-dev.appspot.com/user/login', { credentials })
-			.then(res => {
-				axios.post('http://preppy-dev.appspot.com/account/' + res.uid, {})
-				.then(res => {
+		fetch('http://preppy-dev.appspot.com/user/login', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ credentials })
+        }).then(res => {
+        	fetch('http://preppy-dev.appspot.com/account/' + res.uid, {
+	            method: 'POST',
+	            headers: {
+	                Accept: 'application/json',
+	                'Content-Type': 'application/json'
+	            },
+	            body: JSON.stringify({ })
+        	}).then(res => {
 					UserData.setUser(res).then(() => {
 						this.props.navigation.navigate("Dashboard");
 					}).catch((error) => {

@@ -21,8 +21,13 @@ export default class RecipePage extends Component {
 
     componentWillMount() {
         var rid = this.props.navigation.getParam("recipeId", -1);
-        axios.get("http://preppy-dev.appspot.com/recipe/" + rid)
-            .then(res => { 
+        fetch("http://preppy-dev.appspot.com/recipe/" + rid, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => { 
                 this.setState({
                     recipe: res,
                     recipeId : rid,

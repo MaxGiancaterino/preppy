@@ -24,8 +24,14 @@ export default class Dashboard extends Component {
     componentWillMount() {
         var user = UserData.getUser();
         var randomRecipes = [5, 29, 500, 969];
-        axios.post("http://preppy-dev.appspot.com/recipe/queue", { randomRecipes })
-            .then(recipes => {
+        fetch('http://preppy-dev.appspot.com/recipe/queue', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ randomRecipes })
+        }).then(recipes => {
                 this.setState({
                     budget: user.remainingBudget,
                     suggestedRecipes: recipes

@@ -34,8 +34,14 @@ export default class CreateAccount extends Component {
             password: this.state.password,
             displayName: this.state.displayName
         };
-        axios.post('http://preppy-dev.appspot.com/user', { user })
-            .then((res) => {
+        fetch('http://preppy-dev.appspot.com/user', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ user })
+        }).then((res) => {
                 UserData.setUser(res).then(() => {
                     this.props.navigation.navigate("Dashboard");
                 });
