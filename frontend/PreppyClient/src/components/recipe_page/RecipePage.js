@@ -18,8 +18,9 @@ export default class RecipePage extends Component {
     }
 
     componentWillMount() {
-        var rid = this.props.navigation.getParam("recipeId", -1);
-        fetch("http://preppy-dev.appspot.com/recipe/" + rid, {
+        const recipe = this.props.navigation.getParam("recipe", new Recipe());
+        const rid = this.props.navigation.getParam("recipeId", -1);
+        /*fetch("http://preppy-dev.appspot.com/recipe/" + rid, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -31,14 +32,19 @@ export default class RecipePage extends Component {
                     recipeId : rid,
                 });
             });
+        */
+        this.setState({
+            recipeId: rid,
+            recipe: recipe,
+        });
 
     }
 
     render() {
         const recipe = this.state.recipe;
 
-        const uriObject = {uri: recipe.imgUrl};
-        const dishImage = recipe.imgUrl ?
+        const uriObject = {uri: recipe.imageUrl};
+        const dishImage = recipe.imageUrl ?
             <View style={recipePageStyles.imageContainer}>
                 <Image 
                     source={uriObject}
@@ -52,7 +58,7 @@ export default class RecipePage extends Component {
             <RecipeItem itemText={ingredient} key={iKey++}/>
         );
         var sKey = 0;
-        const steps = this.state.recipe.preparation.map(step => 
+        const steps = this.state.recipe.prepSteps.map(step => 
             <RecipeItem itemText={step} key={sKey++}/>
         );
 
@@ -62,7 +68,7 @@ export default class RecipePage extends Component {
                     style={recipePageStyles.recipeScroll}
                     showsVerticalScrollIndicator="false"
                 >
-                    <Text style={recipePageStyles.recipeTitle}>{recipe.name}</Text>
+                    <Text style={recipePageStyles.recipeTitle}>{recipe.recipeName}</Text>
                     {dishImage}
                     <Text style={recipePageStyles.sectionTitle}>Ingredients</Text>
                     {ingredients}

@@ -13,7 +13,6 @@ export default class Profile extends Component {
         this.setState({
             avatar: null,
             displayName: "",
-            username: "",
             email: "",
             weeklyBudget: 0,
         });
@@ -22,8 +21,7 @@ export default class Profile extends Component {
         if (user != null) {
             this.setState({
                 avatar:        user.avatar,
-                displayName: user.displayName,
-                username:      user.username,
+                displayName:   user.displayName,
                 email:         user.email,
                 weeklyBudget:  user.weeklyBudget,
             });
@@ -59,12 +57,10 @@ export default class Profile extends Component {
                     <Text style={profileStyles.profileName}>{this.state.displayName}</Text>
                     <View style={profileStyles.profileInfoContainer}>
                         <View style={profileStyles.profileInfoLabels}>
-                            <Text style={profileStyles.profileLabelText}>Username:</Text>
                             <Text style={profileStyles.profileLabelText}>Email:</Text>
                             <Text style={profileStyles.profileLabelText}>Weekly Budget:</Text>
                         </View>
                         <View style={profileStyles.profileInfoValues}>
-                            <Text style={profileStyles.profileValueText}>{this.state.username}</Text>
                             <Text style={profileStyles.profileValueText}>{this.state.email}</Text>
                             <Text style={profileStyles.profileValueText}>{this.formatToMoney(this.state.weeklyBudget)}</Text>
                         </View>

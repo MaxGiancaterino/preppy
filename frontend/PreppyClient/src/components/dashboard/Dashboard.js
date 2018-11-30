@@ -28,8 +28,8 @@ export default class Dashboard extends Component {
 
     componentWillMount() {
         var user = UserData.getUser();
-        var randomRecipes = {queue: [1, 2, 3, 4]};
-        /*fetch('http://preppy-dev.appspot.com/recipe/queue', {
+        /*var randomRecipes = {queue: [1, 2, 3, 4]};
+        fetch('http://preppy-dev.appspot.com/recipe/queue', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -43,7 +43,10 @@ export default class Dashboard extends Component {
                     suggestedRecipes: recipes
                 });
             });*/
-        
+        this.setState({
+            budget: user.remainingBudget,
+            suggestedRecipes: user.getSuggestedRecipes()
+        });
     }
 
     render() {
@@ -54,7 +57,7 @@ export default class Dashboard extends Component {
         }
 
         var recipeButtons = this.state.suggestedRecipes.map((recipe) =>
-            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.id}/>
+            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.rid}/>
         );
 
         return(
