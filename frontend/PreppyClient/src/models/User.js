@@ -18,6 +18,14 @@ export default class User {
         return [Recipe.getSampleRecipe(0), Recipe.getSampleRecipe(1)];
     }
 
+    getUpcomingMeals(amount) {
+        return [Recipe.getSampleRecipe(0)];
+    }
+
+    getFavoritedRecipes() {
+        return [Recipe.getSampleRecipe(1)];
+    }
+
     getSampleIngredients() {
         return Ingredient.getSampleIngredients();
     }
