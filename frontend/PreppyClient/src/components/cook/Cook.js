@@ -4,6 +4,7 @@ import {Text, View, TouchableOpacity, Button, ScrollView} from 'react-native';
 import {cookStyles} from './CookStyles';
 import SuggestedDish from './SuggestedDish';
 import RequiredIngredient from './RequiredIngredient';
+import Timer from './Timer';
 
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
@@ -43,6 +44,10 @@ export default class Cook extends Component {
         else {
             this.setState({phase: this.state.phase + 1});
         }
+
+        if(this.timer){
+            this.timer.resetTimer();
+        }
     }
 
     goBackStep = () => {
@@ -51,6 +56,10 @@ export default class Cook extends Component {
         }
         else {
             this.setState({phase: this.state.phase - 1});
+        }
+
+        if(this.timer){
+            this.timer.resetTimer();
         }
     }
 
@@ -152,8 +161,14 @@ export default class Cook extends Component {
                         </View>
                     </TouchableOpacity>
 
+                    <View>
+                        <Timer ref={timer => {this.timer = timer}}/>
+                    </View>
+
                     <Text style={cookStyles.cookTitle}>{"Step " + (this.state.step + 1)}</Text>
-                    <Text>{this.state.recipe.prepSteps[this.state.step]}</Text>
+                    <Text style={cookStyles.recipeStepText}>
+                        {this.state.recipe.prepSteps[this.state.step]}
+                    </Text>
 
                     <TouchableOpacity onPress={finished ? this.finishCooking : this.progressPhase}>
                         <View style={cookStyles.cookButtonActive}>
