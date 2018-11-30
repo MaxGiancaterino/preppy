@@ -14,7 +14,7 @@ export default class CreateAccount extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
+            email: "",
             phoneNumber: 0,
             password: "",
             displayName: "",
@@ -28,18 +28,19 @@ export default class CreateAccount extends Component {
 
     create_account() {
         const user = {
-            email: this.state.username,
+            email: this.state.email,
             phoneNumber: this.state.phoneNumber,
             password: this.state.password,
             displayName: this.state.displayName
         };
+        //alert(JSON.stringify(user));
         fetch('http://preppy-dev.appspot.com/user', {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ user })
+            body: JSON.stringify(user)
         }).then((res) => {
                 UserData.setUser(res).then(() => {
                     this.props.navigation.navigate("Dashboard");
@@ -66,28 +67,28 @@ export default class CreateAccount extends Component {
 
                     <View style={createAccountStyles.inputBox}>
                         <TextInput style={createAccountStyles.input}
-                            onChangeText={(username) => this.setState({email})}
+                            onChangeText={(username) => this.setState({email: username})}
                             placeholder='Email'
                         />
                     </View>
 
                     <View style={createAccountStyles.inputBox}>
                         <TextInput style={createAccountStyles.input}
-                            onChangeText={(password) => this.setState({password})}
+                            onChangeText={(password) => this.setState({password: password})}
                             placeholder='Password'
                         />
                     </View>
 
                     <View style={createAccountStyles.inputBox}>
                         <TextInput style={createAccountStyles.input}
-                            onChangeText={(username) => this.setState({phoneNumber})}
+                            onChangeText={(username) => this.setState({phoneNumber: username})}
                             placeholder='Phone number'
                         />
                     </View>
 
                     <View style={createAccountStyles.inputBox}>
                         <TextInput style={createAccountStyles.input}
-                            onChangeText={(username) => this.setState({displayName})}
+                            onChangeText={(username) => this.setState({displayName: username})}
                             placeholder='Full name'
                         />
                     </View>

@@ -14,32 +14,32 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        	username: "",
+        	email: "",
        		password: "",
         }
     }
 
 	submit() {
 		var credentials = {
-			username: this.state.username,
+			email: this.state.email,
 			password: this.state.password
 		}
+        //alert(JSON.stringify(credentials))
 		fetch('http://preppy-dev.appspot.com/user/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ credentials })
-        }).then(res => {
-        	fetch('http://preppy-dev.appspot.com/account/' + res.uid, {
-	            method: 'POST',
+            body: JSON.stringify(credentials)
+        }).then(res => res.json()).then(res => {
+        	fetch('http://preppy-dev.appspot.com/account/' + res.user.uid, {
+	            method: 'GET',
 	            headers: {
 	                Accept: 'application/json',
 	                'Content-Type': 'application/json'
 	            },
-	            body: JSON.stringify({ })
-        	}).then(res => {
+        	}).then(res => res.json()).then(res => {
 					UserData.setUser(res).then(() => {
 						this.props.navigation.navigate("Dashboard");
 					}).catch((error) => {
@@ -64,13 +64,13 @@ export default class Login extends Component {
     			<View style={loginStyles.formContainer}>
  					<View style={loginStyles.inputBox}>
  						<TextInput style={loginStyles.input}
-		    				onChangeText={(username) => this.setState({username})}
+		    				onChangeText={(email) => this.setState({email: email})}
 		    				placeholder='Email'
 		    			/>
     				</View>
     				<View style={loginStyles.inputBox}>
  						<TextInput style={loginStyles.input}
-		    				onChangeText={(password) => this.setState({password})}
+		    				onChangeText={(password) => this.setState({password: password})}
 		    				placeholder='Password'
 		    			/>
     				</View>
