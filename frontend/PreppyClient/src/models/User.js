@@ -12,6 +12,7 @@ export default class User {
         this.weeklyBudget = userData.hasOwnProperty("weeklyBudget") ? userData.weeklyBudget : 0;
         this.remainingBudget = userData.hasOwnProperty("remainingBudget") ? userData.remainingBudget : 0;
         this.cookingQueue = userData.hasOwnProperty("cookingQueue") ? userData.cookingQueue : [-1];
+        this.recipes = [];
     }
 
     getSuggestedRecipes() {
@@ -19,7 +20,7 @@ export default class User {
     }
 
     getUpcomingMeals(amount) {
-        return [Recipe.getSampleRecipe(0)];
+        return this.recipes;
     }
 
     getFavoritedRecipes() {

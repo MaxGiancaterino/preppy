@@ -1,4 +1,4 @@
-/*export default class Recipe {
+export default class Recipe {
     constructor() {
         this.id = -1;
         this.name="";
@@ -13,7 +13,7 @@
         this.rating = -1;
         this.source = "";
     }
-}*/
+}/*
 export default class Recipe {
 
     constructor() {
@@ -81,4 +81,4 @@ export default class Recipe {
         }
         return sampleRecipe;
     }
-}
+}*/

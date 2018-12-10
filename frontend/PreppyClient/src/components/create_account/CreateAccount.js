@@ -33,7 +33,6 @@ export default class CreateAccount extends Component {
             password: this.state.password,
             displayName: this.state.displayName
         };
-        //alert(JSON.stringify(user));
         fetch('http://preppy-dev.appspot.com/user', {
             method: 'POST',
             headers: {
@@ -41,8 +40,8 @@ export default class CreateAccount extends Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(user)
-        }).then((res) => {
-                UserData.setUser(res).then(() => {
+        }).then(res => res.json()).then(resp => {
+                UserData.setUser(resp).then(() => {
                     this.props.navigation.navigate("Dashboard");
                 });
             });

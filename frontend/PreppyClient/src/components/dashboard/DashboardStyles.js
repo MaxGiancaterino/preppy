@@ -91,8 +91,8 @@ export const dashboardStyles = StyleSheet.create({
         paddingBottom: 15,
     },
     cookButton: {
-        width: "50%",
-        height: 250,
+        width: "100%",
+        height: 150,
         borderLeftWidth: 1,
         borderLeftColor: "#777777",
     },
@@ -109,7 +109,7 @@ export const dashboardStyles = StyleSheet.create({
     },
     pantryButton: {
         width: "100%",
-        height: 100,
+        height: 150,
         borderBottomWidth: 1,
         borderBottomColor: "#777777",
     },

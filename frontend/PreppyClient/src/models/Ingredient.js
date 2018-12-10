@@ -1,10 +1,9 @@
 export default class Ingredient {
 
     constructor() {
-        this.name = "";
-        this.calories = 0;
-        this.price = 0;
-        this.quantity = 0;
+        this.ingredient = "";
+        this.unit = "";
+        this.amount = "";
     }
 
     //populates pantry page with ingredients 
