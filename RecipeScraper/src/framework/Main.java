@@ -135,7 +135,7 @@ public class Main {
 								continue;
 							}
 							
-							System.out.println("thread " + threadNum + " done parsing recipe " + indexStr);
+							//System.out.println("thread " + threadNum + " done parsing recipe " + indexStr);
 							Recipe recipe = HTMLParser.parseAllrecipesHTML(doc);
 							recipes.add(recipe);
 						}
@@ -154,36 +154,11 @@ public class Main {
 				}
 			}
 			
-			// OLD PARSER CODE
-			/*
-			for (int i = startingIndex; i < endingIndex; i++) {
-				
-				// convert the current ID to a string, and pad it with 0s
-				String indexStr = Integer.toString(i);
-				while (indexStr.length() < 6) {
-					indexStr = "0" + indexStr;
-				}
-				
-				// open the file, convert to document
-				Document doc = HTTPInterfacer.loadHTML("recipecache/" + indexStr + ".html");
-				if (doc == null) { // if this recipe hasn't been downloaded
-					continue;
-				}
-				System.out.println(indexStr);
-				Recipe recipe = HTMLParser.parseAllrecipesHTML(doc);
-				recipes.add(recipe);
-				
-				// print progress at a milestone
-				if (i % 1000 == 0) {
-					System.out.println(((double)i / (double)numToLoad) * 100.0 + "% done parsing");
-				}
-			}
-			*/
-			
 			// write all the recipes
 			System.out.println(recipes.size() + " RECIPES PARSED");
 			HTMLParser.writeRecipeJSONs(recipes);
 			HTMLParser.writeAbridgedJSON(recipes);
+			HTMLParser.writeMisc(recipes);
 		}
 	}
 }

@@ -3,7 +3,10 @@ package framework;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map.Entry;
 
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
@@ -264,6 +267,33 @@ public class HTMLParser {
 		try {
 			PrintWriter writer = new PrintWriter("out/recipesSummary.json", "UTF-8");
 			writer.println(parentObj.toString(4));
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writeMisc(List<Recipe> recipes) {
+		// gather all ingredient strings
+		HashMap<String, Integer> ingredStrings = new HashMap<String, Integer>();
+		for (Recipe r : recipes) {
+			for (IngredientListing i : r.ingredients) {
+				if (ingredStrings.containsKey(i.ingID)) {
+					ingredStrings.put(i.ingID, ingredStrings.get(i.ingID) + 1);
+				} else {
+					ingredStrings.put(i.ingID, 1);
+				}
+			}
+		}
+
+		// write to file
+		try {
+			PrintWriter writer = new PrintWriter("out/ingredientList.txt", "UTF-8");
+			for (Entry<String, Integer> e : ingredStrings.entrySet()) {
+				writer.println(e.getValue() + " : " + e.getKey());
+			}
 			writer.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
