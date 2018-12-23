@@ -3,7 +3,7 @@ package framework;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
@@ -222,7 +222,7 @@ public class HTMLParser {
 		return ret;
 	}
 	
-	public static void writeRecipeJSONs(ArrayList<Recipe> recipes) {
+	public static void writeRecipeJSONs(List<Recipe> recipes) {
 		// for each recipe
 		JSONObject parentObj = new JSONObject();
 		for (Recipe r : recipes) {
@@ -236,6 +236,33 @@ public class HTMLParser {
 		// write the JSON to file
 		try {
 			PrintWriter writer = new PrintWriter("out/recipes.json", "UTF-8");
+			writer.println(parentObj.toString(4));
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writeAbridgedJSON(List<Recipe> recipes) {
+		// for each recipe
+		JSONObject parentObj = new JSONObject();
+		for (Recipe r : recipes) {
+			// create an abridged JSON for this recipe
+			JSONObject rec = new JSONObject();
+			rec.put("name", r.name);
+			rec.put("prepTime", r.prepTime.getJSON());
+			rec.put("cookTime", r.cookTime.getJSON());
+			rec.put("imgURL", r.imgURL);
+			
+			// add this JSON to the parent
+			parentObj.accumulate("recipes", rec);
+		}
+		
+		// write the JSON to file
+		try {
+			PrintWriter writer = new PrintWriter("out/recipesSummary.json", "UTF-8");
 			writer.println(parentObj.toString(4));
 			writer.close();
 		} catch (FileNotFoundException e) {
