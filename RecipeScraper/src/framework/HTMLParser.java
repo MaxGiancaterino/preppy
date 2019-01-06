@@ -300,6 +300,19 @@ public class HTMLParser {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+
+		// write common units
+		try {
+			PrintWriter writer = new PrintWriter("out/unitList.txt", "UTF-8");
+			for (Entry<String, Integer> e : IngredientListing.commonUnits.entrySet()) {
+				writer.println(e.getValue() + " : " + e.getKey());
+			}
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

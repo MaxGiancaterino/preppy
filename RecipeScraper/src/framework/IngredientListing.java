@@ -1,23 +1,44 @@
 package framework;
 
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 import org.json.JSONObject;
 
 public class IngredientListing {
+	public static HashMap<String, Integer> commonUnits = new HashMap<String, Integer>();
+	
+	public static HashMap<String, String> translations = new HashMap<String, String>();
+	
+	static {
+		translations.put("bread flour", "all-purpose flour");
+		translations.put("salted butter", "butter");
+		translations.put("dijon-style mustard", "dijon mustard");
+		translations.put("egg white", "egg");
+		translations.put("egg yolk", "egg");
+		translations.put("kosher salt", "salt");
+		translations.put("extra virgin olive oil", "olive oil");
+	}
+	
 	public static String[] ingredUnits = {
 			"cup",
 	        "cups",
-	        "ounce",
-	        "ounces",
 	        "tablespoon",
 	        "tablespoons",
+	        "teaspoon",
+	        "teaspoons",
+	        "ounce",
+	        "ounces",
 	        "pinch",
 	        "clove",
 	        "pound",
 	        "pounds",
-	        "teaspoon",
-	        "teaspoons",
 	        "cube",
-	        "cubes"
+	        "cubes",
+	        "pint",
+	        "pints",
+	        "quart",
+	        "quarts"
 	};
 	
 	public static String[] selfUnits = {
@@ -54,6 +75,12 @@ public class IngredientListing {
 			"grated",
 			"beaten",
 			"drained",
+			"chilled",
+			"packed",
+			"cubed",
+			"beaten",
+			"thawed",
+			"sifted",
 			
 			// sizes
 			"large",
@@ -74,7 +101,24 @@ public class IngredientListing {
 			
 			// freshness
 			"fresh",
-			"dried"
+			//"dried",
+			
+			// misc
+			"low fat",
+			"reduced fat",
+			"very ripe",
+			"ripe",
+			"at room temperature",
+			"room temperature",
+			"cooked",
+			"cooled",
+			"for frying",
+			"(for spreading)",
+			"or as needed",
+			"as needed",
+			"large",
+			"canned",
+			"cut into small pieces"
 	};
 	
 	public double quantity = 0;
@@ -125,6 +169,11 @@ public class IngredientListing {
 		// clean input
 		ingredString = ingredString.trim();
 		ingredString = ingredString.toLowerCase();
+		
+		// replace all cognates
+		for (Entry<String, String> e : translations.entrySet()) {
+			ingredString.replaceAll(e.getKey(), e.getValue());
+		}
 		
 		// check for optional
 		if (ingredString.contains("(optional)")) {
@@ -191,6 +240,12 @@ public class IngredientListing {
 		if (unit.isEmpty()) {
 			ret.ingredient = ingredString;
 			return ret;
+		} else {
+			if (commonUnits.containsKey(unit)) {
+				commonUnits.put(unit, commonUnits.get(unit) + 1);
+			} else {
+				commonUnits.put(unit, 1);
+			}
 		}
 		
 		// try getting the quantity
@@ -221,7 +276,7 @@ public class IngredientListing {
 		for (int i = unitIndex + 1; i < tokens.length; i++) {
 			boolean matched = false;
 			for (String s : descriptors) {
-				if (tokens[i].contains(s)) {
+				if (tokens[i].equals(s)) {
 					matched = true;
 					break;
 				}
