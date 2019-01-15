@@ -1,13 +1,13 @@
 11 : pinch
 305 : teaspoons
-5 : ounces
 299 : tablespoons
+5 : ounces
 1 : pint
 537 : teaspoon
 164 : tablespoon
 3 : quart
 1 : clove
-199 : unit
+241 : unit
 4 : pound
 550 : cups
-983 : cup
+982 : cup

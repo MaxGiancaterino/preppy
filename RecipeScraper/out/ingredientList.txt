@@ -1,31 +1,31 @@
-328 : 
+112 : 
 1 : mayonnaise
 1 : seven grain cereal
-8 : blueberries
+217 : egg
+9 : blueberries
 3 : pumpkin pie spice
 12 : rye flour
 1 : raspberries
 3 : butter flavored extract
 2 : sweet potato puree
 7 : unsweetened cocoa powder
-1 : apples - peeled cored and
-1 : pudding mix
 1 : crushed garlic
 20 : olive oil
 1 : dry sherry
 3 : dried basil
-1 : beer
+2 : beer
 1 : coffee flavored liqueur
 5 : dried currants
 13 : unbleached all-purpose flour
 7 : flaked coconut
-96 : milk
+99 : milk
 1 : evaporated milk
 1 : candied pineapple
 3 : garlic salt
 3 : frozen blueberries dry pack
-3 : unsalted butter
-30 : shortening
+5 : unsalted butter
+1 : wheat barley nugget cereal )
+31 : shortening
 1 : mini semi-sweet chocolate chips
 2 : candied mixed fruit peel
 1 : stone cornmeal
@@ -41,7 +41,7 @@
 2 : parsley
 1 : creamy peanut butter
 2 : amaranth flour
-1 : lard
+2 : lard
 1 : vanilla ice cream
 1 : asiago cheese
 3 : carrots
@@ -52,16 +52,13 @@
 2 : sunflower seed oil
 291 : salt
 1 : maple flavored syrup
-1 : unsalted butter at room temperature
 1 : crushed pineapple
 2 : cake flour
-1 : room temperature beer
 1 : maple flavored extract
 1 : blanched slivered almonds
 75 : bread flour
 1 : whole kernel corn
 2 : powdered buttermilk
-3 : vegetable oil for frying
 1 : paprika
 8 : cheddar cheese
 1 : anise seed
@@ -76,15 +73,12 @@
 1 : green chile peppers
 2 : skim milk
 1 : pizza sauce
-1 : unsalted butter and
-24 : buttermilk
-109 : vegetable oil
+112 : vegetable oil
+25 : buttermilk
 1 : rum
 5 : cottage cheese
 1 : coarse kosher salt
 1 : tangerine zest
-1 : frozen corn kernels and
-5 : white
 1 : eggnog
 2 : tomato juice
 1 : jalapeno pepper
@@ -93,24 +87,24 @@
 1 : canola oil
 3 : sun-dried tomatoes
 111 : baking soda
-1 : and sweet potatoes
-1 : all-purpose flour or as needed
 1 : italian seasoning
 11 : molasses
 128 : baking powder
 3 : dried apricots
-3 : milk (110 degrees f/45 degrees c)
 1 : monterey jack cheese
 2 : rosemary
 1 : rhubarb
 5 : mozzarella cheese
 1 : plain yogurt
+1 : roasted marinated red bell peppers
 1 : pepperjack cheese
 14 : confectioners' sugar
+1 : lemonpudding mix
 2 : sweetened dried cranberries
 1 : vitamin c powder
 18 : orange juice
 82 : cinnamon
+1 : sweet potatoes
 16 : pecans
 1 : scalded milk
 1 : mace
@@ -118,22 +112,22 @@
 4 : cream cheese
 2 : sunflower seeds
 1 : broccoli
-16 : zucchini
-1 : amish friendship bread starter (see footnote for recipe link)
+17 : zucchini
 1 : light cream
 1 : dried cranberries
 57 : vanilla extract
+1 : apple
+1 : lemon
 1 : walnuts toasted
 7 : self-rising flour
 6 : currants
 35 : honey
 11 : poppy seeds
-1 : shortening for frying
 68 : walnuts
 3 : light brown sugar
-1 : lard and cut into pieces
 1 : cherry jam
 1 : crushed red pepper flakes
+1 : lemoncake mix
 3 : dried parsley
 2 : almonds
 3 : black pepper
@@ -143,47 +137,41 @@
 1 : wheat bran
 1 : flaked coconut toasted
 1 : sour milk
+1 : apples - peeled cored
 22 : orange zest
 2 : dried rosemary
 2 : green onions
 1 : cream of tartar
 2 : lemon extract
 1 : dried marjoram
-1 : blueberries rinsed and
 1 : vanilla sugar
 1 : flax seed
 1 : butter or margarine
 3 : instant powdered milk
+1 : amish friendship bread starter
 2 : cranberries
-219 : all-purpose flour
-5 : yolks
+220 : all-purpose flour
 1 : whole bran cereal
 2 : maraschino cherries
-1 : dates
+6 : dates
 1 : applesauce
 5 : candied cherries
-2 : yolk
-73 : water (110 degrees f/45 degrees c)
-1 : water (100 to 110 degrees)
+1 : potatopeeled
 2 : oat bran
 13 : dry milk powder
 5 : lemon juice
 8 : semisweet chocolate chips
 2 : persimmon pulp
-1 : butter (for spreading)
 3 : dried rosemary crushed
 1 : dijon-style prepared mustard
-1 : buttermilk (105 to 115 degrees f)
 1 : brown rice flour
 2 : solid pack pumpkin puree
 2 : pumpkin puree
 3 : jalapeno peppers
 7 : caraway seed
 1 : fruit preserves
-3 : butter room temperature
 1 : heavy cream
 3 : dried oregano
-1 : roasted marinated red bell peppers and
 1 : self-rising corn meal mix
 31 : whole wheat flour
 1 : peanut butter
@@ -192,8 +180,8 @@
 2 : cracked wheat
 2 : dried onion
 6 : sesame seeds
+2 : onionsoup mix
 1 : cayenne pepper
-1 : water (100 degrees f/38 degrees c)
 7 : sharp cheddar cheese
 22 : nutmeg
 5 : sourdough starter
@@ -203,50 +191,44 @@
 1 : corn syrup
 1 : pork sausage
 1 : dark corn syrup
-4 : onion
+9 : onion
 1 : egg substitute
 1 : candied mixed fruit
-9 : whites
 3 : cardamom
 1 : buttermilk self-rising cornmeal mix
-1 : kalamata olives and
 2 : dill seed
 1 : raspberry jam
 1 : romano cheese
 3 : strawberries
 1 : blanched almonds
 1 : apricot jam
-1 : mangos peeled seeded and
-1 : banana
+9 : banana
 1 : whole kernel corn well
-5 : dates and
 3 : dry potato flakes
-1 : - peeled cored and
 2 : basil
 1 : rum flavored extract
 1 : semi-sweet chocolate squares
-1 : yolks room temperature
 1 : dried thyme
 1 : dark rye flour
 9 : cloves
-120 : water
-77 : margarine
+197 : water
+78 : margarine
 1 : nonfat plain yogurt
+1 : frozen corn kernels
 1 : crushed red pepper
 3 : ginger
 10 : lemon zest
 2 : instant potato flakes
 31 : raisins
 1 : apples
-1 : reduced fat margarine
 2 : pepperoni sausage
 1 : evaporated skim milk
+1 : mangos peeled seeded
 1 : prepared mincemeat pie filling
 2 : crushed pineapple with juice
 5 : bread machine yeast
 2 : corn oil
 1 : cassava
-1 : butter and
 2 : hazelnuts
 18 : cornmeal
 5 : wheat germ
@@ -254,17 +236,17 @@
 2 : buttermilk baking mix
 1 : sesame seeds toasted
 1 : garlic
-89 : butter
+94 : butter
 2 : onion powder
 4 : kosher salt
 3 : vital wheat gluten
+2 : orange
 1 : fennel seed
 4 : quick cooking oats
 1 : real maple syrup
-1 : wheat and barley nugget cereal (e.g. grape-nuts(tm))
-1 : cake mix
 1 : graham cracker crumbs
 1 : biscuit baking mix
-2 : water (110 degrees f)
 1 : raisin bran cereal
 6 : pumpkin
+1 : kalamata olives
+1 : carrot

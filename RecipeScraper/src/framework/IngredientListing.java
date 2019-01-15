@@ -43,13 +43,28 @@ public class IngredientListing {
 	
 	public static String[] selfUnits = {
 			"egg",
-			"eggs",
 			"apple",
-			"apples",
 			"orange",
-			"oranges",
 			"lemon",
-			"lemons"
+			"chive",
+			"carrot",
+			"banana",
+			"onion",
+			"zucchini",
+			"potato"
+	};
+	
+	public static String[] descPhrases = {
+			"low fat",
+			"reduced fat",
+			"very ripe",
+			"at room temperature",
+			"room temperature",
+			"for frying",
+			"(for spreading)",
+			"or as needed",
+			"as needed",
+			"cut into small pieces"
 	};
 	
 	public static String[] descriptors = {
@@ -81,6 +96,8 @@ public class IngredientListing {
 			"beaten",
 			"thawed",
 			"sifted",
+			"rinsed",
+			"separated",
 			
 			// sizes
 			"large",
@@ -101,29 +118,17 @@ public class IngredientListing {
 			
 			// freshness
 			"fresh",
-			//"dried",
+			"ripe",
 			
 			// misc
-			"low fat",
-			"reduced fat",
-			"very ripe",
-			"ripe",
-			"at room temperature",
-			"room temperature",
-			"cooked",
-			"cooled",
-			"for frying",
-			"(for spreading)",
-			"or as needed",
-			"as needed",
 			"large",
 			"canned",
-			"cut into small pieces"
+			"cooked",
+			"cooled"
 	};
 	
 	public double quantity = 0;
 	public String unit = "";
-	public String ingredient = "";
 	public boolean optional = false;
 	
 	// DEBUG USE
@@ -132,7 +137,6 @@ public class IngredientListing {
 	
 	public JSONObject getJSON() {
 		JSONObject rec = new JSONObject();
-		rec.put("ingredient", ingredient);
 		rec.put("unit", unit);
 		rec.put("amount", quantity);
 		rec.put("optional", optional);
@@ -163,48 +167,79 @@ public class IngredientListing {
 		}
 	}
 	
-	public static IngredientListing parseIngredientListing(String ingredString) {
+	public static IngredientListing parseIngredientListing(String input) {
 		IngredientListing ret = new IngredientListing();
+		ret.raw = input;
+		
+		String processed = input;
 		
 		// clean input
-		ingredString = ingredString.trim();
-		ingredString = ingredString.toLowerCase();
+		processed = processed.trim();
+		processed = processed.toLowerCase();
+		processed = processed.replaceAll(",", "");
+		while (processed.contains("  ")) {
+			processed = processed.replaceAll("  ", " ");
+		}
 		
 		// replace all cognates
 		for (Entry<String, String> e : translations.entrySet()) {
-			ingredString.replaceAll(e.getKey(), e.getValue());
+			processed.replaceAll(e.getKey(), e.getValue());
 		}
 		
 		// check for optional
-		if (ingredString.contains("(optional)")) {
-			ingredString = ingredString.replace("(optional)", "");
-			while (ingredString.contains("  ")) {
-				ingredString = ingredString.replace("  ", " ");
+		if (processed.contains("(optional)")) {
+			processed = processed.replace("(optional)", "");
+			while (processed.contains("  ")) {
+				processed = processed.replace("  ", " ");
 			}
-			ingredString = ingredString.trim();
+			processed = processed.trim();
 			
 			ret.optional = true;
 		}
 		
-		// check for universal phrases
-		String universal = "";
-		if (ingredString.contains("to taste")) {
-			universal = "to taste";
+		// check for ambiguous amounts
+		String ambiguous = "";
+		if (processed.contains("to taste")) {
+			ambiguous = "to taste";
 		}
-		if (!universal.isEmpty()) {
-			ingredString = ingredString.replace(universal, "");
-			while (ingredString.contains("  ")) {
-				ingredString = ingredString.replace("  ", " ");
+		if (!ambiguous.isEmpty()) {
+			processed = processed.replace(ambiguous, "");
+			while (processed.contains("  ")) {
+				processed = processed.replace("  ", " ");
 			}
-			ingredString = ingredString.trim();
+			processed = processed.trim();
 			
-			ret.ingredient = ingredString;
-			ret.unit = universal;
+			ret.unit = ambiguous;
 			return ret;
 		}
 				
+		// check for and remove parentheticals
+		// TODO: capture quantity enclosed in parenthesis
+		while (processed.contains("(")) {
+			int startingIndex = processed.indexOf("(");
+			int endingIndex = processed.indexOf(")");
+			String parenthetical = processed.substring(startingIndex, endingIndex + 1);
+			
+			processed = processed.replace(parenthetical, "");
+			while (processed.contains("  ")) {
+				processed = processed.replace("  ", " ");
+			}
+			processed = processed.trim();
+		}
+		
+		// remove descriptive phrases
+		for (String s : descPhrases) {
+			if (processed.contains(s)) {
+				processed = processed.replace(s, "");
+			}
+			while (processed.contains("  ")) {
+				processed = processed.replace("  ", " ");
+			}
+			processed = processed.trim();
+		}
+		
 		// split into tokens
-		String[] tokens = ingredString.split(" ");
+		String[] tokens = processed.split(" ");
 		
 		// check each token
 		String unit = "";
@@ -223,10 +258,10 @@ public class IngredientListing {
 			
 			// check if this token matches an ingredient "item-unit"
 			for (String s : selfUnits) {
-				if (tokens[i].equals(s)) {
+				if (tokens[i].equals(s) || tokens[i].equals(s + "s")) {
 					unit = "unit";
 					unitIndex = i;
-					ret.ingredient = s;
+					ret.ingID = s;
 					break;
 				}
 			}
@@ -238,7 +273,6 @@ public class IngredientListing {
 		
 		// if the unit couldn't be identified
 		if (unit.isEmpty()) {
-			ret.ingredient = ingredString;
 			return ret;
 		} else {
 			if (commonUnits.containsKey(unit)) {
@@ -257,26 +291,25 @@ public class IngredientListing {
 			quantity = parseDouble(quantityString);
 		}
 		
-		if (quantity == -1.0) { // if the quantity could not be parsed
-			ret.ingredient = ingredString;
-		} else { // if the quantity was successfully parsed
+		if (quantity != -1.0) { // if the quantity was successfully parsed
 			ret.quantity = quantity;
 			if (unit.equals("unit")) {
 				ret.unit = "unit";
 			} else {
 				ret.unit = tokens[unitIndex];
 			}
-			for (int i = unitIndex + 1; i < tokens.length; i++) {
-				ret.ingredient += tokens[i] + " ";
-			}
-			ret.ingredient = ret.ingredient.trim();
+		}
+		
+		// if the unit type is "unit", we already have the ingredient's ID
+		if (ret.unit.equals("unit")) {
+			return ret;
 		}
 		
 		// remove descriptors to get the ingredient's ID
 		for (int i = unitIndex + 1; i < tokens.length; i++) {
 			boolean matched = false;
 			for (String s : descriptors) {
-				if (tokens[i].equals(s)) {
+				if (tokens[i].equals(s) || tokens[i].equals("and")) {
 					matched = true;
 					break;
 				}
@@ -288,9 +321,6 @@ public class IngredientListing {
 			}
 		}
 		ret.ingID = ret.ingID.trim();
-		
-		// set the ingredient's raw string
-		ret.raw = ingredString;
 		
 		return ret;
 	}
