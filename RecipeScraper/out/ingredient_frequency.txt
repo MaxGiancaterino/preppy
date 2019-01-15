@@ -1,0 +1,252 @@
+291 : salt
+282 : white sugar
+220 : all-purpose flour
+217 : egg
+197 : water
+128 : baking powder
+112 : vegetable oil
+112 : 
+111 : baking soda
+99 : milk
+94 : butter
+82 : cinnamon
+79 : active dry yeast
+78 : margarine
+75 : bread flour
+68 : walnuts
+57 : vanilla extract
+40 : brown sugar
+35 : honey
+31 : raisins
+31 : whole wheat flour
+31 : shortening
+25 : buttermilk
+22 : nutmeg
+22 : orange zest
+20 : olive oil
+18 : cornmeal
+18 : orange juice
+17 : zucchini
+16 : pecans
+14 : confectioners' sugar
+13 : dry milk powder
+13 : unbleached all-purpose flour
+12 : almond extract
+12 : rye flour
+11 : poppy seeds
+11 : sour cream
+11 : molasses
+11 : bananas
+10 : lemon zest
+9 : cloves
+9 : banana
+9 : onion
+9 : parmesan cheese
+9 : blueberries
+8 : semisweet chocolate chips
+8 : cheddar cheese
+7 : sharp cheddar cheese
+7 : caraway seed
+7 : self-rising flour
+7 : garlic powder
+7 : flaked coconut
+7 : unsweetened cocoa powder
+6 : pumpkin
+6 : sesame seeds
+6 : dates
+6 : currants
+6 : nonfat dry milk powder
+6 : allspice
+5 : wheat germ
+5 : bread machine yeast
+5 : sourdough starter
+5 : lemon juice
+5 : candied cherries
+5 : mozzarella cheese
+5 : baking mix
+5 : cottage cheese
+5 : golden raisins
+5 : unsalted butter
+5 : dried currants
+4 : quick cooking oats
+4 : kosher salt
+4 : rolled oats
+4 : cream cheese
+3 : vital wheat gluten
+3 : ginger
+3 : dry potato flakes
+3 : strawberries
+3 : cardamom
+3 : dried oregano
+3 : jalapeno peppers
+3 : dried rosemary crushed
+3 : instant powdered milk
+3 : black pepper
+3 : dried parsley
+3 : light brown sugar
+3 : dried apricots
+3 : sun-dried tomatoes
+3 : carrots
+3 : frozen blueberries dry pack
+3 : garlic salt
+3 : dried basil
+3 : butter flavored extract
+3 : pumpkin pie spice
+2 : orange
+2 : onion powder
+2 : buttermilk baking mix
+2 : virgin olive oil
+2 : hazelnuts
+2 : corn oil
+2 : crushed pineapple with juice
+2 : pepperoni sausage
+2 : instant potato flakes
+2 : basil
+2 : dill seed
+2 : fat free sour cream
+2 : onionsoup mix
+2 : dried onion
+2 : cracked wheat
+2 : pumpkin puree
+2 : solid pack pumpkin puree
+2 : persimmon pulp
+2 : oat bran
+2 : maraschino cherries
+2 : cranberries
+2 : lemon extract
+2 : green onions
+2 : dried rosemary
+2 : nonfat milk
+2 : almonds
+2 : sunflower seeds
+2 : sweetened dried cranberries
+2 : rosemary
+2 : tomato juice
+2 : skim milk
+2 : miniature semisweet chocolate chips
+2 : coconut milk
+2 : powdered buttermilk
+2 : cake flour
+2 : sunflower seed oil
+2 : lard
+2 : amaranth flour
+2 : parsley
+2 : candied mixed fruit peel
+2 : beer
+2 : sweet potato puree
+1 : carrot
+1 : kalamata olives
+1 : raisin bran cereal
+1 : biscuit baking mix
+1 : graham cracker crumbs
+1 : real maple syrup
+1 : fennel seed
+1 : garlic
+1 : sesame seeds toasted
+1 : cassava
+1 : prepared mincemeat pie filling
+1 : mangos peeled seeded
+1 : evaporated skim milk
+1 : apples
+1 : crushed red pepper
+1 : frozen corn kernels
+1 : nonfat plain yogurt
+1 : dark rye flour
+1 : dried thyme
+1 : semi-sweet chocolate squares
+1 : rum flavored extract
+1 : whole kernel corn well
+1 : apricot jam
+1 : blanched almonds
+1 : romano cheese
+1 : raspberry jam
+1 : buttermilk self-rising cornmeal mix
+1 : candied mixed fruit
+1 : egg substitute
+1 : dark corn syrup
+1 : pork sausage
+1 : corn syrup
+1 : white rice
+1 : candied lemon peel
+1 : cayenne pepper
+1 : half-and-half cream
+1 : peanut butter
+1 : self-rising corn meal mix
+1 : heavy cream
+1 : fruit preserves
+1 : brown rice flour
+1 : dijon-style prepared mustard
+1 : potatopeeled
+1 : applesauce
+1 : whole bran cereal
+1 : amish friendship bread starter
+1 : butter or margarine
+1 : flax seed
+1 : vanilla sugar
+1 : dried marjoram
+1 : cream of tartar
+1 : apples - peeled cored
+1 : sour milk
+1 : flaked coconut toasted
+1 : wheat bran
+1 : coconut extract
+1 : candied citron
+1 : lemoncake mix
+1 : crushed red pepper flakes
+1 : cherry jam
+1 : walnuts toasted
+1 : lemon
+1 : apple
+1 : dried cranberries
+1 : light cream
+1 : broccoli
+1 : mace
+1 : scalded milk
+1 : sweet potatoes
+1 : vitamin c powder
+1 : lemonpudding mix
+1 : pepperjack cheese
+1 : roasted marinated red bell peppers
+1 : plain yogurt
+1 : rhubarb
+1 : monterey jack cheese
+1 : italian seasoning
+1 : canola oil
+1 : clarified butter
+1 : jalapeno pepper
+1 : eggnog
+1 : tangerine zest
+1 : coarse kosher salt
+1 : rum
+1 : pizza sauce
+1 : green chile peppers
+1 : instant yeast
+1 : lecithin
+1 : slivered almonds
+1 : toasted almonds
+1 : anise seed
+1 : paprika
+1 : whole kernel corn
+1 : blanched slivered almonds
+1 : maple flavored extract
+1 : crushed pineapple
+1 : maple flavored syrup
+1 : chives
+1 : asiago cheese
+1 : vanilla ice cream
+1 : creamy peanut butter
+1 : pork
+1 : orange liqueur
+1 : peaches
+1 : apricot preserves
+1 : stone cornmeal
+1 : mini semi-sweet chocolate chips
+1 : wheat barley nugget cereal )
+1 : candied pineapple
+1 : evaporated milk
+1 : coffee flavored liqueur
+1 : dry sherry
+1 : crushed garlic
+1 : raspberries
+1 : seven grain cereal
+1 : mayonnaise

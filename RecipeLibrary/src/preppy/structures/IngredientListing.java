@@ -1,4 +1,4 @@
-package framework;
+package preppy.structures;
 
 import java.util.HashMap;
 import java.util.Map.Entry;
@@ -134,6 +134,16 @@ public class IngredientListing {
 	// DEBUG USE
 	public String raw = "";
 	public String ingID = "";
+	
+	public IngredientListing() {}
+	
+	public IngredientListing(JSONObject json) {
+		unit = json.getString("unit");
+		quantity = json.getDouble("amount");
+		optional = json.getBoolean("optional");
+		raw = json.getString("raw");
+		ingID = json.getString("ingID");
+	}
 	
 	public JSONObject getJSON() {
 		JSONObject rec = new JSONObject();

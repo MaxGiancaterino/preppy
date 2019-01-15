@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.jsoup.nodes.Document;
 
+import preppy.structures.Recipe;
+
 public class Main {
 	public static boolean DEBUG = true;
 	public static boolean PROGRESS = true;
@@ -137,6 +139,7 @@ public class Main {
 							
 							//System.out.println("thread " + threadNum + " done parsing recipe " + indexStr);
 							Recipe recipe = HTMLParser.parseAllrecipesHTML(doc);
+							recipe.recipeID = recipeNum;
 							recipes.add(recipe);
 						}
 					}

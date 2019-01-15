@@ -1,4 +1,5 @@
-package framework;
+package preppy.structures;
+
 
 import org.json.JSONObject;
 
