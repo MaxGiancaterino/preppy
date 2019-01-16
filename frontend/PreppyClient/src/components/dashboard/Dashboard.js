@@ -10,6 +10,7 @@ import RecommendedRecipe from './RecommendedRecipe';
 import {HeaderButton} from '../Header';
 
 import UserData from '../../UserData';
+import RecipeData from '../../interfaces/RecipeData';
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
 

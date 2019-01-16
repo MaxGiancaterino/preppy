@@ -16,7 +16,7 @@
 }*/
 export default class Recipe {
 
-    constructor() {
+    constructor(recipeJson) {
         this.rid = -1;
         this.recipeName="";
         this.ingredients = [];
@@ -25,6 +25,17 @@ export default class Recipe {
         this.numServings = 0;
         this.imageUrl = "";
         this.sourceUrl = "";
+
+        if (arguments.length > 0) {
+            this.rid = recipeJson.id;
+            this.recipeName = recipeJson.name;
+            this.ingredients = recipeJson.ingredients;
+            this.preSteps = recipeJson.preparation;
+            this.prepTime = recipeJson.cookTime.count;
+            this.numServings = recipeJson.numServings;
+            this.imageUrl = recipeJson.imgUrl;
+            this.sourceUrl = recipeJson.pageUrl;
+        }
     }
 
     static getSampleRecipe(number = 0) {
