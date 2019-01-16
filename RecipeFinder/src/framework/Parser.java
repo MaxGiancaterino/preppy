@@ -38,7 +38,7 @@ public class Parser {
 			recipes.add(new Recipe(o));
 		}
 		
-		return new ArrayList<Recipe>();
+		return recipes;
 	}
 	
 }

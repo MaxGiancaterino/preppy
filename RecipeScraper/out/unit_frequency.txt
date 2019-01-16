@@ -1,6 +1,6 @@
 983 : cup
+550 : cups
 537 : teaspoon
-535 : cups
 305 : teaspoons
 299 : tablespoons
 241 : unit
