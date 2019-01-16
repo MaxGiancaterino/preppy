@@ -1,7 +1,8 @@
 export default class Recipe {
-    constructor() {
+
+    constructor(recipeJson) {
         this.id = -1;
-        this.name="";
+        this.name= "";
         this.ingredients = [];
         this.preparation = [];
         this.imgUrl = "";
@@ -12,8 +13,25 @@ export default class Recipe {
         this.nutrition = [];
         this.rating = -1;
         this.source = "";
+
+        if (arguments.length > 0) {
+            this.id = recipeJson.id;
+            this.name= recipeJson.name;
+            this.ingredients = recipeJson.ingredients;
+            this.preparation = recipeJson.preparation;
+            this.imgUrl = recipeJson.imgUrl;
+            this.pageUrl = recipeJson.pageUrl;
+            this.cookTime = recipeJson.cookTime;
+            this.prepTime = recipeJson.prepTime;
+            this.numServings = recipeJson.numServings;
+            this.nutrition = recipeJson.nutrition;
+            this.rating = recipeJson.rating;
+            this.source = recipeJson.source;
+        }
     }
-}/*
+}
+
+/*
 export default class Recipe {
 
     constructor(recipeJson) {

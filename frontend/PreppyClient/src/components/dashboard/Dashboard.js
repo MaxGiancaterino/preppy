@@ -29,7 +29,6 @@ export default class Dashboard extends Component {
 
     componentWillMount() {
         var user = UserData.getUser();
-        alert(JSON.stringify(user));
         var randomRecipes = {queue: [15, 2, 3, 4]};
         fetch('http://preppy-dev.appspot.com/recipe/queue', {
             method: 'POST',
