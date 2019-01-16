@@ -4,11 +4,18 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map.Entry;
 
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import preppy.structures.*;
 
 public class HTMLParser {
 	
@@ -222,7 +229,7 @@ public class HTMLParser {
 		return ret;
 	}
 	
-	public static void writeRecipeJSONs(ArrayList<Recipe> recipes) {
+	public static void writeRecipeJSONs(List<Recipe> recipes) {
 		// for each recipe
 		JSONObject parentObj = new JSONObject();
 		for (Recipe r : recipes) {
@@ -233,7 +240,7 @@ public class HTMLParser {
 			parentObj.accumulate("recipes", rec);
 		}
 		
-		// write the JSON to file
+		// write cumulative JSON to file
 		try {
 			PrintWriter writer = new PrintWriter("out/recipes.json", "UTF-8");
 			writer.println(parentObj.toString(4));
@@ -243,6 +250,112 @@ public class HTMLParser {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+		
+		// write individual JSONs to file
+		for (Recipe r : recipes) {
+			JSONObject recipeObj = r.getJSON();
+			try {
+				PrintWriter writer = new PrintWriter("out/recipes_individual/" + r.recipeID + ".json");
+				writer.println(recipeObj.toString(4));
+				writer.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
+	public static void writeAbridgedJSON(List<Recipe> recipes) {
+		// for each recipe
+		JSONObject parentObj = new JSONObject();
+		for (Recipe r : recipes) {
+			// create an abridged JSON for this recipe
+			JSONObject rec = new JSONObject();
+			rec.put("name", r.name);
+			rec.put("prepTime", r.prepTime.getJSON());
+			rec.put("cookTime", r.cookTime.getJSON());
+			rec.put("imgURL", r.imgURL);
+			
+			// add this JSON to the parent
+			parentObj.accumulate("recipes", rec);
+		}
+		
+		// write the JSON to file
+		try {
+			PrintWriter writer = new PrintWriter("out/recipesSummary.json", "UTF-8");
+			writer.println(parentObj.toString(4));
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writeMisc(List<Recipe> recipes) {
+		// gather frequency of each ingredient
+		HashMap<String, Integer> ingredientFrequency = new HashMap<String, Integer>();
+		for (Recipe r : recipes) {
+			for (IngredientListing i : r.ingredients) {
+				if (ingredientFrequency.containsKey(i.ingID)) {
+					ingredientFrequency.put(i.ingID, ingredientFrequency.get(i.ingID) + 1);
+				} else {
+					ingredientFrequency.put(i.ingID, 1);
+				}
+			}
+		}
+		
+		// sort ingredient frequency entries
+		List<Entry<String, Integer>> ingredEntries = new ArrayList<Entry<String, Integer>>(ingredientFrequency.entrySet());
+		Collections.sort(ingredEntries, new Comparator<Entry<String, Integer>>() {
+			public int compare(Entry<String, Integer> e0, Entry<String, Integer> e1) {
+				if (e0.getValue() < e1.getValue())
+					return -1;
+				else if (e0.getValue() == e1.getValue())
+					return 0;
+				else
+					return 1;
+			}
+		});
+		Collections.reverse(ingredEntries);
+
+		// write to file
+		try {
+			PrintWriter writer = new PrintWriter("out/ingredient_frequency.txt", "UTF-8");
+			for (Entry<String, Integer> e : ingredEntries) {
+				writer.println(e.getValue() + " : " + e.getKey());
+			}
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		// sort unit frequency entries
+		List<Entry<String, Integer>> unitEntries = new ArrayList<Entry<String, Integer>>(IngredientListing.commonUnits.entrySet());
+		Collections.sort(unitEntries, new Comparator<Entry<String, Integer>>() {
+			public int compare(Entry<String, Integer> e0, Entry<String, Integer> e1) {
+				if (e0.getValue() < e1.getValue())
+					return -1;
+				else if (e0.getValue() == e1.getValue())
+					return 0;
+				else
+					return 1;
+			}
+		});
+		Collections.reverse(unitEntries);
+
+		// write common units
+		try {
+			PrintWriter writer = new PrintWriter("out/unit_frequency.txt", "UTF-8");
+			for (Entry<String, Integer> e : unitEntries) {
+				writer.println(e.getValue() + " : " + e.getKey());
+			}
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
 }

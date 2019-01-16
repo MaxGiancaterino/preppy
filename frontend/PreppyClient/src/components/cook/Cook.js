@@ -37,7 +37,7 @@ export default class Cook extends Component {
     }
 
     progressPhase = () => {
-        const totalSteps = this.state.recipe == null ? 0 : this.state.recipe.prepSteps.length;
+        const totalSteps = this.state.recipe == null ? 0 : this.state.recipe.preparation.length;
         if (this.state.phase == 2 && this.state.step < totalSteps - 1) {
             this.setState({step: this.state.step + 1});
         }
@@ -76,8 +76,8 @@ export default class Cook extends Component {
              *  Phase 0
              * ---------------------------------------------------- */
 
-            const upcoming = UserData.getUser().getUpcomingMeals().map(
-                recipe => <SuggestedDish recipe={recipe} onPress={this.setSelectedRecipe} key={recipe.rid}/>
+            const upcoming = global.recipes.map(
+                recipe => <SuggestedDish recipe={recipe} onPress={this.setSelectedRecipe} key={recipe.id}/>
             );
             currentView =
                 <View style={cookStyles.cookMain}>
@@ -88,7 +88,7 @@ export default class Cook extends Component {
                     <Text style={cookStyles.cookSubtitle}>Or Choose from One of Your Favorites</Text>
                     <Text>{this.state.recipe == null ? "Please select a recipe to cook" : "Selected Recipe:"}</Text>
                     <View>
-                        <Text>{this.state.recipe == null ? "" : this.state.recipe.recipeName}</Text>
+                        <Text>{this.state.recipe == null ? "" : this.state.recipe.name}</Text>
                     </View>
                     <TouchableOpacity
                         onPress={this.selectRecipe}
@@ -110,8 +110,8 @@ export default class Cook extends Component {
              * ---------------------------------------------------- */
 
              var key = 0;
-            const requiredIngredients = this.state.recipe.ingredients.map((ingredientName) => 
-                <RequiredIngredient ingredient={ingredientName} key={key++}/>
+            const requiredIngredients = this.state.recipe.ingredients.map((ing) => 
+                <RequiredIngredient ingredient={ing.ingredient} key={key++}/>
             );
 
             currentView =
@@ -147,7 +147,7 @@ export default class Cook extends Component {
              *  Phase 2
              * ---------------------------------------------------- */
 
-            const finished = this.state.step >= this.state.recipe.prepSteps.length - 1;
+            const finished = this.state.step >= this.state.recipe.preparation.length - 1;
 
             currentView = 
                 <ScrollView
@@ -167,7 +167,7 @@ export default class Cook extends Component {
 
                     <Text style={cookStyles.cookTitle}>{"Step " + (this.state.step + 1)}</Text>
                     <Text style={cookStyles.recipeStepText}>
-                        {this.state.recipe.prepSteps[this.state.step]}
+                        {this.state.recipe.preparation[this.state.step].text}
                     </Text>
 
                     <TouchableOpacity onPress={finished ? this.finishCooking : this.progressPhase}>

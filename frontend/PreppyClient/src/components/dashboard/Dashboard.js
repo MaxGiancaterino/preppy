@@ -24,29 +24,26 @@ export default class Dashboard extends Component {
 
     constructor() {
         super();
-        this.state = {budget: 0, suggestedRecipes: []}
+        this.state = {budget: 0, suggestedRecipes: undefined}
     }
 
     componentWillMount() {
         var user = UserData.getUser();
-        /*var randomRecipes = {queue: [1, 2, 3, 4]};
+        alert(JSON.stringify(user));
+        var randomRecipes = {queue: [15, 2, 3, 4]};
         fetch('http://preppy-dev.appspot.com/recipe/queue', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ randomRecipes })
+            body: JSON.stringify(randomRecipes)
         }).then(res => res.json()).then(recipes => {
-                alert(JSON.stringify(recipes));
                 this.setState({
                     budget: user.remainingBudget,
                     suggestedRecipes: recipes
                 });
-            });*/
-        this.setState({
-            budget: user.remainingBudget,
-            suggestedRecipes: user.getSuggestedRecipes()
+                global.recipes = recipes;
         });
     }
 
@@ -56,10 +53,11 @@ export default class Dashboard extends Component {
         if (isNaN(budget)) {
             budget = 0;
         }
-
-        var recipeButtons = this.state.suggestedRecipes.map((recipe) =>
-            <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.rid}/>
-        );
+        if (this.state.suggestedRecipes) {
+            var recipeButtons = this.state.suggestedRecipes.map((recipe) =>
+                <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.id}/>
+            );
+        }
 
         return(
             <View style={dashboardStyles.dashboardMain}>
@@ -72,7 +70,6 @@ export default class Dashboard extends Component {
                 >
                     <BudgetDisplay amount={budget}/>
                     <View style={dashboardStyles.buttonContainer}>
-                        <ScheduleButton navigation={nav}/>
                         <CookButton navigation={nav}/>
                     </View>
                     <PantryButton navigation={nav}/>

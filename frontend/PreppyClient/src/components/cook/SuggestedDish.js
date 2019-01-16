@@ -16,7 +16,7 @@ export default class SuggestedDish extends Component {
                 style={cookStyles.recipeSelectButton}
             >
                 <Text style={cookStyles.recipeSelectButtonText}>
-                    {this.props.recipe.recipeName}
+                    {this.props.recipe.name}
                 </Text>
             </TouchableOpacity>
         );

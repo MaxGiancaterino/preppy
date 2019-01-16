@@ -14,37 +14,35 @@ export default class RecipePage extends Component {
 
     constructor() {
         super();
-        this.state = {recipe: null, recipeId : -1};
+        this.state = {recipe: undefined, recipeId : -1};
     }
 
     componentWillMount() {
         const recipe = this.props.navigation.getParam("recipe", new Recipe());
         const rid = this.props.navigation.getParam("recipeId", -1);
-        /*fetch("http://preppy-dev.appspot.com/recipe/" + rid, {
+        fetch("http://preppy-dev.appspot.com/recipe/" + rid, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             }
-        }).then(res => { 
+        }).then(res => res.json()).then(rec => { 
                 this.setState({
-                    recipe: res,
-                    recipeId : rid,
+                    recipe: rec,
+                    recipeId : rec.id,
                 });
-            });
-        */
-        this.setState({
-            recipeId: rid,
-            recipe: recipe,
         });
 
     }
 
     render() {
+        if (!this.state.recipe) {
+            return null;
+        }
         const recipe = this.state.recipe;
 
-        const uriObject = {uri: recipe.imageUrl};
-        const dishImage = recipe.imageUrl ?
+        const uriObject = {uri: recipe.imgUrl};
+        const dishImage = recipe.imgUrl ?
             <View style={recipePageStyles.imageContainer}>
                 <Image 
                     source={uriObject}
@@ -55,11 +53,11 @@ export default class RecipePage extends Component {
 
         var iKey = 0;
         const ingredients = this.state.recipe.ingredients.map(ingredient => 
-            <RecipeItem itemText={ingredient} key={iKey++}/>
+            <RecipeItem itemText={ingredient.ingredient} key={iKey++}/>
         );
         var sKey = 0;
-        const steps = this.state.recipe.prepSteps.map(step => 
-            <RecipeItem itemText={step} key={sKey++}/>
+        const steps = this.state.recipe.preparation.map(step => 
+            <RecipeItem itemText={step.text} key={sKey++}/>
         );
 
         return (
@@ -68,7 +66,7 @@ export default class RecipePage extends Component {
                     style={recipePageStyles.recipeScroll}
                     showsVerticalScrollIndicator="false"
                 >
-                    <Text style={recipePageStyles.recipeTitle}>{recipe.recipeName}</Text>
+                    <Text style={recipePageStyles.recipeTitle}>{recipe.name}</Text>
                     {dishImage}
                     <Text style={recipePageStyles.sectionTitle}>Ingredients</Text>
                     {ingredients}
