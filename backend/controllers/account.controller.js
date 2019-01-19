@@ -38,5 +38,50 @@ router.post('/:uid/recipe/:id', function (req, res) {
 	});
 });
 
+router.get('/:uid/cart', function (req, res) {
+  var uid = req.params.uid;
+  accountService.getCart(uid, function(resp, error) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(resp);
+    }
+  });
+});
+
+router.post('/:uid/cart', function (req, res) {
+  var uid = req.params.uid;
+  var cart = req.body.cart;
+  accountService.updateCart(uid, cart, function(resp, error) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(resp);
+    }
+  });
+});
+
+router.get('/:uid/pantry', function (req, res) {
+  var uid = req.params.uid;
+  accountService.getPantry(uid, function(resp, error) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(resp);
+    }
+  });
+});
+
+router.post('/:uid/pantry', function (req, res) {
+  var uid = req.params.uid;
+  var pantry = req.body.pantry;
+  accountService.updatePantry(uid, pantry, function(resp, error) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(resp);
+    }
+  });
+});
 
 module.exports = router;
