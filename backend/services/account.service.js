@@ -9,7 +9,9 @@ exports.create = function(userData, next) {
 		weeklyBudget: 0,
 		remainingBudget: 0,
 		avatar: userData.photoURL,
-		userId: userData.uid
+		userId: userData.uid,
+    shoppingCart: [{"null", -1, "null"}],
+    currentPantry: [{"null", -1, "null"}]
 	};
 	database.ref('users/' + userData.uid)
 		.set(user)
@@ -72,4 +74,50 @@ exports.addRecipe = function(uid, id, next) {
 						});
 				}
 			});
+}
+
+exports.getCart = function(uid, next) {
+  database.ref('/users/' + uid + '/shoppingCart')
+          .once('value')
+          .then(function(snapshot) {
+            var data = {};
+            data.cart = snapshot.val();
+            next(data, null);
+          })
+          .catch(function(err) {
+            next(null, err);
+          });
+}
+
+exports.updateCart = function(uid, cart, next) {
+  database.ref('/users/' + uid + '/shoppingCart')
+          .set(cart)
+          .then(function(res) {
+            next(cart);
+          }).catch(function(err) {
+            next(null, err);
+          });
+}
+
+exports.getPantry = function(uid, next) {
+  database.ref('/users/' + uid + '/currentPantry')
+          .once('value')
+          .then(function(snapshot) {
+            var data = {};
+            data.pantry = snapshot.val();
+            next(data, null);
+          })
+          .catch(function(err) {
+            next(null, err);
+          });
+}
+
+exports.updatePantry = function(uid, pantry, next) {
+  database.ref('/users/' + uid + '/currentPantry')
+          .set(pantry)
+          .then(function(res) {
+            next(pantry);
+          }).catch(function(err) {
+            next(null, err);
+          });
 }

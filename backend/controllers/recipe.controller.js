@@ -10,18 +10,7 @@ router.post('/', function (req, res) {
 		recipe.id = idx;
 		idx++;
 	});
-	recipeService.upload(recipes, function(data, error) {
-		if (error) {
-			console.log(error);
-			res.send(error);
-		} else {
-			res.send(data);
-		}
-	});
-});
-
-router.get('/', function (req, res) {
-	recipeService.all(function(data, error) {
+	recipeService.upload(recipes, false, function(data, error) {
 		if (error) {
 			console.log(error);
 			res.send(error);
@@ -34,7 +23,7 @@ router.get('/', function (req, res) {
 router.post('/queue', function(req, res) {
 	var ids = req.body.queue;
 	var list = [];
-	recipeService.list(ids, function(data, error) {
+	recipeService.list(ids, false, function(data, error) {
 		if (error) {
 			res.send(error);
 		} else {
@@ -45,7 +34,49 @@ router.post('/queue', function(req, res) {
 
 router.get('/:id', function (req, res) {
 	var id = req.params.id;
-	recipeService.get(id, function(data, error) {
+	recipeService.get(id, false, function(data, error) {
+		if (error) {
+			console.log(error);
+			res.send(error);
+		} else {
+			res.send(data);
+		}
+	})
+});
+
+router.post('/micro', function (req, res) {
+	var recipeFile = require('../models/recipes.json');
+	var recipes = recipeFile.recipes;
+	var idx = 0;
+	recipes.forEach(function(recipe) {
+		recipe.id = idx;
+		idx++;
+	});
+	recipeService.upload(recipes, true, function(data, error) {
+		if (error) {
+			console.log(error);
+			res.send(error);
+		} else {
+			res.send(data);
+		}
+	});
+});
+
+router.post('/micro/queue', function(req, res) {
+	var ids = req.body.queue;
+	var list = [];
+	recipeService.list(ids, true, function(data, error) {
+		if (error) {
+			res.send(error);
+		} else {
+			res.send(data);
+		}
+	});
+});
+
+router.get('/micro/:id', function (req, res) {
+	var id = req.params.id;
+	recipeService.get(id, true, function(data, error) {
 		if (error) {
 			console.log(error);
 			res.send(error);
