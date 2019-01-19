@@ -148,12 +148,32 @@ public class Main {
 				t.start();
 			}
 			
-			// wait for all the threads to finish
-			for (Thread t : threadList) {
+			// wait for all the threads to finish, checking progress every N seconds
+			while (true) {
+				// pause for a couple seconds
 				try {
-					t.join();
+					Thread.sleep(2000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+				}
+				
+				// check all threads to see if any are alive
+				boolean alive = false;
+				for (Thread t : threadList) {
+					if (t.isAlive()) {
+						alive = true;
+						break;
+					}
+				}
+				
+				// compute the number of recipes done being parsed
+				System.out.println("done " + recipes.size() + 
+								   " out of " + (endingIndex - startingIndex) +
+								   " - " + ((double)recipes.size() / (double)(endingIndex - startingIndex)) * 100.0 + "%");
+				
+				// if no threads are alive, break
+				if (!alive) {
+					break;
 				}
 			}
 			

@@ -1,99 +1,119 @@
-291 : salt
-282 : white sugar
-220 : all-purpose flour
-217 : egg
-197 : water
-128 : baking powder
-112 : vegetable oil
-112 : 
-111 : baking soda
-99 : milk
-94 : butter
-82 : cinnamon
-79 : active dry yeast
-78 : margarine
-75 : bread flour
-68 : walnuts
-57 : vanilla extract
-40 : brown sugar
-35 : honey
-31 : raisins
-31 : whole wheat flour
-31 : shortening
-25 : buttermilk
-22 : nutmeg
-22 : orange zest
-20 : olive oil
-18 : cornmeal
-18 : orange juice
-17 : zucchini
-16 : pecans
-14 : confectioners' sugar
-13 : dry milk powder
+362 : salt
+344 : white sugar
+271 : all-purpose flour
+264 : egg
+252 : water
+149 : 
+147 : baking powder
+137 : baking soda
+136 : vegetable oil
+124 : milk
+113 : butter
+112 : active dry yeast
+101 : cinnamon
+100 : bread flour
+93 : margarine
+73 : walnuts
+69 : vanilla extract
+49 : brown sugar
+46 : honey
+45 : shortening
+41 : raisins
+36 : whole wheat flour
+33 : nutmeg
+30 : buttermilk
+24 : olive oil
+23 : orange zest
+22 : cornmeal
+22 : dry milk powder
+20 : confectioners' sugar
+19 : orange juice
+18 : zucchini
+18 : pecans
+17 : rye flour
+16 : molasses
+14 : poppy seeds
+14 : almond extract
+13 : lemon zest
 13 : unbleached all-purpose flour
-12 : almond extract
-12 : rye flour
-11 : poppy seeds
-11 : sour cream
-11 : molasses
-11 : bananas
-10 : lemon zest
-9 : cloves
-9 : banana
-9 : onion
+12 : cloves
+12 : onion
+12 : sour cream
+12 : bananas
+11 : banana
+11 : unsweetened cocoa powder
+10 : rolled oats
+10 : garlic powder
+9 : caraway seed
+9 : semisweet chocolate chips
 9 : parmesan cheese
 9 : blueberries
-8 : semisweet chocolate chips
+8 : quick cooking oats
+8 : sharp cheddar cheese
+8 : self-rising flour
 8 : cheddar cheese
-7 : sharp cheddar cheese
-7 : caraway seed
-7 : self-rising flour
-7 : garlic powder
+7 : bread machine yeast
+7 : cardamom
+7 : lemon juice
+7 : currants
+7 : golden raisins
+7 : nonfat dry milk powder
+7 : allspice
+7 : unsalted butter
 7 : flaked coconut
-7 : unsweetened cocoa powder
 6 : pumpkin
+6 : wheat germ
+6 : sourdough starter
 6 : sesame seeds
+6 : dried onion
+6 : candied cherries
 6 : dates
-6 : currants
-6 : nonfat dry milk powder
-6 : allspice
-5 : wheat germ
-5 : bread machine yeast
-5 : sourdough starter
-5 : lemon juice
-5 : candied cherries
+6 : cottage cheese
+6 : dried currants
+5 : kosher salt
+5 : ginger
+5 : applesauce
+5 : dried parsley
 5 : mozzarella cheese
 5 : baking mix
-5 : cottage cheese
-5 : golden raisins
-5 : unsalted butter
-5 : dried currants
-4 : quick cooking oats
-4 : kosher salt
-4 : rolled oats
+5 : candied mixed fruit peel
+5 : dried basil
+5 : butter flavored extract
+4 : jalapeno peppers
+4 : pumpkin puree
+4 : instant powdered milk
+4 : lemon extract
+4 : light brown sugar
 4 : cream cheese
+4 : scalded milk
+4 : sun-dried tomatoes
+4 : carrots
+4 : garlic salt
+4 : beer
+4 : pumpkin pie spice
 3 : vital wheat gluten
-3 : ginger
+3 : onion powder
 3 : dry potato flakes
 3 : strawberries
-3 : cardamom
 3 : dried oregano
-3 : jalapeno peppers
 3 : dried rosemary crushed
-3 : instant powdered milk
+3 : oat bran
 3 : black pepper
-3 : dried parsley
-3 : light brown sugar
+3 : apple
+3 : mace
+3 : cider vinegar
 3 : dried apricots
-3 : sun-dried tomatoes
-3 : carrots
+3 : skim milk
+3 : coconut milk
+3 : lard
+3 : amaranth flour
+3 : parsley
 3 : frozen blueberries dry pack
-3 : garlic salt
-3 : dried basil
-3 : butter flavored extract
-3 : pumpkin pie spice
+2 : carrot
+2 : real maple syrup
+2 : fennel seed
 2 : orange
-2 : onion powder
+2 : garlic
 2 : buttermilk baking mix
 2 : virgin olive oil
 2 : hazelnuts
@@ -101,58 +121,69 @@
 2 : crushed pineapple with juice
 2 : pepperoni sausage
 2 : instant potato flakes
+2 : dried thyme
 2 : basil
 2 : dill seed
+2 : egg substitute
+2 : dark corn syrup
 2 : fat free sour cream
+2 : cayenne pepper
 2 : onionsoup mix
-2 : dried onion
 2 : cracked wheat
-2 : pumpkin puree
+2 : fruit preserves
 2 : solid pack pumpkin puree
+2 : brown rice flour
 2 : persimmon pulp
-2 : oat bran
 2 : maraschino cherries
 2 : cranberries
-2 : lemon extract
+2 : amish friendship bread starter
 2 : green onions
 2 : dried rosemary
+2 : candied citron
 2 : nonfat milk
 2 : almonds
+2 : walnuts toasted
 2 : sunflower seeds
 2 : sweetened dried cranberries
+2 : plain yogurt
 2 : rosemary
 2 : tomato juice
-2 : skim milk
 2 : miniature semisweet chocolate chips
-2 : coconut milk
 2 : powdered buttermilk
+2 : blanched slivered almonds
 2 : cake flour
 2 : sunflower seed oil
-2 : lard
-2 : amaranth flour
-2 : parsley
-2 : candied mixed fruit peel
-2 : beer
+2 : pork
+2 : mini semi-sweet chocolate chips
+2 : apple juice
 2 : sweet potato puree
-1 : carrot
+2 : dried dill weed
 1 : kalamata olives
 1 : raisin bran cereal
+1 : instant coffee granules dissolved in
+1 : celery seed
+1 : dry kidney beans
 1 : biscuit baking mix
 1 : graham cracker crumbs
-1 : real maple syrup
-1 : fennel seed
-1 : garlic
+1 : dried mixed fruit
+1 : barley
 1 : sesame seeds toasted
+1 : shallots
 1 : cassava
+1 : kalonji
 1 : prepared mincemeat pie filling
 1 : mangos peeled seeded
 1 : evaporated skim milk
+1 : rice wine
 1 : apples
+1 : chili powder
 1 : crushed red pepper
+1 : semi-sweet chocolate chips
 1 : frozen corn kernels
+1 : sherry
 1 : nonfat plain yogurt
+1 : green bell pepper
 1 : dark rye flour
-1 : dried thyme
 1 : semi-sweet chocolate squares
 1 : rum flavored extract
 1 : whole kernel corn well
@@ -162,55 +193,65 @@
 1 : raspberry jam
 1 : buttermilk self-rising cornmeal mix
 1 : candied mixed fruit
-1 : egg substitute
-1 : dark corn syrup
+1 : instant coffee granules
+1 : walnut oil
+1 : arrowroot flour
 1 : pork sausage
 1 : corn syrup
 1 : white rice
+1 : ginger root
+1 : unsweetened flaked coconut
 1 : candied lemon peel
-1 : cayenne pepper
+1 : ghee
 1 : half-and-half cream
 1 : peanut butter
+1 : dark soy sauce
 1 : self-rising corn meal mix
 1 : heavy cream
-1 : fruit preserves
-1 : brown rice flour
+1 : tomato paste
+1 : distilled white vinegar
+1 : potato
+1 : wheat-free baking powder
+1 : superfine sugar
 1 : dijon-style prepared mustard
 1 : potatopeeled
-1 : applesauce
 1 : whole bran cereal
-1 : amish friendship bread starter
+1 : butter flavored shortening
 1 : butter or margarine
+1 : cumin
 1 : flax seed
 1 : vanilla sugar
+1 : barbecue sauce
+1 : nonfat lemon yogurt
 1 : dried marjoram
+1 : peeled cored apple
 1 : cream of tartar
 1 : apples - peeled cored
 1 : sour milk
 1 : flaked coconut toasted
 1 : wheat bran
 1 : coconut extract
-1 : candied citron
 1 : lemoncake mix
 1 : crushed red pepper flakes
 1 : cherry jam
-1 : walnuts toasted
 1 : lemon
-1 : apple
+1 : millet flour
 1 : dried cranberries
 1 : light cream
+1 : tapioca flour
 1 : broccoli
-1 : mace
-1 : scalded milk
 1 : sweet potatoes
 1 : vitamin c powder
 1 : lemonpudding mix
+1 : light corn syrup
+1 : wheat berries
 1 : pepperjack cheese
 1 : roasted marinated red bell peppers
-1 : plain yogurt
 1 : rhubarb
 1 : monterey jack cheese
 1 : italian seasoning
+1 : dark brown sugar
+1 : dry great northern beans
 1 : canola oil
 1 : clarified butter
 1 : jalapeno pepper
@@ -218,7 +259,9 @@
 1 : tangerine zest
 1 : coarse kosher salt
 1 : rum
+1 : unflavored gelatin
 1 : pizza sauce
+1 : dark beer
 1 : green chile peppers
 1 : instant yeast
 1 : lecithin
@@ -227,26 +270,36 @@
 1 : anise seed
 1 : paprika
 1 : whole kernel corn
-1 : blanched slivered almonds
 1 : maple flavored extract
+1 : dry green lentils
 1 : crushed pineapple
 1 : maple flavored syrup
+1 : pastry flour
 1 : chives
 1 : asiago cheese
 1 : vanilla ice cream
 1 : creamy peanut butter
-1 : pork
+1 : spelt flour
 1 : orange liqueur
 1 : peaches
 1 : apricot preserves
 1 : stone cornmeal
-1 : mini semi-sweet chocolate chips
+1 : xanthan gum
+1 : chicken broth
+1 : light soy sauce
 1 : wheat barley nugget cereal )
+1 : millet
 1 : candied pineapple
 1 : evaporated milk
+1 : dried pinto beans
 1 : coffee flavored liqueur
 1 : dry sherry
+1 : white rice flour
 1 : crushed garlic
+1 : lemon flavored yogurt
+1 : beef bouillon
 1 : raspberries
+1 : boneless pork loin roast
+1 : chile oil
 1 : seven grain cereal
 1 : mayonnaise

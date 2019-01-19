@@ -79,7 +79,6 @@ public class IngredientListing {
 			"chopped",
 			"diced",
 			"mashed",
-			"diced",
 			"pitted",
 			"minced",
 			"melted",

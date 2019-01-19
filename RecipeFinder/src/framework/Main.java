@@ -207,7 +207,7 @@ public class Main implements Runnable {
 	    
 	    addSpacer(settingsPanel);
 	    
-	    JButton refreshRecipesButton = new JButton("Refresh Recipes");
+	    JButton refreshRecipesButton = new JButton("Refresh Matching Recipes");
 	    refreshRecipesButton.addActionListener(new ActionListener() {
 	    	public void actionPerformed(ActionEvent e) {
 	    		refreshRecipeList();
@@ -216,23 +216,59 @@ public class Main implements Runnable {
 	    settingsPanel.add(refreshRecipesButton);
 	    
 	    panel.add(settingsPanel);
+
+	    /*
+	     * Create the search result panel
+	     */
+	    
+	    JPanel searchResultPanel = new JPanel();
+	    searchResultPanel.setLayout(new BoxLayout(searchResultPanel, BoxLayout.PAGE_AXIS));
+	    
+	    JLabel searchResultLabel = new JLabel("Search results:");
+	    searchResultPanel.add(searchResultLabel);
 	    
 	    ingredientSearchResultPane = new JScrollPane(ingredientSearchResultList);
 	    ingredientSearchResultPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	    ingredientSearchResultPane.setPreferredSize(new Dimension(150, 400));
-	    panel.add(ingredientSearchResultPane);
+	    searchResultPanel.add(ingredientSearchResultPane);
+	    
+	    panel.add(searchResultPanel);
+	    
+	    /*
+	     * Create the pantry panel
+	     */
 	    
 	    pantry = new HashSet<String>();
+	    
+	    JPanel pantryPanel = new JPanel();
+	    pantryPanel.setLayout(new BoxLayout(pantryPanel, BoxLayout.PAGE_AXIS));
+	    
+	    JLabel pantryLabel = new JLabel("Pantry:");
+	    pantryPanel.add(pantryLabel);
 	    
 	    ingredientPantryPane = new JScrollPane(ingredientPantryList);
 	    ingredientPantryPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	    ingredientPantryPane.setPreferredSize(new Dimension(150, 400));
-	    panel.add(ingredientPantryPane);
+	    pantryPanel.add(ingredientPantryPane);
+	    
+	    panel.add(pantryPanel);
+	    
+	    /*
+	     * Create the found recipes panel
+	     */
+
+	    JPanel foundRecipesPanel = new JPanel();
+	    foundRecipesPanel.setLayout(new BoxLayout(foundRecipesPanel, BoxLayout.PAGE_AXIS));
+	    
+	    JLabel foundRecipesLabel = new JLabel("Found recipes:");
+	    foundRecipesPanel.add(foundRecipesLabel);
 	    
 	    foundRecipesPane = new JScrollPane(foundRecipesList);
 	    foundRecipesPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 	    foundRecipesPane.setPreferredSize(new Dimension(150, 400));
-	    panel.add(foundRecipesPane);
+	    foundRecipesPanel.add(foundRecipesPane);
+	    
+	    panel.add(foundRecipesPanel);
 	}
 	
 	/*
