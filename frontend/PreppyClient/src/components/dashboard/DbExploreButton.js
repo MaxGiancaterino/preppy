@@ -3,29 +3,28 @@ import {Text, TouchableHighlight, ImageBackground} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
 import {dashboardStyles} from './DashboardStyles';
 
-export default class ScheduleButton extends Component {
+export default class ExploreButton extends Component {
 
     constructor() {
         super();
     }
 
     navigateToSchedule = () => {
-        this.props.navigation.navigate("Schedule");
+        this.props.navigation.navigate("RecipeExplore");
     }
 
     render() {
-        navigateToSchedule();
         return(
             <TouchableHighlight
-                style={dashboardStyles.scheduleButton}
+                style={dashboardStyles.exploreButton}
                 onPress={this.navigateToSchedule}
             >
                 <ImageBackground
-                    style={dashboardStyles.scheduleImage}
+                    style={dashboardStyles.exploreImage}
                     // This is a PLACEHOLDER image
-                    qsource={require("../../../assets/img/calendar.jpg")}
+                    source={require("../../../assets/img/recipes.jpg")}
                 >
-                    <Text style={dashboardStyles.buttonText}>Schedule</Text>
+                    <Text style={dashboardStyles.buttonText}>Explore Recipes</Text>
                 </ImageBackground>
             </TouchableHighlight>
         );

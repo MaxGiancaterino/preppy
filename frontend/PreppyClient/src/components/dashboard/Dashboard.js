@@ -4,6 +4,7 @@ import BudgetDisplay from './BudgetDisplay';
 import {dashboardStyles} from './DashboardStyles';
 import {headerStyles} from '../../Styles';
 import ScheduleButton from './DbScheduleButton';
+import ExploreButton from './DbExploreButton';
 import CookButton from './DbCookButton';
 import PantryButton from './DbPantryButton';
 import RecommendedRecipe from './RecommendedRecipe';
@@ -65,6 +66,7 @@ export default class Dashboard extends Component {
                         <CookButton navigation={nav}/>
                     </View>
                     <PantryButton navigation={nav}/>
+                    <ExploreButton navigation={nav}/>
                     <View style={dashboardStyles.recipeListTitleContainer}>
                         <Text style={dashboardStyles.recipeListTitle}>
                             Recipes Recommended For You:

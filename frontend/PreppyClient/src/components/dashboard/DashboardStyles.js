@@ -73,11 +73,27 @@ export const dashboardStyles = StyleSheet.create({
         paddingLeft: 15,
         paddingBottom: 15,
     },
+    exploreImage: {
+        height: undefined,
+        width: undefined,
+        flex: 1,
+        alignSelf: "stretch",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        paddingLeft: 15,
+        paddingBottom: 15,
+    },
     scheduleButton: {
         width: "50%",
         height: 250,
         borderRightWidth: 1,
         borderRightColor: "#777777",
+    },
+    exploreButton: {
+        width: "100%",
+        height: 75,
+        borderBottomWidth: 1,
+        borderBottomColor: "#777777",
     },
     cookImage: {
         height: undefined,
