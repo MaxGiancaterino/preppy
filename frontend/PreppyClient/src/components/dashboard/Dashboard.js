@@ -28,27 +28,20 @@ export default class Dashboard extends Component {
     }
 
     componentWillMount() {
-        var user = UserData.getUser();
-        var randomRecipes = {queue: [15, 2, 3, 4]};
-        fetch('http://preppy-dev.appspot.com/recipe/queue', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(randomRecipes)
-        }).then(res => res.json()).then(recipes => {
-                this.setState({
-                    budget: user.remainingBudget,
-                    suggestedRecipes: recipes
-                });
-                global.recipes = recipes;
+        const user = UserData.getUser();
+        const arbitraryRecipes = [15, 2, 3, 4];
+        RecipeService.fetchRecipeQueue(arbitraryRecipes).then(recipes => {
+            this.setState({
+                budget: user.remainingBudget,
+                suggestedRecipes: recipes
+            });
+            global.recipes = recipes;
         });
     }
 
     render() {
         const nav = this.props.navigation;
-        var budget = this.state.budget;
+        let budget = this.state.budget;
         if (isNaN(budget)) {
             budget = 0;
         }

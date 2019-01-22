@@ -9,6 +9,10 @@ import Recipe from '../models/Recipe';
 
 export default RecipeData = {
 
+    /*
+     * Returns a promise containing the recipe object fetched from firebase given the corresponding recipe id
+     * If the id is invalid, the promise contains an empty recipe
+     */
     fetchRecipeById: async(rid) => {
         if (!Number.isInteger(rid) || rid < 0) {
             return new Promise((resolve, reject) => resolve(new Recipe()))
@@ -34,5 +38,41 @@ export default RecipeData = {
                 )
             );
         }
-    }
+    },
+
+    /*
+     * Returns a promise containing an array of recipes given an array of recipe IDs
+     * If the input is valid, the promise contains an empty array
+     */
+    fetchRecipeQueue: async(rids) => {
+        const queueObj = Array.isArray(rids) ? {queue: rids} : {queue: []};
+        return (
+            fetch('http://preppy-dev.appspot.com/recipe/queue', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(queueObj)
+            }).then(
+                res => {
+                    const contentType = res.headers.get("content-type");
+                    if (contentType && contentType.indexOf("application/json") == -1) {
+                        return [];
+                    }
+                    return res.json().then(recipeJson => {
+                        let recipes = [];
+                        for (let key in recipeJson) {
+                            recipes.push(new Recipe(recipeJson[key]))
+                        }
+                        return recipes;
+                    })
+                },
+                res => {
+                    return [];
+                }
+            )
+        );
+    },
+
 }
