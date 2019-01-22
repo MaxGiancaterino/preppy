@@ -43,11 +43,12 @@ export default class Dashboard extends Component {
     render() {
         const nav = this.props.navigation;
         let budget = this.state.budget;
+        let recipeButtons = [];
         if (isNaN(budget)) {
             budget = 0;
         }
         if (this.state.suggestedRecipes) {
-            var recipeButtons = this.state.suggestedRecipes.map((recipe) =>
+            recipeButtons = this.state.suggestedRecipes.map((recipe) =>
                 <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.id}/>
             );
         }
