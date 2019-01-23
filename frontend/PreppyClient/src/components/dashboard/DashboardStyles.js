@@ -143,39 +143,18 @@ export const dashboardStyles = StyleSheet.create({
     /* ---------------------------------- *
      *  Recipe List
      * ---------------------------------- */
-     recipeListMain: {
-         flex: 1,
-         flexDirection: "column",
-         alignItems: "stretch",
-     },
-     recipeListTitleContainer: {
-         paddingVertical: 20,
-     },
-     recipeListTitle: {
-         fontFamily: "Raleway",
-         fontSize: 20,
-         fontWeight: "bold",
-         textAlign: "center"
-     },
-     recommendedRecipeItem: {
-         backgroundColor: PreppyOrange,
-         marginHorizontal: 10,
-         marginTop: 10,
-         minHeight: 60,
-         padding: 10,
-         borderRadius: 3,
-         borderBottomWidth: 5,
-         borderRightWidth: 5,
-         borderColor: '#DDA51B',
-
-         flex: 1,
-         flexDirection: "row",
-         justifyContent: "flex-start",
-         alignItems: "center"
-     },
-     recommendedRecipeTitle: {
-         fontFamily: 'Raleway',
-         color: "#FFFFFF",
-         fontSize: 24,
-     }
+    recipeListMain: {
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "stretch",
+    },
+    recipeListTitleContainer: {
+        paddingVertical: 20,
+    },
+    recipeListTitle: {
+        fontFamily: "Raleway",
+        fontSize: 20,
+        fontWeight: "bold",
+        textAlign: "center"
+    },
 });

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Text, View, Modal, Animated, Button, TouchableOpacity, Dimensions} from 'react-native';
-import {sidebarStyles} from '../Styles';
+import {sidebarStyles} from './CommonStyles';
 
-import UserData from '../UserData';
+import UserData from '../../UserData';
 
 export default class SidebarPopout extends Component {
 

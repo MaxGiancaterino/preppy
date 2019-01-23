@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {Text, View, ScrollView, Button, StatusBar, AsyncStorage} from 'react-native';
 import BudgetDisplay from './BudgetDisplay';
 import {dashboardStyles} from './DashboardStyles';
-import {headerStyles} from '../../Styles';
 import ScheduleButton from './DbScheduleButton';
 import ExploreButton from './DbExploreButton';
 import CookButton from './DbCookButton';
 import PantryButton from './DbPantryButton';
-import RecommendedRecipe from './RecommendedRecipe';
-import {HeaderButton} from '../Header';
+import RecipeButton from '../common/RecipeButton';
+import {HeaderButton} from '../common/Header';
+import {headerStyles} from '../common/CommonStyles';
 
 import UserData from '../../UserData';
 import RecipeService from '../../middleware/RecipeService';
@@ -52,7 +52,7 @@ export default class Dashboard extends Component {
         }
         if (this.state.suggestedRecipes) {
             recipeButtons = this.state.suggestedRecipes.map((recipe) =>
-                <RecommendedRecipe navigation={nav} recipe={recipe} key={recipe.id}/>
+                <RecipeButton navigation={nav} recipe={recipe} key={recipe.id}/>
             );
         }
 

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableOpacity} from 'react-native';
-import Header, {HeaderButton} from '../Header';
 import {createAccountStyles} from './CreateAccountStyles';
-import {headerStyles} from '../../Styles';
+import Header, {HeaderButton} from '../common/Header';
+import {headerStyles} from '../common/CommonStyles';
 
 export default class CreateAccount extends Component {
 

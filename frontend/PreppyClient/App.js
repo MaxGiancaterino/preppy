@@ -14,8 +14,8 @@ import CreateAccount from './src/components/create_account/CreateAccount'
 import RecipeExplore from './src/components/recipe_explore/RecipeExplore'
 
 
-import Header, {HeaderButton} from './src/components/Header';
-import {headerStyles, mainStyle} from './src/Styles';
+import Header, {HeaderButton} from './src/components/common/Header';
+import {headerStyles, mainStyle} from './src/components/common/CommonStyles';
 
 import User from './src/models/User';
 import UserData from './src/UserData';

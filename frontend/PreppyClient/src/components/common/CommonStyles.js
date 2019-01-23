@@ -30,7 +30,7 @@ export const headerStyles = StyleSheet.create({
     },
 });
 
-const itemStyle = StyleSheet.create({
+export const itemStyle = StyleSheet.create({
     sidebarItem: {
         paddingHorizontal: 10,
         paddingVertical: 25,
@@ -66,3 +66,26 @@ export const sidebarStyles = StyleSheet.create({
         textAlign: "center",
     }
 });
+
+export const recipeButtonStyles = StyleSheet.create({
+    recipeButtonItem: {
+        backgroundColor: PreppyOrange,
+        marginHorizontal: 10,
+        marginTop: 10,
+        minHeight: 60,
+        padding: 10,
+        borderRadius: 3,
+        borderBottomWidth: 5,
+        borderRightWidth: 5,
+        borderColor: '#DDA51B',
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center"
+    },
+    recipeButtonTitle: {
+        fontFamily: 'Raleway',
+        color: "#FFFFFF",
+        fontSize: 24,
+    }
+})

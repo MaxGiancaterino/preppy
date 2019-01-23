@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
-import {dashboardStyles} from './DashboardStyles';
+import {recipeButtonStyles} from './CommonStyles';
 
-export default class RecommendedRecipe extends Component {
+export default class RecipeButton extends Component {
 
     constructor() {
         super();
@@ -18,10 +18,10 @@ export default class RecommendedRecipe extends Component {
     render() {
         return(
             <TouchableOpacity
-                style={dashboardStyles.recommendedRecipeItem}
+                style={recipeButtonStyles.recipeButtonItem}
                 onPress={this.navigateToRecipe}
             >
-                <Text style={dashboardStyles.recommendedRecipeTitle}>
+                <Text style={recipeButtonStyles.recipeButtonTitle}>
                     {this.props.recipe.name}
                 </Text>
             </TouchableOpacity>

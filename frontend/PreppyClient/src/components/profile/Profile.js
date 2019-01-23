@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Text, View, ScrollView, Button, Image} from 'react-native';
-import Header, {HeaderButton} from '../Header';
 import {profileStyles} from './ProfileStyles';
-import {headerStyles} from '../../Styles';
+import Header, {HeaderButton} from '../common/Header';
+import {headerStyles} from '../common/CommonStyles';
 
 export default class Profile extends Component {
     static navigationOptions = {

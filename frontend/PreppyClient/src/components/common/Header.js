@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableOpacity, Image, StatusBar} from 'react-native';
-import {headerStyles} from '../Styles';
+import {headerStyles} from './CommonStyles';
 import SidebarPopout from './SidebarPopout';
 
-import UserData from "../UserData";
+import UserData from "../../UserData";
 
 export class HeaderButton extends Component {
 
@@ -40,7 +40,7 @@ export class HeaderButton extends Component {
                             source={
                                 this.state.profileUri ?
                                 uriObject : 
-                                require("../../assets/img/profileTemp.png")
+                                require("../../../assets/img/profileTemp.png")
                             }
                             style={headerStyles.headerButton}
                         />
