@@ -16,12 +16,24 @@ export const exploreStyles = StyleSheet.create({
     exploreMain: {
         backgroundColor: PreppyLight,
         minHeight: Dimensions.get('window').height,
-        alignItems: "center",
         padding: 10,
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "flex-start"
+    },
+    exploreScroll: {
+        flex: 1,
     },
     searchButton: {
         backgroundColor: PreppyGreen,
-        padding: 5,
+        borderColor: PreppyGreen,
+        padding: 10,
+        borderRadius: 10,
+        width: "100%"
+    },
+    searchButtonDeactive: {
+        backgroundColor: PreppyGray,
+        padding: 10,
         borderRadius: 10,
         width: "100%"
     },
@@ -41,4 +53,11 @@ export const exploreStyles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         marginBottom: 10
     },
+    noRecipeMessage: {
+        fontFamily: "Raleway",
+        fontSize: 24,
+        width: "100%",
+        textAlign: "center",
+        marginTop: 30
+    }
 });

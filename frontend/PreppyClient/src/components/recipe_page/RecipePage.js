@@ -7,6 +7,8 @@ import RecipeItem from './RecipeItem';
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
 
+import RecipeService from '../../middleware/RecipeService'
+
 export default class RecipePage extends Component {
     static navigationOptions = {
         title: "Recipe",
@@ -18,21 +20,22 @@ export default class RecipePage extends Component {
     }
 
     componentWillMount() {
-        const recipe = this.props.navigation.getParam("recipe", new Recipe());
         const rid = this.props.navigation.getParam("recipeId", -1);
-        fetch("http://preppy-dev.appspot.com/recipe/" + rid, {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json()).then(rec => { 
+        if (rid != -1) {
+            const propRecipe = this.props.navigation.getParam("recipe", new Recipe());
+            this.setState({
+                recipe: propRecipe,
+                recipeId : rid,
+            });
+        }
+        else {
+            RecipeService.fetchRecipeById(rid).then(fetchedRecipe => {
                 this.setState({
-                    recipe: rec,
-                    recipeId : rec.id,
+                    recipe: fetchedRecipe,
+                    recipeId : fetchedRecipe.id,
                 });
-        });
-
+            })
+        }
     }
 
     render() {
@@ -52,7 +55,7 @@ export default class RecipePage extends Component {
             <View></View>;
 
         var iKey = 0;
-        const ingredients = this.state.recipe.ingredients.map(ingredient => 
+        const ingredients = recipe.ingredients.map(ingredient =>
             <RecipeItem itemText={ingredient.ingredient} key={iKey++}/>
         );
         var sKey = 0;
