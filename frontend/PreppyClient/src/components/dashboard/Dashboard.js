@@ -25,7 +25,10 @@ export default class Dashboard extends Component {
 
     constructor() {
         super();
-        this.state = {budget: 0, suggestedRecipes: undefined}
+        this.state = {
+            budget: 0,
+            suggestedRecipes: undefined
+        }
     }
 
     componentWillMount() {

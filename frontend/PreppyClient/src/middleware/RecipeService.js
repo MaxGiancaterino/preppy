@@ -75,4 +75,29 @@ export default RecipeData = {
         );
     },
 
+    /*
+     * Returns a promise containing a list of recipes whose name most strongly matches
+     * the input string. The list may be smaller than the provided limit, or even empty,
+     * if not enough matching recipes names can be found.
+     */
+     // NOTE: This implementation is a placeholder until the actual enpoint has been written
+     // The actual string matching should be performed server-side to prevent querying too many
+     // recipes
+    findRecipesByName: async(searchString, limit) => {
+        const sampleRecipes = [
+            Recipe.getSampleRecipe(0),
+            Recipe.getSampleRecipe(1),
+            Recipe.getSampleRecipe(2),
+            Recipe.getSampleRecipe(3),
+            Recipe.getSampleRecipe(4),
+            Recipe.getSampleRecipe(5)
+        ];
+        const matchingRecipes = [];
+        for (let key in sampleRecipes) {
+            if (sampleRecipes[key].name.includes(searchString)) {
+                matchingRecipes.push(sampleRecipes[key]);
+            }
+        }
+        return new Promise((resolve, reject) => resolve(matchingRecipes));
+    }
 }
