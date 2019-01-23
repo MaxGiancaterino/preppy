@@ -29,6 +29,11 @@ export default class SidebarPopout extends Component {
         });
     }
 
+    navigateToShoppingCart = () => {
+        this.props.onClose();
+        this.props.navigation.navigate("ShoppingCart");
+    }
+
     componentDidMount() {
         Animated.timing(this.state.posAnim, {
             toValue: Dimensions.get("window").width - 150,
@@ -59,6 +64,9 @@ export default class SidebarPopout extends Component {
                     left: posAnim}}>
                     <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={closeMenu}>
                         <Text style={sidebarStyles.sidebarText}> Back </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={sidebarStyles.sidebarItemEven} onPress={this.navigateToShoppingCart}>
+                        <Text style={sidebarStyles.sidebarText}> Shopping Cart </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={sidebarStyles.sidebarItemOdd} onPress={this.navigateToProfile}>
                         <Text style={sidebarStyles.sidebarText}> View Profile </Text>

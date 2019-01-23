@@ -12,6 +12,7 @@ import RecipePage from './src/components/recipe_page/RecipePage';
 import Pantry from './src/components/pantry/Pantry';
 import CreateAccount from './src/components/create_account/CreateAccount'
 import RecipeExplore from './src/components/recipe_explore/RecipeExplore'
+import ShoppingCart from './src/components/shopping_cart/ShoppingCart'
 
 
 import Header, {HeaderButton} from './src/components/common/Header';
@@ -51,6 +52,9 @@ const RootStack = createStackNavigator(
         },
         RecipeExplore: {
             screen: RecipeExplore
+        }, 
+        ShoppingCart: {
+            screen: ShoppingCart
         }
     },
     {
