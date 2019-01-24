@@ -9,9 +9,12 @@ export default class RecipeButton extends Component {
     }
 
     navigateToRecipe = () => {
-        this.props.navigation.navigate("Recipe", {
-            recipeId: this.props.recipe.id,
-            recipe: this.props.recipe,
+        this.props.navigation.navigate({
+            routeName: "Recipe",
+            params: {
+                recipeId: this.props.recipe.id,
+                recipe: this.props.recipe,
+            }
         });
     }
 

@@ -21,6 +21,13 @@ export default class RecipePage extends Component {
         this.state = {recipe: undefined, recipeId : -1};
     }
 
+    cookRecipe = () => {
+        this.props.navigation.navigate({
+            routeName: "Cook",
+            params: {"cookRecipe": this.state.recipe}
+        });
+    }
+
     componentWillMount() {
         const rid = this.props.navigation.getParam("recipeId", -1);
         if (rid != -1) {
@@ -86,6 +93,7 @@ export default class RecipePage extends Component {
 
                     <TouchableOpacity
                         style={buttonStyles.buttonGreen}
+                        onPress={this.cookRecipe}
                     >
                         <Text style={buttonStyles.buttonTextNormal}>Cook Now</Text>
                     </TouchableOpacity>
