@@ -19,7 +19,7 @@ export default class PantryButton extends Component {
                 onPress={this.navigateToPantry}
             >
                 <ImageBackground
-                    style={dashboardStyles.pantryImage}
+                    style={dashboardStyles.buttonImageRight}
                     // This is a PLACEHOLDER image
                     source={require("../../../assets/img/pantry.jpg")}
                 >
