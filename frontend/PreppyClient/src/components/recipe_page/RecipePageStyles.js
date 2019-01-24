@@ -14,6 +14,7 @@ export const recipePageStyles = StyleSheet.create({
     },
     recipeScroll: {
         flex: 1,
+        paddingHorizontal: 10
     },
     recipeTitle: {
         fontFamily: "Raleway",
@@ -23,6 +24,7 @@ export const recipePageStyles = StyleSheet.create({
         textAlign: "center",
         paddingVertical: 5,
         backgroundColor: "#FFFFFF",
+        marginHorizontal: -10
     },
     recipeImage: {
         width: "100%",
@@ -47,7 +49,6 @@ export const recipePageStyles = StyleSheet.create({
     recipeItemMain: {
         backgroundColor: PreppyLight,
         marginVertical: 6,
-        marginHorizontal: 10,
         borderRadius: 6,
         padding: 7,
     },
