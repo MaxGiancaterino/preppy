@@ -34,6 +34,10 @@ export default class Dashboard extends Component {
     componentWillMount() {
         const user = UserData.getUser();
         const arbitraryRecipes = [15, 2, 3, 4];
+        global.recipes = [];
+        // If we're using global, we should maybe move this to the splash screen so it doesn't cause any bugs
+        // when we navigate from the dashboard to quickly. However, we may want to reconsider using global at
+        // all. It might be a better idea to pass them directly or create a custom singleton
         RecipeService.fetchRecipeQueue(arbitraryRecipes).then(recipes => {
             this.setState({
                 budget: user.remainingBudget,

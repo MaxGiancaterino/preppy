@@ -26,6 +26,14 @@ export default class Cook extends Component {
         this.state = {phase: 0, step: 0, recipe: null};
     }
 
+    componentWillMount() {
+        // If the navigation was passed a recipe, we can skip phase 0
+        const recipeToCook = this.props.navigation.getParam("cookRecipe", null);
+        if (recipeToCook && recipeToCook != null) {
+            this.setState({phase: 1, recipe: recipeToCook});
+        }
+    }
+
     setSelectedRecipe = (recipe) => {
         this.setState({recipe: recipe});
     }
