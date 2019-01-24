@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView} from 'react-native';
+import {Text, View, Image, ScrollView, TouchableOpacity} from 'react-native';
+
+import RecipeItem from './RecipeItem';
 
 import {recipePageStyles} from './RecipePageStyles';
-import RecipeItem from './RecipeItem';
+import {buttonStyles} from '../common/CommonStyles';
 
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
@@ -76,6 +78,17 @@ export default class RecipePage extends Component {
                     <Text style={recipePageStyles.sectionTitle}>Preparation</Text>
                     {steps}
 
+                    <TouchableOpacity
+                        style={buttonStyles.buttonGreen}
+                    >
+                        <Text style={buttonStyles.buttonTextNormal}>Schedule Recipe</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity
+                        style={buttonStyles.buttonGreen}
+                    >
+                        <Text style={buttonStyles.buttonTextNormal}>Cook Now</Text>
+                    </TouchableOpacity>
                 </ScrollView>
             </View>
         );

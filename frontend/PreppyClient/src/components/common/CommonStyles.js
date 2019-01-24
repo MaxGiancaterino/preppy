@@ -2,7 +2,11 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
-
+const PreppyGreen =  "#33CF23";
+const PreppyPurple = "#7625A9";
+const PreppyRed =    "#F92A34";
+const PreppyLight =  "#FFEED1";
+const PreppyGray =   "#8D8D8D";
 
 export const mainStyle = StyleSheet.create({
     main: {
@@ -85,6 +89,30 @@ export const recipeButtonStyles = StyleSheet.create({
     },
     recipeButtonTitle: {
         fontFamily: 'Raleway',
+        color: "#FFFFFF",
+        fontSize: 24,
+    }
+})
+
+export const buttonStyles = StyleSheet.create({
+    buttonGreen: {
+        backgroundColor: PreppyGreen,
+        padding: 10,
+        borderRadius: 10,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: 5,
+    },
+    buttonTextNormal: {
+        fontFamily: 'Raleway',
+        color: "#FFFFFF",
+        fontSize: 24,
+    },
+    buttonTextBold: {
+        fontFamily: 'Raleway',
+        fontWeight: "bold",
         color: "#FFFFFF",
         fontSize: 24,
     }
