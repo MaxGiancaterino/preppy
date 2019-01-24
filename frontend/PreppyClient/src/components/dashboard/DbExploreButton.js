@@ -9,7 +9,7 @@ export default class ExploreButton extends Component {
         super();
     }
 
-    navigateToSchedule = () => {
+    navigateToExplore = () => {
         this.props.navigation.navigate("RecipeExplore");
     }
 
@@ -17,10 +17,10 @@ export default class ExploreButton extends Component {
         return(
             <TouchableHighlight
                 style={dashboardStyles.exploreButton}
-                onPress={this.navigateToSchedule}
+                onPress={this.navigateToExplore}
             >
                 <ImageBackground
-                    style={dashboardStyles.exploreImage}
+                    style={dashboardStyles.buttonImageLeft}
                     // This is a PLACEHOLDER image
                     source={require("../../../assets/img/recipes.jpg")}
                 >

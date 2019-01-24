@@ -66,11 +66,10 @@ export default class Dashboard extends Component {
                     style={dashboardStyles.dashboardScroll}
                 >
                     <BudgetDisplay amount={budget}/>
-                    <View style={dashboardStyles.buttonContainer}>
-                        <CookButton navigation={nav}/>
-                    </View>
+                    <CookButton navigation={nav}/>
                     <PantryButton navigation={nav}/>
                     <ExploreButton navigation={nav}/>
+                    <ScheduleButton navigation={nav}/>
                     <View style={dashboardStyles.recipeListTitleContainer}>
                         <Text style={dashboardStyles.recipeListTitle}>
                             Recipes Recommended For You:

@@ -19,7 +19,7 @@ export default class CookButton extends Component {
                 onPress={this.navigateToCooking}
             >
                 <ImageBackground
-                    style={dashboardStyles.cookImage}
+                    style={dashboardStyles.buttonImageLeft}
                     // This is a PLACEHOLDER image
                     source={require("../../../assets/img/cook.jpg")}
                 >
