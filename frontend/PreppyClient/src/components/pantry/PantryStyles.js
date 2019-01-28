@@ -50,13 +50,21 @@ export const pantryStyles = StyleSheet.create({
     	borderRadius: 6,
         padding: 7,
         backgroundColor: PreppyLight,
-        width: "60%",
+        width: "50%",
     },
     ingredientItemText: {
         fontFamily: "Raleway",
-        fontSize: 20,
+        fontSize: 18,
+        flexDirection: "row",
         fontWeight: "bold",
         color: "#000000",
+    },
+    amountContainer: {
+        borderRadius: 6,
+        width: "16%",
+        padding: 7,
+        backgroundColor: PreppyLight,
+        fontFamily: "Raleway",
     },
     // changeAmountButtonContainer: {
     // 	borderRadius: 6,

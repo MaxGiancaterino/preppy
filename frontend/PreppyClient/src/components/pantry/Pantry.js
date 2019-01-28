@@ -39,8 +39,8 @@ export default class Pantry extends Component {
     render() {
 
         var iKey = 0;
-        const ingredients = this.state.ingredients.map(ingredient => 
-            <IngredientItem itemText={ingredient} key={iKey++}/>
+        var ingredients = this.state.ingredients.map(ingredient => 
+            <IngredientItem itemText={ingredient.name} itemAmount={ingredient.amount} ikey={iKey++}/>
         );
 
         return(

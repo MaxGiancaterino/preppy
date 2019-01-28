@@ -5,22 +5,26 @@ import {pantryStyles} from './PantryStyles';
 
 export default class IngredientItem extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = { amount: this.props.itemAmount};
+        //this.state = { amount: 3};
     }
-
     
     removeIngredient() {
-        // TO DO 
+        if (!this.state.amount == 0) {
+            this.setState({ amount: this.state.amount - 1 }); 
+        }
     }
 
 
     addIngredient() {
-        // TO DO 
-
+        this.setState({ amount: this.state.amount + 1 }); 
     }
 
     render() {
+        const { input } = this.state
+
         return(
             <View style={pantryStyles.ingredientItemMain}>
 
@@ -30,6 +34,11 @@ export default class IngredientItem extends Component {
                     </Text>
                 </View>
 
+                <View style={pantryStyles.amountContainer}>
+                    <Text style={pantryStyles.ingredientItemText}>
+                        {this.state.amount}
+                    </Text>
+                </View>
 
                 <View style={pantryStyles.changeAmountButton}>
                     <Button
