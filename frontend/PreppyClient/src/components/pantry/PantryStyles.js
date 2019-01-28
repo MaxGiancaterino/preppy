@@ -50,7 +50,7 @@ export const pantryStyles = StyleSheet.create({
     	borderRadius: 6,
         padding: 7,
         backgroundColor: PreppyLight,
-        width: "50%",
+        width: "40%",
     },
     ingredientItemText: {
         fontFamily: "Raleway",
@@ -61,7 +61,7 @@ export const pantryStyles = StyleSheet.create({
     },
     amountContainer: {
         borderRadius: 6,
-        width: "16%",
+        width: "10%",
         padding: 7,
         backgroundColor: PreppyLight,
         fontFamily: "Raleway",
@@ -76,7 +76,7 @@ export const pantryStyles = StyleSheet.create({
     	borderRadius: 100,
         padding: 7,
         backgroundColor: PreppyLight,
-        width: "16%",
+        width: "15%",
     	fontWeight: "bold",
     }
 
