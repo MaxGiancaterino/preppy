@@ -17,11 +17,11 @@ export default class Pantry extends Component {
 
     constructor() {
         super();
-        // this.state = {
-        //     username: "",
-        //     password: ""
-        // }
-        this.state = {ingredients: null};
+
+        this.state = {
+                ingredients: null, 
+                newIngredient: null,
+            };
     }
 
     componentWillMount() {
@@ -31,9 +31,17 @@ export default class Pantry extends Component {
         });
     }
 
+    inputIngredient(newName) {
+        this.setState({newIngredient: {"name": newName, "amount": 1}});
+    }
+
     add_ingredient() {
-        // TO DO
-        
+        if (this.state.newIngredient) {
+            var newList = this.state.ingredients;
+            newList.unshift(this.state.newIngredient);
+            this.setState({ingredients: newList});
+            this.state.newIngredient = null;
+        }  
     }
 
     render() {
@@ -51,6 +59,15 @@ export default class Pantry extends Component {
                         onPress={() => {this.add_ingredient()}}
                         title="Add ingredient"
                         color="#FDB52B"
+                    />
+                </View>
+
+                <View style={pantryStyles.inputBox}>
+                    <TextInput style={pantryStyles.input}
+                        onChangeText= { 
+                            (input) => this.inputIngredient((input))
+                        } 
+                        placeholder='new ingredient'
                     />
                 </View>
 

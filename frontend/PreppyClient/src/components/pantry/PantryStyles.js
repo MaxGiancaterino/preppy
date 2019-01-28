@@ -23,6 +23,14 @@ export const pantryStyles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         borderRadius: 3,
         fontWeight: "bold",
+    }, 
+    inputBox: {
+        width: "80%",
+        fontSize: 12,
+        margin: 5,
+        borderColor: "#FFFFFF",
+        borderRadius: 3, 
+        borderWidth: 1
     },
     sectionTitle: {
         fontFamily: "Raleway",
