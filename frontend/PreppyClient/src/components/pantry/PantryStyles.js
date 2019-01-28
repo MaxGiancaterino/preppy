@@ -23,6 +23,14 @@ export const pantryStyles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         borderRadius: 3,
         fontWeight: "bold",
+    }, 
+    inputBox: {
+        width: "80%",
+        fontSize: 12,
+        margin: 5,
+        borderColor: "#FFFFFF",
+        borderRadius: 3, 
+        borderWidth: 1
     },
     sectionTitle: {
         fontFamily: "Raleway",
@@ -50,13 +58,21 @@ export const pantryStyles = StyleSheet.create({
     	borderRadius: 6,
         padding: 7,
         backgroundColor: PreppyLight,
-        width: "60%",
+        width: "40%",
     },
     ingredientItemText: {
         fontFamily: "Raleway",
-        fontSize: 20,
+        fontSize: 18,
+        flexDirection: "row",
         fontWeight: "bold",
         color: "#000000",
+    },
+    amountContainer: {
+        borderRadius: 6,
+        width: "10%",
+        padding: 7,
+        backgroundColor: PreppyLight,
+        fontFamily: "Raleway",
     },
     // changeAmountButtonContainer: {
     // 	borderRadius: 6,
@@ -68,7 +84,7 @@ export const pantryStyles = StyleSheet.create({
     	borderRadius: 100,
         padding: 7,
         backgroundColor: PreppyLight,
-        width: "16%",
+        width: "15%",
     	fontWeight: "bold",
     }
 
