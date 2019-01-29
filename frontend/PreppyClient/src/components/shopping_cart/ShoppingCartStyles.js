@@ -11,18 +11,26 @@ export const shoppingCartStyles = StyleSheet.create({
         height: Dimensions.get('window').height,
         flex: 1,
         flexDirection: "column",
-    	justifyContent: "flex-start",
-    	alignItems: 'center',
+        justifyContent: "flex-start",
+        alignItems: 'center',
     }, 
     shoppingCartScroll: {
         flex: 1,
     },
     addIngredientButton: {
-    	margin: 10,
+        margin: 10,
         width: "80%",
         backgroundColor: "#FFFFFF",
         borderRadius: 3,
         fontWeight: "bold",
+    }, 
+    inputBox: {
+        width: "80%",
+        fontSize: 12,
+        margin: 5,
+        borderColor: "#FFFFFF",
+        borderRadius: 3, 
+        borderWidth: 1
     },
     sectionTitle: {
         fontFamily: "Raleway",
@@ -47,29 +55,37 @@ export const shoppingCartStyles = StyleSheet.create({
         justifyContent: 'space-evenly',
     },
     ingredientNameContainer: {
-    	borderRadius: 6,
+        borderRadius: 6,
         padding: 7,
         backgroundColor: PreppyLight,
-        width: "60%",
+        width: "40%",
     },
     ingredientItemText: {
         fontFamily: "Raleway",
-        fontSize: 20,
+        fontSize: 18,
+        flexDirection: "row",
         fontWeight: "bold",
         color: "#000000",
     },
+    amountContainer: {
+        borderRadius: 6,
+        width: "10%",
+        padding: 7,
+        backgroundColor: PreppyLight,
+        fontFamily: "Raleway",
+    },
     // changeAmountButtonContainer: {
-    // 	borderRadius: 6,
+    //  borderRadius: 6,
     //     padding: 7,
     //     backgroundColor: PreppyLight,
     //     width: "12%",
     // },
     changeAmountButton: {
-    	borderRadius: 100,
+        borderRadius: 100,
         padding: 7,
         backgroundColor: PreppyLight,
-        width: "16%",
-    	fontWeight: "bold",
+        width: "15%",
+        fontWeight: "bold",
     }
 
 });

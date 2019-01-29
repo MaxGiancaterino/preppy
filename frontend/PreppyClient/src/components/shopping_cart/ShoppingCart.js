@@ -9,19 +9,19 @@ import IngredientItem from './IngredientItem';
 import User from '../../models/User';
 import Ingredient from '../../models/Ingredient';
 
-export default class ShoppingCart extends Component {
+export default class shoppingCart extends Component {
 
     static navigationOptions = {
-        title: "ShoppingCart",
+        title: "shoppingCart",
     };
 
     constructor() {
         super();
-        // this.state = {
-        //     username: "",
-        //     password: ""
-        // }
-        this.state = {ingredients: null};
+
+        this.state = {
+                ingredients: null, 
+                newIngredient: null,
+            };
     }
 
     componentWillMount() {
@@ -31,16 +31,24 @@ export default class ShoppingCart extends Component {
         });
     }
 
+    inputIngredient(newName) {
+        this.setState({newIngredient: {"name": newName, "amount": 1}});
+    }
+
     add_ingredient() {
-        // TO DO
-        
+        if (this.state.newIngredient) {
+            var newList = this.state.ingredients;
+            newList.unshift(this.state.newIngredient);
+            this.setState({ingredients: newList});
+            this.state.newIngredient = null;
+        }  
     }
 
     render() {
 
         var iKey = 0;
-        const ingredients = this.state.ingredients.map(ingredient => 
-            <IngredientItem itemText={ingredient} key={iKey++}/>
+        var ingredients = this.state.ingredients.map(ingredient => 
+            <IngredientItem itemText={ingredient.name} itemAmount={ingredient.amount} ikey={iKey++}/>
         );
 
         return(
@@ -54,12 +62,21 @@ export default class ShoppingCart extends Component {
                     />
                 </View>
 
+                <View style={shoppingCartStyles.inputBox}>
+                    <TextInput style={shoppingCartStyles.input}
+                        onChangeText= { 
+                            (input) => this.inputIngredient((input))
+                        } 
+                        placeholder='new ingredient'
+                    />
+                </View>
+
                 <ScrollView
                     style={shoppingCartStyles.shoppingCartScroll}
                     showsVerticalScrollIndicator="false"
                 >
 
-                    <Text style={shoppingCartStyles.sectionTitle}>My Ingredients</Text>
+                    <Text style={shoppingCartStyles.sectionTitle}>Ingredients to Buy</Text>
                     {ingredients}
 
                 </ScrollView>

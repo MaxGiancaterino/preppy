@@ -5,22 +5,34 @@ import {shoppingCartStyles} from './ShoppingCartStyles';
 
 export default class IngredientItem extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = { 
+            amount: this.props.itemAmount, 
+            render: true
+        };
+        //this.state = { amount: 3};
     }
 
-    
     removeIngredient() {
-        // TO DO 
+        this.setState({render : false });
+    }
+    
+    subtractIngredient() {
+        if (!this.state.amount == 0) {
+            this.setState({ amount: this.state.amount - 1 }); 
+        }
     }
 
 
     addIngredient() {
-        // TO DO 
-
+        this.setState({ amount: this.state.amount + 1 }); 
     }
 
     render() {
+        const { input } = this.state
+        if (!this.state.render) return null;
+
         return(
             <View style={shoppingCartStyles.ingredientItemMain}>
 
@@ -30,10 +42,15 @@ export default class IngredientItem extends Component {
                     </Text>
                 </View>
 
+                <View style={shoppingCartStyles.amountContainer}>
+                    <Text style={shoppingCartStyles.ingredientItemText}>
+                        {this.state.amount}
+                    </Text>
+                </View>
 
                 <View style={shoppingCartStyles.changeAmountButton}>
                     <Button
-                        onPress={() => {this.removeIngredient()}}
+                        onPress={() => {this.subtractIngredient()}}
                         title="-"
                     />
                 </View>
@@ -42,6 +59,13 @@ export default class IngredientItem extends Component {
                     <Button
                         onPress={() => {this.addIngredient()}}
                         title="+"
+                    />
+                </View>
+
+                <View style={shoppingCartStyles.changeAmountButton}>
+                    <Button
+                        onPress={() => {this.removeIngredient()}}
+                        title="x"
                     />
                 </View>
 
