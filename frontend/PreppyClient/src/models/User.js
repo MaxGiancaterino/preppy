@@ -1,5 +1,6 @@
 import Recipe from "./Recipe";
 import Ingredient from "./Ingredient";
+import Schedule from "./Schedule";
 
 export default class User {
 
