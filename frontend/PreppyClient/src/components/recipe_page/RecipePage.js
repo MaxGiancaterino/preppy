@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView, TouchableOpacity} from 'react-native';
+import {Text, View, Image, ScrollView, TouchableOpacity, Platform} from 'react-native';
 
 import RecipeItem from './RecipeItem';
 
@@ -72,31 +72,43 @@ export default class RecipePage extends Component {
             <RecipeItem itemText={step.text} key={sKey++}/>
         );
 
+        const isIos = Platform.OS === "ios";
+        const PreppyOrange = "#FDB52B";
+        const PureWhite = "#FFFFFF";
+
+        // Note: I do all this fancy stuff with the content inset / offset to ensure that the overscroll colors
+        // match that of the topmost and bottommost content in the scrollview. It only works for iOS though
         return (
             <View style={recipePageStyles.recipeMain}>
                 <ScrollView
-                    style={recipePageStyles.recipeScroll}
+                    style={{...recipePageStyles.recipeScroll, backgroundColor: isIos ? PreppyOrange : PureWhite}}
+                    contentContainerStyle={{backgroundColor: PureWhite}}
+                    contentInset={{top: -1000}}
+                    contentOffset={{y: 1000}}
                     showsVerticalScrollIndicator="false"
                 >
+                    {isIos && <View style={{height: 1000}} />}
                     <Text style={recipePageStyles.recipeTitle}>{recipe.name}</Text>
                     {dishImage}
-                    <Text style={recipePageStyles.sectionTitle}>Ingredients</Text>
-                    {ingredients}
-                    <Text style={recipePageStyles.sectionTitle}>Preparation</Text>
-                    {steps}
+                    <View style={recipePageStyles.orangeBg}>
+                        <Text style={recipePageStyles.sectionTitle}>Ingredients</Text>
+                        {ingredients}
+                        <Text style={recipePageStyles.sectionTitle}>Preparation</Text>
+                        {steps}
 
-                    <TouchableOpacity
-                        style={buttonStyles.buttonGreen}
-                    >
-                        <Text style={buttonStyles.buttonTextNormal}>Schedule Recipe</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            style={buttonStyles.buttonGreen}
+                        >
+                            <Text style={buttonStyles.buttonTextNormal}>Schedule Recipe</Text>
+                        </TouchableOpacity>
 
-                    <TouchableOpacity
-                        style={buttonStyles.buttonGreen}
-                        onPress={this.cookRecipe}
-                    >
-                        <Text style={buttonStyles.buttonTextNormal}>Cook Now</Text>
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            style={buttonStyles.buttonGreen}
+                            onPress={this.cookRecipe}
+                        >
+                            <Text style={buttonStyles.buttonTextNormal}>Cook Now</Text>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </View>
         );
