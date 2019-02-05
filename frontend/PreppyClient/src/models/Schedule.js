@@ -36,7 +36,7 @@ export default class Schedule {
         let sample = new Schedule();
         let success = sample.scheduleMeal(
             new Date(2019, 1, 10, 20),
-            new ScheduleItem(ITEM_TYPE.COOK, MEAL_TYPE.OTHER, new Date(2019, 1, 10, 20), Recipe.getSampleRecipe(1))
+            new ScheduleItem(ITEM_TYPE.COOK, MEAL_TYPE.NA, new Date(2019, 1, 10, 20), Recipe.getSampleRecipe(1))
         );
         return sample;
     }
