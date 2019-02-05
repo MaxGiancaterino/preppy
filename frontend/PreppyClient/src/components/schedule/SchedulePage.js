@@ -61,15 +61,26 @@ export default class SchedulePage extends Component {
         // The key just gets rid of a RN warning. Don't worry too much about it
         let key = 0;
 
-        // Create a new component for every day we have something scheduled, and
-        // every event (cooking or meals) we have scheduled.
-        for (let dateString in this.state.schedule.items) {
-            if (!this.state.schedule.items.hasOwnProperty(dateString)) {
+        // Move all the dates to a numerical array so they can be properly sorted
+        let dates = [];
+        for (let d in this.state.schedule.items) {
+            if (!this.state.schedule.items.hasOwnProperty(d)) {
                 continue;
             }
+            dates.push(new Date(d));
+        }
+        dates.sort(function(a, b) {
+            return a - b;
+        });
+
+        // Create a new component for every day we have something scheduled, and
+        // every event (cooking or meals) we have scheduled.
+        // For some mysterious JavaScript reason, a for-in loop isn't working here
+        for (let i = 0; i < dates.length; i++) {
 
             // The displayed date reads like "Monday February 4th"
-            let date = new Date(dateString);
+            const date = dates[i];
+            const dateString = date.toDateString();
             const weekday = days[date.getDay()];
             const day = date.getDate();
             const month = months[date.getMonth()];
@@ -79,8 +90,14 @@ export default class SchedulePage extends Component {
                     <Text>{dateTitle}</Text>
                 </View>
             );
-            for (let i in this.state.schedule.items[dateString]) {
-                const item = this.state.schedule.items[dateString][i];
+
+            // We have to sort the individual items as well
+            let dateItems = this.state.schedule.items[dateString];
+            dateItems.sort(function(a, b) {
+                return a.compare(b);
+            });
+            for (let j = 0; j < dateItems.length; j++) {
+                const item = dateItems[j];
                 scheduleComponents.push(
                     <View key={key++}>
                         <Text>{item.recipe.name}</Text>
@@ -90,9 +107,6 @@ export default class SchedulePage extends Component {
         }
         return(
             <View style={scheduleStyles.scheduleMain}>
-                <View style={scheduleStyles.layoutBar}>
-                    <Text>List View</Text>
-                </View>
                 <ScrollView>
                     {scheduleComponents}
                 </ScrollView>

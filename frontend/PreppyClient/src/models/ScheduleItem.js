@@ -1,4 +1,4 @@
-
+import Recipe from './Recipe';
 
 export const ITEM_TYPE = {
     MEAL: "Meal",
@@ -22,7 +22,24 @@ export default class ScheduleItem {
     constructor(itemType, meal, time, recipe) {
         this.itemType = itemType;
         this.meal = meal;
-        this.time = time;
-        this.recipe = recipe;
+        if (time instanceof Date) {
+            this.time = time;
+        }
+        if (recipe instanceof Recipe) {
+            this.recipe = recipe;
+        }
+    }
+
+    /*
+     * Compares this schedule item to another, by date. If this item occurs before the other, 
+     * the return value is negative. If it occurs after, it's positive. If they occur at the 
+     * same exact millisecond, it's zero. It the other item isn't a ScheduleItem, NaN is
+     * returned instead.
+     */
+    compare(otherItem) {
+        if (!(oherItem instanceof ScheduleItem)) {
+            return 0/0; // NaN
+        }
+        return this.time.getTime() - otherItem.getTime();
     }
 }

@@ -32,7 +32,7 @@ export default class Recipe {
 
     static getSampleRecipe(sampleId = 0) {
         switch (sampleId) {
-            case 0: return {
+            case 0: return new Recipe({
                 id: 0,
                 name: "Coba Soba Noodle Salad",
                 ingredients: [
@@ -57,8 +57,8 @@ export default class Recipe {
                 numServings: 5,
                 nutrition: [],
                 rating: 3
-            };
-            case 1: return {
+            });
+            case 1: return new Recipe({
                 id: 1,
                 name: "Quick and Easy Chicken Noodle Soup",
                 ingredients: [
@@ -83,8 +83,8 @@ export default class Recipe {
                 sourceURL: "https://www.allrecipes.com/recipe/26460/quick-and-easy-chicken-noodle-soup/",
                 nutrition: [],
                 rating: 3
-            };
-            case 2: return {
+            });
+            case 2: return new Recipe({
                 id: 2,
                 name: "Test Recipe",
                 ingredients: [{ingredient: "None"}],
@@ -95,8 +95,8 @@ export default class Recipe {
                 numServings: 0,
                 nutrition: [],
                 rating: 0
-            };
-            case 3: return {
+            });
+            case 3: return new Recipe({
                 id: 3,
                 name: "Hot dog",
                 ingredients: [
@@ -117,8 +117,8 @@ export default class Recipe {
                 numServings: 1,
                 nutrition: [],
                 rating: 5,
-            }
-            case 4: return {
+            });
+            case 4: return new Recipe({
                 id: 4,
                 name: "Froot Loops",
                 ingredients: [
@@ -135,8 +135,8 @@ export default class Recipe {
                 numServings: 1,
                 nutrition: [],
                 rating: 3
-            };
-            case 5: return {
+            });
+            case 5: return new Recipe({
                 id: 5,
                 name: "Chicken McNuggets",
                 ingredients: [{ingredient: "None"}],
@@ -150,7 +150,7 @@ export default class Recipe {
                 numServings: 1,
                 nutrition: [],
                 rating: 4
-            }
+            });
         }
     }
 
