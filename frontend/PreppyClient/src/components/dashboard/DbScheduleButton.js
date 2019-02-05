@@ -10,7 +10,7 @@ export default class ScheduleButton extends Component {
     }
 
     navigateToSchedule = () => {
-        this.props.navigation.navigate("Schedule");
+        this.props.navigation.navigate("SchedulePage");
     }
 
     render() {
