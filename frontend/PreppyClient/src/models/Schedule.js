@@ -1,80 +1,43 @@
-import ScheduleItem from './ScheduleItem';
+import ScheduleItem, {MEAL_TYPE, ITEM_TYPE} from './ScheduleItem';
+import Recipe from './Recipe';
 
-/* 
- * This class contains the schedule items the user has chosen for themselves for a particular week
- * By making this schedule per week instead of for all time, we can easily only display weeks for 
- * which something is scheduled (and we don't have to worry about bookkeeping the Schedule object
- * to remove entries whose dates have already passed). The actual events are stored per day as arrays
- * of ScheduleItems.
- */
 export default class Schedule {
 
     constructor() {
         // The id of the user this schedule is associated with
         this.userId = -1;
 
-        // The Date of the sunday this week starts on. The h/m/s can be igonred
-        this.weekOf = null;
-
-        // An array of schedule items for each day of the week
-        this.items = {
-            "sunday"    : [],
-            "monday"    : [],
-            "tuesday"   : [],
-            "wednesday" : [],
-            "thursday"  : [],
-            "friday"    : [],
-            "saturday"  : []
-        }
+        // An associative array mapping dates (specifically, date strings (Date.toDateString)) to
+        // arrays of scheduleItems. These ScheduleItems can be cook or meal events.
+        this.items = {};
     }
 
     /*
-     * Schedules some ScheduleItem into this weekly schedule. It does so asyncronously to
-     * allow users to click through confirmations, etc (TODO). Returns true if successful.
+     * Schedules some ScheduleItem into this schedule appropriately. Returns true if successful.
      */
-    scheduleMeal(day, item) {
+    scheduleMeal(date, item) {
 
         if (!(item instanceof ScheduleItem)) {
             return false;
         }
-
-        const weekdays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-        let dayString = "";
-        if (typeof(day) === "number") {
-            day = Math.floor(day);
-            if (day >= 0 && day < 7) {
-                dayString = weekdays[day];
-            }
-            else {
-                return false;
-            }
-        }
-        else if (typeof(day) === "string") {
-            day = day.toLowerCase();
-            if (weekdays.includes(day)) {
-                dayString = day;
-            }
-            else {
-                return false;
-            }
-        }
-        else if (day instanceof Date && this.weekOf instanceof Date) {
-            this.weekOf.setHours(0, 0, 0, 0);
-            let modifiedDay = new Date(day.getTime());
-            modifiedDay.setHours(0, 0, 0, 0);
-            const dayDiff = (day.getTime() - this.weekOf.getTime()) / (1000 * 60 * 60 * 24);
-            if (dayDiff >= 0 && dayDiff < 7) {
-                dayString = weekdays[dayDiff]
-            }
-            else {
-                return false;
-            }
-        }
-        else {
+        if (!(date instanceof Date)) {
             return false;
         }
 
-        (this.items)[dayString].push(item);
+        const dateString = date.toDateString();
+        if (!this.items[dateString]) {
+            this.items[dateString] = [];
+        }
+        this.items[dateString].push(item);
         return true;
+    }
+
+    static getSampleSchedule() {
+        let sample = new Schedule();
+        let success = sample.scheduleMeal(
+            new Date(2019, 1, 10, 20),
+            new ScheduleItem(ITEM_TYPE.COOK, MEAL_TYPE.OTHER, new Date(2019, 1, 10, 20), Recipe.getSampleRecipe(1))
+        );
+        return sample;
     }
 }

@@ -1,4 +1,12 @@
-export const MEAL_TYPES = {
+
+
+export const ITEM_TYPE = {
+    MEAL: "Meal",
+    COOK: "Cook"
+}
+
+// Applies for items of type MEAL. Those of type cook should have a meal type of N/A
+export const MEAL_TYPE = {
     BREAKFAST: "Breakfast",
     LUNCH: "Lunch",
     DINNER: "Dinner",
@@ -8,16 +16,13 @@ export const MEAL_TYPES = {
     NA: "Not a meal"
 };
 
-export const ITEM_TYPE = {
-    MEAL: "Meal",
-    COOK: "Cook"
-}
-
 export default class ScheduleItem {
     
-    constructor(itemType, meal, time) {
+    // Recipe should maybe be made into a recipe id instead
+    constructor(itemType, meal, time, recipe) {
         this.itemType = itemType;
         this.meal = meal;
         this.time = time;
+        this.recipe = recipe;
     }
 }

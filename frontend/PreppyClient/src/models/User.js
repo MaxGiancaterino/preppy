@@ -14,6 +14,7 @@ export default class User {
         this.remainingBudget = userData.hasOwnProperty("remainingBudget") ? userData.remainingBudget : 0;
         this.cookingQueue = userData.hasOwnProperty("cookingQueue") ? userData.cookingQueue : [-1];
         this.recipes = [];
+        this.schedule = [];
     }
 
     getSuggestedRecipes() {

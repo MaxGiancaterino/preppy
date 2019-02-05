@@ -5,7 +5,7 @@ import {createStackNavigator} from 'react-navigation';
 import Splash from './src/components/splash/Splash';
 import Login from './src/components/login/Login';
 import Dashboard from './src/components/dashboard/Dashboard';
-import Schedule from './src/components/schedule/Schedule';
+import SchedulePage from './src/components/schedule/SchedulePage';
 import Cook from './src/components/cook/Cook';
 import Profile from './src/components/profile/Profile';
 import RecipePage from './src/components/recipe_page/RecipePage';
@@ -32,8 +32,8 @@ const RootStack = createStackNavigator(
         Dashboard: {
             screen: Dashboard
         },
-        Schedule: {
-            screen: Schedule
+        SchedulePage: {
+            screen: SchedulePage
         },
         Cook: {
             screen: Cook
