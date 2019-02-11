@@ -44,6 +44,7 @@ export default class SchedulePage extends Component {
     }
 
     render() {
+        const nav = this.props.navigation;
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const months = [
             "January",
@@ -86,7 +87,15 @@ export default class SchedulePage extends Component {
             dateItems.sort(function(a, b) {
                 return a.compare(b);
             });
-            return <ScheduleDay date={dateTitle} items={dateItems} key={key++} even={key % 2}/>
+            return (
+                <ScheduleDay
+                    navigation={nav}
+                    date={dateTitle}
+                    items={dateItems}
+                    key={key++}
+                    even={key % 2}
+                />
+            );
         })
 
         return(

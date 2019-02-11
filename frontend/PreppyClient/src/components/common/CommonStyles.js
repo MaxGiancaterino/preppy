@@ -91,6 +91,23 @@ export const recipeButtonStyles = StyleSheet.create({
         fontFamily: 'Raleway',
         color: "#FFFFFF",
         fontSize: 24,
+    },
+    recipeButtonItemAlt: {
+        backgroundColor: PreppyOrange,
+        marginHorizontal: 10,
+        marginTop: 10,
+        minHeight: 20,
+        padding: 5,
+        borderRadius: 5,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    recipeButtonTitleAlt: {
+        fontFamily: 'Raleway',
+        color: "#FFFFFF",
+        fontSize: 18,
     }
 })
 
