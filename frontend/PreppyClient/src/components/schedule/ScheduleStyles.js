@@ -7,6 +7,9 @@ const PreppyPurple = "#7625A9";
 const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
+const PreppyLBlue1 = "#AAAAFF";
+const PreppyLBlue2 = "#93B1E2";
+const PureWhite =    "#FFFFFF";
 
 export const scheduleStyles = StyleSheet.create({
 
@@ -27,5 +30,21 @@ export const scheduleStyles = StyleSheet.create({
     scheduleScroll: {
         flex: 1,
         backgroundColor: PreppyLight
+    },
+
+    /* ---------------------------------- *
+     *  Schedule Day
+     * ---------------------------------- */
+
+    dayContainerEven: {
+        backgroundColor: PreppyLBlue1
+    },
+    dayContainerOdd: {
+        backgroundColor: PreppyLBlue2
+    },
+    dateText: {
+        color: PureWhite,
+        fontFamily: "raleway",
+        fontSize: 24
     },
 });

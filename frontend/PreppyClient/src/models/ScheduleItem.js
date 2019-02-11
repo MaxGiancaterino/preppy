@@ -40,6 +40,6 @@ export default class ScheduleItem {
         if (!(otherItem instanceof ScheduleItem)) {
             return 0/0; // NaN
         }
-        return this.time.getTime() - otherItem.getTime();
+        return this.time.getTime() - otherItem.time.getTime();
     }
 }
