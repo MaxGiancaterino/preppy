@@ -3,7 +3,7 @@ var database = require('../firebase/db');
 var firebase = require('../firebase/firebase');
 
 exports.create = function(user, next) {
-	admin.auth().createUser({
+	admin.admin.auth().createUser({
 		email: user.email,
 		emailVerified: false,
 		phoneNumber: user.phoneNumber,
@@ -23,7 +23,7 @@ exports.create = function(user, next) {
 }
 
 exports.get = function(uid, next) {
-	admin.auth().getUser(uid)
+	admin.admin.auth().getUser(uid)
   		.then(function(userRecord) {
     		console.log("Successfully fetched user data:", userRecord.toJSON());
     		next(userRecord);
@@ -31,18 +31,6 @@ exports.get = function(uid, next) {
   		.catch(function(error) {
     		console.log("Error fetching user data:", error);
   		});
-}
-
-exports.delete = function(id, next) {
-	admin.auth().deleteUser(id)
-	  	.then(function() {
-	    	console.log("Successfully deleted user");
-	    	next(null);
-	  	})
-	  	.catch(function(error) {
-	    	console.log("Error deleting user:", error);
-	    	next(error);
-	  	});
 }
 
 exports.login = function(email, password, next) {
@@ -54,14 +42,4 @@ exports.login = function(email, password, next) {
 			console.log("Error logging in");
 			next(null, error);
 		})
-}
-
-exports.logout = function(next) {
-	firebase.auth().signOut()
-		.then(function(res) {
-			next(res);
-		})
-		.catch(function(err) {
-			next(null, err);
-		});
 }

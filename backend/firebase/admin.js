@@ -3,7 +3,10 @@ var serviceAccount = require("./preppy-key.json");
 
 admin.initializeApp({
 	credential: admin.credential.cert(serviceAccount),
-	databaseURL: "https://preppy-dev.firebaseio.com", 
 });
 
-module.exports = admin;
+var firestore = admin.firestore();
+const settings = {timestampsInSnapshots: true};
+firestore.settings(settings);
+exports.database = firestore;
+exports.admin = admin;

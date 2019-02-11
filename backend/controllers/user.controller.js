@@ -35,17 +35,6 @@ router.post('/login', function (req, res) {
 	});
 });
 
-router.post('/logout', function (req, res) {
-	userService.logout(function (resp, err) {
-		if (err) {
-			console.log(err);
-			res.send(err); 
-		} else {
-			res.send(resp.user);
-		}
-	})
-});
-
 router.get('/:uid', function (req, res) {
 	var uid = req.params.uid;
   	userService.get(uid, function(user, error) {
@@ -56,18 +45,6 @@ router.get('/:uid', function (req, res) {
   			res.send(user);
   		}
   	});
-});
-
-router.delete('/:uid', function (req, res) {
-	var uid = req.params.uid;
-	userService.delete(uid, function(error) {
-		if (error) {
-			console.log(error);
-			res.send(error);
-		} else {
-			res.send("Deleted User");
-		}
-	});
 });
 
 module.exports = router;

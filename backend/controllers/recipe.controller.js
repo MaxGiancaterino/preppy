@@ -44,6 +44,12 @@ router.get('/:id', function (req, res) {
 	})
 });
 
+router.get('/micro/all', function (req, res) {
+	recipeService.all(function(data) {
+		res.send(data);
+	});
+});
+
 router.post('/micro', function (req, res) {
 	var recipeFile = require('../models/recipes.json');
 	var recipes = recipeFile.recipes;
@@ -85,5 +91,16 @@ router.get('/micro/:id', function (req, res) {
 		}
 	})
 });
+
+router.post('/search', function (req, res) {
+	var query = req.body.query;
+	recipeService.search(query, function(data, error) {
+		if (error) {
+			res.send(error);
+		} else {
+			res.send(data);
+		}
+	})
+})
 
 module.exports = router;

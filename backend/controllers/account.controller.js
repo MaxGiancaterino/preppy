@@ -17,7 +17,7 @@ router.get('/:uid', function (req, res) {
 router.delete('/:uid/recipe/:id', function (req, res) {
 	var uid = req.params.uid;
 	var recipeId = req.params.id;
-	accountService.removeRecipe(uid, recipeId, function(error) {
+	accountService.removeRecipe(uid, recipeId, function(resp, error) {
 		if (error) {
 			res.send(error);
 		} else {
@@ -76,6 +76,29 @@ router.post('/:uid/pantry', function (req, res) {
   var uid = req.params.uid;
   var pantry = req.body.pantry;
   accountService.updatePantry(uid, pantry, function(resp, error) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(resp);
+    }
+  });
+});
+
+router.get('/:uid/schedule', function (req, res) {
+  var uid = req.params.uid;
+  accountService.getSchedule(uid, function(resp, error) {
+    if (error) {
+      res.send(error);
+    } else {
+      res.send(resp);
+    }
+  });
+});
+
+router.post('/:uid/schedule', function (req, res) {
+  var uid = req.params.uid;
+  var schedule = req.body.schedule;
+  accountService.updateSchedule(uid, schedule, function(resp, error) {
     if (error) {
       res.send(error);
     } else {
