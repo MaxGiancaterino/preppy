@@ -1,305 +1,793 @@
-362 : salt
-344 : white sugar
-271 : all-purpose flour
-264 : egg
-252 : water
-149 : 
-147 : baking powder
-137 : baking soda
-136 : vegetable oil
-124 : milk
-113 : butter
-112 : active dry yeast
-101 : cinnamon
-100 : bread flour
-93 : margarine
-73 : walnuts
-69 : vanilla extract
-49 : brown sugar
-46 : honey
-45 : shortening
-41 : raisins
-36 : whole wheat flour
-33 : nutmeg
-30 : buttermilk
-24 : olive oil
-23 : orange zest
-22 : cornmeal
-22 : dry milk powder
-20 : confectioners' sugar
-19 : orange juice
-18 : zucchini
-18 : pecans
-17 : rye flour
-16 : molasses
-14 : poppy seeds
-14 : almond extract
-13 : lemon zest
-13 : unbleached all-purpose flour
-12 : cloves
-12 : onion
-12 : sour cream
-12 : bananas
-11 : banana
-11 : unsweetened cocoa powder
-10 : rolled oats
-10 : garlic powder
-9 : caraway seed
-9 : semisweet chocolate chips
-9 : parmesan cheese
-9 : blueberries
-8 : quick cooking oats
-8 : sharp cheddar cheese
-8 : self-rising flour
-8 : cheddar cheese
-7 : bread machine yeast
-7 : cardamom
-7 : lemon juice
+1416 : white sugar
+1290 : egg
+1037 : salt
+970 : all-purpose flour
+816 : butter
+768 : vanilla extract
+657 : water
+547 : baking powder
+520 : baking soda
+516 : milk
+402 : vegetable oil
+371 : cinnamon
+349 : 
+300 : confectioners' sugar
+284 : walnuts
+261 : active dry yeast
+225 : brown sugar
+207 : shortening
+186 : unsweetened cocoa powder
+162 : cream cheese
+159 : margarine
+150 : pecans
+149 : raisins
+136 : buttermilk
+133 : bread flour
+133 : nutmeg
+119 : sour cream
+108 : cake flour
+101 : flaked coconut
+90 : semisweet chocolate chips
+89 : almond extract
+89 : yellow cake mix
+78 : honey
+78 : cloves
+75 : lemon juice
+73 : orange juice
+72 : heavy whipping cream
+72 : unsalted butter
+72 : orange zest
+66 : whole wheat flour
+64 : frozen whipped topping
+60 : lemon zest
+59 : instant vanilla pudding mix
+51 : allspice
+50 : evaporated milk
+48 : cream of tartar
+42 : cornstarch
+40 : bananas
+40 : crushed pineapple with juice
+40 : olive oil
+39 : graham cracker crumbs
+39 : banana
+37 : cornmeal
+36 : dry milk powder
+35 : molasses
+34 : self-rising flour
+33 : almonds
+33 : golden raisins
+33 : white cake mix
+32 : lemon extract
+30 : applesauce
+30 : dates
+28 : confectioners' sugar for dusting
+28 : crushed pineapple
+26 : zucchini
+26 : rolled oats
+26 : ginger
+25 : sweetened condensed milk
+24 : poppy seeds
+23 : dark rum
+23 : chocolate cake mix
+23 : cherry pie filling
+23 : distilled white vinegar
+22 : apple
+22 : light corn syrup
+21 : strong brewed coffee
+20 : rye flour
+19 : candied cherries
+19 : pumpkin puree
+19 : light brown sugar
+18 : strawberries
+18 : parmesan cheese
+17 : instant chocolate pudding mix
+17 : dried currants
+17 : sourdough starter
+17 : heavy cream
+16 : carrots
+16 : butter flavored extract
+16 : blueberries
+16 : maraschino cherries
+15 : garlic powder
+15 : unbleached all-purpose flour
+15 : coffee flavored liqueur
+14 : onion
+14 : caraway seed
+14 : cheddar cheese
+14 : instant pistachio pudding mix
+14 : lemon
+14 : quick cooking oats
+14 : corn syrup
+14 : mayonnaise
+13 : peanut butter
+13 : cream
+13 : orange extract
+12 : miniature marshmallows
+12 : mace
+12 : lemon cake mix
+12 : sesame seeds
+12 : rum
+12 : nonfat dry milk powder
+12 : blanched slivered almonds
+12 : brandy
+11 : bread machine yeast
+11 : devil's food cake mix
+11 : cardamom
+11 : plain yogurt
+11 : unflavored gelatin
+10 : rum flavored extract
+9 : instant coffee granules
+9 : coconut
+9 : pumpkin
+9 : fruit cocktail
+9 : dried onion
+9 : red food coloring
+9 : mozzarella cheese
+9 : dark brown sugar
+9 : ricotta cheese
+9 : orange liqueur
+9 : sharp cheddar cheese
+9 : apples - peeled cored
+9 : instant lemon pudding mix
+9 : instant coffee powder
+9 : brewed coffee
+8 : baking mix
+8 : cottage cheese
+8 : orange
+8 : blanched almonds
+8 : apricot nectar
+8 : canola oil
+8 : maple flavored extract
+8 : candied mixed fruit peel
+8 : candied citron
+8 : dried parsley
+8 : amaretto liqueur
+8 : candied pineapple
+7 : dry potato flakes
+7 : frozen strawberries
+7 : rhubarb
+7 : cola-flavored carbonated beverage
+7 : german chocolate cake mix
+7 : prepared chocolate frosting
+7 : coconut extract
+7 : egg substitute
+7 : whole bran cereal
+7 : chocolate syrup
 7 : currants
-7 : golden raisins
-7 : nonfat dry milk powder
-7 : allspice
-7 : unsalted butter
-7 : flaked coconut
-6 : pumpkin
+7 : light cream
+7 : unsweetened applesauce
+7 : chocolate cookie crumbs
+7 : mini semi-sweet chocolate chips
+7 : semi-sweet chocolate chips
+7 : candied mixed fruit
+7 : dried oregano
+7 : apple pie filling
+7 : egg whites
+7 : dried basil
+6 : sour milk
+6 : black pepper
+6 : lemon-lime flavored carbonated beverage
+6 : cider vinegar
+6 : coconut milk
+6 : lard
+6 : pumpkin pie spice
+6 : garlic
 6 : wheat germ
-6 : sourdough starter
-6 : sesame seeds
-6 : dried onion
-6 : candied cherries
-6 : dates
-6 : cottage cheese
-6 : dried currants
+6 : butter cake mix
+6 : coffee-flavored liqueur
+6 : instant yeast
+5 : key lime juice
+5 : strawberry flavored jell-o
+5 : vanilla wafers crushed
+5 : dark corn syrup
+5 : candied lemon peel
+5 : apricot preserves
+5 : garlic salt
+5 : sea salt
+5 : real maple syrup
+5 : onion powder
+5 : buttermilk baking mix
+5 : sherry
+5 : angel food cake mix
+5 : unsweetened pineapple juice
+5 : nonfat milk
+5 : dried apricots
+5 : beer
 5 : kosher salt
-5 : ginger
-5 : applesauce
-5 : dried parsley
-5 : mozzarella cheese
-5 : baking mix
-5 : candied mixed fruit peel
-5 : dried basil
-5 : butter flavored extract
-4 : jalapeno peppers
-4 : pumpkin puree
+5 : vital wheat gluten
+5 : red green candied cherries
+5 : oat bran
+5 : scalded milk
+5 : skim milk
+5 : anise seed
+5 : creamy peanut butter
+5 : clear imitation vanilla extract
+5 : peaches
+4 : carrot
+4 : solid pack pumpkin puree
+4 : peanut butter chips
+4 : pecan halves
+4 : vanilla wafer crumbs
+4 : walnuts toasted
+4 : heavy whipping cream whipped
+4 : sweet potatoes
+4 : red candied cherries
+4 : dutch process cocoa powder
+4 : any flavor fruit jam
+4 : sauerkraut
+4 : bourbon
+4 : herman sourdough starter
+4 : dried thyme
+4 : champagne
+4 : lemon flavored jell-o
+4 : individually wrapped caramels
+4 : dried cherries
 4 : instant powdered milk
-4 : lemon extract
-4 : light brown sugar
-4 : cream cheese
-4 : scalded milk
+4 : flax seed
+4 : white chocolate
+4 : condensed tomato soup
+4 : miniature semisweet chocolate chips
+4 : pastry flour
+4 : marshmallow creme
+4 : cream-style corn
+4 : apples
+4 : refrigerated biscuit dough
+4 : prunes
+4 : apple juice
+4 : white rice flour
+4 : candied mixed citrus peel
+4 : corn oil
+4 : vodka
+4 : apple without peel
+4 : half-and-half cream
+4 : semisweet chocolate
+4 : jalapeno peppers
+4 : persimmon pulp
+4 : frozen raspberries
 4 : sun-dried tomatoes
-4 : carrots
-4 : garlic salt
-4 : beer
-4 : pumpkin pie spice
-3 : vital wheat gluten
-3 : onion powder
-3 : dry potato flakes
-3 : strawberries
-3 : dried oregano
+4 : whole cranberry sauce
+4 : strawberries halved
+4 : vanilla ice cream
+4 : parsley
+4 : toasted pecans
+4 : frozen blueberries dry pack
+3 : chocolate sandwich cookies with creme filling
+3 : creme de menthe liqueur
+3 : macadamia nuts
+3 : fat free sour cream
+3 : ginger root
+3 : part-skim ricotta cheese
+3 : cracked wheat
+3 : fruit preserves
+3 : irish cream liqueur
+3 : peeled cored apple
+3 : flaked coconut toasted
+3 : candied cherries halved
+3 : toasted almonds
+3 : raspberries
+3 : dried dill weed
+3 : hazelnuts
+3 : vanilla frosting
+3 : hazelnut liqueur
+3 : brown rice flour
+3 : cranberries
+3 : gumdrops
+3 : neufchatel cheese
+3 : refrigerated buttermilk biscuit dough
+3 : green candied cherries
+3 : figs
+3 : apple jelly
+3 : rosemary
+3 : maple syrup
+3 : moist white cake mix
+3 : lime juice
+3 : or bottle beer
+3 : fennel seed
+3 : non-instant chocolate pudding mix
+3 : orange cake mix
+3 : pepperoni sausage
+3 : ladyfingers
+3 : carrot baby food
+3 : candied orange peel
+3 : butter flavored shortening
+3 : vanilla sugar
+3 : dried rosemary
+3 : black walnuts
+3 : frozen lemonade concentrate
+3 : mandarin orange segments
+3 : italian seasoning
+3 : moist yellow cake mix
+3 : cream of coconut
+3 : whipped cream
+3 : potato
 3 : dried rosemary crushed
-3 : oat bran
-3 : black pepper
-3 : apple
-3 : mace
-3 : cider vinegar
-3 : dried apricots
-3 : skim milk
-3 : coconut milk
-3 : lard
+3 : white vinegar
+3 : amish friendship bread starter
+3 : whole milk
+3 : orange juice strained
+3 : lime zest
+3 : powdered buttermilk
+3 : frozen apple juice concentrate
 3 : amaranth flour
-3 : parsley
-3 : frozen blueberries dry pack
-2 : carrot
-2 : real maple syrup
-2 : fennel seed
-2 : orange
-2 : garlic
-2 : buttermilk baking mix
-2 : virgin olive oil
-2 : hazelnuts
-2 : corn oil
-2 : crushed pineapple with juice
-2 : pepperoni sausage
+3 : pork
+3 : light rum
+3 : xanthan gum
+2 : plum baby food
+2 : green food coloring
+2 : dried mixed fruit
+2 : salt leviticus 2:13
 2 : instant potato flakes
-2 : dried thyme
-2 : basil
-2 : dill seed
-2 : egg substitute
-2 : dark corn syrup
-2 : fat free sour cream
-2 : cayenne pepper
-2 : onionsoup mix
-2 : cracked wheat
-2 : fruit preserves
-2 : solid pack pumpkin puree
-2 : brown rice flour
-2 : persimmon pulp
-2 : maraschino cherries
-2 : cranberries
-2 : amish friendship bread starter
+2 : raspberry jam
+2 : blackberries
+2 : unsweetened flaked coconut
+2 : low-fat cottage cheese
+2 : white spelt flour
+2 : super fine sugar
+2 : port wine
+2 : frozen broccoli
+2 : peppermint extract
+2 : halved candied cherries
+2 : peanuts
 2 : green onions
-2 : dried rosemary
-2 : candied citron
-2 : nonfat milk
-2 : almonds
-2 : walnuts toasted
+2 : white pepper
 2 : sunflower seeds
 2 : sweetened dried cranberries
-2 : plain yogurt
-2 : rosemary
+2 : wheat berries
+2 : pecan liqueur
 2 : tomato juice
-2 : miniature semisweet chocolate chips
-2 : powdered buttermilk
-2 : blanched slivered almonds
-2 : cake flour
+2 : cognac
+2 : lecithin
+2 : pepperoni
+2 : colored candy sprinkles
+2 : white wine
+2 : soy flour
+2 : fruit flavored jell-o mix
+2 : biscuit baking mix
+2 : graham crackers crushed
+2 : root beer extract
+2 : virgin olive oil
+2 : matzo cake meal
+2 : vanilla yogurt
+2 : green bell pepper
+2 : butter pecan cake mix
+2 : devil's food cake mix with pudding
+2 : dill seed
+2 : pork sausage
+2 : popped popcorn
+2 : filtered or spring water
+2 : water to cover
+2 : brownie mix
+2 : pimento peppers
+2 : apricot brandy
+2 : heavy cream whipped
+2 : mandarin oranges
+2 : pineapple juice
+2 : slivered almonds for topping
+2 : raisins 1 samuel 30:11
+2 : almond paste
+2 : lime flavored jell-o mix
+2 : dried cranberries
+2 : crushed macaroon cookies
+2 : tapioca flour
+2 : fudge topping
+2 : coffee-flavored liqueur )
+2 : semolina flour
+2 : marshmallows
+2 : mandarin oranges juice reserved
+2 : whole kernel corn
+2 : white sugar jeremiah 6:20
 2 : sunflower seed oil
-2 : pork
-2 : mini semi-sweet chocolate chips
-2 : apple juice
+2 : spelt flour
+2 : dry onion soup mix
+2 : blackberry preserves
+2 : caramel ice cream topping
+2 : whipped heavy cream
+2 : cherry brandy
 2 : sweet potato puree
-2 : dried dill weed
-1 : kalamata olives
-1 : raisin bran cereal
-1 : instant coffee granules dissolved in
-1 : celery seed
-1 : dry kidney beans
-1 : biscuit baking mix
-1 : graham cracker crumbs
-1 : dried mixed fruit
-1 : barley
-1 : sesame seeds toasted
-1 : shallots
+2 : kalamata olives
+2 : crunchy peanut butter
+2 : prepared mincemeat pie filling
+2 : sugar
+2 : nonfat plain yogurt
+2 : romano cheese
+2 : mascarpone cheese
+2 : cayenne pepper
+2 : raspberry flavored jell-o mix
+2 : white rum
+2 : ice water
+2 : orange flavored jell-o mix
+2 : dried marjoram
+2 : soy milk
+2 : individually wrapped caramels unwrapped
+2 : rosewater
+2 : arrowroot powder
+2 : gingersnap cookie crumbs
+2 : white chocolate chips
+2 : chives
+2 : whole milk ricotta cheese
+2 : or bottle lemon-lime flavored carbonated beverage
+2 : dark chocolate cake mix
+2 : basil
+2 : liquid lecithin
+2 : provolone cheese
+2 : whipping cream
+2 : brandy flavoring
+2 : unsalted dry-roasted peanuts
+2 : butter or margarine
+2 : soy sauce
+2 : german chocolate cake mix without pudding
+2 : pastry cream
+2 : pepperjack cheese
+2 : butterscotch chips
+2 : candied pineapple chunks
+2 : instant butterscotch pudding mix
+2 : egg yolks
+2 : dark beer
+2 : root beer
+2 : slivered almonds
+2 : stone cornmeal
+2 : chocolate sandwich cookie crumbs
+2 : light soy sauce
+2 : cocoa
+2 : dry sherry
+2 : strawberry flavored carbonated beverage
+1 : whole almonds
+1 : chocolate pudding pie filling mix
+1 : chocolate fudge frosting
+1 : moist dark chocolate cake mix
+1 : almonds genesis 43:11
+1 : orange food coloring
+1 : baking powder luke 13:21
+1 : cardamom flavored extract
+1 : dr. pepper soft drink
 1 : cassava
-1 : kalonji
-1 : prepared mincemeat pie filling
-1 : mangos peeled seeded
-1 : evaporated skim milk
-1 : rice wine
-1 : apples
-1 : chili powder
+1 : raisins for decorating
+1 : marshmallows quartered
+1 : shrimp
 1 : crushed red pepper
-1 : semi-sweet chocolate chips
 1 : frozen corn kernels
-1 : sherry
-1 : nonfat plain yogurt
-1 : green bell pepper
-1 : dark rye flour
-1 : semi-sweet chocolate squares
-1 : rum flavored extract
-1 : whole kernel corn well
+1 : friendship fruit starter
+1 : well-drained beets
+1 : cream cheese cut into chunks
 1 : apricot jam
-1 : blanched almonds
-1 : romano cheese
-1 : raspberry jam
-1 : buttermilk self-rising cornmeal mix
-1 : candied mixed fruit
-1 : instant coffee granules
-1 : walnut oil
-1 : arrowroot flour
-1 : pork sausage
-1 : corn syrup
-1 : white rice
-1 : ginger root
-1 : unsweetened flaked coconut
-1 : candied lemon peel
-1 : ghee
-1 : half-and-half cream
-1 : peanut butter
-1 : dark soy sauce
-1 : self-rising corn meal mix
-1 : heavy cream
-1 : tomato paste
-1 : distilled white vinegar
-1 : potato
-1 : wheat-free baking powder
-1 : superfine sugar
+1 : mint extract
+1 : pineapple chunks with juice
+1 : dates cut in half
+1 : + 1 tablespoon + 1 teaspoon all-purpose flour
+1 : ready-to-use strawberry glaze
+1 : mocha flavored instant coffee mix
+1 : vanilla soy milk
+1 : strawberry frosting mix
+1 : chocolate fudge topping
 1 : dijon-style prepared mustard
-1 : potatopeeled
-1 : whole bran cereal
-1 : butter flavored shortening
-1 : butter or margarine
-1 : cumin
-1 : flax seed
-1 : vanilla sugar
+1 : dark sweet cherries with juice reserved
+1 : barley flour
+1 : dried apples
+1 : cornmeal for dusting
+1 : dried mango
+1 : crushed pineapple in heavy syrup
+1 : seedless raspberry jam
+1 : lowfat cream cheese
+1 : galliano liqueur
+1 : apples cinnamon muffin mix
+1 : butter cut into 1-inch chunks
+1 : buckwheat flour
+1 : cloves 1 kings 10:10
 1 : barbecue sauce
+1 : gumdrops no black ones
 1 : nonfat lemon yogurt
-1 : dried marjoram
-1 : peeled cored apple
-1 : cream of tartar
-1 : apples - peeled cored
-1 : sour milk
-1 : flaked coconut toasted
-1 : wheat bran
-1 : coconut extract
-1 : lemoncake mix
-1 : crushed red pepper flakes
-1 : cherry jam
-1 : lemon
-1 : millet flour
-1 : dried cranberries
-1 : light cream
-1 : tapioca flour
+1 : crushed vanilla wafers
+1 : yogurt
+1 : candied citron peel
+1 : peaches in heavy syrup
+1 : orange sherbet
+1 : grape juice
+1 : dry cornbread mix
+1 : brown rice syrup
+1 : walnut halves
+1 : thin chocolate wafers
+1 : ovalette
+1 : whole peanuts
+1 : espresso coffee
+1 : sweetened flaked coconut
+1 : dry chocolate mousse mix
 1 : broccoli
-1 : sweet potatoes
-1 : vitamin c powder
-1 : lemonpudding mix
-1 : light corn syrup
-1 : wheat berries
-1 : pepperjack cheese
-1 : roasted marinated red bell peppers
-1 : rhubarb
+1 : sugar free chocolate wafer cookie crumbs
+1 : grapes
+1 : smooth peanut butter
+1 : plain whole-milk yogurt
+1 : oat flour
 1 : monterey jack cheese
-1 : italian seasoning
-1 : dark brown sugar
+1 : fat free sweetened condensed milk
+1 : milk judges 5:25
+1 : carrot cake mix
+1 : figs 1 samuel 30:11
+1 : blue cheese crumbled
+1 : low-fat sour cream
+1 : green chile peppers
+1 : condensed mincemeat crumbled
+1 : cherry cake mix
+1 : toasted walnuts
+1 : turbinado sugar
+1 : dry green lentils
+1 : frozen bread dough
+1 : maple flavored syrup
+1 : sucanat
+1 : butternut flavored extract
+1 : crushed chocolate sandwich cookies
+1 : dried blueberries
+1 : peeled cored pears
+1 : flaxseed oil
+1 : millet
+1 : toasted wheat germ
+1 : multicolored sprinkles
+1 : beef bouillon
+1 : piping gel
+1 : dry yeast
+1 : seven grain cereal
+1 : firmly brown sugar
+1 : liquid sweetener
+1 : oil substitute
+1 : barley
+1 : southern comfort liqueur
+1 : pineapple - peeled cored cut into 1 inch chunks
+1 : oil
+1 : kalonji
+1 : frozen pink lemonade concentrate
+1 : apricot halves
+1 : butter cut into pieces
+1 : oyster sauce
+1 : chili powder
+1 : semi-sweet chocolate squares
+1 : whole kernel corn well
+1 : mango puree
+1 : white rice
+1 : zwieback toast crushed into crumbs
+1 : candy sprinkles
+1 : sour red pie cherries
+1 : beets peeled
+1 : frozen sweetened strawberries pureed
+1 : ghee
+1 : instant coconut cream pudding mix
+1 : dark soy sauce
+1 : candies mixed fruit peel
+1 : apple - peeled cored
+1 : wheat-free baking powder
+1 : frozen spinach
+1 : halved glace cherries
+1 : tomato sauce
+1 : gum drops no licorice ones
+1 : dark sweet cherries
+1 : unsulfured molasses
+1 : pecan sandies cookies
+1 : chocolate covered peanuts
+1 : almonds numbers 17:8
+1 : crushed red pepper flakes
+1 : crushed pineapple in heavy syrup with syrup reserved
+1 : instant coffee granules dissolved in 1/4 cup water
+1 : chocolate covered thin mints
+1 : crushed peppermint hard candies
+1 : strawberry cake mix
+1 : bread roll mix
+1 : vanilla wafers
+1 : all-purpose flour 1 kings 4:22
+1 : plums quartered
+1 : vitamin c powder
+1 : or bottle cola-flavored carbonated beverage
+1 : salted peanuts
+1 : marble cake mix
+1 : light cherry pie filling
+1 : brewed chai tea
+1 : salted pecans
 1 : dry great northern beans
-1 : canola oil
+1 : strawberry ice cream
+1 : poppyseed filling
+1 : blackberry jell-o
 1 : clarified butter
 1 : jalapeno pepper
-1 : eggnog
-1 : tangerine zest
-1 : coarse kosher salt
-1 : rum
-1 : unflavored gelatin
+1 : graham flour
+1 : rapid rise yeast
+1 : coconut meat
 1 : pizza sauce
-1 : dark beer
-1 : green chile peppers
-1 : instant yeast
-1 : lecithin
-1 : slivered almonds
-1 : toasted almonds
-1 : anise seed
-1 : paprika
-1 : whole kernel corn
-1 : maple flavored extract
-1 : dry green lentils
-1 : crushed pineapple
-1 : maple flavored syrup
-1 : pastry flour
-1 : chives
-1 : asiago cheese
-1 : vanilla ice cream
-1 : creamy peanut butter
-1 : spelt flour
-1 : orange liqueur
-1 : peaches
-1 : apricot preserves
-1 : stone cornmeal
-1 : xanthan gum
+1 : granola
+1 : pound cake
+1 : swiss cheese
+1 : seedless raspberry preserves
+1 : mixed candied fruit
+1 : powdered butter flavoring
+1 : lemon flavored jell-o mix
+1 : hazelnuts - toasted skinned
+1 : low-fat milk
+1 : pineapple chunks
 1 : chicken broth
-1 : light soy sauce
-1 : wheat barley nugget cereal )
-1 : millet
-1 : candied pineapple
-1 : evaporated milk
-1 : dried pinto beans
-1 : coffee flavored liqueur
-1 : dry sherry
-1 : white rice flour
-1 : crushed garlic
+1 : butterscotch pudding
+1 : honey proverbs 24:13
+1 : refrigerated dinner roll dough
+1 : red candied cherries halved
 1 : lemon flavored yogurt
-1 : beef bouillon
-1 : raspberries
+1 : orange segments
 1 : boneless pork loin roast
+1 : whole meal rye flour
+1 : key lime zest
+1 : instant coffee granules dissolved in
+1 : celery seed
+1 : peaches with juice
+1 : frozen dinner roll dough
+1 : instant banana pudding mix
+1 : bittersweet chocolate
+1 : sesame seeds toasted
+1 : shallots
+1 : water genesis 43:24
+1 : toasted almonds for decoration
+1 : mangos peeled seeded
+1 : savory
+1 : crumbled firm silken tofu
+1 : rice wine
+1 : long grain white rice
+1 : steel cut oats
+1 : caffeinated citrus-flavored soda
+1 : dark rye flour
+1 : carrots cut into 2 inch pieces
+1 : pandan paste
+1 : dry bread crumbs
+1 : lite frozen whipped topping
+1 : brandy-based orange liqueur )
+1 : coconut pecan frosting
+1 : buttermilk self-rising cornmeal mix
+1 : lemon pie filling
+1 : candied cherries quartered
+1 : toasted pecan pieces
+1 : currant jelly
+1 : pistachio nuts
+1 : french vanilla yogurt
+1 : mountain dew
+1 : red green candied cherries quartered
+1 : lowfat buttermilk
+1 : guava nectar
+1 : unpeeled pears
+1 : peaches - peeled
+1 : prune juice
+1 : creamed cottage cheese
+1 : sour cherries
+1 : sweetened chestnut puree
+1 : gummi worms
+1 : pureed prunes baby food
+1 : turmeric
+1 : monosodium glutamate
+1 : chocolate sandwich cookies
+1 : sugar substitute
+1 : wheat bran
+1 : sauerkraut -
+1 : butterscotch schnapps
+1 : blackberry jelly
+1 : crushed chocolate wafer cookies
+1 : graham cracker squares
+1 : millet flour
+1 : non-instant vanilla pudding mix
+1 : whiskey
+1 : crisp rice cereal
+1 : day-old bread cubes
+1 : strawberry extract
+1 : eggnog
+1 : brazil nuts
+1 : instant espresso coffee powder
+1 : tangerine zest
+1 : almonds toasted
+1 : crushed zwieback toast
+1 : marrons glace
+1 : granny smith apples
+1 : paprika
+1 : malted milk powder
+1 : peeled pears
+1 : sesame oil
+1 : cottage cheese creamed
+1 : milk scalded slightly
+1 : asiago cheese
+1 : unsweetened cocoa powder for dusting
+1 : refrigerated crescent rolls
+1 : peach brandy
+1 : milk chocolate candy
+1 : scalded whole milk
+1 : glace cherries roughly
+1 : roughly broken vanilla wafers
+1 : dried pinto beans
+1 : apricot halves syrup reserved
+1 : crushed garlic
+1 : blueberry pie filling
+1 : pears
+1 : tapioca
+1 : pina colada mix
 1 : chile oil
-1 : seven grain cereal
-1 : mayonnaise
+1 : whole chestnuts
+1 : corn flour
+1 : raisin bran cereal
+1 : dry kidney beans
+1 : pineapple
+1 : candied angelica
+1 : unsweetened chocolate
+1 : candy-coated chocolate pieces
+1 : beets boiled
+1 : glucose syrup
+1 : potato flour
+1 : condensed mincemeat
+1 : evaporated skim milk
+1 : pine nuts
+1 : pancake/waffle mix
+1 : masa harina
+1 : green apples
+1 : whole blanched almonds
+1 : apricot baby food
+1 : banana extract
+1 : walnut oil
+1 : arrowroot flour
+1 : milk chocolate chips
+1 : muesli cereal
+1 : cranberry applesauce
+1 : frozen whole-kernel corn
+1 : quinoa flour
+1 : butter judges 5:25
+1 : plain low-fat yogurt
+1 : mushrooms
+1 : vanilla or colored frosting
+1 : self-rising corn meal mix
+1 : tomato paste
+1 : dark chocolate frosting
+1 : halved red candied cherries
+1 : superfine sugar
+1 : barley malt syrup
+1 : rhubarb jam
+1 : whey powder
+1 : orange slices candy
+1 : prepared pound cake
+1 : mace 1 kings 10:10
+1 : raisins or dates
+1 : glycerin
+1 : unsweetened crushed pineapple
+1 : cumin
+1 : black olives
+1 : light molasses
+1 : vanilla baking chips
+1 : frozen puff pastry
+1 : cherry jam
+1 : pinto beans
+1 : blackberry wine
+1 : guava pulp
+1 : muenster cheese
+1 : frozen orange juice concentrate
+1 : tootsie rolls
+1 : fat-free evaporated milk
+1 : roasted marinated red bell peppers
+1 : vanilla sandwich cookies
+1 : hoisin sauce
+1 : cream sherry
+1 : brown sugar substitute
+1 : pound cake mix
+1 : coarse kosher salt
+1 : baked beans with pork
+1 : raw sunflower seeds
+1 : cinnamon 1 kings 10:10
+1 : blueberry jelly
+1 : candy-coated milk chocolate eggs
+1 : colby cheese
+1 : honey 1st samuel 14:25
+1 : potato starch
+1 : apple butter
+1 : cream style corn
+1 : cocoa powder
+1 : ladyfinger cookies
+1 : parmigiano reggiano cheese
+1 : pecan halves for garnish
+1 : gluten-free vanilla extract
+1 : wheat barley nugget cereal )
+1 : lemon peel
+1 : apple pie spice
+1 : toasted almond slices
+1 : refrigerated soft bread stick dough
+1 : spice cake mix
+1 : butternuts
+1 : frozen strawberries - juice reserved
+1 : grape jam
+1 : non-iodized salt
+1 : unsweetened apple butter
+1 : orange-flavored fruit slice jelly candies
+1 : carbonated water
