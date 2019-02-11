@@ -80,24 +80,38 @@ export default RecipeData = {
      * the input string. The list may be smaller than the provided limit, or even empty,
      * if not enough matching recipes names can be found.
      */
-     // NOTE: This implementation is a placeholder until the actual enpoint has been written
-     // The actual string matching should be performed server-side to prevent querying too many
-     // recipes
     findRecipesByName: async(searchString, limit) => {
-        const sampleRecipes = [
-            Recipe.getSampleRecipe(0),
-            Recipe.getSampleRecipe(1),
-            Recipe.getSampleRecipe(2),
-            Recipe.getSampleRecipe(3),
-            Recipe.getSampleRecipe(4),
-            Recipe.getSampleRecipe(5)
-        ];
-        const matchingRecipes = [];
-        for (let key in sampleRecipes) {
-            if (sampleRecipes[key].name.includes(searchString)) {
-                matchingRecipes.push(sampleRecipes[key]);
-            }
-        }
-        return new Promise((resolve, reject) => resolve(matchingRecipes));
+        return (
+            fetch('http://preppy-dev.appspot.com/recipe/search', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({query: searchString})
+            }).then(
+                res => {
+                    const contentType = res.headers.get("content-type");
+                    if (contentType && contentType.indexOf("application/json") == -1) {
+                        return [];
+                    }
+                    return res.json().then(recipeJson => {
+                        let recipes = [];
+                        let curSize = 0;
+                        for (let key in recipeJson) {
+                            recipes.push(new Recipe(recipeJson[key]))
+                            curSize++;
+                            if (curSize >= limit) {
+                                break;
+                            }
+                        }
+                        return recipes;
+                    })
+                },
+                res => {
+                    return [];
+                }
+            )
+        );
     }
 }

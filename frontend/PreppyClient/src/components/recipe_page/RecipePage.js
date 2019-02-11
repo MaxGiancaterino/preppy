@@ -21,7 +21,7 @@ export default class RecipePage extends Component {
 
     componentWillMount() {
         const rid = this.props.navigation.getParam("recipeId", -1);
-        if (rid != -1) {
+        if (rid == -1) {
             const propRecipe = this.props.navigation.getParam("recipe", new Recipe());
             this.setState({
                 recipe: propRecipe,
@@ -44,8 +44,8 @@ export default class RecipePage extends Component {
         }
         const recipe = this.state.recipe;
 
-        const uriObject = {uri: recipe.imgUrl};
-        const dishImage = recipe.imgUrl ?
+        const uriObject = {uri: recipe.imgURL};
+        const dishImage = recipe.imgURL ?
             <View style={recipePageStyles.imageContainer}>
                 <Image 
                     source={uriObject}

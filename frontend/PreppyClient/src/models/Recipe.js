@@ -5,8 +5,8 @@ export default class Recipe {
         this.name= "";
         this.ingredients = [];
         this.preparation = [];
-        this.imgUrl = "";
-        this.pageUrl = "";
+        this.imgURL = "";
+        this.pageURL = "";
         this.cookTime = 0;
         this.prepTime = 0;
         this.numServings = 0;
@@ -19,8 +19,8 @@ export default class Recipe {
             this.name= recipeJson.name;
             this.ingredients = recipeJson.ingredients;
             this.preparation = recipeJson.preparation;
-            this.imgUrl = recipeJson.imgUrl;
-            this.pageUrl = recipeJson.pageUrl;
+            this.imgURL = recipeJson.imgURL;
+            this.pageURL = recipeJson.pageURL;
             this.cookTime = recipeJson.cookTime;
             this.prepTime = recipeJson.prepTime;
             this.numServings = recipeJson.numServings;
@@ -51,8 +51,8 @@ export default class Recipe {
                     {text: "Toss noodles with sesame oil in a medium bowl. Divide noodles evenly between the 5 containers."},
                     {text: "Top noodles with edamame, carrot, green onions, and cilantro, dividing them evenly between the 5 containers. Place lids on containers. Pour 1/4 cup peanut sauce into each dressing container. Refrigerate until ready to eat. Mix 1 dressing container with 1 serving of soba salad to serve."}
                 ],
-                imgUrl: "https://images.media-allrecipes.com/userphotos/720x405/5596504.jpg",
-                sourceUrl: "https://www.allrecipes.com/recipe/266831/cold-soba-noodle-salad/",
+                imgURL: "https://images.media-allrecipes.com/userphotos/720x405/5596504.jpg",
+                sourceURL: "https://www.allrecipes.com/recipe/266831/cold-soba-noodle-salad/",
                 cookTime: 35,
                 numServings: 5,
                 nutrition: [],
@@ -79,8 +79,8 @@ export default class Recipe {
                 ],
                 cookTime: 20,
                 numServings: 6,
-                imgUrl: "https://images.media-allrecipes.com/userphotos/720x405/4545057.jpg",
-                sourceUrl: "https://www.allrecipes.com/recipe/26460/quick-and-easy-chicken-noodle-soup/",
+                imgURL: "https://images.media-allrecipes.com/userphotos/720x405/4545057.jpg",
+                sourceURL: "https://www.allrecipes.com/recipe/26460/quick-and-easy-chicken-noodle-soup/",
                 nutrition: [],
                 rating: 3
             };
@@ -89,8 +89,8 @@ export default class Recipe {
                 name: "Test Recipe",
                 ingredients: [{ingredient: "None"}],
                 preparation: [{text: "None"}],
-                imgUrl: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
-                sourceUrl: "https://en.wikipedia.org/wiki/Existentialism",
+                imgURL: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+                sourceURL: "https://en.wikipedia.org/wiki/Existentialism",
                 cookTime: 0,
                 numServings: 0,
                 nutrition: [],
@@ -111,8 +111,8 @@ export default class Recipe {
                     {text: "Carefully remove the beef frank from the pot. Place it in the bun"},
                     {text: "Optionally, apply ketchup and/or mustard to the boiled frank"}
                 ],
-                imgUrl: "https://media.wired.com/photos/5a3bf9025b461c24af9057f1/master/w_1164,c_limit/hotdog-ta.jpg",
-                sourceUrl: "https://en.wikipedia.org/wiki/Hot_dog",
+                imgURL: "https://media.wired.com/photos/5a3bf9025b461c24af9057f1/master/w_1164,c_limit/hotdog-ta.jpg",
+                sourceURL: "https://en.wikipedia.org/wiki/Hot_dog",
                 cookTime: 10,
                 numServings: 1,
                 nutrition: [],
@@ -129,8 +129,8 @@ export default class Recipe {
                     {text: "Add Froot Loops to bowl"},
                     {text: "Add milk to bowl. If you are a heathen, you may perform this step first"}
                 ],
-                imgUrl: "https://i5.walmartimages.com/asr/16c8f5f4-b4af-400b-a175-20818eb8d972_1.5ce7dbb90e3f9edeb8449055da0c284e.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF",
-                sourceUrl: "https://en.wikipedia.org/wiki/Sucrose",
+                imgURL: "https://i5.walmartimages.com/asr/16c8f5f4-b4af-400b-a175-20818eb8d972_1.5ce7dbb90e3f9edeb8449055da0c284e.jpeg?odnHeight=450&odnWidth=450&odnBg=FFFFFF",
+                sourceURL: "https://en.wikipedia.org/wiki/Sucrose",
                 cookTime: 1,
                 numServings: 1,
                 nutrition: [],
@@ -144,8 +144,8 @@ export default class Recipe {
                     {text: "Locate and travel to your nearest McDonalds"},
                     {text: "Order your nugs"},
                 ],
-                sourceUrl: "https://en.wikipedia.org/wiki/Chicken_McNuggets",
-                imgUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/McDonalds-Chicken-McNuggets.jpg/2560px-McDonalds-Chicken-McNuggets.jpg",
+                sourceURL: "https://en.wikipedia.org/wiki/Chicken_McNuggets",
+                imgURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/McDonalds-Chicken-McNuggets.jpg/2560px-McDonalds-Chicken-McNuggets.jpg",
                 cookTime: 0,
                 numServings: 1,
                 nutrition: [],
