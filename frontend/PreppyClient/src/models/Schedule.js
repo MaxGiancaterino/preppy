@@ -38,6 +38,14 @@ export default class Schedule {
             new Date(2019, 1, 10, 20),
             new ScheduleItem(ITEM_TYPE.COOK, MEAL_TYPE.NA, new Date(2019, 1, 10, 20), Recipe.getSampleRecipe(1))
         );
+        success = sample.scheduleMeal(
+            new Date(2019, 1, 10, 21),
+            new ScheduleItem(ITEM_TYPE.COOK, MEAL_TYPE.NA, new Date(2019, 1, 11, 20), Recipe.getSampleRecipe(0))
+        );
+        success = sample.scheduleMeal(
+            new Date(2019, 1, 12, 20),
+            new ScheduleItem(ITEM_TYPE.COOK, MEAL_TYPE.NA, new Date(2019, 1, 12, 20), Recipe.getSampleRecipe(2))
+        );
         return sample;
     }
 }

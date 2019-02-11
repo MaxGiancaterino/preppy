@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
-import {scheduleStyles} from './ScheduleStyles';
 import {Text, View, ScrollView, Button} from 'react-native';
+
+import {scheduleStyles} from './ScheduleStyles';
+
+import ScheduleDay from './ScheduleDay';
+
 import Schedule from '../..//models/Schedule';
 
 function getOrdinalForm(num) {
@@ -40,8 +44,6 @@ export default class SchedulePage extends Component {
     }
 
     render() {
-
-        let scheduleComponents = [];
         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const months = [
             "January",
@@ -72,39 +74,21 @@ export default class SchedulePage extends Component {
         dates.sort(function(a, b) {
             return a - b;
         });
-
-        // Create a new component for every day we have something scheduled, and
-        // every event (cooking or meals) we have scheduled.
-        // For some mysterious JavaScript reason, a for-in loop isn't working here
-        for (let i = 0; i < dates.length; i++) {
-
-            // The displayed date reads like "Monday February 4th"
-            const date = dates[i];
+        let scheduleComponents = dates.map((date) => {
             const dateString = date.toDateString();
             const weekday = days[date.getDay()];
             const day = date.getDate();
             const month = months[date.getMonth()];
             const dateTitle = [weekday, month, getOrdinalForm(day)].join(" ");
-            scheduleComponents.push(
-                <View key={key++}>
-                    <Text>{dateTitle}</Text>
-                </View>
-            );
 
             // We have to sort the individual items as well
             let dateItems = this.state.schedule.items[dateString];
             dateItems.sort(function(a, b) {
                 return a.compare(b);
             });
-            for (let j = 0; j < dateItems.length; j++) {
-                const item = dateItems[j];
-                scheduleComponents.push(
-                    <View key={key++}>
-                        <Text>{item.recipe.name}</Text>
-                    </View>
-                );
-            }
-        }
+            return <ScheduleDay date={dateTitle} items={dateItems} key={key++} even={key % 2}/>
+        })
+
         return(
             <View style={scheduleStyles.scheduleMain}>
                 <ScrollView>

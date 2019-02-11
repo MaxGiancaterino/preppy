@@ -37,9 +37,9 @@ export default class ScheduleItem {
      * returned instead.
      */
     compare(otherItem) {
-        if (!(oherItem instanceof ScheduleItem)) {
+        if (!(otherItem instanceof ScheduleItem)) {
             return 0/0; // NaN
         }
-        return this.time.getTime() - otherItem.getTime();
+        return this.time.getTime() - otherItem.time.getTime();
     }
 }
