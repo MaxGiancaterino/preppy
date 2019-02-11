@@ -19,7 +19,7 @@ export const scheduleStyles = StyleSheet.create({
     scheduleMain: {
         flex: 1,
         flexDirection: "column",
-        backgroundColor: PreppyLight
+        backgroundColor: PreppyLBlue1
     },
     layoutBar: {
         flex: 1,
@@ -29,7 +29,7 @@ export const scheduleStyles = StyleSheet.create({
     },
     scheduleScroll: {
         flex: 1,
-        backgroundColor: PreppyLight
+        backgroundColor: PreppyLBlue1
     },
 
     /* ---------------------------------- *
@@ -37,14 +37,58 @@ export const scheduleStyles = StyleSheet.create({
      * ---------------------------------- */
 
     dayContainerEven: {
-        backgroundColor: PreppyLBlue1
+        backgroundColor: PreppyLBlue1,
+        borderBottomWidth: 2,
+        borderBottomColor: PreppyGray,
+        paddingBottom: 5
     },
     dayContainerOdd: {
-        backgroundColor: PreppyLBlue2
+        backgroundColor: PreppyLBlue2,
+        borderBottomWidth: 2,
+        borderBottomColor: PreppyGray,
+        paddingBottom: 5
     },
     dateText: {
         color: PureWhite,
         fontFamily: "raleway",
-        fontSize: 24
+        fontWeight: "bold",
+        fontSize: 24,
+        marginLeft: 10,
+        marginVertical: 10
     },
+    scheduleItem: {
+        backgroundColor: PreppyLight,
+        marginVertical: 5,
+        marginHorizontal: 15,
+        padding: 5,
+        borderRadius: 10
+    },
+    itemTime: {
+        color: PreppyGray,
+        fontWeight: "bold",
+        fontFamily: "raleway",
+        fontSize: 20
+    },
+    itemText: {
+        color: "#000000",
+        fontFamily: "raleway",
+        fontSize: 18
+    },
+    removeButton: {
+        backgroundColor: PreppyRed,
+        marginHorizontal: 10,
+        marginTop: 10,
+        minHeight: 20,
+        padding: 5,
+        borderRadius: 5,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    removeButtonText: {
+        fontFamily: 'Raleway',
+        color: "#FFFFFF",
+        fontSize: 18,
+    }
 });

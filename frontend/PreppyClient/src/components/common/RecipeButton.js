@@ -19,15 +19,29 @@ export default class RecipeButton extends Component {
     }
 
     render() {
-        return(
-            <TouchableOpacity
-                style={recipeButtonStyles.recipeButtonItem}
-                onPress={this.navigateToRecipe}
-            >
-                <Text style={recipeButtonStyles.recipeButtonTitle}>
-                    {this.props.recipe.name}
-                </Text>
-            </TouchableOpacity>
-        );
+        if (!this.props.buttonType || this.props.buttonType == 1) {
+            return(
+                <TouchableOpacity
+                    style={recipeButtonStyles.recipeButtonItem}
+                    onPress={this.navigateToRecipe}
+                >
+                    <Text style={recipeButtonStyles.recipeButtonTitle}>
+                        {this.props.recipe.name}
+                    </Text>
+                </TouchableOpacity>
+            );
+        }
+        else if (this.props.buttonType == 2) {
+            return(
+                <TouchableOpacity
+                    style={recipeButtonStyles.recipeButtonItemAlt}
+                    onPress={this.navigateToRecipe}
+                >
+                    <Text style={recipeButtonStyles.recipeButtonTitleAlt}>
+                        View Recipe
+                    </Text>
+                </TouchableOpacity>
+            );
+        }
     }
 }
