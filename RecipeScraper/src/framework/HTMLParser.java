@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -271,9 +272,14 @@ public class HTMLParser {
 			// create an abridged JSON for this recipe
 			JSONObject rec = new JSONObject();
 			rec.put("name", r.name);
-			rec.put("prepTime", r.prepTime.getJSON());
-			rec.put("cookTime", r.cookTime.getJSON());
 			rec.put("imgURL", r.imgURL);
+			rec.put("ID", r.recipeID);
+			
+			JSONArray ingredIDs = new JSONArray();
+			for (IngredientListing il : r.ingredients) {
+				ingredIDs.put(il.ingID);
+			}
+			rec.put("ingredientIDs", ingredIDs);
 			
 			// add this JSON to the parent
 			parentObj.accumulate("recipes", rec);
