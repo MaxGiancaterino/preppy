@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableOpacity} from 'react-native';
 import {loginStyles} from './LoginStyles';
+
+import UserService from '../../middleware/UserService.js';
+
 import UserData from '../../UserData';
 import User from '../../models/User';
 
@@ -16,37 +19,20 @@ export default class Login extends Component {
         this.state = {
         	email: "",
        		password: "",
+            message: "",
         }
     }
 
 	submit() {
-		var credentials = {
-			email: this.state.email,
-			password: this.state.password
-		}
-        //alert(JSON.stringify(credentials))
-		fetch('http://preppy-dev.appspot.com/user/login', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(credentials)
-        }).then(res => res.json()).then(res => {
-        	fetch('http://preppy-dev.appspot.com/account/' + res.user.uid, {
-	            method: 'GET',
-	            headers: {
-	                Accept: 'application/json',
-	                'Content-Type': 'application/json'
-	            },
-        	}).then(res => res.json()).then(res => {
-					UserData.setUser(res).then(() => {
-						this.props.navigation.navigate("Dashboard");
-					}).catch((error) => {
-						console.log(error.message);
-					});
-				});
+        UserService.attemptLogin(this.state.email, this.state.password).then(user => {
+		    UserData.setUser(user).then(() => {
+				this.props.navigation.navigate("Dashboard");
+		    }).catch((error) => {
+			    console.log(error.message);
 			});
+		}).catch((error) => {
+            this.setState({message: error.message});
+        });
 	}
 
 	forgot_password() {
@@ -58,18 +44,29 @@ export default class Login extends Component {
 	}
 
     render() {
+        const errorBox = !this.state.message ?
+            <View style={loginStyles.emptyBox}></View> :
+            <View style={loginStyles.errorBox}>
+                <Text style={loginStyles.errorText}>{this.state.message}</Text>
+            </View>
+
     	return(
     		<View style={loginStyles.loginMain}>
-
     			<View style={loginStyles.formContainer}>
+
+                    {errorBox}
+
  					<View style={loginStyles.inputBox}>
  						<TextInput style={loginStyles.input}
+                            autoCapitalize='none'
 		    				onChangeText={(email) => this.setState({email: email})}
 		    				placeholder='Email'
 		    			/>
     				</View>
     				<View style={loginStyles.inputBox}>
  						<TextInput style={loginStyles.input}
+                            autoCapitalize='none'
+                            secureTextEntry={true}
 		    				onChangeText={(password) => this.setState({password: password})}
 		    				placeholder='Password'
 		    			/>
