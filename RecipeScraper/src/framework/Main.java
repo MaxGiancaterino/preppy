@@ -114,15 +114,18 @@ public class Main {
 			
 			// get threads started
 			List<Thread> threadList = new ArrayList<Thread>();
-			for (int i = 0; i < numThreads + 1; i++) {
+			for (int i = 0; i < numThreads; i++) {
 				final int threadNum = i;
 				
 				Thread t = new Thread(new Runnable() {
-					public void run() {
-						
+					public void run() {						
 						// loop from thread's starting recipe ID to ending recipe ID
-						for (int recipeNum = startingIndex + threadNum * threadAmt;
-							 recipeNum < startingIndex + (threadNum + 1) * threadAmt;
+						int firstThreadRecipe = startingIndex + (threadNum * threadAmt);
+						int lastThreadRecipe = (threadNum + 1 == numThreads) ?
+								(endingIndex + 1) :
+								(startingIndex + ((threadNum + 1) * threadAmt));
+						for (int recipeNum = firstThreadRecipe;
+							 recipeNum < lastThreadRecipe;
 							 recipeNum++) {
 							
 							// convert the current ID to a string, and pad it with 0s
@@ -137,7 +140,6 @@ public class Main {
 								continue;
 							}
 							
-							//System.out.println("thread " + threadNum + " done parsing recipe " + indexStr);
 							Recipe recipe = HTMLParser.parseAllrecipesHTML(doc);
 							recipe.recipeID = recipeNum;
 							recipes.add(recipe);
@@ -178,10 +180,11 @@ public class Main {
 			}
 			
 			// write all the recipes
-			System.out.println(recipes.size() + " RECIPES PARSED");
+			System.out.println("WRITING RECIPES...");
 			HTMLParser.writeRecipeJSONs(recipes);
 			HTMLParser.writeAbridgedJSON(recipes);
 			HTMLParser.writeMisc(recipes);
+			System.out.println(recipes.size() + " RECIPES PARSED");
 		}
 	}
 }
