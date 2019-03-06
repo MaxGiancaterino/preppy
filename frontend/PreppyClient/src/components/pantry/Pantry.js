@@ -58,7 +58,7 @@ export default class Pantry extends Component {
                     <Button
                         onPress={() => {this.add_ingredient()}}
                         title="Add ingredient"
-                        color="#FDB52B"
+                        color="#FFFFFF"
                     />
                 </View>
 

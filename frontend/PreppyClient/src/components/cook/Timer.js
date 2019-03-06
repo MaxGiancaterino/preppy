@@ -77,7 +77,6 @@ export default class Timer extends Component {
                     <Text style={cookStyles.cookTimerText}>{("0" + hours).slice(-2)}</Text>
                     <Text style={cookStyles.cookTimerText}>:{("0" + minutes).slice(-2)}</Text>
                     <Text style={cookStyles.cookTimerText}>:{("0" + seconds).slice(-2)}</Text>
-                    <Text style={cookStyles.cookTimerTextTiny}>:{dSeconds}</Text>
                 </View>
                 <View style={cookStyles.cookTimerButtons}>
                     <TouchableOpacity

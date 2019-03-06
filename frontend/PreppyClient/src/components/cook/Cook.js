@@ -85,7 +85,7 @@ export default class Cook extends Component {
                     <Text style={cookStyles.cookTitle}>Choose a Recipe to Cook</Text>
                     <Text style={cookStyles.cookSubtitle}>Your Upcoming Meals</Text>
                     {upcoming}
-                    <Text style={cookStyles.cookSubtitle}>Or Choose from One of Your Favorites</Text>
+                    <Text style={cookStyles.cookSubtitle}></Text>
                     <Text>{this.state.recipe == null ? "Please select a recipe to cook" : "Selected Recipe:"}</Text>
                     <View>
                         <Text>{this.state.recipe == null ? "" : this.state.recipe.name}</Text>

@@ -2,12 +2,17 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
-const PreppyLight = "#FFEED1";
+const PreppyGreen =  "#33CF23";
+const PreppyPurple = "#7625A9";
+const PreppyRed =    "#F92A34";
+const PreppyLight =  "#FFEED1";
+const PreppyGray =   "#8D8D8D";
+const PureWhite =    "#FFFFFF";
 
 export const shoppingCartStyles = StyleSheet.create({
     
     shoppingCartMain: {
-        backgroundColor: PreppyOrange,
+        backgroundColor: PreppyLight,
         height: Dimensions.get('window').height,
         flex: 1,
         flexDirection: "column",
@@ -20,15 +25,18 @@ export const shoppingCartStyles = StyleSheet.create({
     addIngredientButton: {
         margin: 10,
         width: "80%",
-        backgroundColor: "#FFFFFF",
+        backgroundColor: PreppyOrange,
         borderRadius: 3,
         fontWeight: "bold",
     }, 
     inputBox: {
         width: "80%",
-        fontSize: 12,
+        fontFamily: "Raleway",
+        fontSize: 16,
         margin: 5,
-        borderColor: "#FFFFFF",
+        padding: 5,
+        borderColor: PreppyGray,
+        backgroundColor: '#FFFFFF',
         borderRadius: 3, 
         borderWidth: 1
     },
@@ -36,7 +44,7 @@ export const shoppingCartStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 28,
         fontWeight: "bold",
-        color: "#FFFFFF",
+        color: PreppyOrange,
         textAlign: "center",
         paddingTop: 10,
         paddingBottom: 5,
@@ -57,7 +65,7 @@ export const shoppingCartStyles = StyleSheet.create({
     ingredientNameContainer: {
         borderRadius: 6,
         padding: 7,
-        backgroundColor: PreppyLight,
+        backgroundColor: PureWhite,
         width: "40%",
     },
     ingredientItemText: {
@@ -71,7 +79,7 @@ export const shoppingCartStyles = StyleSheet.create({
         borderRadius: 6,
         width: "10%",
         padding: 7,
-        backgroundColor: PreppyLight,
+        backgroundColor: PureWhite,
         fontFamily: "Raleway",
     },
     // changeAmountButtonContainer: {
@@ -83,7 +91,7 @@ export const shoppingCartStyles = StyleSheet.create({
     changeAmountButton: {
         borderRadius: 100,
         padding: 7,
-        backgroundColor: PreppyLight,
+        backgroundColor: PureWhite,
         width: "15%",
         fontWeight: "bold",
     }
