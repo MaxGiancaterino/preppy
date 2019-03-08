@@ -30,8 +30,8 @@ export default UserData = {
             }
         }
         catch (error) {
-            return null;
             console.log(error.message);
+            return null;
         }
     },
 

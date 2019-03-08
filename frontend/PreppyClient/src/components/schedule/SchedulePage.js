@@ -5,7 +5,9 @@ import {scheduleStyles} from './ScheduleStyles';
 
 import ScheduleDay from './ScheduleDay';
 
-import Schedule from '../..//models/Schedule';
+import Schedule from '../../models/Schedule';
+
+import UserData from '../../UserData';
 
 function getOrdinalForm(num) {
     let suffix = "";
@@ -39,13 +41,21 @@ export default class SchedulePage extends Component {
     }
 
     componentWillMount() {
-        const propSchedule = this.props.navigation.getParam("schedule", Schedule.getSampleSchedule());
+        const propSchedule = this.props.navigation.getParam("schedule", new Schedule());
         this.setState({schedule: propSchedule});
     }
 
     render() {
         const nav = this.props.navigation;
-        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const days = [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ];
         const months = [
             "January",
             "February",

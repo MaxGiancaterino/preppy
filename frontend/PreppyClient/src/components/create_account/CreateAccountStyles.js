@@ -79,7 +79,7 @@ export const createAccountStyles = StyleSheet.create({
         borderRadius: 5,
         padding: 10,
         marginVertical: 10,
-        height: 45
+        minHeight: 45
     },
     errorText: {
         fontFamily: "Raleway",

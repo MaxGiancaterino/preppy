@@ -32,6 +32,14 @@ export default class Schedule {
         return true;
     }
 
+    getSize() {
+        let size = 0;
+        for (let date in this.items) {
+            size += this.items[date].length;
+        }
+        return size;
+    }
+
     static getSampleSchedule() {
         let sample = new Schedule();
         let success = sample.scheduleMeal(

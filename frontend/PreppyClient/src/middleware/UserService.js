@@ -1,4 +1,5 @@
 import User from '../models/User';
+import UserData from '../UserData';
 
 export default UserService = {
 
@@ -69,6 +70,9 @@ export default UserService = {
             password: password,
             displayName: displayName
         };
+        if (phone.substring(0, 2) !== "+1") {
+            user.phoneNumber = "+1" + user.phoneNumber;
+        }
 
         if (!email) {
             return new Promise((resolve, reject) => {throw new Error("Please enter an email address")});
@@ -83,22 +87,32 @@ export default UserService = {
             return new Promise((resolve, reject) => {throw new Error("Please enter your name")});
         }
 
-        fetch('http://preppy-dev.appspot.com/user', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        }).then(res => {
-            if (!res.ok) {
-                throw new Error("Cannot find server. Please try again later");
-            }
-            return res.json();
-        }).then(user => {
-            return new User(res);
-        }).catch(error => {
-            throw error;
-        })
+            return (
+            fetch('http://preppy-dev.appspot.com/user', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            }).then(res => {
+                if (!res) {
+                    throw new Error("Error creating account. Make sure all information is entered correctly");
+                }
+                if (!res.ok) {
+                    throw new Error("Cannot find server. Please try again later");
+                }
+                return res.json();
+            }).then(user => {
+                if (user["message"]) {
+                    throw new Error(user.message);
+                }
+                else {
+                    return new User(user);
+                }
+            }).catch(error => {
+                throw error;
+            })
+        );
     }
 }
