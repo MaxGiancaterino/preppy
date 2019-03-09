@@ -32,10 +32,10 @@ export default class Schedule {
         return true;
     }
 
-    getSize() {
+    static getSize(s) {
         let size = 0;
-        for (let date in this.items) {
-            size += this.items[date].length;
+        for (let date in s.items) {
+            size += s.items[date].length;
         }
         return size;
     }

@@ -108,10 +108,9 @@ export default class SchedulePage extends Component {
             );
         })
 
-        //if (this.state.schedule && this.state.schedule.getSize() == 0) {
-        //    scheduleComponents = <Text>You have no upcoming meals scheduled</Text>;
-        //}
-        alert(JSON.stringify(UserData.getUser()));
+        if (this.state.schedule && Schedule.getSize(this.state.schedule) == 0) {
+            scheduleComponents = <Text style={scheduleStyles.emptySchedule}>You have no upcoming meals scheduled</Text>;
+        }
 
         return(
             <View style={scheduleStyles.scheduleMain}>

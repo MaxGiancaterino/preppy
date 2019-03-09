@@ -31,6 +31,13 @@ export const scheduleStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: PreppyLBlue1
     },
+    emptySchedule: {
+        color: PureWhite,
+        fontFamily: "raleway",
+        fontSize: 20,
+        fontWeight: "bold",
+        padding: 10
+    },
 
     /* ---------------------------------- *
      *  Schedule Day
