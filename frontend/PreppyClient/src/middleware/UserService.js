@@ -35,26 +35,28 @@ export default UserService = {
                 }
                 return res.json();
             }).then(res => {
-                if (!res.ok || !res.user || !res.user.uid) {
+                if (res.ok === false || !res.user || !res.user.uid) {
                     throw new Error("Incorrect email or password");
                 }
                 const uid = res.user.uid;
+                let user = null;
+                return (
                     fetch('http://preppy-dev.appspot.com/account/' + uid, {
                         method: 'GET',
                         headers: {
                             Accept: 'application/json',
                             'Content-Type': 'application/json'
                         },
-                    }).then(res => {
-                        if (!res.ok) {
-                            throw new Error("Cannot fetch user data. Please try again later");
-                        }
-                        return res.json()
-                    }).then(
-                        res => (new User(res))
-                    )
+                    })
+                );
+            }).then(res => {
+                if (!res.ok) {
+                    throw new Error("Cannot fetch user data. Please try again later");
                 }
-            ).catch((error) => {throw error})
+                return res.json()
+            }).then(res => {
+                return new User(res);
+            }).catch((error) => {throw error})
         );
     },
 

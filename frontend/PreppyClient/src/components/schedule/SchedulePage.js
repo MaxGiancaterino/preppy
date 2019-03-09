@@ -41,7 +41,7 @@ export default class SchedulePage extends Component {
     }
 
     componentWillMount() {
-        const propSchedule = this.props.navigation.getParam("schedule", new Schedule());
+        const propSchedule = UserData.getUser().schedule;
         this.setState({schedule: propSchedule});
     }
 
@@ -107,6 +107,11 @@ export default class SchedulePage extends Component {
                 />
             );
         })
+
+        //if (this.state.schedule && this.state.schedule.getSize() == 0) {
+        //    scheduleComponents = <Text>You have no upcoming meals scheduled</Text>;
+        //}
+        alert(JSON.stringify(UserData.getUser()));
 
         return(
             <View style={scheduleStyles.scheduleMain}>

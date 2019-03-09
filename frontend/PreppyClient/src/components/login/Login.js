@@ -25,6 +25,9 @@ export default class Login extends Component {
 
 	submit() {
         UserService.attemptLogin(this.state.email, this.state.password).then(user => {
+            if (!user) {
+                throw new Error("Something went wrong. Please try again later");
+            }
 		    UserData.setUser(user).then(() => {
 				this.props.navigation.navigate("Dashboard");
 		    }).catch((error) => {

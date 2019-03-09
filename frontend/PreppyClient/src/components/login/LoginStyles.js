@@ -61,7 +61,7 @@ export const loginStyles = StyleSheet.create({
         padding: 10,
         marginHorizontal: 30,
         marginBottom: 10,
-        height: 45
+        minHeight: 45
     },
     errorText: {
         fontFamily: "Raleway",

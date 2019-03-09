@@ -13,7 +13,6 @@ import User from './models/User';
  * appropriate extent 
  */
 
- // We should possibly consider using all user-management endpoints within this module
 export default UserData = {
 
     // Load the current user data from AsyncStorage
@@ -38,7 +37,7 @@ export default UserData = {
     // Set the current user
     setUser: async (user) => {
         try {
-            if (user != null) {
+            if (user) {
                 var json = JSON.stringify(user);
                 const value = await AsyncStorage.setItem('key_user', json);
                 global.currentUser = new User(user);
