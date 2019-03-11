@@ -9,6 +9,7 @@ import Schedule from '../../models/Schedule';
 
 import UserData from '../../UserData';
 
+
 function getOrdinalForm(num) {
     let suffix = "";
     if (num % 100 === 11 || num % 100 === 12 || num % 100 === 13) {
@@ -108,7 +109,7 @@ export default class SchedulePage extends Component {
             );
         })
 
-        if (this.state.schedule && Schedule.getSize(this.state.schedule) == 0) {
+        if (this.state.schedule && Schedule.getSize(this.state.schedule) === 0) {
             scheduleComponents = <Text style={scheduleStyles.emptySchedule}>You have no upcoming meals scheduled</Text>;
         }
 

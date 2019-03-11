@@ -7,6 +7,7 @@ const PreppyPurple = "#7625A9";
 const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
+const PreppyLBlue1 = "#AAAAFF";
 
 export const mainStyle = StyleSheet.create({
     main: {
@@ -112,6 +113,16 @@ export const recipeButtonStyles = StyleSheet.create({
 })
 
 export const buttonStyles = StyleSheet.create({
+    buttonBlue: {
+        backgroundColor: PreppyLBlue1,
+        padding: 10,
+        borderRadius: 10,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: 5,
+    },
     buttonGreen: {
         backgroundColor: PreppyGreen,
         padding: 10,

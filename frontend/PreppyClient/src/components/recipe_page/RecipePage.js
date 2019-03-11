@@ -5,7 +5,6 @@ import RecipeItem from './RecipeItem';
 
 import {recipePageStyles} from './RecipePageStyles';
 import {buttonStyles} from '../common/CommonStyles';
-import SchedulerWidget from '../widgets/SchedulerWidget';
 
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
@@ -26,6 +25,13 @@ export default class RecipePage extends Component {
         this.props.navigation.navigate({
             routeName: "Cook",
             params: {"cookRecipe": this.state.recipe}
+        });
+    }
+
+    scheduleRecipe = () => {
+        this.props.navigation.navigate({
+            routeName: "Scheduler",
+            params: {"recipe": this.state.recipe}
         });
     }
 
@@ -79,11 +85,7 @@ export default class RecipePage extends Component {
 
         // Note: I do all this fancy stuff with the content inset / offset to ensure that the overscroll colors
         // match that of the topmost and bottommost content in the scrollview. It only works for iOS though
-        /*
-        <TouchableOpacity style={buttonStyles.buttonGreen}>
-            <Text style={buttonStyles.buttonTextNormal}>Schedule Recipe</Text>
-        </TouchableOpacity>
-        */
+
         return (
             <View style={recipePageStyles.recipeMain}>
                 <ScrollView
@@ -102,7 +104,12 @@ export default class RecipePage extends Component {
                         <Text style={recipePageStyles.sectionTitle}>Preparation</Text>
                         {steps}
 
-                        <SchedulerWidget recipe={this.state.recipe}/>
+                        <TouchableOpacity
+                            style={buttonStyles.buttonBlue}
+                            onPress={this.scheduleRecipe}
+                        >
+                            <Text style={buttonStyles.buttonTextNormal}>Schedule Recipe</Text>
+                        </TouchableOpacity>
 
                         <TouchableOpacity
                             style={buttonStyles.buttonGreen}

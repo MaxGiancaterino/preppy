@@ -9,25 +9,36 @@ import {
     DatePickerIOS,
     DatePickerAndroid,
 } from 'react-native';
-import {schedulerStyles} from './SchedulerWidgetStyles';
+import {schedulerStyles} from './SchedulerStyles';
 import {buttonStyles} from '../common/CommonStyles';
 
-export default class SchedulerWidget extends Component {
+export default class Scheduler extends Component {
+
+    static navigationOptions = {
+        title: "Schedule Recipe",
+    };
 
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
             cookDate: new Date(),
             numServings: 1,
-            phase: 0
+            phase: 0,
+            recipe: null
         };
+    }
+
+    componentWillMount() {
+        const recipe = this.props.navigation.getParam("recipe", null);
+        this.setState({recipe: recipe});
+    }
+
+    progressPhase = () => {
+        this.setState({phase: this.state.phase + 1});
     }
 
     render() {
 
-        let closed = 
-            <Text style={buttonStyles.buttonTextNormal}> Schedule Recipe </Text>;
 
         let datePicker = Platform.OS === 'ios' ?
             <DatePickerIOS
@@ -41,7 +52,7 @@ export default class SchedulerWidget extends Component {
             
         let scheduleCook = 
             <View>
-                <Text style={buttonStyles.buttonTextNormal}>Scheduling {this.props.recipe.name}</Text>
+                <Text style={buttonStyles.buttonTextNormal}>Scheduling {this.state.recipe.name}</Text>
                 <Text>
                     When will you cook?
                 </Text>
@@ -53,21 +64,17 @@ export default class SchedulerWidget extends Component {
                     step={1}
                     onValueChange={(value) => {this.setState({numServings: value})}}
                 />
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.progressPhase}>
                     <Text>Next</Text>
                 </TouchableOpacity>
             </View>
 
-        let open = this.state.phase === 0 ? scheduleCook : []
+        let display = this.state.phase === 0 ? scheduleCook : []
 
         return(
-            <TouchableWithoutFeedback
-                onPress={() => {this.setState({open: true})}}
-            >
-                <View style={schedulerStyles.schedulerMain}>
-                    {this.state.open ? open : closed}
-                </View>
-            </TouchableWithoutFeedback>
+            <View style={schedulerStyles.schedulerMain}>
+                {display}
+            </View>
         );
     }
 }

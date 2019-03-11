@@ -14,13 +14,10 @@ const PureWhite =    "#FFFFFF";
 export const schedulerStyles = StyleSheet.create({
 
     schedulerMain: {
-        backgroundColor: PreppyLBlue1,
-        paddingVertical: 10,
-        borderRadius: 10,
+        backgroundColor: PreppyLBlue2,
+        padding: 10,
         flex: 1,
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center",
-        marginVertical: 5,
     },
 });
