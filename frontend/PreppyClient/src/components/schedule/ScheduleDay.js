@@ -68,6 +68,9 @@ export default class ScheduleDay extends Component {
                     <View style={scheduleStyles.scheduleItem} key={key++}>
                         <Text style={scheduleStyles.itemTime}>{getTimeString(item.time)}</Text>
                         <Text style={scheduleStyles.itemText}>{"Have " + item.recipe.name + " for " + item.meal}</Text>
+                        <TouchableOpacity style={scheduleStyles.removeButton} onPress={() => {this.removeItem(item)}}>
+                            <Text style={scheduleStyles.removeButtonText}>Remove</Text>
+                        </TouchableOpacity>
                     </View>
                 );
             }
