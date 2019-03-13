@@ -72,11 +72,19 @@ export default class Scheduler extends Component {
             this.progressPhase();
         }
         let user = UserData.getUser();
+        const meals = [
+            MEAL_TYPE.BREAKFAST,
+            MEAL_TYPE.LUNCH,
+            MEAL_TYPE.DINNER,
+            MEAL_TYPE.DESSERT,
+            MEAL_TYPE.SNACK,
+            MEAL_TYPE.OTHER
+        ];
         for (let i = 0; i < this.state.mealServings.length; i++) {
             let mealDate = this.state.mealDates[i];
             let item = new ScheduleItem(
                 ITEM_TYPE.MEAL,
-                this.state.mealTypes[i],
+                meals[this.state.mealTypes[i]],
                 mealDate,
                 this.state.recipe
             );
@@ -95,15 +103,6 @@ export default class Scheduler extends Component {
     }
 
     render() {
-
-        const mealTypes = [
-            MEAL_TYPE.BREAKFAST,
-            MEAL_TYPE.LUNCH,
-            MEAL_TYPE.DINNER,
-            MEAL_TYPE.DESSERT,
-            MEAL_TYPE.SNACK,
-            MEAL_TYPE.OTHER
-        ];
         const isIos = Platform.OS === 'ios';
         let datePickerCook = isIos ?
             <DatePickerIOS
