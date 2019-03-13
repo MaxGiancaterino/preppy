@@ -15,7 +15,7 @@ export default class Schedule {
     /*
      * Schedules some ScheduleItem into this schedule appropriately. Returns true if successful.
      */
-    scheduleMeal(date, item) {
+    static scheduleMeal(schedule, date, item) {
 
         if (!(item instanceof ScheduleItem)) {
             return false;
@@ -25,10 +25,10 @@ export default class Schedule {
         }
 
         const dateString = date.toDateString();
-        if (!this.items[dateString]) {
-            this.items[dateString] = [];
+        if (!schedule.items[dateString]) {
+            schedule.items[dateString] = [];
         }
-        this.items[dateString].push(item);
+        schedule.items[dateString].push(item);
         return true;
     }
 

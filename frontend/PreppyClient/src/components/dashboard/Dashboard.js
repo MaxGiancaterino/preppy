@@ -14,6 +14,7 @@ import UserData from '../../UserData';
 import RecipeService from '../../middleware/RecipeService';
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
+import Schedule from '../../models/Schedule';
 
 
 export default class Dashboard extends Component {

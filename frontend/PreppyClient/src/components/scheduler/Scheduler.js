@@ -6,11 +6,15 @@ import {
     Slider,
     TouchableWithoutFeedback,
     TouchableOpacity,
+    SegmentedControlIOS,
     DatePickerIOS,
     DatePickerAndroid,
 } from 'react-native';
+import UserData from '../../UserData';
 import {schedulerStyles} from './SchedulerStyles';
 import {buttonStyles} from '../common/CommonStyles';
+import ScheduleItem, {MEAL_TYPE, ITEM_TYPE} from '../../models/ScheduleItem';
+import Schedule from '../../models/Schedule';
 
 export default class Scheduler extends Component {
 
@@ -23,11 +27,13 @@ export default class Scheduler extends Component {
         this.state = {
             cookDate: new Date(),
             selectedDate: new Date(),
+            remainingServings: 1,
+            selectedServings: 0,
+            selectedType: 0,
             numServings: 1,
             mealDates: [],
             mealServings: [],
-            remainingServings: 1,
-            selectedServings: 0,
+            mealTypes: [],
             phase: 0,
             recipe: null
         };
@@ -43,9 +49,16 @@ export default class Scheduler extends Component {
         if (currentPhase > 0) {
             let datesArray = this.state.mealDates;
             let servingsArray = this.state.mealServings;
+            let typesArray = this.state.mealTypes;
             datesArray[currentPhase - 1] = this.state.selectedDate;
             servingsArray[currentPhase - 1] = this.state.selectedServings;
-            this.setState({mealServings: servingsArray, mealDates: datesArray});
+            typesArray[currentPhase - 1] = this.state.selectedType;
+            this.setState({
+                mealServings: servingsArray,
+                mealDates: datesArray,
+                mealTypes: typesArray,
+                selectedServings: 0,
+            });
         }
         let remaining = this.state.numServings;
         for (servings of this.state.mealServings) {
@@ -54,8 +67,43 @@ export default class Scheduler extends Component {
         this.setState({phase: currentPhase + 1, remainingServings: remaining});
     }
 
+    finishScheduling = () => {
+        if (this.state.selectedServings > 0) {
+            this.progressPhase();
+        }
+        let user = UserData.getUser();
+        for (let i = 0; i < this.state.mealServings.length; i++) {
+            let mealDate = this.state.mealDates[i];
+            let item = new ScheduleItem(
+                ITEM_TYPE.MEAL,
+                this.state.mealTypes[i],
+                mealDate,
+                this.state.recipe
+            );
+            Schedule.scheduleMeal(user.schedule, mealDate, item);
+        }
+
+        Schedule.scheduleMeal(user.schedule, this.state.cookDate, new ScheduleItem(
+            ITEM_TYPE.COOK,
+            MEAL_TYPE.NA,
+            this.state.cookDate,
+            this.state.recipe
+        ));
+
+        this.props.navigation.goBack();
+        alert("Successfully Scheduled");
+    }
+
     render() {
 
+        const mealTypes = [
+            MEAL_TYPE.BREAKFAST,
+            MEAL_TYPE.LUNCH,
+            MEAL_TYPE.DINNER,
+            MEAL_TYPE.DESSERT,
+            MEAL_TYPE.SNACK,
+            MEAL_TYPE.OTHER
+        ];
         const isIos = Platform.OS === 'ios';
         let datePickerCook = isIos ?
             <DatePickerIOS
@@ -67,7 +115,7 @@ export default class Scheduler extends Component {
 
         let datePickerMeal = isIos ?
             <DatePickerIOS
-                date={this.state.cookDate}
+                date={this.state.selectedDate}
                 onDateChange={(newDate) => {this.setState({selectedDate: newDate})}}
                 minimumDate={this.state.cookDate}
                 minuteInterval={15}
@@ -93,23 +141,31 @@ export default class Scheduler extends Component {
             </View>
 
         let scheduleMeal = 
-            <View>
+            <View style={schedulerStyles.mealScheduler}>
                 <Text>When will you eat?</Text>
                 {datePickerMeal}
+                <Text>Remaining Servings: {this.state.remainingServings}</Text>
                 <Text>Selected Servings: {this.state.selectedServings}</Text>
                 <Slider
-                    minimumValue={1}
+                    minimumValue={0}
                     maximumValue={this.state.remainingServings}
                     step={1}
                     onValueChange={(value) => {this.setState({selectedServings: value})}}
                 />
+                <Text>Select Meal Type</Text>
+                <SegmentedControlIOS
+                    values={['Breakfast', 'Lunch', "Dinner", "Dessert", "Snack", "Other"]}
+                    selectedIndex={this.state.selectedType}
+                    onChange={(event) => {
+                        this.setState({selectedType: event.nativeEvent.selectedSegmentIndex});
+                    }}
+                />
                 <TouchableOpacity disabled={this.state.remainingServings === 0} onPress={this.progressPhase}>
                     <Text>Schedule More Meals</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={this.finishScheduling}>
                     <Text>Finish</Text>
                 </TouchableOpacity>
-                <Text>{this.state.remainingServings}</Text>
             </View>
 
         let display = this.state.phase === 0 ? scheduleCook : scheduleMeal;

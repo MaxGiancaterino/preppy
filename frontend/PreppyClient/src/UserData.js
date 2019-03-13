@@ -40,7 +40,12 @@ export default UserData = {
             if (user) {
                 var json = JSON.stringify(user);
                 const value = await AsyncStorage.setItem('key_user', json);
-                global.currentUser = new User(user);
+                if (user instanceof User) {
+                    global.currentUser = user;
+                }
+                else {
+                    global.currentUser = new User(user);
+                }
                 global.isLoggedIn = true;
             }
         }

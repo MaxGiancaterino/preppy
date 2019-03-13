@@ -20,4 +20,12 @@ export const schedulerStyles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
     },
+
+    mealScheduler: {
+        padding: 10,
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+        width: "100%"
+    },
 });

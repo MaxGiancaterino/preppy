@@ -83,8 +83,7 @@ export const scheduleStyles = StyleSheet.create({
     },
     removeButton: {
         backgroundColor: PreppyRed,
-        marginHorizontal: 10,
-        marginTop: 10,
+        margin: 10,
         minHeight: 20,
         padding: 5,
         borderRadius: 5,
