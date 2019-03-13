@@ -34,6 +34,7 @@ export default class Dashboard extends Component {
 
     componentWillMount() {
         const user = UserData.getUser();
+        user.schedule = Schedule.getSampleSchedule();
         const arbitraryRecipes = [15, 2, 3, 4];
         global.recipes = [];
         // If we're using global, we should maybe move this to the splash screen so it doesn't cause any bugs

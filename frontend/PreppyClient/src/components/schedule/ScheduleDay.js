@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import {Text, View, TouchableOpacity, Alert} from 'react-native';
 
 import RecipeButton from '../common/RecipeButton';
+import UserData from '../../UserData';
 
 import {scheduleStyles} from './ScheduleStyles';
 
 import ScheduleItem, {ITEM_TYPE, MEAL_TYPE} from '../../models/ScheduleItem';
+import Schedule from '../../models/Schedule';
 
 function getTimeString(date) {
     const rawHour = date.getHours();
@@ -21,12 +23,18 @@ export default class ScheduleDay extends Component {
         super();
     }
 
-    removeItem = () => {
+    unscheduleItem = (item) => {
+        Schedule.removeItem(UserData.getUser().schedule, item);
+        this.forceUpdate();
+        this.props.parent.forceUpdate();
+    }
+
+    removeItem = (item) => {
         Alert.alert(
             "Remove Item?",
             "Are you sure you want to remove this item from your schedule?",
             [
-                {text: "Yes"},
+                {text: "Yes", onPress: () => this.unscheduleItem(item)},
                 {text: "No"}
             ],
         );
@@ -35,16 +43,10 @@ export default class ScheduleDay extends Component {
     render() {
         const nav = this.props.navigation;
 
-        const unscheduleButton = (
-            <TouchableOpacity style={scheduleStyles.removeButton} onPress={() => this.removeItem()}>
-                <Text style={scheduleStyles.removeButtonText}>Remove</Text>
-            </TouchableOpacity>
-        );
-
         let key = 0;
         let items = this.props.items.map((item) => {
 
-            if (item.itemType == ITEM_TYPE.COOK) {
+            if (item && item.itemType == ITEM_TYPE.COOK) {
                 return (
                     <View style={scheduleStyles.scheduleItem} key={key++}>
                         <Text style={scheduleStyles.itemTime}>{getTimeString(item.time)}</Text>
@@ -54,16 +56,18 @@ export default class ScheduleDay extends Component {
                             buttonType={2}
                             navigation={nav}
                         />
-                        {unscheduleButton}
+                        <TouchableOpacity style={scheduleStyles.removeButton} onPress={() => {this.removeItem(item)}}>
+                            <Text style={scheduleStyles.removeButtonText}>Remove</Text>
+                        </TouchableOpacity>
                     </View>
                 );
             }
 
-            else if (item.itemType == ITEM_TYPE.MEAL) {
+            else if (item && item.itemType == ITEM_TYPE.MEAL) {
                 return (
                     <View style={scheduleStyles.scheduleItem} key={key++}>
                         <Text style={scheduleStyles.itemTime}>{getTimeString(item.time)}</Text>
-                        <Text style={scheduleStyles.itemText}>{"Have " + item.recipe.name + " for " + MEAL_TYPE[item.meal]}</Text>
+                        <Text style={scheduleStyles.itemText}>{"Have " + item.recipe.name + " for " + item.meal}</Text>
                     </View>
                 );
             }

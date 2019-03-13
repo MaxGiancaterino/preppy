@@ -80,10 +80,10 @@ export default class Scheduler extends Component {
                 mealDate,
                 this.state.recipe
             );
-            Schedule.scheduleMeal(user.schedule, mealDate, item);
+            Schedule.scheduleMeal(user.schedule, item);
         }
 
-        Schedule.scheduleMeal(user.schedule, this.state.cookDate, new ScheduleItem(
+        Schedule.scheduleMeal(user.schedule, new ScheduleItem(
             ITEM_TYPE.COOK,
             MEAL_TYPE.NA,
             this.state.cookDate,

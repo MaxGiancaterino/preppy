@@ -101,6 +101,7 @@ export default class SchedulePage extends Component {
             return (
                 <ScheduleDay
                     navigation={nav}
+                    parent={this}
                     date={dateTitle}
                     items={dateItems}
                     key={key++}
