@@ -1,5 +1,6 @@
 import {AsyncStorage} from 'react-native';
 import User from './models/User';
+import Schedule from './models/Schedule';
 
 /*
  * UserData serves as an interface to React Native's AsyncStorage class. AsyncStorage can store data
@@ -21,6 +22,7 @@ export default UserData = {
             const value = await AsyncStorage.getItem('key_user');
             if (value !== null) {
                 global.currentUser = new User(JSON.parse(value));
+                global.currentUser.schedule = new Schedule(global.currentUser.schedule);
                 global.isLoggedIn = true;
                 return global.currentUser;
             }
@@ -30,6 +32,7 @@ export default UserData = {
         }
         catch (error) {
             console.log(error.message);
+            alert(error.message);
             return null;
         }
     },
@@ -54,8 +57,21 @@ export default UserData = {
         }
     },
 
+    // Updates the cached user, including the schedule
+    updateUser: async () => {
+        try {
+            if (global.isLoggedIn && global.currentUser) {
+                var json = JSON.stringify(global.currentUser);
+                const value = await AsyncStorage.setItem('key_user', json);
+            }
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+    },
+
     // Remove the current user's data from AsyncStorage
-    logout: async() => {
+    logout: async () => {
         try {
             await AsyncStorage.removeItem('key_user');
             global.isLoggedIn = false;

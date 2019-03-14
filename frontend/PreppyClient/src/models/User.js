@@ -5,7 +5,8 @@ import Schedule from "./Schedule";
 export default class User {
 
     constructor(userData = {}) {
-        this.userId = userData.hasOwnProperty("userId") ? userData.userId : -1;
+        let id = userData.hasOwnProperty("userId") ? userData.userId : -1;
+        this.userId = id;
         this.displayName = userData.hasOwnProperty("firstName") ? userData.displayName : "";
         this.username = userData.hasOwnProperty("username") ? userData.username : "";
         this.avatar = userData.hasOwnProperty("avatar") ? userData.avatar : "";
@@ -14,7 +15,7 @@ export default class User {
         this.remainingBudget = userData.hasOwnProperty("remainingBudget") ? userData.remainingBudget : 0;
         this.cookingQueue = userData.hasOwnProperty("cookingQueue") ? userData.cookingQueue : [-1];
         this.recipes = [];
-        this.schedule = userData.hasOwnProperty('schedule') ? userData.schedule : new Schedule();
+        this.schedule = userData.hasOwnProperty('schedule') ? userData.schedule : {items: {}, userId: id};
     }
 
     getSuggestedRecipes() {

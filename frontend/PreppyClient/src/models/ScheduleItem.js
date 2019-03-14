@@ -2,7 +2,8 @@ import Recipe from './Recipe';
 
 export const ITEM_TYPE = {
     MEAL: "Meal",
-    COOK: "Cook"
+    COOK: "Cook",
+    UNKNOWN: "Error",
 }
 
 // Applies for items of type MEAL. Those of type cook should have a meal type of N/A
@@ -41,5 +42,13 @@ export default class ScheduleItem {
             return 0/0; // NaN
         }
         return this.time.getTime() - otherItem.time.getTime();
+    }
+
+    static fromJson(json) {
+        let type = json.itemType ? json.itemType : ITEM_TYPE.UNKNOWN;
+        let meal = json.meal ? json.meal : MEAL_TYPE.NA;
+        let time = json.time ? new Date(json.time) : new Date();
+        let recipe = json.recipe ? new Recipe(json.recipe) : new Recipe();
+        return new ScheduleItem(type, meal, time, recipe);
     }
 }

@@ -99,7 +99,7 @@ export default class Scheduler extends Component {
         ));
 
         this.props.navigation.goBack();
-        alert("Successfully Scheduled");
+        UserData.updateUser().then(()=>{alert("Successfully Scheduled")});
     }
 
     render() {

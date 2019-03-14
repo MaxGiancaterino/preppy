@@ -27,6 +27,7 @@ export default class ScheduleDay extends Component {
         Schedule.removeItem(UserData.getUser().schedule, item);
         this.forceUpdate();
         this.props.parent.forceUpdate();
+        UserData.updateUser();
     }
 
     removeItem = (item) => {

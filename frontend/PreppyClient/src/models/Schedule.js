@@ -1,15 +1,26 @@
 import ScheduleItem, {MEAL_TYPE, ITEM_TYPE} from './ScheduleItem';
 import Recipe from './Recipe';
+import UserData from '../UserData';
 
 export default class Schedule {
 
-    constructor() {
-        // The id of the user this schedule is associated with
-        this.userId = -1;
+    constructor(json=false) {
+        if (!json) {
+            // The id of the user this schedule is associated with
+            this.userId = UserData.getUser().userId;
 
-        // An associative array mapping dates (specifically, date strings (Date.toDateString)) to
-        // arrays of scheduleItems. These ScheduleItems can be cook or meal events.
-        this.items = {};
+            // An associative array mapping dates (specifically, date strings (Date.toDateString)) to
+            // arrays of scheduleItems. These ScheduleItems can be cook or meal events.
+            this.items = {};
+        }
+        else {
+            this.userId = json.userId ? json.userId : UserData.getUser().userId;
+            this.items = json.items ? json.items : {};
+            for (let date in this.items) {
+                let jsonItems = this.items[date];
+                this.items[date] = jsonItems.map(item => ScheduleItem.fromJson(item));
+            }
+        }
     }
 
     /*
