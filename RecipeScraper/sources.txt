@@ -1,7 +1,0 @@
-https://www.themealdb.com/api.php
-http://www.cookbooks.com/Recipe-Details.aspx?id=1
-
-relevant:
-https://www.ars.usda.gov/northeast-area/beltsville-md-bhnrc/beltsville-human-nutrition-research-center/nutrient-data-laboratory/docs/sr28-download-files/
-https://opensourcecook.com/recipes-copyright-law
-https://news.ycombinator.com/item?id=11711467

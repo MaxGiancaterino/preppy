@@ -1,0 +1,9 @@
+workflow:
+parse -> identify/clean -> aggregate
+
+todo:
+1. add list of ingredients to microrecipe file
+2. get ingredient properties:
+	-price/unit
+	-standard unit type
+3. continue cleaning ingredient IDs
