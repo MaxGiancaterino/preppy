@@ -5,9 +5,7 @@ import java.util.Map.Entry;
 
 import org.json.JSONObject;
 
-public class IngredientListing {
-	public static HashMap<String, Integer> commonUnits = new HashMap<String, Integer>();
-	
+public class IngredientListing {	
 	public static HashMap<String, String> translations = new HashMap<String, String>();
 	
 	static {
@@ -323,12 +321,6 @@ public class IngredientListing {
 				ret.unit = "unit";
 			} else {
 				ret.unit = unit;
-			}
-
-			if (commonUnits.containsKey(unit)) {
-				commonUnits.put(unit, commonUnits.get(unit) + 1);
-			} else {
-				commonUnits.put(unit, 1);
 			}
 		}
 		

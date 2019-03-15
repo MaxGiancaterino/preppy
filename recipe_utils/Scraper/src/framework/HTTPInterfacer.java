@@ -30,7 +30,7 @@ public class HTTPInterfacer {
 			// if this doesn't work the first time,
 			// wait a few seconds so that the server doesn't think we're doxxing it
 			try {
-				Thread.sleep(Main.requestDelayMS);
+				Thread.sleep(Scraper.requestDelayMS);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

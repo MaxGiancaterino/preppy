@@ -1,11 +1,14 @@
 package framework;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -15,12 +18,19 @@ import preppy.structures.Recipe;
 
 public class Processor {
 	
-	public static final String inDirectory = "recipes_JSON";
-	public static final String outDirectory = "recipes_processed_JSON";
-	public static final String outOtherDirectory = "recipes_processed_other";
+	public static final String inDirectory = "parsed_JSON";
+	public static final String outDirectory = "processed_JSON";
+	public static final String outOtherDirectory = "processed_cumulative";
+	
+	public static final String inFilterDirectory = "filter_options";
+	public static final String outFilterDirectory = "filter_JSON";
+	public static final String outFilterCumulativeDirectory = "filter_cumulative";
 	
 	public static Object lock = new Object();
 	public static int missCounter = 0;
+	
+	public static Object indexLock = new Object();
+	public static int currIndex = 0;
 	
 	public static void processRecipe(Recipe r) {
 		// get the list of ingredients here
@@ -56,6 +66,7 @@ public class Processor {
 		} else {
 			startingIndex = 0;
 		}
+		currIndex = startingIndex;
 		
 		final int endingIndex;
 		if (args.length >= 3) {
@@ -64,40 +75,34 @@ public class Processor {
 			endingIndex = 225000;
 		}
 		
-		System.out.println("Parsing recipes " + startingIndex + " to " + endingIndex);
+		System.out.println("Processing recipes " + startingIndex + " to " + endingIndex);
 		System.out.println("Using " + numThreads + " threads");
 		
 		// create the containing collection
 		List<Recipe> recipes = Collections.synchronizedList(new ArrayList<Recipe>());
 		
-		// determine scope of each thread
-		int threadAmt = (endingIndex - startingIndex) / numThreads;
-		
 		// get threads started
 		List<Thread> threadList = new ArrayList<Thread>();
-		for (int i = 0; i < numThreads; i++) {
-			final int threadNum = i;
-			
+		for (int i = 0; i < numThreads; i++) {			
 			Thread t = new Thread(new Runnable() {
-				public void run() {						
-					// loop from thread's starting recipe ID to ending recipe ID
-					int firstThreadRecipe = startingIndex + (threadNum * threadAmt);
-					int lastThreadRecipe = (threadNum + 1 == numThreads) ?
-							(endingIndex + 1) :
-							(startingIndex + ((threadNum + 1) * threadAmt));
-					for (int recipeNum = firstThreadRecipe;
-						 recipeNum < lastThreadRecipe;
-						 recipeNum++) {
+				public void run() {
+					while (true) {
 						
-						// convert the current ID to a string, and pad it with 0s
-						//String indexStr = Integer.toString(recipeNum);
-						//while (indexStr.length() < 6) {
-						//	indexStr = "0" + indexStr;
-						//}
+						// get the current index number
+						int index = 0;
+						synchronized (indexLock) {
+							index = currIndex;
+							currIndex++;
+						}
+						
+						// if this index is greater than the maximum, kill the thread
+						if (index > endingIndex) {
+							break;
+						}
 						
 						// open the file, convert to document
 						try {
-							Recipe r = Recipe.readRecipeJSON(inDirectory + "/" + recipeNum + ".json");
+							Recipe r = Recipe.readRecipeJSON(inDirectory + "/" + index + ".json");
 							if (r == null) {
 								throw new IOException();
 							}
@@ -134,7 +139,7 @@ public class Processor {
 				}
 			}
 			
-			// compute the number of recipes done being parsed
+			// compute the number of recipes done being processed
 			int numTried = recipes.size() + missCounter;
 			System.out.println("done " + numTried +
 							   " out of " + (endingIndex - startingIndex) +
@@ -175,7 +180,9 @@ public class Processor {
 		HTMLParser.writeRecipeJSON(outOtherDirectory, recipes);
 		HTMLParser.writeAbridgedJSON(outOtherDirectory, recipes);
 		HTMLParser.writeMisc(outOtherDirectory, recipes);
-		System.out.println(recipes.size() + " RECIPES PARSED");
+		
+		// announce finished processing
+		System.out.println(recipes.size() + " RECIPES PROCESSED");
 	}
 
 }

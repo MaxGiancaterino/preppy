@@ -63,11 +63,8 @@ public class HTMLParser {
 		Elements ingredients = doc.select("li.ingredients-item");
 		for (Element e : ingredients) {
 			String itemString = e.select("label.checkbox-list").first().text();
-			if (!itemString.isEmpty()) {
-				IngredientListing listing = new IngredientListing();
-				listing.raw = itemString;
-				ret.ingredients.add(listing);
-			}
+			if (!itemString.isEmpty())
+				ret.ingredients.add(IngredientListing.parseIngredientListing(itemString));
 		}
 		
 		// parse the direction
@@ -137,11 +134,8 @@ public class HTMLParser {
 		for (Element l : ingredientLists) {
 			for (Element e : l.select("li")) {
 				String ingredientItem = e.select("label").first().attr("title");
-				if (!ingredientItem.isEmpty()) {
-					IngredientListing listing = new IngredientListing();
-					listing.raw = ingredientItem;
-					ret.ingredients.add(listing);
-				}
+				if (!ingredientItem.isEmpty())
+					ret.ingredients.add(IngredientListing.parseIngredientListing(ingredientItem));
 			}
 		}
 		
@@ -323,14 +317,21 @@ public class HTMLParser {
 	}
 	
 	public static void writeMisc(String directory, List<Recipe> recipes) {
-		// gather frequency of each ingredient
+		// gather frequency of each ingredient and each unit
 		HashMap<String, Integer> ingredientFrequency = new HashMap<String, Integer>();
+		HashMap<String, Integer> unitFrequency = new HashMap<String, Integer>();
 		for (Recipe r : recipes) {
 			for (IngredientListing i : r.ingredients) {
 				if (ingredientFrequency.containsKey(i.ingID)) {
 					ingredientFrequency.put(i.ingID, ingredientFrequency.get(i.ingID) + 1);
 				} else {
 					ingredientFrequency.put(i.ingID, 1);
+				}
+				
+				if (unitFrequency.containsKey(i.unit)) {
+					unitFrequency.put(i.unit, unitFrequency.get(i.unit) + 1);
+				} else {
+					unitFrequency.put(i.unit, 1);
 				}
 			}
 		}
@@ -363,7 +364,7 @@ public class HTMLParser {
 		}
 		
 		// sort unit frequency entries
-		List<Entry<String, Integer>> unitEntries = new ArrayList<Entry<String, Integer>>(IngredientListing.commonUnits.entrySet());
+		List<Entry<String, Integer>> unitEntries = new ArrayList<Entry<String, Integer>>(unitFrequency.entrySet());
 		Collections.sort(unitEntries, new Comparator<Entry<String, Integer>>() {
 			public int compare(Entry<String, Integer> e0, Entry<String, Integer> e1) {
 				if (e0.getValue() < e1.getValue())
