@@ -7,6 +7,15 @@ public class TimeUnit {
 	public String units = "min";
 	public int count = 0;
 	
+	public TimeUnit() {
+		// default
+	}
+	
+	public TimeUnit(JSONObject o) {
+		count = o.getInt("count");
+		units = o.getString("units");
+	}
+	
 	public JSONObject getJSON() {
 		JSONObject rec = new JSONObject();
 		rec.put("units", units);

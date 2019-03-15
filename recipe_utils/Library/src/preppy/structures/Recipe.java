@@ -1,4 +1,7 @@
 package preppy.structures;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -30,6 +33,26 @@ public class Recipe {
 			JSONObject o = ingredientJSONs.getJSONObject(i);
 			ingredients.add(new IngredientListing(o));
 		}
+		
+		JSONArray prepStepJSONs = json.getJSONArray("preparation");
+		for (int i = 0; i < prepStepJSONs.length(); i++) {
+			JSONObject o = prepStepJSONs.getJSONObject(i);
+			preparation.add(new PrepStep(o));
+		}
+		
+		prepTime = new TimeUnit(json.getJSONObject("prepTime"));
+		cookTime = new TimeUnit(json.getJSONObject("cookTime"));
+		numServings = json.getInt("numServings");
+		imgURL = json.getString("imgURL");
+		rating = json.getString("rating");
+		pageURL = json.getString("pageURL");
+		
+		JSONArray nutritionStrings = json.getJSONArray("nutrition");
+		for (int i = 0; i < nutritionStrings.length(); i++) {
+			nutrition.add(nutritionStrings.getString(i));
+		}
+		
+		source = RecipeEnum.valueOf(json.getString("source"));
 	}
 	
 	public JSONObject getJSON() {
@@ -54,5 +77,24 @@ public class Recipe {
 		rec.put("source", source.toString());
 		
 		return rec;
+	}
+	
+	/**
+	 * @param recipeFile A file containing a single recipe in JSON
+	 * @return A Recipe object
+	 */
+	public static Recipe readRecipeJSON(String recipeFile) throws IOException {
+		// read the file into a stringbuilder
+		StringBuilder sb = new StringBuilder(1000);
+		BufferedInputStream reader = new BufferedInputStream(new FileInputStream(recipeFile));
+		int c = 0;
+        while ((c = reader.read()) != -1) {
+            sb.append((char) c);
+        }
+        reader.close();
+		
+		// convert string to JSON
+		JSONObject recipeObj = new JSONObject(sb.toString());
+		return new Recipe(recipeObj);
 	}
 }

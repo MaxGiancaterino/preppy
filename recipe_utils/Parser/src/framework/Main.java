@@ -1,9 +1,9 @@
 package framework;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -16,8 +16,12 @@ public class Main {
 	public static final String inDirectory = "recipes_HTML";
 	public static final String outDirectory = "recipes_JSON";
 	
+	public static int hitCounter = 0;
 	public static int missCounter = 0;
 	public static Object lock = new Object();
+	
+	//public static Object indexLock = new Object();
+	//public static int currIndex = 0;
 
 	public static void main(String[] args) {
 		if (args.length < 1 || args.length > 3) {
@@ -51,8 +55,11 @@ public class Main {
 		System.out.println("Parsing recipes " + startingIndex + " to " + endingIndex);
 		System.out.println("Using " + numThreads + " threads");
 		
-		// create the containing collection
-		List<Recipe> recipes = Collections.synchronizedList(new ArrayList<Recipe>());
+		// create output directory if it doesn't exist
+		File f = new File(outDirectory);
+		if (!f.exists()) {
+			f.mkdir();
+		}
 		
 		// determine scope of each thread
 		int threadAmt = (endingIndex - startingIndex) / numThreads;
@@ -86,11 +93,23 @@ public class Main {
 								missCounter++;
 							}
 							continue;
+						} else {
+							hitCounter++;
 						}
 						
+						// parse the recipe from HTML
 						Recipe recipe = HTMLParser.parseAllrecipesHTML(doc);
 						recipe.recipeID = recipeNum;
-						recipes.add(recipe);
+						
+						// write the recipe to file
+						JSONObject recipeObj = recipe.getJSON();
+						try {
+							PrintWriter writer = new PrintWriter(outDirectory + "/" + recipe.recipeID + ".json");
+							writer.println(recipeObj.toString(4));
+							writer.close();
+						} catch (FileNotFoundException e) {
+							e.printStackTrace();
+						}
 					}
 				}
 			});
@@ -117,7 +136,7 @@ public class Main {
 			}
 			
 			// compute the number of recipes done being parsed
-			int numTried = recipes.size() + missCounter;
+			int numTried = hitCounter + missCounter;
 			System.out.println("done " + numTried +
 							   " out of " + (endingIndex - startingIndex) +
 							   " - " + ((double)numTried / (double)(endingIndex - startingIndex)) * 100.0 + "%");
@@ -128,26 +147,8 @@ public class Main {
 			}
 		}
 		
-		// write all the recipes
-		System.out.println("WRITING RECIPES...");
-		
-		// write individual JSONs to file
-		for (Recipe r : recipes) {
-			JSONObject recipeObj = r.getJSON();
-			try {
-				PrintWriter writer = new PrintWriter(outDirectory + "/" + r.recipeID + ".json");
-				writer.println(recipeObj.toString(4));
-				writer.close();
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		// write cumulative JSONs to file
-		HTMLParser.writeRecipeJSON("recipe_stats", recipes);
-		HTMLParser.writeAbridgedJSON("recipe_stats", recipes);
-		HTMLParser.writeMisc("recipe_stats", recipes);
-		System.out.println(recipes.size() + " RECIPES PARSED");
+		// close up
+		System.out.println(hitCounter + " RECIPES PARSED");
 	}
 	
 }

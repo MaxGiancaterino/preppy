@@ -63,8 +63,11 @@ public class HTMLParser {
 		Elements ingredients = doc.select("li.ingredients-item");
 		for (Element e : ingredients) {
 			String itemString = e.select("label.checkbox-list").first().text();
-			if (!itemString.isEmpty())
-				ret.ingredients.add(IngredientListing.parseIngredientListing(itemString));
+			if (!itemString.isEmpty()) {
+				IngredientListing listing = new IngredientListing();
+				listing.raw = itemString;
+				ret.ingredients.add(listing);
+			}
 		}
 		
 		// parse the direction
@@ -134,8 +137,11 @@ public class HTMLParser {
 		for (Element l : ingredientLists) {
 			for (Element e : l.select("li")) {
 				String ingredientItem = e.select("label").first().attr("title");
-				if (!ingredientItem.isEmpty())
-					ret.ingredients.add(IngredientListing.parseIngredientListing(ingredientItem));
+				if (!ingredientItem.isEmpty()) {
+					IngredientListing listing = new IngredientListing();
+					listing.raw = ingredientItem;
+					ret.ingredients.add(listing);
+				}
 			}
 		}
 		

@@ -13,6 +13,10 @@ import preppy.structures.Recipe;
 
 public class Parser {
 	
+	/**
+	 * @param recipeFile The file containing a JSONArray of recipes
+	 * @return A list of Recipe objects
+	 */
 	public static List<Recipe> readRecipeJSONs(String recipeFile) {
 		// read the file into a stringbuilder
 		StringBuilder sb = new StringBuilder(1000);
