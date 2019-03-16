@@ -116,5 +116,41 @@ export default UserService = {
                 throw error;
             })
         );
+    },
+
+    /*
+     * Attempts to retrieve the given user's schedule from the backend. Returns a promise that resolves
+     * with said schedule. Does not automatically update the schedule in the local cache.
+     */
+    attemptFetchSchedule: async(uid) => {
+        let uidOb = {"uid": uid};
+        return (
+            fetch('http://preppy-dev.appspot.com/account/getSchedule', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(uidOb)
+            })
+        );
+    },
+
+    /*
+     * Attempts to update the given user's schedule on the backend, given the JSON of its local copy
+     * of the schedule.
+     */
+    attemptUpdateSchedule: async(uid, schedule) => {
+        let dataToUpdate = {"uid": uid, "schedule": schedule};
+        return (
+            fetch('http://preppy-dev.appspot.com/account/updateSchedule', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToUpdate)
+            })
+        );
     }
 }

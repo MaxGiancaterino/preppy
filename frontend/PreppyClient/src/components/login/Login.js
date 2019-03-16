@@ -24,16 +24,14 @@ export default class Login extends Component {
     }
 
 	submit() {
-        UserService.attemptLogin(this.state.email, this.state.password).then(user => {
+        UserService.attemptLogin(this.state.email, this.state.password).then(async (user) => {
             if (!user) {
                 throw new Error("Something went wrong. Please try again later");
             }
-		    UserData.setUser(user).then(() => {
-				this.props.navigation.navigate("Dashboard");
-		    }).catch((error) => {
-			    console.log(error.message);
-			});
-		}).catch((error) => {
+            await UserData.setUser(user);
+		}).then(() => {
+            this.props.navigation.navigate("Dashboard");
+        }).catch((error) => {
             this.setState({message: error.message});
         });
 	}
