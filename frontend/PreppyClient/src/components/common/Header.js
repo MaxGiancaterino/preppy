@@ -12,10 +12,10 @@ export class HeaderButton extends Component {
     }
 
     componentWillMount() {
-        this.setState({active: false, profileUri: null, loggedIn: false});
+        this.setState({loggedIn: false});
         var user = UserData.getUser();
         if (user != null) {
-            this.setState({active: false, profileUri: user.avatar, loggedIn: UserData.isLoggedIn()});
+            this.setState({loggedIn: UserData.isLoggedIn()});
         }
     }
 
@@ -23,7 +23,15 @@ export class HeaderButton extends Component {
         this.setState({active: false});
     }
 
-    render() {
+    navigateToLogin = () => {
+        UserData.logout().then(() => {
+            this.props.navigation.navigate("Login");
+        }).catch((error) => {
+            console.log(error.message);
+        });
+    }
+
+    /*render() {
         let nav = this.props.navigation;
         const isActive = this.state.active;
         const uriObject = {uri: this.state.profileUri}
@@ -51,5 +59,12 @@ export class HeaderButton extends Component {
         else {
             return(<View></View>);
         }
+    }*/
+    render() {
+        return (
+            <TouchableOpacity onPress={this.navigateToLogin}>
+                <Text style={headerStyles.logout}>Logout</Text>
+            </TouchableOpacity>
+        );
     }
 }

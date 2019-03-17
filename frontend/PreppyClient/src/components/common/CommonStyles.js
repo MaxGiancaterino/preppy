@@ -33,6 +33,12 @@ export const headerStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 24
     },
+    logout: {
+        fontFamily: "Raleway",
+        fontSize: 16,
+        marginRight: 10,
+        color: "#FFFFFF"
+    }
 });
 
 export const itemStyle = StyleSheet.create({
