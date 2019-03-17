@@ -7,6 +7,7 @@ const PreppyPurple = "#7625A9";
 const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
+const PureWhite =    "#FFFFFF";
 
 export const exploreStyles = StyleSheet.create({
 
@@ -16,7 +17,7 @@ export const exploreStyles = StyleSheet.create({
     exploreMain: {
         backgroundColor: PreppyLight,
         minHeight: Dimensions.get('window').height,
-        padding: 10,
+        paddingHorizontal: 10,
         flex: 1,
         flexDirection: "column",
         justifyContent: "flex-start"
@@ -53,6 +54,60 @@ export const exploreStyles = StyleSheet.create({
         backgroundColor: "#FFFFFF",
         marginBottom: 10
     },
+
+    searchTabs: {
+        flex: 1,
+        flexDirection: "row",
+        maxHeight: 40,
+        marginBottom: 10
+    },
+    tabSelected: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: PreppyOrange,
+        width: "50%",
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderBottomWidth: 3,
+        borderRightWidth: 3,
+        borderLeftWidth: 3,
+        borderBottomColor: PureWhite,
+        borderLeftColor: PureWhite,
+        borderRightColor: PureWhite,
+    },
+    tabSelectedText: {
+        fontFamily: "Raleway",
+        fontSize: 16,
+        fontWeight: "bold",
+        color: PureWhite
+    },
+
+    tabUnselected: {
+        flex: 1,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: PreppyLight,
+        width: "50%",
+        height: 30,
+        borderBottomRightRadius: 10,
+        borderBottomLeftRadius: 10,
+        borderBottomWidth: 3,
+        borderRightWidth: 3,
+        borderLeftWidth: 3,
+        borderBottomColor: PreppyOrange,
+        borderLeftColor: PreppyOrange,
+        borderRightColor: PreppyOrange,
+    },
+    tabUnselectedText: {
+        fontFamily: "Raleway",
+        fontSize: 16,
+        fontWeight: "bold",
+        color: PreppyOrange,
+    },
+
     noRecipeMessage: {
         fontFamily: "Raleway",
         fontSize: 24,

@@ -12,6 +12,7 @@ import {headerStyles} from '../common/CommonStyles';
 
 import UserData from '../../UserData';
 import RecipeService from '../../middleware/RecipeService';
+import UserService from '../../middleware/UserService';
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
 import Schedule from '../../models/Schedule';
