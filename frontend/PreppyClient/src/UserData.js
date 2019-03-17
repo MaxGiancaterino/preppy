@@ -96,5 +96,12 @@ export default UserData = {
             return global.currentUser;
         }
     },
+
+    // Update the current user's schedule
+    updateSchedule: (schedule) => {
+        if (global.user && schedule) {
+            global.user.schedule =  new Schedule(schedule);
+        }
+    }
         
 }

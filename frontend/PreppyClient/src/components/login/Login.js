@@ -33,6 +33,15 @@ export default class Login extends Component {
             this.props.navigation.navigate("Dashboard");
         }).catch((error) => {
             this.setState({message: error.message});
+        }).then(async () => {
+            let uid = UserData.getUser().uid;
+            return UserService.attemptFetchSchedule(uid);
+        }).then((schedule) => {
+            UserData.updateSchedule(schedule);
+        }).catch((error) => {
+            console.error(error);
+            alert("Error Retrieving Schedule. Attempting to alter your schedule now\
+                   could have unpredictable results. Error: " + error.message);
         });
 	}
 

@@ -10,6 +10,7 @@ import {
     DatePickerIOS,
     DatePickerAndroid,
 } from 'react-native';
+import UserService from '../../middleware/UserService';
 import UserData from '../../UserData';
 import {schedulerStyles} from './SchedulerStyles';
 import {buttonStyles} from '../common/CommonStyles';
@@ -99,7 +100,19 @@ export default class Scheduler extends Component {
         ));
 
         this.props.navigation.goBack();
-        UserData.updateUser().then(()=>{alert("Successfully Scheduled")});
+
+        UserService.attemptUpdateSchedule(user.userId, user.schedule).then((res) => {
+            if (!res.ok) {
+                console.log(res);
+                throw new Error(res.status + ": " + res.statusText);
+            }
+            UserData.updateUser();
+        }).then(() => {
+            alert("Successfully Scheduled")
+        }).catch((error) => {
+            console.log(error);
+        })
+        
     }
 
     render() {

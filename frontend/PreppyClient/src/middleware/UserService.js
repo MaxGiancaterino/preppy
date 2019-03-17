@@ -120,18 +120,23 @@ export default UserService = {
 
     /*
      * Attempts to retrieve the given user's schedule from the backend. Returns a promise that resolves
-     * with said schedule. Does not automatically update the schedule in the local cache.
+     * with said schedule's raw JSON. Does not automatically update the schedule in the local cache.
      */
     attemptFetchSchedule: async(uid) => {
-        let uidOb = {"uid": uid};
         return (
-            fetch('http://preppy-dev.appspot.com/account/getSchedule', {
-                method: 'POST',
+            fetch('http://preppy-dev.appspot.com/account/' + uid + '/schedule', {
+                method: 'GET',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(uidOb)
+            }).then((res) => {
+                if (res.body) {
+                    return res.json()
+                }
+                return {};
+            }).catch((error) => {
+                console.error(error);
             })
         );
     },
@@ -140,16 +145,16 @@ export default UserService = {
      * Attempts to update the given user's schedule on the backend, given the JSON of its local copy
      * of the schedule.
      */
-    attemptUpdateSchedule: async(uid, schedule) => {
-        let dataToUpdate = {"uid": uid, "schedule": schedule};
+    attemptUpdateSchedule: async(uid, s) => {
+        console.log(s);
         return (
-            fetch('http://preppy-dev.appspot.com/account/updateSchedule', {
+            fetch('http://preppy-dev.appspot.com/account/' + uid + '/schedule', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(dataToUpdate)
+                body: JSON.stringify({schedule: s})
             })
         );
     }
