@@ -98,10 +98,14 @@ export default class RecipeExplore extends Component {
 
         let idx = 0;
         const selectedIngredients = this.state.searchedIngredients.map(ingredient =>
-            <View key={++idx} style={{backgroundColor: "#FFFFAA"}}>
+            <View key={++idx} style={exploreStyles.ingredientItem}>
                 <Text style={{fontFamily: "Raleway"}}>{ingredient}</Text>
             </View>
         )
+        const ingredientComp = 
+            <View style={{flex: 0, flexDirection: "row", flexWrap: "wrap", marginTop: 10}}>
+                {selectedIngredients}
+            </View>
 
         return(
             <View style={exploreStyles.exploreMain}>
@@ -143,7 +147,9 @@ export default class RecipeExplore extends Component {
                         </View>
                     }
                 />
-                {!searchByName && selectedIngredients}
+
+                {!searchByName && ingredientComp}
+
                 <TouchableOpacity
                     style={
                         enableSearch ?

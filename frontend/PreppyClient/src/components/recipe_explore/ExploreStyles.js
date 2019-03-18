@@ -110,6 +110,13 @@ export const exploreStyles = StyleSheet.create({
         color: PreppyOrange,
     },
 
+    ingredientItem: {
+        backgroundColor: "#FFFFAA",
+        maxHeight: 50,
+        padding: 5,
+        margin: 2,
+    },
+
     noRecipeMessage: {
         fontFamily: "Raleway",
         fontSize: 24,
