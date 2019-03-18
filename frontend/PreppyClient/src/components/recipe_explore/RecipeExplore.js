@@ -16,7 +16,8 @@ import RecipeButton from '../common/RecipeButton';
 const NAME_SEARCH = 0;
 const INGREDIENT_SEARCH = 1;
 
-const possibleIngredients = ["eggs", "butter", "rice", "chicken"];
+const possibleIngredients = ["eggs", "butter", "rice", "chicken", "beef", "flour", "carrot", "sugar", "water", "milk",
+                             "apple", "yeast", "vanilla", "oregano", "rosemary", "cocoa powder", "oats", "penne"];
 
 export default class RecipeExplore extends Component {
 
@@ -59,6 +60,15 @@ export default class RecipeExplore extends Component {
         this.textInput.clear();
     }
 
+    removeIngredient = (ingredient) => {
+        let ingredients = this.state.searchedIngredients;
+        const idx = ingredients.indexOf(ingredient);
+        if (idx > -1) {
+            ingredients.splice(idx, 1);
+            this.setState({searchedIngredients: ingredients});
+        }
+    }
+
     constructor() {
         super();
         this.state = {
@@ -99,7 +109,10 @@ export default class RecipeExplore extends Component {
         let idx = 0;
         const selectedIngredients = this.state.searchedIngredients.map(ingredient =>
             <View key={++idx} style={exploreStyles.ingredientItem}>
-                <Text style={{fontFamily: "Raleway"}}>{ingredient}</Text>
+                <Text style={{fontFamily: "Raleway"}}>{ingredient}    </Text>
+                <TouchableWithoutFeedback onPress={() => {this.removeIngredient(ingredient)}}>
+                    <Text style={{fontSize: 24}}>×</Text>
+                </TouchableWithoutFeedback>
             </View>
         )
         const ingredientComp = 

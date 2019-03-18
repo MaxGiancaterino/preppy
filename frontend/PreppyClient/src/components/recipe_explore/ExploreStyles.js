@@ -115,6 +115,9 @@ export const exploreStyles = StyleSheet.create({
         maxHeight: 50,
         padding: 5,
         margin: 2,
+        flex: 0,
+        flexDirection: "row",
+        alignItems: "center"
     },
 
     noRecipeMessage: {
