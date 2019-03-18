@@ -22,6 +22,8 @@ import {headerStyles, mainStyle} from './src/components/common/CommonStyles';
 import User from './src/models/User';
 import UserData from './src/UserData';
 
+console.disableYellowBox = true;
+
 const RootStack = createStackNavigator(
     {
         Splash: {

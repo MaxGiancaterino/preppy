@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Autocomplete from 'react-native-autocomplete-input'
 import {Text, View, TextInput, ScrollView, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
 import {exploreStyles} from './ExploreStyles';
 import RecipeService from '../../middleware/RecipeService';
@@ -15,6 +16,8 @@ import RecipeButton from '../common/RecipeButton';
 const NAME_SEARCH = 0;
 const INGREDIENT_SEARCH = 1;
 
+const possibleIngredients = ["eggs", "butter", "rice", "chicken"];
+
 export default class RecipeExplore extends Component {
 
     static navigationOptions = {
@@ -23,24 +26,44 @@ export default class RecipeExplore extends Component {
 
     updateSearchString = (text) => {
         this.setState({
-            searchedText: text,
-            searchType: NAME_SEARCH,
+            searchedText: text.toLowerCase(),
         });
     };
 
     searchRecipes = (searchString) => {
-        if (searchString.length < 3) {
-            return;
+        if (this.state.searchType === NAME_SEARCH) {
+            if (searchString.length < 3) {
+                return;
+            }
+            RecipeService.findRecipesByName(this.state.searchedText, 5).then(recipes => {
+                this.setState({foundNameRecipes: recipes, searchedBefore: true});
+            })
         }
-        RecipeService.findRecipesByName(this.state.searchedText, 5).then(recipes => {
-            this.setState({foundNameRecipes: recipes, searchedBefore: true});
-        })
+        else if (this.state.searchType === INGREDIENT_SEARCH) {
+            let ingredients = this.state.searchedIngredients;
+            if (ingredients.length === 0) {
+                return;
+            }
+            else {
+                return;
+            }
+        }
     };
+
+    addIngredient = (ingredient) => {
+        let ingredients = this.state.searchedIngredients;
+        if (ingredients.indexOf(ingredient) == -1) {
+            ingredients.push(ingredient);
+        }
+        this.setState({searchedIngredients: ingredients, searchedText: ""});
+        this.textInput.clear();
+    }
 
     constructor() {
         super();
         this.state = {
             searchedText: "",
+            searchedIngredients: [],
             foundNameRecipes: [],
             searchedBefore: false,
             searchType: NAME_SEARCH
@@ -50,6 +73,20 @@ export default class RecipeExplore extends Component {
     render() {
         const nav = this.props.navigation;
         const searchByName = this.state.searchType === NAME_SEARCH;
+        let suggested = [];
+        let query = this.state.searchedText;
+
+        const enableSearch = searchByName ? query.length >= 3 : this.state.searchedIngredients.length > 0;
+
+        if (!searchByName) {
+            for (let i = 0; i < possibleIngredients.length; i++) {
+                let ingredient = possibleIngredients[i];
+                if (ingredient.indexOf(query) > -1 && query.length >= 3) {
+                    suggested.push(ingredient);
+                }
+            }
+        }
+
         const recipes = this.state.foundNameRecipes.length > 0 && searchByName ?
             this.state.foundNameRecipes.map((recipe) =>
                 <RecipeButton navigation={nav} recipe={recipe} key={recipe.id}/>
@@ -58,6 +95,13 @@ export default class RecipeExplore extends Component {
             <Text style={exploreStyles.noRecipeMessage}>
                 {this.state.searchedBefore ? "No matching recipes found" : ""}
             </Text>
+
+        let idx = 0;
+        const selectedIngredients = this.state.searchedIngredients.map(ingredient =>
+            <View key={++idx} style={{backgroundColor: "#FFFFAA"}}>
+                <Text style={{fontFamily: "Raleway"}}>{ingredient}</Text>
+            </View>
+        )
 
         return(
             <View style={exploreStyles.exploreMain}>
@@ -80,16 +124,32 @@ export default class RecipeExplore extends Component {
                     </View>
 
                 </View>
-                <TextInput
-                    style={exploreStyles.searchBar}
-                    placeholder={searchByName ? "Search for Recipes..." : "Search Ingredients..."}
-                    onChangeText={this.updateSearchString}
+                <Autocomplete
+                    inputContainerStyle={{borderWidth: 0}}
+                    data={suggested}
+                    renderTextInput={() => {return(
+                        <TextInput
+                            style={exploreStyles.searchBar}
+                            placeholder={searchByName ? "Search for Recipes..." : "Search Ingredients..."}
+                            onChangeText={this.updateSearchString}
+                            ref={input => {this.textInput = input}}
+                        />
+                    )}}
+                    renderItem={(ingredient) =>
+                        <View>
+                            <TouchableOpacity onPress={()=>{this.addIngredient(ingredient)}}>
+                                <Text>{ingredient}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    }
                 />
+                {!searchByName && selectedIngredients}
                 <TouchableOpacity
                     style={
-                        this.state.searchedText.length < 3 ?
-                        exploreStyles.searchButtonDeactive :
-                        exploreStyles.searchButton
+                        enableSearch ?
+                        exploreStyles.searchButton :
+                        exploreStyles.searchButtonDeactive
+                        
                     }
                     onPress={() => this.searchRecipes(this.state.searchedText)}
                 >

@@ -30,13 +30,15 @@ export const exploreStyles = StyleSheet.create({
         borderColor: PreppyGreen,
         padding: 10,
         borderRadius: 10,
-        width: "100%"
+        width: "100%",
+        marginTop: 10
     },
     searchButtonDeactive: {
         backgroundColor: PreppyGray,
         padding: 10,
         borderRadius: 10,
-        width: "100%"
+        width: "100%",
+        marginTop: 10,
     },
     searchButtonText: {
         fontFamily: "Raleway",
@@ -52,7 +54,7 @@ export const exploreStyles = StyleSheet.create({
         padding: 5,
         borderRadius: 5,
         backgroundColor: "#FFFFFF",
-        marginBottom: 10
+        borderColor: PreppyOrange
     },
 
     searchTabs: {
