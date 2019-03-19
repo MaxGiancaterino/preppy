@@ -1,16 +1,14 @@
 package framework;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import preppy.structures.IngredientListing;
@@ -110,6 +108,11 @@ public class Processor {
 							processRecipe(r);
 							recipes.add(r);
 						} catch (IOException e) {
+							synchronized (lock) {
+								missCounter++;
+							}
+						} catch (JSONException e) {
+							System.out.println("JSON error parsing recipe " + index);
 							synchronized (lock) {
 								missCounter++;
 							}

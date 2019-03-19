@@ -22,7 +22,7 @@ public class Filterer {
 	public static final String outCumulativeDirectory = "filter_cumulative";
 
 	public static void main(String[] args) {
-		if (args.length < 1 || args.length > 3) {
+		if (args.length > 2) {
 			System.out.println("Incorrect usage. Use:");
 			System.out.println("[startingRecipeID] [endingRecipeID]");
 			System.exit(1);
@@ -121,6 +121,7 @@ public class Filterer {
 		HTMLParser.writeRecipeJSON(outCumulativeDirectory, filteredRecipes);
 		HTMLParser.writeAbridgedJSON(outCumulativeDirectory, filteredRecipes);
 		HTMLParser.writeMisc(outCumulativeDirectory, filteredRecipes);
+		HTMLParser.writeInvertedIngredientIndex(outCumulativeDirectory, filteredRecipes);
 	}
 
 }

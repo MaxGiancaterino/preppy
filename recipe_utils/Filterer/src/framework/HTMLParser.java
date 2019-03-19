@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
 
@@ -383,6 +384,46 @@ public class HTMLParser {
 			for (Entry<String, Integer> e : unitEntries) {
 				writer.println(e.getValue() + " : " + e.getKey());
 			}
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void writeInvertedIngredientIndex(String directory, List<Recipe> recipes) {
+		// create a map of ingredientIDs to recipeIDs
+		HashMap<String, HashSet<String>> invIndex = new HashMap<String, HashSet<String>>();
+		
+		// for each recipe
+		for (Recipe r : recipes) {
+			
+			// for each ingredient in this recipe
+			for (IngredientListing i : r.ingredients) {
+				
+				// put this recipe in its inverted index table
+				if (!invIndex.containsKey(i.ingID)) {
+					invIndex.put(i.ingID, new HashSet<String>());
+				}
+				invIndex.get(i.ingID).add(Integer.toString(r.recipeID));
+			}
+		}
+
+		// create an inverted index JSON
+		JSONObject parentObj = new JSONObject();
+		for (Entry<String, HashSet<String>> e : invIndex.entrySet()) {
+			JSONArray ingArray = new JSONArray();
+			for (String s : e.getValue()) {
+				ingArray.put(s);
+			}
+			parentObj.put(e.getKey(), ingArray);
+		}
+		
+		// write the JSON to file
+		try {
+			PrintWriter writer = new PrintWriter(directory + "/ingredient_index.json", "UTF-8");
+			writer.println(parentObj.toString(4));
 			writer.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

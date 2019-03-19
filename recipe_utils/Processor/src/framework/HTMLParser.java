@@ -363,6 +363,46 @@ public class HTMLParser {
 			e.printStackTrace();
 		}
 		
+		// write ingredient threshholds to file
+		try {
+			PrintWriter writer = new PrintWriter(directory + "/ingredient_thresholds.txt", "UTF-8");
+			
+			// manually-set thresholds
+			int t1 = 10000;
+			int t2 = 1000;
+			int t3 = 100;
+			
+			// print thresholds
+			writer.println(t1 + "+ uses:");
+			for (Entry<String, Integer> e : ingredEntries) {
+				if (e.getValue() >= t1) {
+					writer.println(e.getKey());
+				}
+			}
+			writer.println(" ");
+			writer.println(t2 + "+ uses:");
+			for (Entry<String, Integer> e : ingredEntries) {
+				if (e.getValue() >= t2) {
+					writer.println(e.getKey());
+				}
+			}
+			writer.println(" ");
+			writer.println(t3 + "+ uses:");
+			for (Entry<String, Integer> e : ingredEntries) {
+				if (e.getValue() >= t3) {
+					writer.println(e.getKey());
+				}
+			}
+			writer.println(" ");
+			
+			// close the writer
+			writer.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
 		// sort unit frequency entries
 		List<Entry<String, Integer>> unitEntries = new ArrayList<Entry<String, Integer>>(unitFrequency.entrySet());
 		Collections.sort(unitEntries, new Comparator<Entry<String, Integer>>() {

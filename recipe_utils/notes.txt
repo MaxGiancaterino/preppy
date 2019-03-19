@@ -1,9 +1,15 @@
 workflow:
-parse -> identify/clean -> aggregate
+scrape -> parse -> process -> filter
 
-todo:
-1. add list of ingredients to microrecipe file
-2. get ingredient properties:
-	-price/unit
-	-standard unit type
-3. continue cleaning ingredient IDs
+SCRAPE
+Downloads raw HTML files from AllRecipes.com
+
+PARSE
+Converts raw HTML files into JSON format containing all relevant raw information
+
+PROCESS
+Extracts raw ingredient listings, converts them to ingredientIDs and quantities
+
+FILTER
+Takes in all processed recipes,
+selects only ones that contain all of a given set of ingredients
