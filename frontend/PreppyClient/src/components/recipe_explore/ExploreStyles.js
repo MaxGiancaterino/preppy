@@ -117,7 +117,23 @@ export const exploreStyles = StyleSheet.create({
         margin: 2,
         flex: 0,
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        borderRadius: 5,
+    },
+    ingredientText: {
+        fontFamily: "Raleway",
+        fontWeight: "bold",
+        fontSize: 14,
+    },
+    ingredientListItem: {
+        padding: 10,
+        backgroundColor: "#FFFFAA",
+        borderBottomWidth: 1,
+        borderBottomColor: PreppyOrange
+    },
+    ingredientListText: {
+        fontFamily: "Raleway",
+        fontSize: 18,
     },
 
     noRecipeMessage: {

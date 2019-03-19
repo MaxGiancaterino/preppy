@@ -17,13 +17,28 @@ const NAME_SEARCH = 0;
 const INGREDIENT_SEARCH = 1;
 
 const possibleIngredients = ["eggs", "butter", "rice", "chicken", "beef", "flour", "carrot", "sugar", "water", "milk",
-                             "apple", "yeast", "vanilla", "oregano", "rosemary", "cocoa powder", "oats", "penne"];
+                             "apple", "yeast", "vanilla", "oregano", "rosemary", "cocoa powder", "oats", "penne",
+                             "pepper", "pepperoni", "cheddar", "tomato", "tomato sauce", "oatmeal", "cream", "cheese",
+                             "tomatillo", "pork", "turkey", "lamb", "portobello", "spinache", "creamed corn",
+                             "ice cream", "heavy cream", "potato", "pineapple", "honey", "grits", "asparagus"];
 
 export default class RecipeExplore extends Component {
 
     static navigationOptions = {
         title: "Recipe Explorer",
     };
+
+    constructor() {
+        super();
+        this.state = {
+            searchedText: "",
+            searchedIngredients: [],
+            foundNameRecipes: [],
+            nameSearchedBefore: false,
+            ingredientSearchedBefore: false,
+            searchType: NAME_SEARCH
+        }
+    }
 
     updateSearchString = (text) => {
         this.setState({
@@ -37,7 +52,10 @@ export default class RecipeExplore extends Component {
                 return;
             }
             RecipeService.findRecipesByName(this.state.searchedText, 5).then(recipes => {
-                this.setState({foundNameRecipes: recipes, searchedBefore: true});
+                this.setState({
+                    foundNameRecipes: recipes,
+                    nameSearchedBefore: true,
+                });
             })
         }
         else if (this.state.searchType === INGREDIENT_SEARCH) {
@@ -46,7 +64,10 @@ export default class RecipeExplore extends Component {
                 return;
             }
             else {
-                return;
+                this.setState({
+                    ingredientSearchedBefore: true,
+                    searchedIngredients: [],
+                });
             }
         }
     };
@@ -58,7 +79,7 @@ export default class RecipeExplore extends Component {
         }
         this.setState({searchedIngredients: ingredients, searchedText: ""});
         this.textInput.clear();
-    }
+    };
 
     removeIngredient = (ingredient) => {
         let ingredients = this.state.searchedIngredients;
@@ -67,18 +88,7 @@ export default class RecipeExplore extends Component {
             ingredients.splice(idx, 1);
             this.setState({searchedIngredients: ingredients});
         }
-    }
-
-    constructor() {
-        super();
-        this.state = {
-            searchedText: "",
-            searchedIngredients: [],
-            foundNameRecipes: [],
-            searchedBefore: false,
-            searchType: NAME_SEARCH
-        }
-    }
+    };
 
     render() {
         const nav = this.props.navigation;
@@ -97,24 +107,31 @@ export default class RecipeExplore extends Component {
             }
         }
 
+        const noRecipes =
+            (this.state.nameSearchedBefore && searchByName) ||
+            (this.state.ingredientSearchedBefore && !searchByName);
+
         const recipes = this.state.foundNameRecipes.length > 0 && searchByName ?
             this.state.foundNameRecipes.map((recipe) =>
                 <RecipeButton navigation={nav} recipe={recipe} key={recipe.id}/>
             )
             :
             <Text style={exploreStyles.noRecipeMessage}>
-                {this.state.searchedBefore ? "No matching recipes found" : ""}
+                {noRecipes ? "No matching recipes found" : ""}
             </Text>
 
         let idx = 0;
-        const selectedIngredients = this.state.searchedIngredients.map(ingredient =>
-            <View key={++idx} style={exploreStyles.ingredientItem}>
-                <Text style={{fontFamily: "Raleway"}}>{ingredient}    </Text>
-                <TouchableWithoutFeedback onPress={() => {this.removeIngredient(ingredient)}}>
-                    <Text style={{fontSize: 24}}>×</Text>
-                </TouchableWithoutFeedback>
-            </View>
-        )
+        const selectedIngredients = this.state.searchedIngredients.map(ingredient => {
+            const ingredientName = ingredient.replace(/(^|\s)\S/g, l => l.toUpperCase());
+            return (
+                <View key={++idx} style={exploreStyles.ingredientItem}>
+                    <Text style={exploreStyles.ingredientText}>{ingredientName}    </Text>
+                    <TouchableWithoutFeedback onPress={() => {this.removeIngredient(ingredient)}}>
+                        <Text style={{fontSize: 24}}>×</Text>
+                    </TouchableWithoutFeedback>
+                </View>
+            );
+        });
         const ingredientComp = 
             <View style={{flex: 0, flexDirection: "row", flexWrap: "wrap", marginTop: 10}}>
                 {selectedIngredients}
@@ -153,15 +170,15 @@ export default class RecipeExplore extends Component {
                         />
                     )}}
                     renderItem={(ingredient) =>
-                        <View>
+                        <View style={exploreStyles.ingredientListItem}>
                             <TouchableOpacity onPress={()=>{this.addIngredient(ingredient)}}>
-                                <Text>{ingredient}</Text>
+                                <Text style={exploreStyles.ingredientListText}>
+                                    {ingredient.replace(/(^|\s)\S/g, l => l.toUpperCase())}
+                                </Text>
                             </TouchableOpacity>
                         </View>
                     }
                 />
-
-                {!searchByName && ingredientComp}
 
                 <TouchableOpacity
                     style={
@@ -176,6 +193,9 @@ export default class RecipeExplore extends Component {
                         Search Recipes
                     </Text>
                 </TouchableOpacity>
+
+                {!searchByName && ingredientComp}
+
                 <ScrollView
                     showsVerticalScrollIndicator="false"
                     style={exploreStyles.exploreScroll}
