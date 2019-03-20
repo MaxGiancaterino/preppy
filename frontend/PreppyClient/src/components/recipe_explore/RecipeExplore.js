@@ -5,6 +5,7 @@ import {exploreStyles} from './ExploreStyles';
 import RecipeService from '../../middleware/RecipeService';
 import RecipeButton from '../common/RecipeButton';
 
+import ingredientData from '../../data/ingredientData';
 
 /*
  * Note that I am not using the React Native Tab Navigator, instead using my own system, because
@@ -16,11 +17,7 @@ import RecipeButton from '../common/RecipeButton';
 const NAME_SEARCH = 0;
 const INGREDIENT_SEARCH = 1;
 
-const possibleIngredients = ["eggs", "butter", "rice", "chicken", "beef", "flour", "carrot", "sugar", "water", "milk",
-                             "apple", "yeast", "vanilla", "oregano", "rosemary", "cocoa powder", "oats", "penne",
-                             "pepper", "pepperoni", "cheddar", "tomato", "tomato sauce", "oatmeal", "cream", "cheese",
-                             "tomatillo", "pork", "turkey", "lamb", "portobello", "spinache", "creamed corn",
-                             "ice cream", "heavy cream", "potato", "pineapple", "honey", "grits", "asparagus"];
+const possibleIngredients = ingredientData.ingredients;
 
 export default class RecipeExplore extends Component {
 
