@@ -141,7 +141,6 @@ export default class RecipeExplore extends Component {
                     ref={(c) => {this.scroll = c}}
                     renderItem={
                         (entry) => {
-                            console.log(entry.item);
                             const recipe = entry.item;
                             return <RecipeButton navigation={nav} recipe={recipe} key={recipe.id}/>
                         }

@@ -101,6 +101,9 @@ export default class Scheduler extends Component {
 
         this.props.navigation.goBack();
 
+        // Keep this while the endpoint bug is being fixed
+        UserData.updateUser();
+        
         UserService.attemptUpdateSchedule(user.userId, user.schedule).then((res) => {
             if (!res.ok) {
                 console.log(res);

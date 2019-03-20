@@ -84,9 +84,31 @@ export default class Cook extends Component {
              *  Phase 0
              * ---------------------------------------------------- */
 
-            const upcoming = global.recipes.map(
-                recipe => <SuggestedDish recipe={recipe} onPress={this.setSelectedRecipe} key={recipe.id}/>
+            let upcoming = UserData.getUpcomingMeals(5).map(
+                meal => {
+                    let recipe = meal.recipe;
+                    const isSelected = this.state.recipe && this.state.recipe.id === recipe.id;
+                    return (
+                        <TouchableOpacity
+                            onPress={() => this.setSelectedRecipe(recipe)}
+                            style={isSelected ? cookStyles.recipeSelectButton : cookStyles.recipeButtonUnselected}
+                            key={recipe.id}
+                        >
+                            <Text style={isSelected ? cookStyles.recipeButtonText : cookStyles.recipeButtonTextUnselected}>
+                                {recipe.name}
+                            </Text>
+                        </TouchableOpacity>
+                    );
+                }
             );
+
+            if (upcoming.length === 0) {
+                upcoming =
+                    <Text>
+                        You don't have any upcoming meal preps scheduled.
+                        Head to the Recipe Exploreer and find something to cook.
+                    </Text>
+            }
             currentView =
                 <View style={cookStyles.cookMain}>
 
@@ -117,7 +139,7 @@ export default class Cook extends Component {
              *  Phase 1
              * ---------------------------------------------------- */
 
-             var key = 0;
+            var key = 0;
             const requiredIngredients = this.state.recipe.ingredients.map((ing) => 
                 <RequiredIngredient ingredient={ing.ingredient} key={key++}/>
             );

@@ -25,6 +25,7 @@ export const cookStyles = StyleSheet.create({
         fontWeight: "bold",
         color: "#000000",
         marginTop: 10,
+
     },
     cookSubtitle: {
         fontFamily: "Raleway",
@@ -60,12 +61,39 @@ export const cookStyles = StyleSheet.create({
         backgroundColor: PreppyOrange,
         padding: 10,
         borderRadius: 5,
+        borderColor: "#FFFFFF",
+        borderWidth: 3,
         marginTop: 10,
+        width: "80%",
+        flex: 0,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center"
     },
-    recipeSelectButtonText: {
+    recipeButtonUnselected: {
+        backgroundColor: PreppyLight,
+        padding: 10,
+        borderRadius: 5,
+        borderColor: PreppyOrange,
+        borderWidth: 3,
+        marginTop: 10,
+        width: "80%",
+        flex: 0,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    recipeButtonText: {
         fontFamily: "Raleway",
         fontSize: 20,
+        textAlign: "center",
         color: "#FFFFFF"
+    },
+    recipeButtonTextUnselected: {
+        fontFamily: "Raleway",
+        fontSize: 20,
+        textAlign: "center",
+        color: PreppyOrange
     },
 
     /* ---------------------------------- *
