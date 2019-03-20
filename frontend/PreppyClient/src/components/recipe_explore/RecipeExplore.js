@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Autocomplete from 'react-native-autocomplete-input'
-import {Text, View, TextInput, ScrollView, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
+import {Text, View, TextInput, FlatList, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
 import {exploreStyles} from './ExploreStyles';
 import RecipeService from '../../middleware/RecipeService';
 import RecipeButton from '../common/RecipeButton';
@@ -31,6 +31,7 @@ export default class RecipeExplore extends Component {
             searchedText: "",
             searchedIngredients: [],
             foundNameRecipes: [],
+            foundIngredientRecipes: [],
             nameSearchedBefore: false,
             ingredientSearchedBefore: false,
             searchType: NAME_SEARCH
@@ -43,12 +44,12 @@ export default class RecipeExplore extends Component {
         });
     };
 
-    searchRecipes = (searchString) => {
+    searchRecipes = (searchString, scroll) => {
         if (this.state.searchType === NAME_SEARCH) {
             if (searchString.length < 3) {
                 return;
             }
-            RecipeService.findRecipesByName(this.state.searchedText, 5).then(recipes => {
+            RecipeService.findRecipesByName(this.state.searchedText, 100).then(recipes => {
                 this.setState({
                     foundNameRecipes: recipes,
                     nameSearchedBefore: true,
@@ -66,6 +67,13 @@ export default class RecipeExplore extends Component {
                     searchedIngredients: [],
                 });
             }
+        }
+        if (this.scroll) {
+            this.scroll.scrollToIndex({
+                animated: false,
+                index: 0,
+                viewOffset: 0
+            })
         }
     };
 
@@ -105,10 +113,10 @@ export default class RecipeExplore extends Component {
         }
 
         const noRecipes =
-            (this.state.nameSearchedBefore && searchByName) ||
-            (this.state.ingredientSearchedBefore && !searchByName);
+            (this.state.nameSearchedBefore && searchByName && this.state.foundNameRecipes.length === 0) ||
+            (this.state.ingredientSearchedBefore && !searchByName && this.state.foundIngredientRecipes.length === 0);
 
-        const recipes = this.state.foundNameRecipes.length > 0 && searchByName ?
+        /*const recipes = this.state.foundNameRecipes.length > 0 && searchByName ?
             this.state.foundNameRecipes.map((recipe) =>
                 <RecipeButton navigation={nav} recipe={recipe} key={recipe.id}/>
             )
@@ -116,6 +124,29 @@ export default class RecipeExplore extends Component {
             <Text style={exploreStyles.noRecipeMessage}>
                 {noRecipes ? "No matching recipes found" : ""}
             </Text>
+        */
+        const recipes =
+            (!this.state.nameSearchedBefore && searchByName) || (!this.state.ingredientSearchedBefore && !searchByName) ?
+                []
+            : noRecipes ?
+                <Text style={exploreStyles.noRecipeMessage}>
+                    {noRecipes ? "No matching recipes found" : ""}
+                </Text>
+            :
+                <FlatList
+                    showsVerticalScrollIndicator="false"
+                    style={exploreStyles.exploreScroll}
+                    contentContainerStyle={{paddingBottom: 100}}
+                    data={this.state.foundNameRecipes}
+                    ref={(c) => {this.scroll = c}}
+                    renderItem={
+                        (entry) => {
+                            console.log(entry.item);
+                            const recipe = entry.item;
+                            return <RecipeButton navigation={nav} recipe={recipe} key={recipe.id}/>
+                        }
+                    }
+                />
 
         let idx = 0;
         const selectedIngredients = this.state.searchedIngredients.map(ingredient => {
@@ -192,13 +223,8 @@ export default class RecipeExplore extends Component {
                 </TouchableOpacity>
 
                 {!searchByName && ingredientComp}
-
-                <ScrollView
-                    showsVerticalScrollIndicator="false"
-                    style={exploreStyles.exploreScroll}
-                >
-                    {recipes}
-                </ScrollView>
+                {recipes}
+                
             </View>
         );
     }
