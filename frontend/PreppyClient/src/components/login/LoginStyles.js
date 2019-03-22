@@ -4,11 +4,13 @@ import {StyleSheet, Dimensions} from 'react-native';
 const PreppyOrange = "#FDB52B";
 const PreppyRed =    "#F92A34";
 const PureWhite =    "#FFFFFF";
+const PreppyGray =   "#8D8D8D";
+const DarkOrange = "#FF715B";
 
 export const loginStyles = StyleSheet.create({
     
     loginMain: {
-        backgroundColor: "#FFFFFF",
+        backgroundColor: PreppyOrange,
         height: Dimensions.get('window').height,
         borderTopWidth: 3,
         flex: 1,
@@ -23,32 +25,40 @@ export const loginStyles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    appName: {
+        textAlign: 'center',
+        fontFamily: "Raleway",
+        fontSize: 48,
+        fontWeight: "bold",
+        color: PureWhite
+    },
     input: {
         fontFamily: "Raleway",
         margin: 10,
-        fontSize: 18
+        fontSize: 18,
+        color: "#FFFFFF"
     }, 
     inputBox: {
         width: "60%",
         margin: 5,
-        borderColor: "lightgray",
+        borderColor: DarkOrange,
         borderRadius: 10, 
         borderWidth: 1
     },
     signInButton: {
         justifyContent: "center",
         margin: 5,
-        width: "50%",
-        backgroundColor: "#FDB52B"
+        borderRadius: 10, 
+        width: "60%",
+        backgroundColor: DarkOrange
     },
     createAccountButton: {
-        fontFamily: "Raleway",
         margin: 10,
-        fontSize: 18
+        fontSize: 20,
     }, 
     forgotPasswordButton: {
-        fontFamily: "Raleway",
         margin: 2,
+        fontSize: 12,
     },
     emptyBox: {
         height: 45,
