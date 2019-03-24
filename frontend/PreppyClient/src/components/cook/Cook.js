@@ -186,7 +186,7 @@ export default class Cook extends Component {
                         </View>
                     </TouchableOpacity>
 
-                    <View>
+                    <View style={cookStyles.cookTimer}>
                         <Timer ref={timer => {this.timer = timer}}/>
                     </View>
 

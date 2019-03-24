@@ -8,7 +8,9 @@ const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
 const PreppyLBlue1 = "#AAAAFF";
+const PureWhite = "#FFFFFF";
 const DarkOrange = "#F95D45";
+const LightBlue = "#d3ebef";
 
 export const cookStyles = StyleSheet.create({
 
@@ -18,16 +20,19 @@ export const cookStyles = StyleSheet.create({
     cookMain: {
         backgroundColor: "#FFFFFF",
         minHeight: Dimensions.get('window').height,
-        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "flex-start",
+        //alignItems: "center",
+        //alignItems: "center",
         padding: 10,
     },
     cookTitle: {
         fontFamily: "Raleway",
         fontSize: 26,
         fontWeight: "bold",
-        color: "#000000",
+        color: PreppyGray,
         marginTop: 10,
-
+        textAlign: "center",
     },
     cookSubtitle: {
         fontFamily: "Raleway",
@@ -50,17 +55,20 @@ export const cookStyles = StyleSheet.create({
         backgroundColor: DarkOrange,
         padding: 20,
         borderRadius: 10,
+        width: "100%",
     },
     cookButtonDeactive: {
-        backgroundColor: PreppyGray,
+        backgroundColor: PreppyOrange,
         padding: 20,
         borderRadius: 10,
+        width: "100%",
     },
     cookButtonText: {
-        fontFamily: "Raleway",
-        fontSize: 24,
+        //fontFamily: "Raleway",
+        fontSize: 20,
         fontWeight: "bold",
         color: "#FFFFFF",
+        textAlign: "center",
     },
 
     /* ---------------------------------- *
@@ -74,7 +82,7 @@ export const cookStyles = StyleSheet.create({
         borderColor: PreppyLight,
         borderWidth: 3,
         marginTop: 10,
-        width: "80%",
+        width: "100%",
         flex: 0,
         flexDirection: "row",
         alignItems: "center",
@@ -87,7 +95,7 @@ export const cookStyles = StyleSheet.create({
         borderColor: PreppyLight,
         borderWidth: 3,
         marginTop: 10,
-        width: "80%",
+        width: "100%",
         flex: 0,
         flexDirection: "row",
         alignItems: "center",
@@ -112,17 +120,17 @@ export const cookStyles = StyleSheet.create({
      * ---------------------------------- */
 
     requiredIngredient: {
-        width: "90%",
+        width: "100%",
         padding: 6,
         borderRadius: 5,
-        backgroundColor: PreppyOrange,
+        backgroundColor: PreppyLight,
         marginVertical: 5,
     },
     requiredIngredientText: {
         fontFamily: "Raleway",
         fontSize: 20,
-        fontWeight: "bold",
-        color: "#FFFFFF"
+        //fontWeight: "bold",
+        color: PreppyOrange,
     },
 
     /* ---------------------------------- *
@@ -133,7 +141,7 @@ export const cookStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 20,
         lineHeight: 40,
-        color: "#000000",
+        color: PreppyGray,
         padding: 10,
         backgroundColor: "#FFFFFF",
         marginVertical: 10,
@@ -147,32 +155,33 @@ export const cookStyles = StyleSheet.create({
         flex: 1,
         flexDirection: "column",
         marginTop: 10,
-        maxHeight: 112,
+        width: "100%",
         borderWidth: 5,
-        borderColor: "#000000"
+        borderColor: LightBlue,
+        // borderRadius: 10,
     },
     cookTimerClock: {
         padding: 10,
         flex: 1,
-        maxHeight: 62,
+        width: "100%",
         flexDirection: "row",
         backgroundColor: "#FFFFFF",
         justifyContent: "center",
-        borderBottomWidth: 2,
-        borderBottomColor: "#000000"
+        borderBottomWidth: 5,
+        borderBottomColor: LightBlue,
     },
     cookTimerText: {
         fontFamily: "Courier",
         fontSize: 44,
         fontWeight: "bold",
-        color: "#000000"
+        color: PreppyGray,
     },
-    cookTimerTextTiny: {
-        fontFamily: "Courier",
-        fontSize: 30,
-        fontWeight: "bold",
-        color: "#000000"
-    },
+    // cookTimerTextTiny: {
+    //     fontFamily: "Courier",
+    //     fontSize: 30,
+    //     fontWeight: "bold",
+    //     color: LightBlue,
+    // },
     cookTimerButtons: {
         flex: 1,
         flexDirection: "row",
@@ -180,20 +189,29 @@ export const cookStyles = StyleSheet.create({
     cookTimerStartButton: {
         width: "50%",
         maxHeight: 50,
-        backgroundColor: PreppyGreen,
+        backgroundColor: PreppyOrange,
         padding: 7,
+        // borderColor: PreppyOrange,
+        // borderRadius: 10,
+        // borderWidth: 1,
     },
     cookTimerStopButton: {
         width: "50%",
         maxHeight: 50,
-        backgroundColor: PreppyRed,
+        backgroundColor: PreppyOrange,
         padding: 7,
+        // borderColor: PreppyOrange,
+        // borderRadius: 10,
+        // borderWidth: 1,
     },
     cookTimerResetButton: {
         width: "50%",
         maxHeight: 50,
-        backgroundColor: PreppyPurple,
+        backgroundColor: DarkOrange,
         padding: 7,
+        // borderColor: DarkOrange,
+        // borderRadius: 10,
+        // borderWidth: 1,
     },
     cookTimerButtonText: {
         fontFamily: "Raleway",

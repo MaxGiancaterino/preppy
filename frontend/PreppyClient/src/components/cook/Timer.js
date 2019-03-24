@@ -72,7 +72,7 @@ export default class Timer extends Component {
         const minutes = Math.floor(elapsedTime / 60000.0) % 60;
         const hours = Math.floor(elapsedTime / 3600000.0);
         return(
-            <View style={cookStyles. cookTimer}>
+            <View>
                 <View style={cookStyles.cookTimerClock}>
                     <Text style={cookStyles.cookTimerText}>{("0" + hours).slice(-2)}</Text>
                     <Text style={cookStyles.cookTimerText}>:{("0" + minutes).slice(-2)}</Text>
