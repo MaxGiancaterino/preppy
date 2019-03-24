@@ -8,6 +8,7 @@ const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
 const PreppyLBlue1 = "#AAAAFF";
+const DarkOrange = "#F95D45";
 
 export const mainStyle = StyleSheet.create({
     main: {
@@ -17,27 +18,29 @@ export const mainStyle = StyleSheet.create({
 
 export const headerStyles = StyleSheet.create({
     headerMain: {
-        backgroundColor: PreppyOrange,
+        // backgroundColor: PreppyOrange,
+        backgroundColor: "#FFFFFF",
         height: 60,
-        borderBottomWidth: 3,
-        borderBottomColor: "#000000",
+        // borderBottomWidth: 3,
+        // borderBottomColor: "#000000",
     },
     headerButton: {
         height: 50,
         width: 50,
-        borderRadius: 25,
-        marginHorizontal: 10
+        // borderRadius: 25,
+        // marginHorizontal: 10
     },
     headerTitle: {
         fontWeight: "bold",
         fontFamily: "Raleway",
-        fontSize: 24
+        fontSize: 24,
+        color: PreppyOrange
     },
     logout: {
         fontFamily: "Raleway",
         fontSize: 16,
         marginRight: 10,
-        color: "#FFFFFF"
+        color: PreppyGray
     }
 });
 
