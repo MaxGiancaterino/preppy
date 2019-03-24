@@ -2,7 +2,13 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
-const PreppyLight = "#FFEED1";
+const PreppyGreen =  "#33CF23";
+const PreppyPurple = "#7625A9";
+const PreppyRed =    "#F92A34";
+const PreppyLight =  "#FFEED1";
+const PreppyGray =   "#8D8D8D";
+const PreppyLBlue1 = "#AAAAFF";
+const DarkOrange = "#F95D45";
 
 export const dashboardStyles = StyleSheet.create({
     
@@ -15,6 +21,21 @@ export const dashboardStyles = StyleSheet.create({
     },
     dashboardScroll: {
         flex: 1
+    },
+    dbButtonsContainer: {
+        width: "100%",
+        paddingTop: 40,
+        flex: 1,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    dbButtonsRow: {
+        width: "80%",
+        flex:1,
+        paddingTop: 20,
+        flexDirection: "row",
+        justifyContent: 'space-between',
     },
 
     /* ---------------------------------- *
@@ -57,69 +78,90 @@ export const dashboardStyles = StyleSheet.create({
     /* ---------------------------------- *
      *  Dashboard Buttons
      * ---------------------------------- */
-     // We should have a discussion about how these should be laid out,
-     // but for now I'll just keep it simple
-    buttonContainer: {
+    // buttonContainer: {
+    //     flex: 1,
+    //     flexDirection: "row",
+    //     borderColor: "#777777",
+    //     borderWidth: 10,
+    // },
+    buttonContainerRight: {
         flex: 1,
-        flexDirection: "row",
-        borderBottomColor: "#777777",
-        borderBottomWidth: 2,
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center"
     },
     buttonImageRight: {
-        height: undefined,
-        width: undefined,
         flex: 1,
-        alignSelf: "stretch",
         flexDirection: "column",
-        justifyContent: "flex-end",
-        alignItems: "flex-end",
-        paddingLeft: 15,
-        paddingBottom: 15,
+        alignItems: "center",
     },
+    // buttonImageLeft: {
+    //     height: undefined,
+    //     width: undefined,
+    //     flex: 1,
+    //     // alignSelf: "stretch",
+    //     paddingTop: 15,
+    //     // flexDirection: "column",
+    //     alignItems: "flex-start",
+    //     // justifyContent: "flex-end",
+    //     // paddingLeft: 15,
+    //     // paddingBottom: 15,
+    // },
     buttonImageLeft: {
-        height: undefined,
-        width: undefined,
         flex: 1,
-        alignSelf: "stretch",
+    },
+    buttonImageBottom: {
+        flex: 1,
         flexDirection: "column",
-        alignItems: "flex-start",
-        justifyContent: "flex-end",
-        paddingLeft: 15,
-        paddingBottom: 15,
+        alignItems: "flex-end",
+    },
+    cookButton: {
+        width: "48%",
+        height: 200,
+        backgroundColor: DarkOrange,
     },
     scheduleButton: {
-        width: "100%",
-        height: 100,
-        borderBottomWidth: 1,
-        borderBottomColor: "#777777",
+        width: "48%",
+        height: 200,
+        backgroundColor: "#fff7ab",
     },
     exploreButton: {
         width: "100%",
-        height: 100,
-        borderBottomWidth: 1,
-        borderBottomColor: "#777777",
+        height: 220,
+        backgroundColor: "#d3ebef",
     },
-    cookButton: {
-        width: "100%",
-        height: 100,
-        borderBottomWidth: 1,
-        borderBottomColor: "#777777",
-    },
+
+    // not using pantry
+
     pantryButton: {
         width: "100%",
         height: 100,
         borderBottomWidth: 1,
         borderBottomColor: "#777777",
     },
-    buttonText: {
+
+    // button text 
+
+    buttonTextLeft: {
         fontFamily: "Raleway",
         fontSize: 24,
         fontWeight: "bold",
-        color: PreppyOrange,
-        textShadowColor: '#000000',
-        textShadowOffset: {width: -1, height: 1},
-        textShadowRadius: 3,
-        padding: 2
+        color: "#FFFFFF",
+        padding: 10
+    },
+    buttonTextRight: {
+        fontFamily: "Raleway",
+        fontSize: 24,
+        fontWeight: "bold",
+        color: "#ACAEAF",
+        padding: 10
+    },
+    buttonTextBottom: {
+        fontFamily: "Raleway",
+        fontSize: 24,
+        fontWeight: "bold",
+        color: DarkOrange,
+        padding: 5
     },
 
     /* ---------------------------------- *

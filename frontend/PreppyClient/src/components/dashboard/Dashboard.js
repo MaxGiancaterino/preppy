@@ -71,19 +71,17 @@ export default class Dashboard extends Component {
                     showsVerticalScrollIndicator="false"
                     style={dashboardStyles.dashboardScroll}
                 >
-                    <BudgetDisplay amount={budget}/>
-                    <CookButton navigation={nav}/>
-                    <PantryButton navigation={nav}/>
-                    <ExploreButton navigation={nav}/>
-                    <ScheduleButton navigation={nav}/>
-                    <View style={dashboardStyles.recipeListTitleContainer}>
-                        <Text style={dashboardStyles.recipeListTitle}>
-                            Recipes Recommended For You:
-                        </Text>
-                    </View>
 
-                    {recipeButtons}
-                    <View style={{height: 10}}/>
+                    <View style={dashboardStyles.dbButtonsContainer}>
+                        <View style = {dashboardStyles.dbButtonsRow}>
+                            <CookButton navigation={nav}/>
+                            <ScheduleButton navigation={nav}/>
+                        </View>
+                        <View style = {dashboardStyles.dbButtonsRow}>
+                            <ExploreButton navigation={nav}/>
+                        </View>
+                    </View>
+                    
                 </ScrollView>
             </View>
         );

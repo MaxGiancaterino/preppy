@@ -20,11 +20,11 @@ export default class ExploreButton extends Component {
                 onPress={this.navigateToExplore}
             >
                 <ImageBackground
-                    style={dashboardStyles.buttonImageLeft}
+                    style={dashboardStyles.buttonImageBottom}
                     // This is a PLACEHOLDER image
-                    source={require("../../../assets/img/recipes.jpg")}
+                    source={require("../../../assets/img/explore.png")}
                 >
-                    <Text style={dashboardStyles.buttonText}>Explore Recipes</Text>
+                    <Text style={dashboardStyles.buttonTextBottom}>Explore Recipes</Text>
                 </ImageBackground>
             </TouchableHighlight>
         );

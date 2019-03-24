@@ -19,13 +19,16 @@ export default class ScheduleButton extends Component {
                 style={dashboardStyles.scheduleButton}
                 onPress={this.navigateToSchedule}
             >
-                <ImageBackground
-                    style={dashboardStyles.buttonImageRight}
-                    // This is a PLACEHOLDER image
-                    source={require("../../../assets/img/calendar.jpg")}
-                >
-                    <Text style={dashboardStyles.buttonText}>Schedule</Text>
-                </ImageBackground>
+
+                    <ImageBackground
+                        style={dashboardStyles.buttonImageRight}
+                        // This is a PLACEHOLDER image
+                        source={require("../../../assets/img/schedule.png")}
+                    >
+                        <Text style={dashboardStyles.buttonTextRight}>Schedule</Text>
+                    </ImageBackground>
+                    
+                
             </TouchableHighlight>
         );
     }
