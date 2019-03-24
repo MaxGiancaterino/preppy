@@ -171,7 +171,7 @@ export default class RecipeExplore extends Component {
                     <View style={searchByName ? exploreStyles.tabSelected : exploreStyles.tabUnselected}>
                         <TouchableWithoutFeedback onPress={() => {this.setState({searchType: NAME_SEARCH})}}>
                             <Text style={searchByName ? exploreStyles.tabSelectedText : exploreStyles.tabUnselectedText}>
-                                Search By Name
+                                Search by name
                             </Text>
                         </TouchableWithoutFeedback>
                     </View>
@@ -179,7 +179,7 @@ export default class RecipeExplore extends Component {
                     <View style={searchByName ? exploreStyles.tabUnselected : exploreStyles.tabSelected}>
                         <TouchableWithoutFeedback onPress={() => {this.setState({searchType: INGREDIENT_SEARCH})}}>
                             <Text style={searchByName ? exploreStyles.tabUnselectedText : exploreStyles.tabSelectedText}>
-                                Search By Ingredient
+                                Search by ingredient
                             </Text>
                         </TouchableWithoutFeedback>
                     </View>
@@ -194,6 +194,7 @@ export default class RecipeExplore extends Component {
                             placeholder={searchByName ? "Search for Recipes..." : "Search Ingredients..."}
                             onChangeText={this.updateSearchString}
                             ref={input => {this.textInput = input}}
+                            placeholderTextColor="#F95D45"
                         />
                     )}}
                     renderItem={(ingredient) =>

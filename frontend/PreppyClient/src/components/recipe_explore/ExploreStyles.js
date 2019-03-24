@@ -7,7 +7,10 @@ const PreppyPurple = "#7625A9";
 const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
-const PureWhite =    "#FFFFFF";
+const PreppyLBlue1 = "#AAAAFF";
+const PureWhite = "#FFFFFF";
+const DarkOrange = "#F95D45";
+const LightBlue = "#d3ebef";
 
 export const exploreStyles = StyleSheet.create({
 
@@ -15,75 +18,77 @@ export const exploreStyles = StyleSheet.create({
      *  Explore Common
      * ---------------------------------- */
     exploreMain: {
-        backgroundColor: PreppyLight,
+        backgroundColor: "#FFFFFF",
         minHeight: Dimensions.get('window').height,
         paddingHorizontal: 10,
         flex: 1,
         flexDirection: "column",
-        justifyContent: "flex-start"
+        justifyContent: "flex-start",
     },
     exploreScroll: {
         flex: 1,
     },
     searchButton: {
-        backgroundColor: PreppyGreen,
-        borderColor: PreppyGreen,
-        padding: 10,
-        borderRadius: 10,
-        width: "100%",
-        marginTop: 10
-    },
-    searchButtonDeactive: {
-        backgroundColor: PreppyGray,
+        backgroundColor: DarkOrange,
+        borderColor: DarkOrange,
         padding: 10,
         borderRadius: 10,
         width: "100%",
         marginTop: 10,
+        padding: 10,
+    },
+    searchButtonDeactive: {
+        backgroundColor: DarkOrange,
+        padding: 10,
+        borderRadius: 10,
+        width: "100%",
+        marginTop: 10,
+        padding: 10,
     },
     searchButtonText: {
-        fontFamily: "Raleway",
-        fontSize: 24,
-        fontWeight: "bold",
+        fontSize: 20,
+        //fontFamily: "Raleway",
         color: "#FFFFFF",
         textAlign: "center"
     },
     searchBar: {
         fontFamily: "Raleway",
-        fontSize: 24,
+        fontSize: 20,
         width: "100%",
         padding: 5,
-        borderRadius: 5,
         backgroundColor: "#FFFFFF",
-        borderColor: PreppyOrange
+        borderColor: DarkOrange,
+        borderRadius: 10, 
+        borderWidth: 1,
+        marginTop: 10,
     },
 
     searchTabs: {
         flex: 1,
         flexDirection: "row",
         maxHeight: 40,
-        marginBottom: 10
+        marginBottom: 10,
     },
     tabSelected: {
         flex: 1,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: PreppyOrange,
+        //backgroundColor: PreppyOrange,
+        backgroundColor: LightBlue,
         width: "50%",
-        borderBottomRightRadius: 10,
-        borderBottomLeftRadius: 10,
-        borderBottomWidth: 3,
-        borderRightWidth: 3,
-        borderLeftWidth: 3,
-        borderBottomColor: PureWhite,
-        borderLeftColor: PureWhite,
-        borderRightColor: PureWhite,
+        height: 40,
+        //borderBottomWidth: 1,
+        borderWidth: 1,
+        borderColor: LightBlue,
+        borderRadius: 10,
+        marginTop: 10, 
     },
     tabSelectedText: {
-        fontFamily: "Raleway",
-        fontSize: 16,
+        //fontFamily: "Raleway",
+        fontSize: 18,
         fontWeight: "bold",
-        color: PureWhite
+        color: PreppyOrange,
     },
 
     tabUnselected: {
@@ -91,22 +96,17 @@ export const exploreStyles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: PreppyLight,
+        backgroundColor: PureWhite,
         width: "50%",
-        height: 30,
-        borderBottomRightRadius: 10,
-        borderBottomLeftRadius: 10,
-        borderBottomWidth: 3,
-        borderRightWidth: 3,
-        borderLeftWidth: 3,
-        borderBottomColor: PreppyOrange,
-        borderLeftColor: PreppyOrange,
-        borderRightColor: PreppyOrange,
+        height: 40,
+        //borderWidth: 1,
+        borderColor: PreppyOrange,
+        borderRadius: 10,
+        marginTop: 10, 
     },
     tabUnselectedText: {
-        fontFamily: "Raleway",
-        fontSize: 16,
-        fontWeight: "bold",
+        //fontFamily: "Raleway",
+        fontSize: 18,
         color: PreppyOrange,
     },
 

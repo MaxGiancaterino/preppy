@@ -8,7 +8,9 @@ const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
 const PreppyLBlue1 = "#AAAAFF";
+const PureWhite = "#FFFFFF";
 const DarkOrange = "#F95D45";
+const LightBlue = "#d3ebef";
 
 export const mainStyle = StyleSheet.create({
     main: {
@@ -89,9 +91,8 @@ export const recipeButtonStyles = StyleSheet.create({
         minHeight: 60,
         padding: 10,
         borderRadius: 3,
-        borderBottomWidth: 5,
-        borderRightWidth: 5,
-        borderColor: '#DDA51B',
+        borderWidth: 1,
+        borderColor: PreppyOrange,
         flex: 1,
         flexDirection: "row",
         justifyContent: "flex-start",
@@ -100,7 +101,7 @@ export const recipeButtonStyles = StyleSheet.create({
     recipeButtonTitle: {
         fontFamily: 'Raleway',
         color: "#FFFFFF",
-        fontSize: 24,
+        fontSize: 18,
     },
     recipeButtonItemAlt: {
         backgroundColor: PreppyOrange,
@@ -114,11 +115,7 @@ export const recipeButtonStyles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
-    recipeButtonTitleAlt: {
-        fontFamily: 'Raleway',
-        color: "#FFFFFF",
-        fontSize: 18,
-    }
+
 })
 
 export const buttonStyles = StyleSheet.create({
