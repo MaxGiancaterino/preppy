@@ -8,8 +8,9 @@ const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
 const PreppyLBlue1 = "#AAAAFF";
-const PreppyLBlue2 = "#93B1E2";
-const PureWhite =    "#FFFFFF";
+const PureWhite = "#FFFFFF";
+const DarkOrange = "#F95D45";
+const LightBlue = "#d3ebef";
 
 export const scheduleStyles = StyleSheet.create({
 
@@ -19,13 +20,13 @@ export const scheduleStyles = StyleSheet.create({
     scheduleMain: {
         flex: 1,
         flexDirection: "column",
-        backgroundColor: PreppyLBlue1
+        backgroundColor: PureWhite,
     },
     layoutBar: {
         flex: 1,
         flexDirection: "row",
         maxHeight: 20,
-        backgroundColor: PreppyGray
+        //backgroundColor: PreppyGray
     },
     scheduleScroll: {
         flex: 1,
@@ -44,24 +45,25 @@ export const scheduleStyles = StyleSheet.create({
      * ---------------------------------- */
 
     dayContainerEven: {
-        backgroundColor: PreppyLBlue1,
-        borderBottomWidth: 2,
-        borderBottomColor: PreppyGray,
+        backgroundColor: PureWhite,
         paddingBottom: 5
+        // borderBottomWidth: 2,
+        // borderBottomColor: LightBlue,
     },
     dayContainerOdd: {
-        backgroundColor: PreppyLBlue2,
-        borderBottomWidth: 2,
-        borderBottomColor: PreppyGray,
+        backgroundColor: PureWhite,
         paddingBottom: 5
+        // borderBottomWidth: 2,
+        // borderBottomColor: LightBlue,
     },
     dateText: {
-        color: PureWhite,
+        color: DarkOrange,
         fontFamily: "raleway",
         fontWeight: "bold",
         fontSize: 24,
         marginLeft: 10,
-        marginVertical: 10
+        marginVertical: 10,
+        textAlign: "center",
     },
     scheduleItem: {
         backgroundColor: PreppyLight,
@@ -71,18 +73,20 @@ export const scheduleStyles = StyleSheet.create({
         borderRadius: 10
     },
     itemTime: {
-        color: PreppyGray,
+        color: PreppyOrange,
         fontWeight: "bold",
         fontFamily: "raleway",
-        fontSize: 20
+        fontSize: 20,
+        padding: 5,
     },
     itemText: {
-        color: "#000000",
+        color: PreppyGray,
         fontFamily: "raleway",
-        fontSize: 18
+        fontSize: 18,
+        padding: 10,
     },
     removeButton: {
-        backgroundColor: PreppyRed,
+        backgroundColor: DarkOrange,
         margin: 10,
         minHeight: 20,
         padding: 5,
@@ -93,7 +97,7 @@ export const scheduleStyles = StyleSheet.create({
         alignItems: "center"
     },
     removeButtonText: {
-        fontFamily: 'Raleway',
+        //fontFamily: 'Raleway',
         color: "#FFFFFF",
         fontSize: 18,
     }

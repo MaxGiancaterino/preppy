@@ -103,6 +103,10 @@ export const recipeButtonStyles = StyleSheet.create({
         color: PreppyOrange,
         fontSize: 18,
         fontWeight: "bold",
+    }, 
+    recipeButtonTitleAlt: {
+        color: PureWhite,
+        fontSize: 18,
     },
     recipeButtonItemAlt: {
         backgroundColor: PreppyOrange,
@@ -114,7 +118,7 @@ export const recipeButtonStyles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
     },
 
 })
