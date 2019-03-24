@@ -85,14 +85,14 @@ export const sidebarStyles = StyleSheet.create({
 
 export const recipeButtonStyles = StyleSheet.create({
     recipeButtonItem: {
-        backgroundColor: PreppyOrange,
+        backgroundColor: PreppyLight,
         marginHorizontal: 10,
         marginTop: 10,
         minHeight: 60,
         padding: 10,
         borderRadius: 3,
         borderWidth: 1,
-        borderColor: PreppyOrange,
+        borderColor: PreppyLight,
         flex: 1,
         flexDirection: "row",
         justifyContent: "flex-start",
@@ -100,8 +100,9 @@ export const recipeButtonStyles = StyleSheet.create({
     },
     recipeButtonTitle: {
         fontFamily: 'Raleway',
-        color: "#FFFFFF",
+        color: PreppyOrange,
         fontSize: 18,
+        fontWeight: "bold",
     },
     recipeButtonItemAlt: {
         backgroundColor: PreppyOrange,

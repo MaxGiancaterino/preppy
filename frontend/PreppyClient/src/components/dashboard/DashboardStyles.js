@@ -8,7 +8,9 @@ const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
 const PreppyLBlue1 = "#AAAAFF";
+const PureWhite = "#FFFFFF";
 const DarkOrange = "#F95D45";
+const LightBlue = "#d3ebef";
 
 export const dashboardStyles = StyleSheet.create({
     
@@ -24,7 +26,7 @@ export const dashboardStyles = StyleSheet.create({
     },
     dbButtonsContainer: {
         width: "100%",
-        paddingTop: 40,
+        paddingTop: 20,
         flex: 1,
         flexDirection: "column",
         justifyContent: "center",
@@ -119,16 +121,26 @@ export const dashboardStyles = StyleSheet.create({
         width: "48%",
         height: 200,
         backgroundColor: DarkOrange,
+        borderColor: DarkOrange,
+        borderRadius: 10, 
+        borderWidth: 1
     },
     scheduleButton: {
         width: "48%",
         height: 200,
-        backgroundColor: "#fff7ab",
+        //backgroundColor: "#fff7ab",
+        backgroundColor: PreppyOrange,
+        borderColor: PreppyOrange,
+        borderRadius: 10, 
+        borderWidth: 1
     },
     exploreButton: {
         width: "100%",
         height: 220,
-        backgroundColor: "#d3ebef",
+        backgroundColor: LightBlue,
+        borderColor: LightBlue,
+        borderRadius: 10, 
+        borderWidth: 1
     },
 
     // not using pantry
@@ -153,7 +165,8 @@ export const dashboardStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 24,
         fontWeight: "bold",
-        color: "#ACAEAF",
+        //color: "#ACAEAF", 
+        color: LightBlue,
         padding: 10
     },
     buttonTextBottom: {
@@ -161,7 +174,7 @@ export const dashboardStyles = StyleSheet.create({
         fontSize: 24,
         fontWeight: "bold",
         color: DarkOrange,
-        padding: 5
+        padding: 7
     },
 
     /* ---------------------------------- *

@@ -7,6 +7,8 @@ const PreppyPurple = "#7625A9";
 const PreppyRed =    "#F92A34";
 const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
+const PreppyLBlue1 = "#AAAAFF";
+const DarkOrange = "#F95D45";
 
 export const cookStyles = StyleSheet.create({
 
@@ -14,7 +16,7 @@ export const cookStyles = StyleSheet.create({
      *  Cook Common
      * ---------------------------------- */
     cookMain: {
-        backgroundColor: PreppyLight,
+        backgroundColor: "#FFFFFF",
         minHeight: Dimensions.get('window').height,
         alignItems: "center",
         padding: 10,
@@ -31,13 +33,21 @@ export const cookStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 24,
         fontWeight: "bold",
-        color: "#000000",
+        color: DarkOrange,
         marginTop: 5,
         paddingHorizontal: 25,
         textAlign: "center",
     },
+    cookText: {
+        fontFamily: "Raleway",
+        fontSize: 16,
+        color: PreppyGray,
+        marginTop: 5,
+        paddingHorizontal: 25,
+        textAlign: "auto",
+    },
     cookButtonActive: {
-        backgroundColor: PreppyGreen,
+        backgroundColor: DarkOrange,
         padding: 20,
         borderRadius: 10,
     },
@@ -58,23 +68,23 @@ export const cookStyles = StyleSheet.create({
      * ---------------------------------- */
 
     recipeSelectButton: {
-        backgroundColor: PreppyOrange,
+        backgroundColor: PreppyLight,
         padding: 10,
         borderRadius: 5,
-        borderColor: "#FFFFFF",
+        borderColor: PreppyLight,
         borderWidth: 3,
         marginTop: 10,
         width: "80%",
         flex: 0,
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     recipeButtonUnselected: {
         backgroundColor: PreppyLight,
         padding: 10,
         borderRadius: 5,
-        borderColor: PreppyOrange,
+        borderColor: PreppyLight,
         borderWidth: 3,
         marginTop: 10,
         width: "80%",
@@ -87,7 +97,8 @@ export const cookStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 20,
         textAlign: "center",
-        color: "#FFFFFF"
+        color: PreppyOrange,
+        fontWeight: "bold",
     },
     recipeButtonTextUnselected: {
         fontFamily: "Raleway",
