@@ -100,9 +100,9 @@ export const recipeButtonStyles = StyleSheet.create({
     },
     recipeButtonTitle: {
         fontFamily: 'Raleway',
-        color: PreppyOrange,
+        color: DarkOrange,
         fontSize: 18,
-        fontWeight: "bold",
+        //fontWeight: "bold",
     }, 
     recipeButtonTitleAlt: {
         color: PureWhite,
@@ -124,6 +124,26 @@ export const recipeButtonStyles = StyleSheet.create({
 })
 
 export const buttonStyles = StyleSheet.create({
+    buttonOrange: {
+        backgroundColor: PreppyOrange,
+        padding: 10,
+        borderRadius: 10,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: 5,
+    },
+    buttonRed: {
+        backgroundColor: DarkOrange,
+        padding: 10,
+        borderRadius: 10,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: 5,
+    },
     buttonBlue: {
         backgroundColor: PreppyLBlue1,
         padding: 10,
