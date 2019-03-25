@@ -24,15 +24,13 @@ export const schedulerStyles = StyleSheet.create({
         padding: 10,
         flex: 1,
         flexDirection: "column",
-
+        justifyContent: "flex-start"
     },
 
     mealScheduler: {
         padding: 10,
         flex: 1,
         flexDirection: "column",
-        justifyContent: "center",
-        width: "100%"
     },
 
     schedulerTitle: {
@@ -47,5 +45,10 @@ export const schedulerStyles = StyleSheet.create({
         fontSize: 24,
         textAlign: "center",
     },
+
+    valueBar: {
+        padding: 10,
+    },
+
 
 });
