@@ -92,6 +92,18 @@ export const scheduleStyles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center"
     },
+    cookButton: {
+        backgroundColor: PreppyOrange,
+        marginTop: 10,
+        marginHorizontal: 10,
+        minHeight: 20,
+        padding: 5,
+        borderRadius: 5,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
+    },
     removeButtonText: {
         fontFamily: 'Raleway',
         color: "#FFFFFF",
