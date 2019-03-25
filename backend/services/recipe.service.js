@@ -2,34 +2,33 @@ var database = require('../firebase/db');
 
 exports.upload = function(recipeData, micro, next) {
   recipeData.forEach(function(recipe) {
-    var ingredients = [];
-    recipe.ingredients.forEach(function(ing) {
-      ingredients.push(ing.ingID);
+      var ingredients = [];
+      recipe.ingredients.forEach(function(ing) {
+        ingredients.push(ing.ingID);
+      });
+      database.ref('micro/' + recipe.id).set({
+        id: recipe.id,
+        name: recipe.name,
+        imgURL: recipe.imgURL,
+        contains: ingredients
+      });
+      database.ref('recipes/' + recipe.id).set({
+        id: recipe.id,
+        name: recipe.name,
+        ingredients: recipe.ingredients,
+        preparation: recipe.preparation,
+        imgURL: recipe.imgURL,
+        pageURL: recipe.pageURL,
+        cookTime: recipe.cookTime,
+        prepTime: recipe.prepTime,
+        numServings: recipe.numServings,
+        nutrition: recipe.nutrition,
+        rating: recipe.rating,
+        source: recipe.source
+      });
     });
-    database.ref('micro/' + recipe.id).set({
-      id: recipe.id,
-      name: recipe.name,
-      imgURL: recipe.imgURL,
-      contains: ingredients
-    });
-    database.ref('recipes/' + recipe.id).set({
-      id: recipe.id,
-      name: recipe.name,
-      ingredients: recipe.ingredients,
-      preparation: recipe.preparation,
-      imgURL: recipe.imgURL,
-      pageURL: recipe.pageURL,
-      cookTime: recipe.cookTime,
-      prepTime: recipe.prepTime,
-      numServings: recipe.numServings,
-      nutrition: recipe.nutrition,
-      rating: recipe.rating,
-      source: recipe.source
-    });
-  }
-});
 	next("success");
-}
+};
 
 exports.get = function(id, micro, next) {
   if (micro) {
@@ -74,4 +73,14 @@ exports.list = function(queue, micro, next) {
   			next(list);
   		});
   }
+}
+
+exports.search = function(query, next) {
+  var ref = database.ref('/recipes/');
+  ref.orderByChild("name")
+                 .startAt(query)
+                 .endAt(query+"\uf8ff")
+                 .on("child_added", function(snapshot) {
+                    next(snapshot.key);
+                 });
 }

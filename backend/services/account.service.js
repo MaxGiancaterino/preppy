@@ -10,9 +10,10 @@ exports.create = function(userData, next) {
 		remainingBudget: 0,
 		avatar: userData.photoURL,
 		userId: userData.uid,
-    shoppingCart: [{"null", -1, "null"}],
-    currentPantry: [{"null", -1, "null"}]
+    	shoppingCart: [{ingredient: "null", amount: -1, unit: "null"}],
+    	currentPantry: [{ingredient: "null", amount: -1, unit: "null"}]
 	};
+
 	database.ref('users/' + userData.uid)
 		.set(user)
 		.then(function(acc) {
@@ -20,7 +21,7 @@ exports.create = function(userData, next) {
 		}).catch(function(err) {
 			next(null, err);
 		});
-}
+};
 
 exports.get = function(uid, next) {
 	database.ref('/users/' + uid)
@@ -28,7 +29,7 @@ exports.get = function(uid, next) {
 			.then(function(snapshot) {
 				next(snapshot.val());
 			});
-}
+};
 
 
 exports.removeRecipe = function(uid, id, next) {
@@ -50,7 +51,7 @@ exports.removeRecipe = function(uid, id, next) {
 							});
 				});
 	}
-}
+};
 
 exports.addRecipe = function(uid, id, next) {
 	if (id === -1) {
@@ -74,7 +75,7 @@ exports.addRecipe = function(uid, id, next) {
 						});
 				}
 			});
-}
+};
 
 exports.getCart = function(uid, next) {
   database.ref('/users/' + uid + '/shoppingCart')

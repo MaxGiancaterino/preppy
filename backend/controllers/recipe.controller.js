@@ -86,4 +86,16 @@ router.get('/micro/:id', function (req, res) {
 	})
 });
 
+router.get('/search/:query', function (req, res) {
+	var query = req.params.query;
+	recipeService.search(query, function(data, error) {
+		if (error) {
+			console.log(error);
+			res.send(error);
+		} else {
+			res.send(data);
+		}
+	});
+});
+
 module.exports = router;
