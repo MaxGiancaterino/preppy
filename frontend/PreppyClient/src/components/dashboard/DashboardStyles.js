@@ -97,18 +97,6 @@ export const dashboardStyles = StyleSheet.create({
         flexDirection: "column",
         alignItems: "center",
     },
-    // buttonImageLeft: {
-    //     height: undefined,
-    //     width: undefined,
-    //     flex: 1,
-    //     // alignSelf: "stretch",
-    //     paddingTop: 15,
-    //     // flexDirection: "column",
-    //     alignItems: "flex-start",
-    //     // justifyContent: "flex-end",
-    //     // paddingLeft: 15,
-    //     // paddingBottom: 15,
-    // },
     buttonImageLeft: {
         flex: 1,
     },

@@ -138,20 +138,28 @@ export default class Scheduler extends Component {
             
         let scheduleCook = 
             <View>
-                <Text style={buttonStyles.buttonTextNormal}>Scheduling {this.state.recipe.name}</Text>
-                <Text>
+                <Text style={schedulerStyles.recipeName}> {this.state.recipe.name}</Text>
+                <Text style={buttonStyles.normalText}>
                     When will you cook?
                 </Text>
+
                 {datePickerCook}
-                <Text>Number of Servings: {this.state.numServings}</Text>
+
+                <Text style={buttonStyles.normalText}>
+                    Number of Servings: {this.state.numServings}
+                </Text>
+
                 <Slider
                     minimumValue={1}
                     maximumValue={9}
                     step={1}
                     onValueChange={(value) => {this.setState({numServings: value})}}
                 />
-                <TouchableOpacity onPress={this.progressPhase}>
-                    <Text>Next</Text>
+
+                <TouchableOpacity 
+                    onPress={this.progressPhase}
+                >
+                    <Text style={schedulerStyles.recipeName}>Next</Text>
                 </TouchableOpacity>
             </View>
 

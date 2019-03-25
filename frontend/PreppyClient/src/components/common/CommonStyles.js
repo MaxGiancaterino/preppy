@@ -144,6 +144,17 @@ export const buttonStyles = StyleSheet.create({
         alignItems: "center",
         marginVertical: 5,
     },
+    buttonRed2: {
+        backgroundColor: DarkOrange,
+        padding: 10,
+        borderRadius: 10,
+        flex: 1,
+        height: 30,
+        // flexDirection: "row",
+        // justifyContent: "center",
+        // alignItems: "center",
+        // marginVertical: 5,
+    },
     buttonBlue: {
         backgroundColor: PreppyLBlue1,
         padding: 10,
@@ -174,5 +185,14 @@ export const buttonStyles = StyleSheet.create({
         fontWeight: "bold",
         color: "#FFFFFF",
         fontSize: 24,
-    }
+    },
+    normalText: {
+        fontFamily: "Raleway",
+        fontSize: 16,
+        color: PreppyGray,
+        marginTop: 5,
+        paddingHorizontal: 25,
+        textAlign: "auto",
+        paddingTop: 10,
+    },
 })
