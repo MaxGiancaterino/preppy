@@ -8,6 +8,7 @@ import Timer from './Timer';
 
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
+import Schedule from '../../models/Schedule';
 import UserData from '../../UserData';
 
 export default class Cook extends Component {
@@ -29,8 +30,12 @@ export default class Cook extends Component {
     componentWillMount() {
         // If the navigation was passed a recipe, we can skip phase 0
         const recipeToCook = this.props.navigation.getParam("cookRecipe", null);
+        const scheduleItem = this.props.navigation.getParam("scheduleItem", null);
         if (recipeToCook && recipeToCook != null) {
             this.setState({phase: 1, recipe: recipeToCook});
+        }
+        if (scheduleItem && scheduleItem != null) {
+            this.setState({scheduleItem: scheduleItem});
         }
     }
 
@@ -72,8 +77,15 @@ export default class Cook extends Component {
     }
 
     finishCooking = () => {
+        Schedule.removeItem(UserData.getUser().schedule, this.state.scheduleItem);
+        UserData.updateUser();
+        
+        let parentPage = this.props.navigation.getParam("parentPage", null);
+        if (parentPage && parentPage != null) {
+            parentPage.forceUpdate();
+        }
+
         this.props.navigation.goBack();
-        // TODO: Update the user's pantry and schedule upon completion
     }
 
     render() {

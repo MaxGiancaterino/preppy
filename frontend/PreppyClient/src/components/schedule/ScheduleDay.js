@@ -30,10 +30,14 @@ export default class ScheduleDay extends Component {
         UserData.updateUser();
     }
 
-    cook = (recipe) => {
+    cook = (recipe, item) => {
         this.props.navigation.navigate({
             routeName: "Cook",
-            params: {"cookRecipe": recipe}
+            params: {
+                "cookRecipe": recipe,
+                "scheduleItem": item,
+                "parentPage": this.props.parent,
+            }
         });
     }
 
@@ -64,7 +68,7 @@ export default class ScheduleDay extends Component {
                             buttonType={2}
                             navigation={nav}
                         />
-                        <TouchableOpacity style={scheduleStyles.cookButton} onPress={() => {this.cook(item.recipe)}}>
+                        <TouchableOpacity style={scheduleStyles.cookButton} onPress={() => {this.cook(item.recipe, item)}}>
                             <Text style={scheduleStyles.removeButtonText}>Cook Now</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={scheduleStyles.removeButton} onPress={() => {this.removeItem(item)}}>
