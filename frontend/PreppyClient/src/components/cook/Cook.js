@@ -26,6 +26,14 @@ export default class Cook extends Component {
         this.state = {phase: 0, step: 0, recipe: null};
     }
 
+    componentWillMount() {
+        // If the navigation was passed a recipe, we can skip phase 0
+        const recipeToCook = this.props.navigation.getParam("cookRecipe", null);
+        if (recipeToCook && recipeToCook != null) {
+            this.setState({phase: 1, recipe: recipeToCook});
+        }
+    }
+
     setSelectedRecipe = (recipe) => {
         this.setState({recipe: recipe});
     }
@@ -76,16 +84,38 @@ export default class Cook extends Component {
              *  Phase 0
              * ---------------------------------------------------- */
 
-            const upcoming = global.recipes.map(
-                recipe => <SuggestedDish recipe={recipe} onPress={this.setSelectedRecipe} key={recipe.id}/>
+            let upcoming = UserData.getUpcomingMeals(5).map(
+                meal => {
+                    let recipe = meal.recipe;
+                    const isSelected = this.state.recipe && this.state.recipe.id === recipe.id;
+                    return (
+                        <TouchableOpacity
+                            onPress={() => this.setSelectedRecipe(recipe)}
+                            style={isSelected ? cookStyles.recipeSelectButton : cookStyles.recipeButtonUnselected}
+                            key={recipe.id}
+                        >
+                            <Text style={isSelected ? cookStyles.recipeButtonText : cookStyles.recipeButtonTextUnselected}>
+                                {recipe.name}
+                            </Text>
+                        </TouchableOpacity>
+                    );
+                }
             );
+
+            if (upcoming.length === 0) {
+                upcoming =
+                    <Text>
+                        You don't have any upcoming meal preps scheduled.
+                        Head to the Recipe Exploreer and find something to cook.
+                    </Text>
+            }
             currentView =
                 <View style={cookStyles.cookMain}>
 
                     <Text style={cookStyles.cookTitle}>Choose a Recipe to Cook</Text>
                     <Text style={cookStyles.cookSubtitle}>Your Upcoming Meals</Text>
                     {upcoming}
-                    <Text style={cookStyles.cookSubtitle}>Or Choose from One of Your Favorites</Text>
+                    <Text style={cookStyles.cookSubtitle}></Text>
                     <Text>{this.state.recipe == null ? "Please select a recipe to cook" : "Selected Recipe:"}</Text>
                     <View>
                         <Text>{this.state.recipe == null ? "" : this.state.recipe.name}</Text>
@@ -109,7 +139,7 @@ export default class Cook extends Component {
              *  Phase 1
              * ---------------------------------------------------- */
 
-             var key = 0;
+            var key = 0;
             const requiredIngredients = this.state.recipe.ingredients.map((ing) => 
                 <RequiredIngredient ingredient={ing.ingredient} key={key++}/>
             );

@@ -4,6 +4,8 @@ import {createAccountStyles} from './CreateAccountStyles';
 import Header, {HeaderButton} from '../common/Header';
 import {headerStyles} from '../common/CommonStyles';
 
+import UserService from '../../middleware/UserService.js';
+
 export default class CreateAccount extends Component {
 
     static navigationOptions = {
@@ -17,7 +19,9 @@ export default class CreateAccount extends Component {
             email: "",
             phoneNumber: 0,
             password: "",
+            confirmPassword: "",
             displayName: "",
+            message: ""
             //photoUrl: String,
         }
     }
@@ -27,45 +31,57 @@ export default class CreateAccount extends Component {
     }
 
     create_account() {
-        const user = {
-            email: this.state.email,
-            phoneNumber: this.state.phoneNumber,
-            password: this.state.password,
-            displayName: this.state.displayName
-        };
-        fetch('http://preppy-dev.appspot.com/user', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        }).then(res => res.json()).then(resp => {
-                UserData.setUser(resp).then(() => {
-                    this.props.navigation.navigate("Dashboard");
-                });
-            });
+        UserService.attemptCreateAccount(
+            this.state.email,
+            this.state.password,
+            this.state.phoneNumber,
+            this.state.displayName
+        ).then(user => {
+            UserData.setUser(user)
+        }).then(() => {
+            this.props.navigation.navigate("Dashboard");
+        }).catch(error => {
+            this.setState({message: error.message});
+        })
+    }
+
+    validateInput = () => {
+        if (!this.state.email || !this.state.phoneNumber || !this.state.password ||
+            !this.state.confirmPassword || !this.state.displayName
+        ) {
+            return false;
+        }
+        return this.state.confirmPassword === this.state.password;
     }
 
     render() {
 
+        const validInput = this.validateInput();
+
+        const errorBox = !this.state.message ?
+            <View style={createAccountStyles.emptyBox}></View> :
+            <View style={createAccountStyles.errorBox}>
+                <Text style={createAccountStyles.errorText}>{this.state.message}</Text>
+            </View>
+
         return(
             <View style={createAccountStyles.createAccountMain}>
-
-
                 <View style={createAccountStyles.formContainer}>
                     <View>
                         <Text style={createAccountStyles.appName}>
-                            Preppy {'\n'}
-                            <Text style={createAccountStyles.description}>
-                            {'\n'}
+                            Preppy
+                        </Text>
+
+                        {errorBox}
+
+                        <Text style={createAccountStyles.description}>
                             Enter info to create a new account.
-                            </Text>
                         </Text>
                     </View>
 
                     <View style={createAccountStyles.inputBox}>
                         <TextInput style={createAccountStyles.input}
+                            autoCapitalize='none'
                             onChangeText={(username) => this.setState({email: username})}
                             placeholder='Email'
                         />
@@ -73,6 +89,8 @@ export default class CreateAccount extends Component {
 
                     <View style={createAccountStyles.inputBox}>
                         <TextInput style={createAccountStyles.input}
+                            autoCapitalize='none'
+                            secureTextEntry={true}
                             onChangeText={(password) => this.setState({password: password})}
                             placeholder='Password'
                         />
@@ -80,6 +98,16 @@ export default class CreateAccount extends Component {
 
                     <View style={createAccountStyles.inputBox}>
                         <TextInput style={createAccountStyles.input}
+                            autoCapitalize='none'
+                            secureTextEntry={true}
+                            onChangeText={(password) => this.setState({confirmPassword: password})}
+                            placeholder='Confirm Password'
+                        />
+                    </View>
+
+                    <View style={createAccountStyles.inputBox}>
+                        <TextInput style={createAccountStyles.input}
+                            autoCapitalize='none'
                             onChangeText={(username) => this.setState({phoneNumber: username})}
                             placeholder='Phone number'
                         />
@@ -87,14 +115,15 @@ export default class CreateAccount extends Component {
 
                     <View style={createAccountStyles.inputBox}>
                         <TextInput style={createAccountStyles.input}
+                            autoCapitalize='none'
                             onChangeText={(username) => this.setState({displayName: username})}
                             placeholder='Full name'
                         />
                     </View>
 
-                    <View style={createAccountStyles.createAccountButton}>
+                    <View style={validInput ? createAccountStyles.createAccountButton : createAccountStyles.disabledButton}>
                         <Button
-                            onPress={() => {this.create_account()}}
+                            onPress={() => {validInput ? this.create_account() : {}}}
                             title="Create Account"
                             color="#FFFFFF"
                         />
@@ -104,7 +133,7 @@ export default class CreateAccount extends Component {
                         <Button
                             onPress={() => {this.navigateToLogin()}}
                             title="Back to Login"
-                            color = "lightgray"
+                            color="lightgray"
                         />
                     </View>
 

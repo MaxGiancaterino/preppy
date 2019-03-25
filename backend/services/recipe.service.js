@@ -1,86 +1,132 @@
 var database = require('../firebase/db');
+var algolia = require('../firebase/algolia');
 
 exports.upload = function(recipeData, micro, next) {
-  recipeData.forEach(function(recipe) {
-      var ingredients = [];
-      recipe.ingredients.forEach(function(ing) {
-        ingredients.push(ing.ingID);
+  if (micro) {
+      recipeData.forEach(function(recipe) {
+          database.doc("recipe/micro/data/" + recipe.ID).set({
+              id: recipe.ID,
+              name: recipe.name,
+              imgURL: recipe.imgURL,
+              contains: recipe.ingredientIDs
+          });
       });
-      database.ref('micro/' + recipe.id).set({
-        id: recipe.id,
-        name: recipe.name,
-        imgURL: recipe.imgURL,
-        contains: ingredients
+  } else {
+      recipeData.forEach(function(recipe) {
+          database.doc('recipe/full/data/' + recipe.id).set({
+              id: recipe.id,
+              name: recipe.name,
+              ingredients: recipe.ingredients,
+              preparation: recipe.preparation,
+              imgURL: recipe.imgURL,
+              pageURL: recipe.pageURL,
+              cookTime: recipe.cookTime,
+              prepTime: recipe.prepTime,
+              numServings: recipe.numServings,
+              nutrition: recipe.nutrition,
+              rating: recipe.rating,
+              source: recipe.source
+          });
       });
-      database.ref('recipes/' + recipe.id).set({
-        id: recipe.id,
-        name: recipe.name,
-        ingredients: recipe.ingredients,
-        preparation: recipe.preparation,
-        imgURL: recipe.imgURL,
-        pageURL: recipe.pageURL,
-        cookTime: recipe.cookTime,
-        prepTime: recipe.prepTime,
-        numServings: recipe.numServings,
-        nutrition: recipe.nutrition,
-        rating: recipe.rating,
-        source: recipe.source
-      });
+  }
+  next("success");
+};
+
+
+exports.uploadIngredients = function(list, next) {
+    list.forEach(function(ing) {
+       database.doc("recipe/ingredients/data/" + ing.ID).set({
+          id: ing.ID,
+          recipes: ing.recipes
+       });
     });
-	next("success");
+    next("success");
 };
 
 exports.get = function(id, micro, next) {
   if (micro) {
-    database.ref('/micro/' + id)
-        .once('value')
-        .then(function(snapshot) {
-          next(snapshot.val());
+    database.doc('recipe/micro/data/' + id)
+        .get()
+        .then(function(doc) {
+          next(doc.data());
         });
   } else {
-  	database.ref('/recipes/' + id)
-  			.once('value')
-  			.then(function(snapshot) {
-  				next(snapshot.val());
+  	database.doc('recipe/full/data/' + id)
+  			.get()
+  			.then(function(doc) {
+  				next(doc.data());
   			});
   }
+}
+
+async function asyncForEach(array, micro, callback) {
+  var list = [];
+  for (let index = 0; index < array.length; index++) {
+    if (micro) {
+      await database.doc('recipe/micro/data/' + array[index])
+                    .get()
+                    .then(function(res) {
+                      list.push(res.data());
+                    });
+    } else {
+      await database.doc('recipe/full/data/' + array[index])
+                    .get()
+                    .then(function(res) {
+                      list.push(res.data());
+                    });
+    }
+  }
+  callback(list);
 }
 
 exports.list = function(queue, micro, next) {
-	var list = [];
-  if (micro) {
-    database.ref('/micro/')
-  		.once('value')
-  		.then(function(res) {
-  			res.forEach(function(item) {
-  				var recipe = item.val();
-  				if (queue.includes(recipe.id)) {
-  					list.push(recipe);
-  				}
-  			});
-  			next(list);
-  		});
-  } else {
-  	database.ref('/recipes/')
-  		.once('value')
-  		.then(function(res) {
-  			res.forEach(function(item) {
-  				var recipe = item.val();
-  				if (queue.includes(recipe.id)) {
-  					list.push(recipe);
-  				}
-  			});
-  			next(list);
-  		});
-  }
+	asyncForEach(queue, micro, next);
 }
 
-exports.search = function(query, next) {
-  var ref = database.ref('/recipes/');
-  ref.orderByChild("name")
-                 .startAt(query)
-                 .endAt(query+"\uf8ff")
-                 .on("child_added", function(snapshot) {
-                    next(snapshot.key);
-                 });
+exports.searchByName = function(query, next) {
+  algolia.search({
+    query
+  })
+  .then(function(response) {
+    var results = [];
+    response.hits.forEach(function(hit) {
+      results.push({
+        id: hit.id,
+        name: hit.name,
+        imgURL: hit.imgURL
+      });
+    });
+    next(results);
+  });
+};
+
+exports.searchByIngredients = function(list, next) {
+    asyncIngredients(list, function(ingredients) {
+        var first = list[0].recipes;
+        for (let index = 1; index < array.length; index++) {
+            first.filter(value => -1 !== array[index].recipes.indexOf(value));
+        }
+    });
+};
+
+async function asyncIngredients(array, callback) {
+    var list = [];
+    for (let index = 0; index < array.length; index++) {
+            await database.doc('recipe/ingredients/data/' + array[index])
+                .get()
+                .then(function(res) {
+                    list.push(res.data());
+                });
+    }
+    callback(list);
 }
+
+exports.all = function(next) {
+  database.collection('recipe/micro/data/')
+          .get()
+          .then(function(coll) {
+            var data = [];
+            coll.forEach((doc) => data.push(doc.data()));
+            next(data);
+          });
+};

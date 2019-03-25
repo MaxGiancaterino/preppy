@@ -12,7 +12,7 @@ import Ingredient from '../../models/Ingredient';
 export default class shoppingCart extends Component {
 
     static navigationOptions = {
-        title: "shoppingCart",
+        title: "Shopping Cart",
     };
 
     constructor() {
@@ -58,7 +58,7 @@ export default class shoppingCart extends Component {
                     <Button
                         onPress={() => {this.add_ingredient()}}
                         title="Add ingredient"
-                        color="#FDB52B"
+                        color="#FFFFFF"
                     />
                 </View>
 
@@ -67,7 +67,7 @@ export default class shoppingCart extends Component {
                         onChangeText= { 
                             (input) => this.inputIngredient((input))
                         } 
-                        placeholder='new ingredient'
+                        placeholder='New ingredient'
                     />
                 </View>
 

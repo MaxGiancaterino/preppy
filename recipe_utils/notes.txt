@@ -1,0 +1,15 @@
+workflow:
+scrape -> parse -> process -> filter
+
+SCRAPE
+Downloads raw HTML files from AllRecipes.com
+
+PARSE
+Converts raw HTML files into JSON format containing all relevant raw information
+
+PROCESS
+Extracts raw ingredient listings, converts them to ingredientIDs and quantities
+
+FILTER
+Takes in all processed recipes,
+selects only ones that contain all of a given set of ingredients

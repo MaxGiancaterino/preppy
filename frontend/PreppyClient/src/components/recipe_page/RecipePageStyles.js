@@ -7,13 +7,19 @@ const PreppyLight = "#FFEED1";
 export const recipePageStyles = StyleSheet.create({
     
     recipeMain: {
-        backgroundColor: PreppyOrange,
         height: Dimensions.get('window').height,
         flex: 1,
         flexDirection: "column",
     },
     recipeScroll: {
         flex: 1,
+        backgroundColor: "#FFFFFF",
+        borderBottomColor: PreppyOrange
+    },
+    orangeBg: {
+        flex: 1,
+        paddingHorizontal: 10,
+        backgroundColor: PreppyOrange
     },
     recipeTitle: {
         fontFamily: "Raleway",
@@ -22,7 +28,9 @@ export const recipePageStyles = StyleSheet.create({
         color: "#000000",
         textAlign: "center",
         paddingVertical: 5,
+        paddingHorizontal: 10,
         backgroundColor: "#FFFFFF",
+        marginHorizontal: -10
     },
     recipeImage: {
         width: "100%",
@@ -47,7 +55,6 @@ export const recipePageStyles = StyleSheet.create({
     recipeItemMain: {
         backgroundColor: PreppyLight,
         marginVertical: 6,
-        marginHorizontal: 10,
         borderRadius: 6,
         padding: 7,
     },

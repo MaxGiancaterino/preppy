@@ -1,5 +1,7 @@
 import {AsyncStorage} from 'react-native';
 import User from './models/User';
+import Schedule from './models/Schedule';
+import ScheduleItem, {ITEM_TYPE} from './models/ScheduleItem';
 
 /*
  * UserData serves as an interface to React Native's AsyncStorage class. AsyncStorage can store data
@@ -13,7 +15,6 @@ import User from './models/User';
  * appropriate extent 
  */
 
- // We should possibly consider using all user-management endpoints within this module
 export default UserData = {
 
     // Load the current user data from AsyncStorage
@@ -22,6 +23,7 @@ export default UserData = {
             const value = await AsyncStorage.getItem('key_user');
             if (value !== null) {
                 global.currentUser = new User(JSON.parse(value));
+                global.currentUser.schedule = new Schedule(global.currentUser.schedule);
                 global.isLoggedIn = true;
                 return global.currentUser;
             }
@@ -30,18 +32,24 @@ export default UserData = {
             }
         }
         catch (error) {
-            return null;
             console.log(error.message);
+            alert(error.message);
+            return null;
         }
     },
 
     // Set the current user
     setUser: async (user) => {
         try {
-            if (user != null) {
+            if (user) {
                 var json = JSON.stringify(user);
                 const value = await AsyncStorage.setItem('key_user', json);
-                global.currentUser = new User(user);
+                if (user instanceof User) {
+                    global.currentUser = user;
+                }
+                else {
+                    global.currentUser = new User(user);
+                }
                 global.isLoggedIn = true;
             }
         }
@@ -50,8 +58,21 @@ export default UserData = {
         }
     },
 
+    // Updates the cached user, including the schedule
+    updateUser: async () => {
+        try {
+            if (global.isLoggedIn && global.currentUser) {
+                var json = JSON.stringify(global.currentUser);
+                const value = await AsyncStorage.setItem('key_user', json);
+            }
+        }
+        catch (error) {
+            console.log(error.message);
+        }
+    },
+
     // Remove the current user's data from AsyncStorage
-    logout: async() => {
+    logout: async () => {
         try {
             await AsyncStorage.removeItem('key_user');
             global.isLoggedIn = false;
@@ -76,5 +97,50 @@ export default UserData = {
             return global.currentUser;
         }
     },
+
+    // Update the current user's schedule
+    updateSchedule: (schedule) => {
+        if (global.currentUser && schedule) {
+            global.currentUser.schedule =  new Schedule(schedule);
+        }
+    },
+
+    // Gets the user's next meals to cook, determined by their schedule
+    getUpcomingMeals: (number) => {
+        if (!global.currentUser || !global.currentUser.schedule) {
+            return [];
+        }
+        let schedule = global.currentUser.schedule;
+        let dates = [];
+        for (let d in schedule.items) {
+            if (!schedule.items.hasOwnProperty(d)) {
+                continue;
+            }
+            dates.push(new Date(d));
+        }
+        dates.sort(function(a, b) {
+            return a - b;
+        });
+
+        let upcomingMeals = [];
+        let ids = [];
+        for (let date of dates) {
+            let dateString = date.toDateString();
+            let dateItems = schedule.items[dateString];
+            dateItems.sort(function(a, b) {
+                return a.compare(b);
+            });
+            for (item of dateItems) {
+                if (ids.indexOf(item.recipe.id) === -1 && item.itemType === ITEM_TYPE.COOK) {
+                    upcomingMeals.push(item);
+                    ids.push(item.recipe.id);
+                    if (upcomingMeals.length === number) {
+                        return upcomingMeals;
+                    }
+                }
+            }
+        }
+        return upcomingMeals;
+    }
         
 }

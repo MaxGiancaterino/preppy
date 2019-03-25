@@ -1,3 +1,6 @@
+var admin = require('./admin');
 var firebase = require('./firebase');
-var database = firebase.database();
-module.exports = database;
+firebase.database();
+var firestore = admin.database;
+
+module.exports = firestore;

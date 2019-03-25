@@ -1,4 +1,5 @@
 var database = require('../firebase/db');
+var admin = require('../firebase/admin.js');
 
 exports.create = function(userData, next) {
 	var user = {
@@ -9,25 +10,23 @@ exports.create = function(userData, next) {
 		weeklyBudget: 0,
 		remainingBudget: 0,
 		avatar: userData.photoURL,
-		userId: userData.uid,
-    	shoppingCart: [{ingredient: "null", amount: -1, unit: "null"}],
-    	currentPantry: [{ingredient: "null", amount: -1, unit: "null"}]
+		userId: userData.uid
 	};
-
-	database.ref('users/' + userData.uid)
-		.set(user)
-		.then(function(acc) {
-			next(user);
-		}).catch(function(err) {
-			next(null, err);
-		});
-};
+	database.doc('user/' + userData.uid + '/data/data').set(user).then();
+	var cart = {cart: [{ingredient: "null", count: -1, unit: "null"}]};
+	database.doc('user/' + userData.uid + '/data/cart').set(cart).then();
+    var pantry = {pantry: [{ingredient: "null", count: -1, unit: "null"}]};
+    database.doc('user/' + userData.uid + '/data/pantry').set(pantry).then();
+    var schedule = {schedule: [{itemType: "null", mealType: "null", recipeId: -1, scheduledDate: "null"}]};
+    database.doc('user/' + userData.uid + '/data/schedule').set(schedule).then();
+    next(user);
+}
 
 exports.get = function(uid, next) {
-	database.ref('/users/' + uid)
-			.once('value')
-			.then(function(snapshot) {
-				next(snapshot.val());
+	database.doc('user/' + uid + '/data/data')
+			.get()
+			.then(function(doc) {
+				next(doc.data());
 			});
 };
 
@@ -36,20 +35,11 @@ exports.removeRecipe = function(uid, id, next) {
 	if (id === "-1") {
 		return next(null, "Invalid id");
 	} else {
-		database.ref('/users/' + uid + '/cookingQueue')
-				.once('value')
-				.then(function(snapshot) {
-					var queue = snapshot.val();
-					var ix = parseInt(id, 10);
-					var newQueue = queue.filter(rid => rid !== ix);
-					database.ref('/users/' + uid + '/cookingQueue')
-							.set(newQueue)
-							.then(function(res) {
-								next(newQueue);
-							}).catch(function(err) {
-								next(null, err);
-							});
+		database.doc('/user/' + uid + '/data/data')
+				.update( {
+					cookingQueue: admin.admin.firestore.FieldValue.arrayRemove(id)
 				});
+		next(id);
 	}
 };
 
@@ -57,68 +47,56 @@ exports.addRecipe = function(uid, id, next) {
 	if (id === -1) {
 		return next(null, "Invalid id");
 	}
-	database.ref('/users/' + uid + '/cookingQueue')
-			.once('value')
-			.then(function(snapshot) {
-				var queue = snapshot.val();
-				if (queue.includes(parseInt(id, 10))) {
-					next(null, "Duplicate id");
-				} else {
-					queue.push(parseInt(id, 10));
-					queue.sort();
-					database.ref('/users/' + uid + '/cookingQueue')
-						.set(queue)
-						.then(function(res) {
-							next(queue);
-						}).catch(function(err) {
-							next(null, err);
-						});
-				}
+	database.doc('/user/' + uid + '/data/data')
+			.update({
+				cookingQueue: admin.admin.firestore.FieldValue.arrayUnion(id)
 			});
 };
 
 exports.getCart = function(uid, next) {
-  database.ref('/users/' + uid + '/shoppingCart')
-          .once('value')
-          .then(function(snapshot) {
-            var data = {};
-            data.cart = snapshot.val();
-            next(data, null);
+  database.doc('/user/' + uid + '/data/cart')
+          .get()
+          .then(function(doc) {
+            next(doc.data(), null);
           })
           .catch(function(err) {
             next(null, err);
           });
-}
+};
 
 exports.updateCart = function(uid, cart, next) {
-  database.ref('/users/' + uid + '/shoppingCart')
-          .set(cart)
-          .then(function(res) {
-            next(cart);
-          }).catch(function(err) {
-            next(null, err);
-          });
-}
+  database.doc('/user/' + uid + '/data/cart')
+          .update({cart: cart}).then(next(cart));
+};
 
 exports.getPantry = function(uid, next) {
-  database.ref('/users/' + uid + '/currentPantry')
-          .once('value')
-          .then(function(snapshot) {
-            var data = {};
-            data.pantry = snapshot.val();
-            next(data, null);
+  database.doc('/user/' + uid + '/data/pantry')
+          .get()
+          .then(function(doc) {
+            next(doc.data(), null);
           })
           .catch(function(err) {
             next(null, err);
           });
-}
+};
 
 exports.updatePantry = function(uid, pantry, next) {
-  database.ref('/users/' + uid + '/currentPantry')
-          .set(pantry)
-          .then(function(res) {
-            next(pantry);
-          }).catch(function(err) {
-            next(null, err);
-          });
-}
+  database.doc('/user/' + uid + '/data/pantry')
+          .update({pantry: pantry}).then(next(pantry));
+};
+
+exports.getSchedule = function(uid, next) {
+	database.doc('/user/' + uid + '/data/schedule')
+			.get()
+			.then(function(doc) {
+				next(doc.data(), null);
+			})
+			.catch(function(err) {
+				next(null, err);
+			});
+};
+
+exports.updateSchedule = function(uid, schedule, next) {
+	database.doc('/user/' + uid + '/data/schedule')
+			.update({schedule: schedule}).then(next(schedule));
+};

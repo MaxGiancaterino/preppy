@@ -2,7 +2,12 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
-
+const PreppyGreen =  "#33CF23";
+const PreppyPurple = "#7625A9";
+const PreppyRed =    "#F92A34";
+const PreppyLight =  "#FFEED1";
+const PreppyGray =   "#8D8D8D";
+const PreppyLBlue1 = "#AAAAFF";
 
 export const mainStyle = StyleSheet.create({
     main: {
@@ -28,6 +33,12 @@ export const headerStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 24
     },
+    logout: {
+        fontFamily: "Raleway",
+        fontSize: 16,
+        marginRight: 10,
+        color: "#FFFFFF"
+    }
 });
 
 export const itemStyle = StyleSheet.create({
@@ -85,6 +96,57 @@ export const recipeButtonStyles = StyleSheet.create({
     },
     recipeButtonTitle: {
         fontFamily: 'Raleway',
+        color: "#FFFFFF",
+        fontSize: 24,
+    },
+    recipeButtonItemAlt: {
+        backgroundColor: PreppyOrange,
+        marginHorizontal: 10,
+        marginTop: 10,
+        minHeight: 20,
+        padding: 5,
+        borderRadius: 5,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    recipeButtonTitleAlt: {
+        fontFamily: 'Raleway',
+        color: "#FFFFFF",
+        fontSize: 18,
+    }
+})
+
+export const buttonStyles = StyleSheet.create({
+    buttonBlue: {
+        backgroundColor: PreppyLBlue1,
+        padding: 10,
+        borderRadius: 10,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: 5,
+    },
+    buttonGreen: {
+        backgroundColor: PreppyGreen,
+        padding: 10,
+        borderRadius: 10,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: 5,
+    },
+    buttonTextNormal: {
+        fontFamily: 'Raleway',
+        color: "#FFFFFF",
+        fontSize: 24,
+    },
+    buttonTextBold: {
+        fontFamily: 'Raleway',
+        fontWeight: "bold",
         color: "#FFFFFF",
         fontSize: 24,
     }

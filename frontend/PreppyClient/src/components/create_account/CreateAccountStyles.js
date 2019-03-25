@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
+const PreppyGray =   "#8D8D8D";
+const PreppyRed =    "#F92A34";
+const PureWhite =    "#FFFFFF";
 
 export const createAccountStyles = StyleSheet.create({
     
@@ -58,4 +61,30 @@ export const createAccountStyles = StyleSheet.create({
         width: "80%",
         backgroundColor: PreppyOrange
     },
+    disabledButton: {
+        justifyContent: "center",
+        margin: 5,
+        width: "80%",
+        backgroundColor: PreppyGray
+    },
+    emptyBox: {
+        width: 300,
+        padding: 10,
+        marginVertical: 10,
+        height: 45
+    },
+    errorBox: {
+        backgroundColor: PreppyRed,
+        width: 300,
+        borderRadius: 5,
+        padding: 10,
+        marginVertical: 10,
+        minHeight: 45
+    },
+    errorText: {
+        fontFamily: "Raleway",
+        fontSize: 18,
+        fontWeight: "bold",
+        color: PureWhite,
+    }
 });

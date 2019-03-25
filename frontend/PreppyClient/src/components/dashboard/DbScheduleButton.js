@@ -10,20 +10,19 @@ export default class ScheduleButton extends Component {
     }
 
     navigateToSchedule = () => {
-        this.props.navigation.navigate("Schedule");
+        this.props.navigation.navigate("SchedulePage");
     }
 
     render() {
-        navigateToSchedule();
         return(
             <TouchableHighlight
                 style={dashboardStyles.scheduleButton}
                 onPress={this.navigateToSchedule}
             >
                 <ImageBackground
-                    style={dashboardStyles.scheduleImage}
+                    style={dashboardStyles.buttonImageRight}
                     // This is a PLACEHOLDER image
-                    qsource={require("../../../assets/img/calendar.jpg")}
+                    source={require("../../../assets/img/calendar.jpg")}
                 >
                     <Text style={dashboardStyles.buttonText}>Schedule</Text>
                 </ImageBackground>

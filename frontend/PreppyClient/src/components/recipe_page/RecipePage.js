@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {Text, View, Image, ScrollView} from 'react-native';
+import {Text, View, Image, ScrollView, TouchableOpacity, Platform} from 'react-native';
+
+import RecipeItem from './RecipeItem';
 
 import {recipePageStyles} from './RecipePageStyles';
-import RecipeItem from './RecipeItem';
+import {buttonStyles} from '../common/CommonStyles';
 
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
@@ -19,9 +21,23 @@ export default class RecipePage extends Component {
         this.state = {recipe: undefined, recipeId : -1};
     }
 
+    cookRecipe = () => {
+        this.props.navigation.navigate({
+            routeName: "Cook",
+            params: {"cookRecipe": this.state.recipe}
+        });
+    }
+
+    scheduleRecipe = () => {
+        this.props.navigation.navigate({
+            routeName: "Scheduler",
+            params: {"recipe": this.state.recipe}
+        });
+    }
+
     componentWillMount() {
         const rid = this.props.navigation.getParam("recipeId", -1);
-        if (rid != -1) {
+        if (rid == -1) {
             const propRecipe = this.props.navigation.getParam("recipe", new Recipe());
             this.setState({
                 recipe: propRecipe,
@@ -44,8 +60,8 @@ export default class RecipePage extends Component {
         }
         const recipe = this.state.recipe;
 
-        const uriObject = {uri: recipe.imgUrl};
-        const dishImage = recipe.imgUrl ?
+        const uriObject = {uri: recipe.imgURL};
+        const dishImage = recipe.imgURL ?
             <View style={recipePageStyles.imageContainer}>
                 <Image 
                     source={uriObject}
@@ -63,19 +79,45 @@ export default class RecipePage extends Component {
             <RecipeItem itemText={step.text} key={sKey++}/>
         );
 
+        const isIos = Platform.OS === "ios";
+        const PreppyOrange = "#FDB52B";
+        const PureWhite = "#FFFFFF";
+
+        // Note: I do all this fancy stuff with the content inset / offset to ensure that the overscroll colors
+        // match that of the topmost and bottommost content in the scrollview. It only works for iOS though
+
         return (
             <View style={recipePageStyles.recipeMain}>
                 <ScrollView
-                    style={recipePageStyles.recipeScroll}
+                    style={{...recipePageStyles.recipeScroll, backgroundColor: isIos ? PreppyOrange : PureWhite}}
+                    contentContainerStyle={{backgroundColor: PureWhite}}
+                    contentInset={{top: -1000}}
+                    contentOffset={{y: 1000}}
                     showsVerticalScrollIndicator="false"
                 >
+                    {isIos && <View style={{height: 1000}} />}
                     <Text style={recipePageStyles.recipeTitle}>{recipe.name}</Text>
                     {dishImage}
-                    <Text style={recipePageStyles.sectionTitle}>Ingredients</Text>
-                    {ingredients}
-                    <Text style={recipePageStyles.sectionTitle}>Preparation</Text>
-                    {steps}
+                    <View style={recipePageStyles.orangeBg}>
+                        <Text style={recipePageStyles.sectionTitle}>Ingredients</Text>
+                        {ingredients}
+                        <Text style={recipePageStyles.sectionTitle}>Preparation</Text>
+                        {steps}
 
+                        <TouchableOpacity
+                            style={buttonStyles.buttonBlue}
+                            onPress={this.scheduleRecipe}
+                        >
+                            <Text style={buttonStyles.buttonTextNormal}>Schedule Recipe</Text>
+                        </TouchableOpacity>
+
+                        <TouchableOpacity
+                            style={buttonStyles.buttonGreen}
+                            onPress={this.cookRecipe}
+                        >
+                            <Text style={buttonStyles.buttonTextNormal}>Cook Now</Text>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </View>
         );

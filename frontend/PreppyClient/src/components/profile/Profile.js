@@ -22,7 +22,7 @@ export default class Profile extends Component {
             this.setState({
                 avatar:        user.avatar,
                 displayName:   user.displayName,
-                email:         user.email,
+                email:         user.username,
                 weeklyBudget:  user.weeklyBudget,
             });
         }

@@ -12,8 +12,10 @@ import {headerStyles} from '../common/CommonStyles';
 
 import UserData from '../../UserData';
 import RecipeService from '../../middleware/RecipeService';
+import UserService from '../../middleware/UserService';
 import User from '../../models/User';
 import Recipe from '../../models/Recipe';
+import Schedule from '../../models/Schedule';
 
 
 export default class Dashboard extends Component {
@@ -32,8 +34,11 @@ export default class Dashboard extends Component {
     }
 
     componentWillMount() {
-        const user = UserData.getUser();
         const arbitraryRecipes = [15, 2, 3, 4];
+        global.recipes = [];
+        // If we're using global, we should maybe move this to the splash screen so it doesn't cause any bugs
+        // when we navigate from the dashboard to quickly. However, we may want to reconsider using global at
+        // all. It might be a better idea to pass them directly or create a custom singleton
         RecipeService.fetchRecipeQueue(arbitraryRecipes).then(recipes => {
             this.setState({
                 budget: user.remainingBudget,
@@ -41,6 +46,7 @@ export default class Dashboard extends Component {
             });
             global.recipes = recipes;
         });
+        UserData.getUpcomingMeals(5);
     }
 
     render() {
@@ -66,11 +72,10 @@ export default class Dashboard extends Component {
                     style={dashboardStyles.dashboardScroll}
                 >
                     <BudgetDisplay amount={budget}/>
-                    <View style={dashboardStyles.buttonContainer}>
-                        <CookButton navigation={nav}/>
-                    </View>
+                    <CookButton navigation={nav}/>
                     <PantryButton navigation={nav}/>
                     <ExploreButton navigation={nav}/>
+                    <ScheduleButton navigation={nav}/>
                     <View style={dashboardStyles.recipeListTitleContainer}>
                         <Text style={dashboardStyles.recipeListTitle}>
                             Recipes Recommended For You:

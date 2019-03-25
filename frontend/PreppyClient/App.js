@@ -5,14 +5,15 @@ import {createStackNavigator} from 'react-navigation';
 import Splash from './src/components/splash/Splash';
 import Login from './src/components/login/Login';
 import Dashboard from './src/components/dashboard/Dashboard';
-import Schedule from './src/components/schedule/Schedule';
+import SchedulePage from './src/components/schedule/SchedulePage';
 import Cook from './src/components/cook/Cook';
 import Profile from './src/components/profile/Profile';
 import RecipePage from './src/components/recipe_page/RecipePage';
 import Pantry from './src/components/pantry/Pantry';
-import CreateAccount from './src/components/create_account/CreateAccount'
-import RecipeExplore from './src/components/recipe_explore/RecipeExplore'
-import ShoppingCart from './src/components/shopping_cart/ShoppingCart'
+import CreateAccount from './src/components/create_account/CreateAccount';
+import RecipeExplore from './src/components/recipe_explore/RecipeExplore';
+import ShoppingCart from './src/components/shopping_cart/ShoppingCart';
+import Scheduler from './src/components/scheduler/Scheduler';
 
 
 import Header, {HeaderButton} from './src/components/common/Header';
@@ -20,6 +21,8 @@ import {headerStyles, mainStyle} from './src/components/common/CommonStyles';
 
 import User from './src/models/User';
 import UserData from './src/UserData';
+
+console.disableYellowBox = true;
 
 const RootStack = createStackNavigator(
     {
@@ -32,8 +35,8 @@ const RootStack = createStackNavigator(
         Dashboard: {
             screen: Dashboard
         },
-        Schedule: {
-            screen: Schedule
+        SchedulePage: {
+            screen: SchedulePage
         },
         Cook: {
             screen: Cook
@@ -55,6 +58,9 @@ const RootStack = createStackNavigator(
         }, 
         ShoppingCart: {
             screen: ShoppingCart
+        },
+        Scheduler: {
+            screen: Scheduler
         }
     },
     {
