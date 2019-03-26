@@ -87,8 +87,10 @@ public class HTMLParser {
 				ret.prepTime = TimeUnit.parseTimeUnit(e.select("div.recipe-meta-item-body").first().text());
 			} else if (e.text().toLowerCase().contains("cook")) {
 				ret.cookTime = TimeUnit.parseTimeUnit(e.select("div.recipe-meta-item-body").first().text());
-			} else if (e.text().toLowerCase().contains("servings")) {
-				ret.numServings = Integer.parseInt(e.select("div.recipe-meta-item-body").first().text());
+			} else if (e.text().toLowerCase().contains("servings") &&
+					   ret.numServings == -1) {
+				String text = e.select("div.recipe-meta-item-body").first().text();
+				ret.numServings = Integer.parseInt(text);
 			}
 		}
 		
@@ -220,10 +222,15 @@ public class HTMLParser {
 
 	public static Recipe parseAllrecipesHTML(Document doc) {
 		Recipe ret = null;
-		if (doc.select("#recipe-main-content").size() == 0) {
-			ret = parseAllrecipesNew(doc);
-		} else {
-			ret = parseAllrecipesOld(doc);
+		try {
+			if (doc.select("#recipe-main-content").size() == 0) {
+				ret = parseAllrecipesNew(doc);
+			} else {
+				ret = parseAllrecipesOld(doc);
+			}
+		} catch (Exception e) {
+			System.out.println("ERROR: paring recipe" + doc.baseUri());
+			e.printStackTrace();
 		}
 		
 		ret.source = RecipeEnum.ALLRECIPES;
