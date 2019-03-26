@@ -66,7 +66,7 @@ router.post('/ingredients', function (req, res) {
 			console.log(error);
 			res.send(error);
 		} else {
-			res.send(data);r
+			res.send(data);
 		}
 	});
 });

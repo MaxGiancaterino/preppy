@@ -91,21 +91,38 @@ exports.searchByName = function(query, next) {
     var results = [];
     response.hits.forEach(function(hit) {
       results.push({
-        id: hit.id,
+        id: hit.ID,
         name: hit.name,
-        imgURL: hit.imgURL
+        imgURL: hit.imgURL,
+        ingredients: hit.ingredientIDs
       });
     });
     next(results);
   });
 };
 
+function intersect(a, b) {
+    var t;
+    if (b.length > a.length) {
+        t = b;
+        b = a;
+        a = t;
+    }
+    return a.filter(Set.prototype.has, new Set(b));
+}
+
 exports.searchByIngredients = function(list, next) {
     asyncIngredients(list, function(ingredients) {
-        var first = list[0].recipes;
-        for (let index = 1; index < array.length; index++) {
-            first.filter(value => -1 !== array[index].recipes.indexOf(value));
+        var first = ingredients[0].recipes;
+        for (let index = 1; index < ingredients.length; index++) {
+            first = intersect(first, ingredients[index].recipes);
         }
+        var results = [];
+        for (let i = 0; i < first.length; i++) {
+            if (i > 30) break;
+            results.push(first[i]);
+        }
+        asyncForEach(results, true, next);
     });
 };
 
