@@ -48,12 +48,13 @@ export default class Login extends Component {
             this.setState({loading: false});
             this.setState({message: error.message});
         }).then(async () => {
-            let uid = UserData.getUser().uid;
-            return UserService.attemptFetchSchedule(uid);
-        }).then((schedule) => {
-            UserData.updateSchedule(schedule);
+            let uid = UserData.getUser().userId;
+            let promise = UserService.attemptFetchSchedule(uid);
+            return promise;
+        }).then((res) => {
+            UserData.updateSchedule(res.schedule);
         }).catch((error) => {
-            console.error(error);
+            console.log(error);
             alert("Error Retrieving Schedule. Attempting to alter your schedule now\
                    could have unpredictable results. Error: " + error.message);
         });
