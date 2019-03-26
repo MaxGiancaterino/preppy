@@ -180,9 +180,9 @@ public class Processor {
 		}
 		
 		// write cumulative JSONs to file
-		HTMLParser.writeRecipeJSON(outOtherDirectory, recipes);
-		HTMLParser.writeAbridgedJSON(outOtherDirectory, recipes);
-		HTMLParser.writeMisc(outOtherDirectory, recipes);
+		JSONWriter.writeRecipeJSON(outOtherDirectory, recipes);
+		JSONWriter.writeAbridgedJSON(outOtherDirectory, recipes);
+		JSONWriter.writeMisc(outOtherDirectory, recipes);
 		
 		// announce finished processing
 		System.out.println(recipes.size() + " RECIPES PROCESSED");
