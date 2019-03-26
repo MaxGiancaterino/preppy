@@ -1,5 +1,15 @@
 import React, {Component} from 'react';
-import {Image, Stylesheet, Text, TextInput, View, ScrollView, Button, TouchableOpacity} from 'react-native';
+import {
+    Image,
+    Stylesheet,
+    Text,
+    TextInput,
+    View,
+    ScrollView,
+    Button,
+    TouchableOpacity,
+    ActivityIndicator
+} from 'react-native';
 import {loginStyles} from './LoginStyles';
 
 import UserService from '../../middleware/UserService.js';
@@ -20,18 +30,22 @@ export default class Login extends Component {
         	email: "",
        		password: "",
             message: "",
+            loading: false
         }
     }
 
 	submit() {
+        this.setState({loading: true});
         UserService.attemptLogin(this.state.email, this.state.password).then(async (user) => {
             if (!user) {
                 throw new Error("Something went wrong. Please try again later");
             }
             await UserData.setUser(user);
 		}).then(() => {
+            this.setState({loading: false});
             this.props.navigation.navigate("Dashboard");
         }).catch((error) => {
+            this.setState({loading: false});
             this.setState({message: error.message});
         }).then(async () => {
             let uid = UserData.getUser().uid;
@@ -83,18 +97,22 @@ export default class Login extends Component {
     				</View>
     				<View style={loginStyles.forgotPasswordButton}>
 	    				<Button
-	    					title="Forgot your password?"
+	    					title=""//"Forgot your password?"
 	    			 		onPress={this.forgot_password}
 	    			 		color = "lightgray"
 	    				/>
 	    			</View>
-	    			<View style={loginStyles.signInButton}>
-	    				<Button
-	    					onPress={() => {this.submit()}}
-		    				title="Sign in"
-		    				color="#FFFFFF"
-		    			/>
-	    			</View>
+                    {!this.state.loading ? 
+    	    			<View style={loginStyles.signInButton}>
+    	    				<Button
+    	    					onPress={() => {this.submit()}}
+    		    				title="Sign in"
+    		    				color="#FFFFFF"
+    		    			/>
+    	    			</View>
+                        :
+                        <ActivityIndicator/>
+                    }
 	    			<View style={loginStyles.createAccountButton}>
 	    				<Button
 	    					onPress={() => {this.create_account()}}
