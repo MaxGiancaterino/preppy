@@ -85,11 +85,12 @@ export default class RecipePage extends Component {
 
         // Note: I do all this fancy stuff with the content inset / offset to ensure that the overscroll colors
         // match that of the topmost and bottommost content in the scrollview. It only works for iOS though
+        // overscroll removed
 
         return (
             <View style={recipePageStyles.recipeMain}>
                 <ScrollView
-                    style={{...recipePageStyles.recipeScroll, backgroundColor: isIos ? PreppyOrange : PureWhite}}
+                    style={{...recipePageStyles.recipeScroll, backgroundColor: PureWhite}}
                     contentContainerStyle={{backgroundColor: PureWhite}}
                     contentInset={{top: -1000}}
                     contentOffset={{y: 1000}}
@@ -98,21 +99,21 @@ export default class RecipePage extends Component {
                     {isIos && <View style={{height: 1000}} />}
                     <Text style={recipePageStyles.recipeTitle}>{recipe.name}</Text>
                     {dishImage}
-                    <View style={recipePageStyles.orangeBg}>
+                    <View style={recipePageStyles.whiteBg}>
                         <Text style={recipePageStyles.sectionTitle}>Ingredients</Text>
                         {ingredients}
                         <Text style={recipePageStyles.sectionTitle}>Preparation</Text>
                         {steps}
 
                         <TouchableOpacity
-                            style={buttonStyles.buttonBlue}
+                            style={buttonStyles.buttonRed}
                             onPress={this.scheduleRecipe}
                         >
                             <Text style={buttonStyles.buttonTextNormal}>Schedule Recipe</Text>
                         </TouchableOpacity>
 
                         <TouchableOpacity
-                            style={buttonStyles.buttonGreen}
+                            style={buttonStyles.buttonOrange}
                             onPress={this.cookRecipe}
                         >
                             <Text style={buttonStyles.buttonTextNormal}>Cook Now</Text>

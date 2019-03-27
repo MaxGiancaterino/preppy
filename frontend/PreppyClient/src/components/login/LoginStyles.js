@@ -2,13 +2,20 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
+const PreppyGreen =  "#33CF23";
+const PreppyPurple = "#7625A9";
 const PreppyRed =    "#F92A34";
-const PureWhite =    "#FFFFFF";
+const PreppyLight =  "#FFEED1";
+const PreppyGray =   "#8D8D8D";
+const PreppyLBlue1 = "#AAAAFF";
+const PureWhite = "#FFFFFF";
+const DarkOrange = "#F95D45";
+const LightBlue = "#d3ebef";
 
 export const loginStyles = StyleSheet.create({
     
     loginMain: {
-        backgroundColor: "#FFFFFF",
+        backgroundColor: PureWhite,
         height: Dimensions.get('window').height,
         borderTopWidth: 3,
         flex: 1,
@@ -23,32 +30,39 @@ export const loginStyles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    appName: {
+        textAlign: 'center',
+        fontFamily: "Raleway",
+        fontSize: 48,
+        fontWeight: "bold",
+        color: PreppyOrange
+    },
     input: {
         fontFamily: "Raleway",
         margin: 10,
-        fontSize: 18
+        fontSize: 18,
     }, 
     inputBox: {
         width: "60%",
         margin: 5,
-        borderColor: "lightgray",
+        borderColor: PreppyOrange,
         borderRadius: 10, 
         borderWidth: 1
     },
     signInButton: {
         justifyContent: "center",
         margin: 5,
-        width: "50%",
-        backgroundColor: "#FDB52B"
+        borderRadius: 10, 
+        width: "60%",
+        backgroundColor: DarkOrange
     },
     createAccountButton: {
-        fontFamily: "Raleway",
         margin: 10,
-        fontSize: 18
+        fontSize: 20,
     }, 
     forgotPasswordButton: {
-        fontFamily: "Raleway",
         margin: 2,
+        fontSize: 12,
     },
     emptyBox: {
         height: 45,

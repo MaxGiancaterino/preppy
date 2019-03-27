@@ -5,6 +5,7 @@ const PreppyOrange = "#FDB52B";
 const PreppyGray =   "#8D8D8D";
 const PreppyRed =    "#F92A34";
 const PureWhite =    "#FFFFFF";
+const DarkOrange = "#F95D45";
 
 export const createAccountStyles = StyleSheet.create({
     
@@ -33,7 +34,7 @@ export const createAccountStyles = StyleSheet.create({
         margin: 2,
         fontSize: 18,
         fontWeight: "normal",
-        color: "lightgray"
+        color: PreppyOrange
     },
     formContainer: {
         width: "100%",
@@ -51,7 +52,7 @@ export const createAccountStyles = StyleSheet.create({
     inputBox: {
         width: "80%",
         margin: 5,
-        borderColor: "lightgray",
+        borderColor: PreppyOrange,
         borderRadius: 10, 
         borderWidth: 1
     },
@@ -59,13 +60,15 @@ export const createAccountStyles = StyleSheet.create({
         justifyContent: "center",
         margin: 5,
         width: "80%",
-        backgroundColor: PreppyOrange
+        borderRadius: 10, 
+        backgroundColor: DarkOrange
     },
     disabledButton: {
         justifyContent: "center",
         margin: 5,
         width: "80%",
-        backgroundColor: PreppyGray
+        borderRadius: 10, 
+        backgroundColor: DarkOrange
     },
     emptyBox: {
         width: 300,

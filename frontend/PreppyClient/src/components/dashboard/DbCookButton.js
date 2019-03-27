@@ -25,13 +25,14 @@ export default class CookButton extends Component {
                 style={dashboardStyles.cookButton}
                 onPress={this.navigateToCooking}
             >
-                <ImageBackground
+            <ImageBackground
                     style={dashboardStyles.buttonImageLeft}
                     // This is a PLACEHOLDER image
-                    source={require("../../../assets/img/cook.jpg")}
+                    source={require("../../../assets/img/cook2.png")}
                 >
-                    <Text style={dashboardStyles.buttonText}>Cook</Text>
+                    <Text style={dashboardStyles.buttonTextLeft}>Cook</Text>
                 </ImageBackground>
+                
             </TouchableHighlight>
         );
     }

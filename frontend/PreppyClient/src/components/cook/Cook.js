@@ -118,20 +118,15 @@ export default class Cook extends Component {
                 upcoming =
                     <Text>
                         You don't have any upcoming meal preps scheduled.
-                        Head to the Recipe Exploreer and find something to cook.
+                        Head to the Recipe Explorer and find something to cook.
                     </Text>
             }
             currentView =
                 <View style={cookStyles.cookMain}>
-
-                    <Text style={cookStyles.cookTitle}>Choose a Recipe to Cook</Text>
-                    <Text style={cookStyles.cookSubtitle}>Your Upcoming Meals</Text>
+                    <Text style={cookStyles.cookSubtitle}>Choose a Recipe to Cook</Text>
                     {upcoming}
                     <Text style={cookStyles.cookSubtitle}></Text>
-                    <Text>{this.state.recipe == null ? "Please select a recipe to cook" : "Selected Recipe:"}</Text>
-                    <View>
-                        <Text>{this.state.recipe == null ? "" : this.state.recipe.name}</Text>
-                    </View>
+         
                     <TouchableOpacity
                         onPress={this.selectRecipe}
                         activeOpacity={this.state.recipe == null ? 1.0 : 0.5}
@@ -203,7 +198,7 @@ export default class Cook extends Component {
                         </View>
                     </TouchableOpacity>
 
-                    <View>
+                    <View style={cookStyles.cookTimer}>
                         <Timer ref={timer => {this.timer = timer}}/>
                     </View>
 
