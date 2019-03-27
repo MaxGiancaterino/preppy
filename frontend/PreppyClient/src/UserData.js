@@ -33,7 +33,6 @@ export default UserData = {
         }
         catch (error) {
             console.log(error.message);
-            alert(error.message);
             return null;
         }
     },
@@ -101,7 +100,10 @@ export default UserData = {
     // Update the current user's schedule
     updateSchedule: (schedule) => {
         if (global.currentUser && schedule) {
-            global.currentUser.schedule =  new Schedule(schedule);
+            global.currentUser.schedule = new Schedule(schedule);
+        }
+        else {
+            console.log("Error");
         }
     },
 

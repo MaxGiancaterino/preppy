@@ -61,12 +61,13 @@ export default class RecipeExplore extends Component {
             if (ingredients.length === 0) {
                 return;
             }
-            else {
+            RecipeService.findRecipesByIngredient(ingredients, 100).then(recipes => {
                 this.setState({
+                    foundIngredientRecipes: recipes,
                     ingredientSearchedBefore: true,
                     searchedIngredients: [],
                 });
-            }
+            });
         }
         if (this.scroll) {
             this.scroll.scrollToIndex({

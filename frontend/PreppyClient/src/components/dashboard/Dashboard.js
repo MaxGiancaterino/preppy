@@ -39,14 +39,14 @@ export default class Dashboard extends Component {
         // If we're using global, we should maybe move this to the splash screen so it doesn't cause any bugs
         // when we navigate from the dashboard to quickly. However, we may want to reconsider using global at
         // all. It might be a better idea to pass them directly or create a custom singleton
-        RecipeService.fetchRecipeQueue(arbitraryRecipes).then(recipes => {
+        /*RecipeService.fetchRecipeQueue(arbitraryRecipes).then(recipes => {
             this.setState({
                 budget: user.remainingBudget,
                 suggestedRecipes: recipes
             });
             global.recipes = recipes;
         });
-        UserData.getUpcomingMeals(5);
+        UserData.getUpcomingMeals(5);*/
     }
 
     render() {
@@ -56,11 +56,11 @@ export default class Dashboard extends Component {
         if (isNaN(budget)) {
             budget = 0;
         }
-        if (this.state.suggestedRecipes) {
+        /*if (this.state.suggestedRecipes) {
             recipeButtons = this.state.suggestedRecipes.map((recipe) =>
                 <RecipeButton navigation={nav} recipe={recipe} key={recipe.id}/>
             );
-        }
+        }*/
 
         return(
             <View style={dashboardStyles.dashboardMain}>
@@ -76,13 +76,6 @@ export default class Dashboard extends Component {
                     <PantryButton navigation={nav}/>
                     <ExploreButton navigation={nav}/>
                     <ScheduleButton navigation={nav}/>
-                    <View style={dashboardStyles.recipeListTitleContainer}>
-                        <Text style={dashboardStyles.recipeListTitle}>
-                            Recipes Recommended For You:
-                        </Text>
-                    </View>
-
-                    {recipeButtons}
                     <View style={{height: 10}}/>
                 </ScrollView>
             </View>

@@ -82,7 +82,7 @@ export default RecipeData = {
      */
     findRecipesByName: async(searchString, limit) => {
         return (
-            fetch('http://preppy-dev.appspot.com/recipe/search', {
+            fetch('http://preppy-dev.appspot.com/recipe/search/name', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -112,6 +112,46 @@ export default RecipeData = {
                     return [];
                 }
             )
+        );
+    },
+
+    /*
+     * Returns a list of recipes that contain the ingredients provided
+     */
+    findRecipesByIngredient: async(ingredients, limit) => {
+        return (
+            fetch('http://preppy-dev.appspot.com/recipe/search/ingredients', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({query: ingredients})
+            }).then(
+                res => {
+                    const contentType = res.headers.get("content-type");
+                    if (contentType && contentType.indexOf("application/json") == -1) {
+                        return [];
+                    }
+                    return res.json().then(recipeJson => {
+                        let recipes = [];
+                        let curSize = 0;
+                        for (let key in recipeJson) {
+                            recipes.push(new Recipe(recipeJson[key]))
+                            curSize++;
+                            if (curSize >= limit) {
+                                break;
+                            }
+                        }
+                        return recipes;
+                    })
+                },
+                res => {
+                    return [];
+                }
+            ).catch((error) => {
+                console.log(error);
+            })
         );
     }
 }

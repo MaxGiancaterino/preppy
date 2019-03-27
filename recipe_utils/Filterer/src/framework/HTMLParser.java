@@ -411,14 +411,26 @@ public class HTMLParser {
 		}
 
 		// create an inverted index JSON
-		JSONObject parentObj = new JSONObject();
+		JSONArray parentArray = new JSONArray();
 		for (Entry<String, HashSet<String>> e : invIndex.entrySet()) {
+			// create this ingredient's object
+			JSONObject ingObject = new JSONObject();
+			
+			// assign its ID field
+			ingObject.put("ID", e.getKey());
+			
+			// put each indexed recipe into the array
 			JSONArray ingArray = new JSONArray();
 			for (String s : e.getValue()) {
 				ingArray.put(s);
 			}
-			parentObj.put(e.getKey(), ingArray);
+			ingObject.put("recipes", ingArray);
+			
+			// put the ingredient object into the parent array
+			parentArray.put(ingObject);
 		}
+		JSONObject parentObj = new JSONObject();
+		parentObj.put("ingredients", parentArray);
 		
 		// write the JSON to file
 		try {

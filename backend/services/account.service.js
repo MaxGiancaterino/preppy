@@ -28,7 +28,7 @@ exports.get = function(uid, next) {
 			.then(function(doc) {
 				next(doc.data());
 			});
-}
+};
 
 
 exports.removeRecipe = function(uid, id, next) {
@@ -41,7 +41,7 @@ exports.removeRecipe = function(uid, id, next) {
 				});
 		next(id);
 	}
-}
+};
 
 exports.addRecipe = function(uid, id, next) {
 	if (id === -1) {
@@ -51,8 +51,7 @@ exports.addRecipe = function(uid, id, next) {
 			.update({
 				cookingQueue: admin.admin.firestore.FieldValue.arrayUnion(id)
 			});
-			next(id);
-}
+};
 
 exports.getCart = function(uid, next) {
   database.doc('/user/' + uid + '/data/cart')
@@ -63,12 +62,12 @@ exports.getCart = function(uid, next) {
           .catch(function(err) {
             next(null, err);
           });
-}
+};
 
 exports.updateCart = function(uid, cart, next) {
   database.doc('/user/' + uid + '/data/cart')
-          .update({cart: cart});
-}
+          .update({cart: cart}).then(next(cart));
+};
 
 exports.getPantry = function(uid, next) {
   database.doc('/user/' + uid + '/data/pantry')
@@ -79,12 +78,12 @@ exports.getPantry = function(uid, next) {
           .catch(function(err) {
             next(null, err);
           });
-}
+};
 
 exports.updatePantry = function(uid, pantry, next) {
   database.doc('/user/' + uid + '/data/pantry')
-          .update({pantry: pantry});
-}
+          .update({pantry: pantry}).then(next(pantry));
+};
 
 exports.getSchedule = function(uid, next) {
 	database.doc('/user/' + uid + '/data/schedule')
@@ -94,10 +93,10 @@ exports.getSchedule = function(uid, next) {
 			})
 			.catch(function(err) {
 				next(null, err);
-			})
-}
+			});
+};
 
 exports.updateSchedule = function(uid, schedule, next) {
-	database.ref('/user/' + uid + '/data/schedule')
-			.update({schedule: schedule});
-}
+	database.doc('/user/' + uid + '/data/schedule')
+			.update({schedule: schedule}).then(next(schedule));
+};

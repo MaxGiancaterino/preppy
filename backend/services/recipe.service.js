@@ -2,37 +2,46 @@ var database = require('../firebase/db');
 var algolia = require('../firebase/algolia');
 
 exports.upload = function(recipeData, micro, next) {
-  var microList = [];
-  recipeData.forEach(function(recipe) {
-    var ingredients = [];
-    recipe.ingredients.forEach(function(ing) {
-      ingredients.push(ing.ingID);
+  if (micro) {
+      recipeData.forEach(function(recipe) {
+          database.doc("recipe/micro/data/" + recipe.ID).set({
+              id: recipe.ID,
+              name: recipe.name,
+              imgURL: recipe.imgURL,
+              contains: recipe.ingredientIDs
+          });
+      });
+  } else {
+      recipeData.forEach(function(recipe) {
+          database.doc('recipe/full/data/' + recipe.id).set({
+              id: recipe.id,
+              name: recipe.name,
+              ingredients: recipe.ingredients,
+              preparation: recipe.preparation,
+              imgURL: recipe.imgURL,
+              pageURL: recipe.pageURL,
+              cookTime: recipe.cookTime,
+              prepTime: recipe.prepTime,
+              numServings: recipe.numServings,
+              nutrition: recipe.nutrition,
+              rating: recipe.rating,
+              source: recipe.source
+          });
+      });
+  }
+  next("success");
+};
+
+
+exports.uploadIngredients = function(list, next) {
+    list.forEach(function(ing) {
+       database.doc("recipe/ingredients/data/" + ing.ID).set({
+          id: ing.ID,
+          recipes: ing.recipes
+       });
     });
-    var micro = {
-      id: recipe.id,
-      name: recipe.name,
-      imgURL: recipe.imgURL
-    };
-    microList.push(micro);
-    database.doc("recipe/micro/data/" + recipe.id).set(micro);
-    database.doc("recipe/full/data/"+ recipe.id).set({
-      id: recipe.id,
-      name: recipe.name,
-      ingredients: recipe.ingredients,
-      preparation: recipe.preparation,
-      imgURL: recipe.imgURL,
-      pageURL: recipe.pageURL,
-      cookTime: recipe.cookTime,
-      prepTime: recipe.prepTime,
-      numServings: recipe.numServings,
-      nutrition: recipe.nutrition,
-      rating: recipe.rating,
-      source: recipe.source
-    });
-});
-  
-	next("success");
-}
+    next("success");
+};
 
 exports.get = function(id, micro, next) {
   if (micro) {
@@ -51,7 +60,7 @@ exports.get = function(id, micro, next) {
 }
 
 async function asyncForEach(array, micro, callback) {
-  var list = []
+  var list = [];
   for (let index = 0; index < array.length; index++) {
     if (micro) {
       await database.doc('recipe/micro/data/' + array[index])
@@ -74,7 +83,7 @@ exports.list = function(queue, micro, next) {
 	asyncForEach(queue, micro, next);
 }
 
-exports.search = function(query, next) {
+exports.searchByName = function(query, next) {
   algolia.search({
     query
   })
@@ -82,13 +91,51 @@ exports.search = function(query, next) {
     var results = [];
     response.hits.forEach(function(hit) {
       results.push({
-        id: hit.id,
+        id: hit.ID,
         name: hit.name,
-        imgURL: hit.imgURL
+        imgURL: hit.imgURL,
+        ingredients: hit.ingredientIDs
       });
     });
     next(results);
   });
+};
+
+function intersect(a, b) {
+    var t;
+    if (b.length > a.length) {
+        t = b;
+        b = a;
+        a = t;
+    }
+    return a.filter(Set.prototype.has, new Set(b));
+}
+
+exports.searchByIngredients = function(list, next) {
+    asyncIngredients(list, function(ingredients) {
+        var first = ingredients[0].recipes;
+        for (let index = 1; index < ingredients.length; index++) {
+            first = intersect(first, ingredients[index].recipes);
+        }
+        var results = [];
+        for (let i = 0; i < first.length; i++) {
+            if (i > 30) break;
+            results.push(first[i]);
+        }
+        asyncForEach(results, true, next);
+    });
+};
+
+async function asyncIngredients(array, callback) {
+    var list = [];
+    for (let index = 0; index < array.length; index++) {
+            await database.doc('recipe/ingredients/data/' + array[index])
+                .get()
+                .then(function(res) {
+                    list.push(res.data());
+                });
+    }
+    callback(list);
 }
 
 exports.all = function(next) {
@@ -96,9 +143,7 @@ exports.all = function(next) {
           .get()
           .then(function(coll) {
             var data = [];
-            coll.forEach(doc => {
-              data.push(doc.data());
-            });
+            coll.forEach((doc) => data.push(doc.data()));
             next(data);
           });
-}
+};

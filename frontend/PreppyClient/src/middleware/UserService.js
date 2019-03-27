@@ -131,12 +131,12 @@ export default UserService = {
                     'Content-Type': 'application/json'
                 },
             }).then((res) => {
-                if (res.body) {
+                if (res && res.ok) {
                     return res.json()
                 }
                 return {};
             }).catch((error) => {
-                console.error(error);
+                console.log(error);
             })
         );
     },
@@ -146,7 +146,6 @@ export default UserService = {
      * of the schedule.
      */
     attemptUpdateSchedule: async(uid, s) => {
-        console.log(s);
         return (
             fetch('http://preppy-dev.appspot.com/account/' + uid + '/schedule', {
                 method: 'POST',
