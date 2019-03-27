@@ -2,15 +2,20 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
+const PreppyGreen =  "#33CF23";
+const PreppyPurple = "#7625A9";
 const PreppyRed =    "#F92A34";
-const PureWhite =    "#FFFFFF";
+const PreppyLight =  "#FFEED1";
 const PreppyGray =   "#8D8D8D";
-const DarkOrange = "#FF715B";
+const PreppyLBlue1 = "#AAAAFF";
+const PureWhite = "#FFFFFF";
+const DarkOrange = "#F95D45";
+const LightBlue = "#d3ebef";
 
 export const loginStyles = StyleSheet.create({
     
     loginMain: {
-        backgroundColor: PreppyOrange,
+        backgroundColor: PureWhite,
         height: Dimensions.get('window').height,
         borderTopWidth: 3,
         flex: 1,
@@ -30,18 +35,17 @@ export const loginStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 48,
         fontWeight: "bold",
-        color: PureWhite
+        color: PreppyOrange
     },
     input: {
         fontFamily: "Raleway",
         margin: 10,
         fontSize: 18,
-        color: "#FFFFFF"
     }, 
     inputBox: {
         width: "60%",
         margin: 5,
-        borderColor: DarkOrange,
+        borderColor: PreppyOrange,
         borderRadius: 10, 
         borderWidth: 1
     },

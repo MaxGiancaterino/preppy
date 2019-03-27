@@ -94,7 +94,7 @@ export default class Login extends Component {
                             autoCapitalize='none'
 		    				onChangeText={(email) => this.setState({email: email})}
 		    				placeholder='Email'
-                            placeholderTextColor="#FFFFFF"
+                            placeholderTextColor="#FDB52B"
 		    			/>
     				</View>
     				<View style={loginStyles.inputBox}>
@@ -103,14 +103,14 @@ export default class Login extends Component {
                             secureTextEntry={true}
 		    				onChangeText={(password) => this.setState({password: password})}
 		    				placeholder='Password'
-                            placeholderTextColor="#FFFFFF"
+                            placeholderTextColor="#FDB52B"
 		    			/>
     				</View>
     				<View style={loginStyles.forgotPasswordButton}>
 	    				<Button
 	    					title=""//"Forgot your password?"
 	    			 		onPress={this.forgot_password}
-	    			 		color = "#FF715B"
+	    			 		color = "#FDB52B"
 	    				/>
 	    			</View>
                     {!this.state.loading ? 
@@ -128,7 +128,7 @@ export default class Login extends Component {
 	    				<Button
 	    					onPress={() => {this.create_account()}}
 	    			 		title="Create account"
-                            color = "#FF715B"
+                            color = "#F95D45"
 	    				/>
 	    			</View>
 

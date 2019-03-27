@@ -2,7 +2,15 @@ import React, {Component} from 'react';
 import {StyleSheet, Dimensions} from 'react-native';
 
 const PreppyOrange = "#FDB52B";
-const PreppyLight = "#FFEED1";
+const PreppyGreen =  "#33CF23";
+const PreppyPurple = "#7625A9";
+const PreppyRed =    "#F92A34";
+const PreppyLight =  "#FFEED1";
+const PreppyGray =   "#8D8D8D";
+const PreppyLBlue1 = "#AAAAFF";
+const PureWhite = "#FFFFFF";
+const DarkOrange = "#F95D45";
+const LightBlue = "#d3ebef";
 
 export const recipePageStyles = StyleSheet.create({
     
@@ -14,7 +22,12 @@ export const recipePageStyles = StyleSheet.create({
     recipeScroll: {
         flex: 1,
         backgroundColor: "#FFFFFF",
-        borderBottomColor: PreppyOrange
+        borderBottomColor: PureWhite,
+    },
+    whiteBg: {
+        flex: 1,
+        paddingHorizontal: 10,
+        backgroundColor: PureWhite,
     },
     orangeBg: {
         flex: 1,
@@ -23,9 +36,9 @@ export const recipePageStyles = StyleSheet.create({
     },
     recipeTitle: {
         fontFamily: "Raleway",
-        fontSize: 36,
+        fontSize: 24,
         fontWeight: "bold",
-        color: "#000000",
+        color: DarkOrange,
         textAlign: "center",
         paddingVertical: 5,
         paddingHorizontal: 10,
@@ -33,20 +46,23 @@ export const recipePageStyles = StyleSheet.create({
         marginHorizontal: -10
     },
     recipeImage: {
-        width: "100%",
+        width: "90%",
         height: 250,
+        borderRadius: 10,
     },
     imageContainer: {
-        borderTopWidth: 10,
-        borderBottomWidth: 10,
-        borderColor: "#000000",
+        // borderTopWidth: 10,
+        // borderBottomWidth: 10,
+        // borderColor: LightBlue,
+        flexDirection: "column",
+        alignItems: "center",
         marginBottom: 5,
     },
     sectionTitle: {
         fontFamily: "Raleway",
-        fontSize: 28,
+        color: DarkOrange,
+        fontSize: 20,
         fontWeight: "bold",
-        color: "#FFFFFF",
         textAlign: "center",
         paddingTop: 10,
         paddingBottom: 5,
@@ -61,7 +77,7 @@ export const recipePageStyles = StyleSheet.create({
     recipeItemText: {
         fontFamily: "Raleway",
         fontSize: 20,
-        fontWeight: "bold",
-        color: "#000000"
+        // fontWeight: "bold",
+        color: DarkOrange,
     }
 });

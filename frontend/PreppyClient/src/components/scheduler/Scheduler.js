@@ -134,50 +134,76 @@ export default class Scheduler extends Component {
             /> : []
             
         let scheduleCook = 
-            <View>
-                <Text style={buttonStyles.buttonTextNormal}>Scheduling {this.state.recipe.name}</Text>
-                <Text>
+            <View style={schedulerStyles.mealScheduler}>
+                <Text style={schedulerStyles.recipeName}> {this.state.recipe.name}</Text>
+                <Text style={buttonStyles.normalText}>
                     When will you cook?
                 </Text>
+
                 {datePickerCook}
-                <Text>Number of Servings: {this.state.numServings}</Text>
+
+                <Text style={buttonStyles.normalText}>
+                    Number of Servings: {this.state.numServings}
+                </Text>
+
                 <Slider
                     minimumValue={1}
                     maximumValue={9}
                     step={1}
                     onValueChange={(value) => {this.setState({numServings: value})}}
                 />
-                <TouchableOpacity onPress={this.progressPhase}>
-                    <Text>Next</Text>
+
+                <TouchableOpacity 
+                    onPress={this.progressPhase}
+                >
+                    <Text style={schedulerStyles.recipeName}>Next</Text>
                 </TouchableOpacity>
             </View>
 
         let scheduleMeal = 
             <View style={schedulerStyles.mealScheduler}>
-                <Text>When will you eat?</Text>
+                <Text style={buttonStyles.normalText}>When will you eat?</Text>
+
                 {datePickerMeal}
-                <Text>Remaining Servings: {this.state.remainingServings}</Text>
-                <Text>Selected Servings: {this.state.selectedServings}</Text>
+
+                <Text style={buttonStyles.normalText}>Remaining Servings: {this.state.remainingServings}</Text>
+
+                <Text style={buttonStyles.normalText}>Selected Servings: {this.state.selectedServings}</Text>
+
                 <Slider
                     minimumValue={0}
                     maximumValue={this.state.remainingServings}
                     step={1}
                     onValueChange={(value) => {this.setState({selectedServings: value})}}
                 />
-                <Text>Select Meal Type</Text>
-                <SegmentedControlIOS
-                    values={['Breakfast', 'Lunch', "Dinner", "Dessert", "Snack", "Other"]}
-                    selectedIndex={this.state.selectedType}
-                    onChange={(event) => {
-                        this.setState({selectedType: event.nativeEvent.selectedSegmentIndex});
-                    }}
-                />
-                <TouchableOpacity disabled={this.state.remainingServings === 0} onPress={this.progressPhase}>
-                    <Text>Schedule More Meals</Text>
+
+                <Text style={buttonStyles.normalText}>Select Meal Type</Text>
+
+                <View style={schedulerStyles.valueBar}>
+                    <SegmentedControlIOS
+                        values={['Breakfast', 'Lunch', "Dinner", "Dessert", "Snack", "Other"]}
+                        selectedIndex={this.state.selectedType}
+                        onChange={(event) => {
+                            this.setState({selectedType: event.nativeEvent.selectedSegmentIndex});
+                        }}
+                    />
+                </View>
+
+                <TouchableOpacity 
+                    disabled={this.state.remainingServings === 0} 
+                    onPress={this.progressPhase}
+                    style={buttonStyles.buttonOrange}
+                >
+                    <Text style={buttonStyles.buttonTextNormal}>Schedule More Meals</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.finishScheduling}>
-                    <Text>Finish</Text>
+
+                <TouchableOpacity 
+                    onPress={this.finishScheduling}
+                    style={buttonStyles.buttonRed}
+                >
+                    <Text style={buttonStyles.buttonTextNormal}>Finish</Text>
                 </TouchableOpacity>
+
             </View>
 
         let display = this.state.phase === 0 ? scheduleCook : scheduleMeal;

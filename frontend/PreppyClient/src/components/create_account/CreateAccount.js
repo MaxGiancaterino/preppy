@@ -84,6 +84,7 @@ export default class CreateAccount extends Component {
                             autoCapitalize='none'
                             onChangeText={(username) => this.setState({email: username})}
                             placeholder='Email'
+                            placeholderTextColor="#FDB52B"
                         />
                     </View>
 
@@ -93,6 +94,7 @@ export default class CreateAccount extends Component {
                             secureTextEntry={true}
                             onChangeText={(password) => this.setState({password: password})}
                             placeholder='Password'
+                            placeholderTextColor="#FDB52B"
                         />
                     </View>
 
@@ -102,6 +104,7 @@ export default class CreateAccount extends Component {
                             secureTextEntry={true}
                             onChangeText={(password) => this.setState({confirmPassword: password})}
                             placeholder='Confirm Password'
+                            placeholderTextColor="#FDB52B"
                         />
                     </View>
 
@@ -110,6 +113,7 @@ export default class CreateAccount extends Component {
                             autoCapitalize='none'
                             onChangeText={(username) => this.setState({phoneNumber: username})}
                             placeholder='Phone number'
+                            placeholderTextColor="#FDB52B"
                         />
                     </View>
 
@@ -118,6 +122,7 @@ export default class CreateAccount extends Component {
                             autoCapitalize='none'
                             onChangeText={(username) => this.setState({displayName: username})}
                             placeholder='Full name'
+                            placeholderTextColor="#FDB52B"
                         />
                     </View>
 
@@ -133,7 +138,7 @@ export default class CreateAccount extends Component {
                         <Button
                             onPress={() => {this.navigateToLogin()}}
                             title="Back to Login"
-                            color="lightgray"
+                            color="#F95D45"
                         />
                     </View>
 
