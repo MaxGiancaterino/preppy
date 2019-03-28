@@ -66,7 +66,7 @@ export const loginStyles = StyleSheet.create({
     },
     emptyBox: {
         height: 45,
-        marginBottom: 10,
+        marginVertical: 10,
     },
     errorBox: {
         backgroundColor: PreppyRed,
@@ -74,7 +74,7 @@ export const loginStyles = StyleSheet.create({
         borderRadius: 5,
         padding: 10,
         marginHorizontal: 30,
-        marginBottom: 10,
+        marginVertical: 10,
         minHeight: 45
     },
     errorText: {

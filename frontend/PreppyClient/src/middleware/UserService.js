@@ -35,7 +35,7 @@ export default UserService = {
                 }
                 return res.json();
             }).then(res => {
-                if (res.ok === false || !res.user || !res.user.uid) {
+                if(!res.user || !res.user.uid) {
                     throw new Error("Incorrect email or password");
                 }
                 const uid = res.user.uid;

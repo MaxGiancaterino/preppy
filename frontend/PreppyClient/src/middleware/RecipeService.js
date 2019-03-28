@@ -133,23 +133,23 @@ export default RecipeData = {
                     if (contentType && contentType.indexOf("application/json") == -1) {
                         return [];
                     }
-                    return res.json().then(recipeJson => {
-                        let recipes = [];
-                        let curSize = 0;
-                        for (let key in recipeJson) {
-                            recipes.push(new Recipe(recipeJson[key]))
-                            curSize++;
-                            if (curSize >= limit) {
-                                break;
-                            }
-                        }
-                        return recipes;
-                    })
+                    return res.json()
                 },
                 res => {
                     return [];
                 }
-            ).catch((error) => {
+            ).then(recipeJson => {
+                let recipes = [];
+                let curSize = 0;
+                for (let recipe of recipeJson) {
+                    recipes.push(new Recipe(recipe))
+                    curSize++;
+                    if (curSize >= limit) {
+                        break;
+                    }
+                }
+                return recipes;
+            }).catch((error) => {
                 console.log(error);
             })
         );

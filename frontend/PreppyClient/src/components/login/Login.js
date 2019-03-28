@@ -44,15 +44,22 @@ export default class Login extends Component {
 		}).then(() => {
             this.setState({loading: false});
             this.props.navigation.navigate("Dashboard");
+            return true;
         }).catch((error) => {
             this.setState({loading: false});
             this.setState({message: error.message});
-        }).then(async () => {
-            let uid = UserData.getUser().userId;
-            let promise = UserService.attemptFetchSchedule(uid);
-            return promise;
+            return false;
+        }).then(async (success) => {
+            if (success) {
+                let uid = UserData.getUser().userId;
+                let promise = UserService.attemptFetchSchedule(uid);
+                return promise;
+            }
+            return false;
         }).then((res) => {
-            UserData.updateSchedule(res.schedule);
+            if (res !== false) {
+                UserData.updateSchedule(res.schedule);
+            }
         }).catch((error) => {
             console.log(error);
             alert("Error Retrieving Schedule. Attempting to alter your schedule now\

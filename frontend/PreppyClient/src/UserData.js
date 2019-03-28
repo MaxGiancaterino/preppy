@@ -103,7 +103,7 @@ export default UserData = {
             global.currentUser.schedule = new Schedule(schedule);
         }
         else {
-            console.log("Error");
+            console.log("Error updating schedule");
         }
     },
 

@@ -33,7 +33,7 @@ export const scheduleStyles = StyleSheet.create({
         backgroundColor: PreppyLBlue1
     },
     emptySchedule: {
-        color: PureWhite,
+        color: PreppyOrange,
         fontFamily: "raleway",
         fontSize: 20,
         fontWeight: "bold",

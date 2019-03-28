@@ -72,7 +72,7 @@ export default class RecipePage extends Component {
 
         var iKey = 0;
         const ingredients = recipe.ingredients.map(ingredient =>
-            <RecipeItem itemText={ingredient.ingredient} key={iKey++}/>
+            <RecipeItem itemText={ingredient} key={iKey++}/>
         );
         var sKey = 0;
         const steps = this.state.recipe.preparation.map(step => 

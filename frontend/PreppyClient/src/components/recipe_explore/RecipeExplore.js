@@ -61,7 +61,7 @@ export default class RecipeExplore extends Component {
             if (ingredients.length === 0) {
                 return;
             }
-            RecipeService.findRecipesByIngredient(ingredients, 100).then(recipes => {
+            RecipeService.findRecipesByIngredient(ingredients, 30).then(recipes => {
                 this.setState({
                     foundIngredientRecipes: recipes,
                     ingredientSearchedBefore: true,
@@ -117,15 +117,6 @@ export default class RecipeExplore extends Component {
             (this.state.nameSearchedBefore && searchByName && this.state.foundNameRecipes.length === 0) ||
             (this.state.ingredientSearchedBefore && !searchByName && this.state.foundIngredientRecipes.length === 0);
 
-        /*const recipes = this.state.foundNameRecipes.length > 0 && searchByName ?
-            this.state.foundNameRecipes.map((recipe) =>
-                <RecipeButton navigation={nav} recipe={recipe} key={recipe.id}/>
-            )
-            :
-            <Text style={exploreStyles.noRecipeMessage}>
-                {noRecipes ? "No matching recipes found" : ""}
-            </Text>
-        */
         const recipes =
             (!this.state.nameSearchedBefore && searchByName) || (!this.state.ingredientSearchedBefore && !searchByName) ?
                 []
@@ -138,7 +129,7 @@ export default class RecipeExplore extends Component {
                     showsVerticalScrollIndicator="false"
                     style={exploreStyles.exploreScroll}
                     contentContainerStyle={{paddingBottom: 100}}
-                    data={this.state.foundNameRecipes}
+                    data={searchByName ? this.state.foundNameRecipes : this.state.foundIngredientRecipes}
                     ref={(c) => {this.scroll = c}}
                     renderItem={
                         (entry) => {

@@ -102,10 +102,10 @@ export default class Scheduler extends Component {
         this.props.navigation.goBack();
         
         UserService.attemptUpdateSchedule(user.userId, user.schedule).then((res) => {
+            console.log(res);
             if (!res.ok) {
                 throw new Error(res.status + ": " + res.statusText);
             }
-            console.log(UserData.user.userId);
             UserData.updateUser();
         }).then(() => {
             alert("Successfully Scheduled")

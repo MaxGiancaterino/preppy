@@ -17,7 +17,6 @@ export default class Recipe {
         if (arguments.length > 0) {
             this.id = recipeJson.id;
             this.name= recipeJson.name;
-            this.ingredients = recipeJson.ingredients;
             this.preparation = recipeJson.preparation;
             this.imgURL = recipeJson.imgURL;
             this.pageURL = recipeJson.pageURL;
@@ -27,6 +26,18 @@ export default class Recipe {
             this.nutrition = recipeJson.nutrition;
             this.rating = recipeJson.rating;
             this.source = recipeJson.source;
+
+            if (recipeJson.ingredients) {
+                this.ingredients = recipeJson.ingredients.map((ingredient => {
+                    return ingredient.raw ? ingredient.raw : ingredient;
+                }))
+            }
+            else if (recipeJson.contains) {
+                this.ingredients = recipeJson.contains;
+            }
+            else {
+                this.ingredients = [];
+            }
         }
     }
 

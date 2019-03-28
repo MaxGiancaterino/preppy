@@ -67,7 +67,7 @@ const RootStack = createStackNavigator(
         navigationOptions: ({navigation}) => ({
             headerStyle: headerStyles.headerMain,
             headerTitleStyle: headerStyles.headerTitle,
-            headerTintColor: "#FFFFFF",
+            headerTintColor: "blue",
 
             headerRight: <HeaderButton type="profile" navigation={navigation}/>
         })
