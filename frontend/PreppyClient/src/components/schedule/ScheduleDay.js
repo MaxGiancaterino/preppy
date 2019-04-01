@@ -59,10 +59,12 @@ export default class ScheduleDay extends Component {
         let items = this.props.items.map((item) => {
 
             if (item && item.itemType == ITEM_TYPE.COOK) {
+                let plural = item.servings === 1 ? "" : "s"
                 return (
                     <View style={scheduleStyles.scheduleItem} key={key++}>
                         <Text style={scheduleStyles.itemTime}>{getTimeString(item.time)}</Text>
                         <Text style={scheduleStyles.itemText}>{"Prepare " + item.recipe.name}</Text>
+                        <Text style={scheduleStyles.itemText}>{"(" + item.servings + " Serving" + plural + ")"}</Text>
                         <RecipeButton
                             recipe={item.recipe}
                             buttonType={2}

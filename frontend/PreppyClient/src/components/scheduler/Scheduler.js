@@ -87,7 +87,7 @@ export default class Scheduler extends Component {
                 ITEM_TYPE.MEAL,
                 meals[this.state.mealTypes[i]],
                 mealDate,
-                this.state.recipe
+                this.state.recipe,
             );
             Schedule.scheduleMeal(user.schedule, item);
         }
@@ -96,7 +96,8 @@ export default class Scheduler extends Component {
             ITEM_TYPE.COOK,
             MEAL_TYPE.NA,
             this.state.cookDate,
-            this.state.recipe
+            this.state.recipe,
+            this.state.numServings
         ));
 
         this.props.navigation.goBack();

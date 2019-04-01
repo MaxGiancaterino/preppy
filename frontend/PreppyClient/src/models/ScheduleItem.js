@@ -20,9 +20,10 @@ export const MEAL_TYPE = {
 export default class ScheduleItem {
     
     // Recipe should maybe be made into a recipe id instead
-    constructor(itemType, meal, time, recipe) {
+    constructor(itemType, meal, time, recipe, servings=1) {
         this.itemType = itemType;
         this.meal = meal;
+        this.servings = servings;
         if (time instanceof Date) {
             this.time = time;
         }
