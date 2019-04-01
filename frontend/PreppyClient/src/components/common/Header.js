@@ -44,7 +44,6 @@ export class HeaderButton extends Component {
             buttonPress = this.navigateToLogin;
         }
         else if (this.props.type === "back") {
-            console.log(this.props.navigation.state);
             text = <Text style={headerStyles.back}>{"< Back"}</Text>
             buttonPress = this.navigateBack;
         }

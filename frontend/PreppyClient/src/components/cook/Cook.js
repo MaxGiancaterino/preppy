@@ -116,7 +116,7 @@ export default class Cook extends Component {
 
             if (upcoming.length === 0) {
                 upcoming =
-                    <Text>
+                    <Text style={cookStyles.noUpcomingMealsMessage}>
                         You don't have any upcoming meal preps scheduled.
                         Head to the Recipe Explorer and find something to cook.
                     </Text>

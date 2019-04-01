@@ -22,8 +22,6 @@ export const cookStyles = StyleSheet.create({
         minHeight: Dimensions.get('window').height,
         flexDirection: "column",
         justifyContent: "flex-start",
-        //alignItems: "center",
-        //alignItems: "center",
         padding: 10,
     },
     cookTitle: {
@@ -113,6 +111,12 @@ export const cookStyles = StyleSheet.create({
         fontSize: 20,
         textAlign: "center",
         color: PreppyOrange
+    },
+    noUpcomingMealsMessage: {
+        fontFamily: "Raleway",
+        fontSize: 16,
+        textAlign: "center",
+        color: PreppyGray
     },
 
     /* ---------------------------------- *

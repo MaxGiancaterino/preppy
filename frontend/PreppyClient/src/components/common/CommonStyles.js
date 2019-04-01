@@ -136,6 +136,18 @@ export const buttonStyles = StyleSheet.create({
         alignItems: "center",
         marginVertical: 5,
     },
+
+    buttonGray: {
+        backgroundColor: PreppyGray,
+        padding: 10,
+        borderRadius: 10,
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginVertical: 5,
+    },
+
     buttonRed: {
         backgroundColor: DarkOrange,
         padding: 10,

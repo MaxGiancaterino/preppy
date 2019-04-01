@@ -63,7 +63,7 @@ export default class Scheduler extends Component {
         }
         let remaining = this.state.numServings;
         for (servings of this.state.mealServings) {
-            remaining -= servings;
+            remaining -= 1;
         }
         this.setState({phase: currentPhase + 1, remainingServings: remaining});
     }
@@ -160,6 +160,7 @@ export default class Scheduler extends Component {
                 </TouchableOpacity>
             </View>
 
+        let outOfServings = this.state.remainingServings <= 0;
         let scheduleMeal = 
             <View style={schedulerStyles.mealScheduler}>
                 <Text style={buttonStyles.normalText}>When will you eat?</Text>
@@ -167,15 +168,6 @@ export default class Scheduler extends Component {
                 {datePickerMeal}
 
                 <Text style={buttonStyles.normalText}>Remaining Servings: {this.state.remainingServings}</Text>
-
-                <Text style={buttonStyles.normalText}>Selected Servings: {this.state.selectedServings}</Text>
-
-                <Slider
-                    minimumValue={0}
-                    maximumValue={this.state.remainingServings}
-                    step={1}
-                    onValueChange={(value) => {this.setState({selectedServings: value})}}
-                />
 
                 <Text style={buttonStyles.normalText}>Select Meal Type</Text>
 
@@ -190,9 +182,9 @@ export default class Scheduler extends Component {
                 </View>
 
                 <TouchableOpacity 
-                    disabled={this.state.remainingServings === 0} 
+                    disabled={outOfServings} 
                     onPress={this.progressPhase}
-                    style={buttonStyles.buttonOrange}
+                    style={outOfServings ? buttonStyles.buttonGray : buttonStyles.buttonOrange}
                 >
                     <Text style={buttonStyles.buttonTextNormal}>Schedule More Meals</Text>
                 </TouchableOpacity>
