@@ -76,12 +76,18 @@ export default class SchedulePage extends Component {
         let key = 0;
 
         // Move all the dates to a numerical array so they can be properly sorted
+        let currentDay = new Date();
+        currentDay.setHours(0, 0, 0, 0);
         let dates = [];
         for (let d in this.state.schedule.items) {
+            let scheduleDate = new Date(d);
+            if (scheduleDate < currentDay) {
+                continue;
+            }
             if (!this.state.schedule.items.hasOwnProperty(d)) {
                 continue;
             }
-            dates.push(new Date(d));
+            dates.push(scheduleDate);
         }
         dates.sort(function(a, b) {
             return a - b;
