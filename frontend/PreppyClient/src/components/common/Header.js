@@ -31,39 +31,27 @@ export class HeaderButton extends Component {
         });
     }
 
-    /*render() {
-        let nav = this.props.navigation;
-        const isActive = this.state.active;
-        const uriObject = {uri: this.state.profileUri}
+    navigateBack = () => {
+        this.props.navigation.goBack();
+    }
 
-        if (this.state.loggedIn) {
-            return(
-                <View style={headerStyles.headerButtonContainer}>
-                    {isActive ? <SidebarPopout onClose={this.deactivateMenu} navigation={nav}/> : null}
-                    <TouchableOpacity
-                        underlayColor="#FFFFFF"
-                        onPress = {() => {this.setState({active: true})}}
-                    >
-                        <Image 
-                            source={
-                                this.state.profileUri ?
-                                uriObject : 
-                                require("../../../assets/img/profileTemp.png")
-                            }
-                            style={headerStyles.headerButton}
-                        />
-                    </TouchableOpacity>
-                </View>
-            );
-        }
-        else {
-            return(<View></View>);
-        }
-    }*/
     render() {
+        let text = [];
+        let buttonPress = () => {}; 
+
+        if (this.props.type === 'logout') {
+            text = <Text style={headerStyles.logout}>Logout</Text>
+            buttonPress = this.navigateToLogin;
+        }
+        else if (this.props.type === "back") {
+            console.log(this.props.navigation.state);
+            text = <Text style={headerStyles.back}>{"< Back"}</Text>
+            buttonPress = this.navigateBack;
+        }
+
         return (
-            <TouchableOpacity onPress={this.navigateToLogin}>
-                <Text style={headerStyles.logout}>Logout</Text>
+            <TouchableOpacity onPress={buttonPress}>
+                {text}
             </TouchableOpacity>
         );
     }

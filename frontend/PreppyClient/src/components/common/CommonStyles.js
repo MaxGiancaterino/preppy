@@ -23,14 +23,10 @@ export const headerStyles = StyleSheet.create({
         // backgroundColor: PreppyOrange,
         backgroundColor: "#FFFFFF",
         height: 60,
-        // borderBottomWidth: 3,
-        // borderBottomColor: "#000000",
     },
     headerButton: {
         height: 50,
         width: 50,
-        // borderRadius: 25,
-        // marginHorizontal: 10
     },
     headerTitle: {
         fontWeight: "bold",
@@ -42,6 +38,12 @@ export const headerStyles = StyleSheet.create({
         fontFamily: "Raleway",
         fontSize: 16,
         marginRight: 10,
+        color: PreppyGray
+    },
+    back: {
+        fontFamily: "Raleway",
+        fontSize: 16,
+        marginLeft: 10,
         color: PreppyGray
     }
 });
