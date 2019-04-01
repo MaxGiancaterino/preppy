@@ -1,262 +1,365 @@
-2580 : white sugar
-2392 : egg
-2281 : all-purpose flour
-2018 : salt
-1776 : butter
-1558 : vanilla extract
-1013 : baking powder
-1009 : baking soda
-968 : milk
-899 : water
-759 : brown sugar
-718 : cinnamon
-535 : walnuts
-507 : confectioners' sugar
-499 : shortening
-486 : vegetable oil
-310 : semisweet chocolate chips
-306 : unsweetened cocoa powder
-256 : active dry yeast
-245 : margarine
-240 : nutmeg
-240 : raisins
-225 : cream cheese
-221 : pecans
-192 : lemon juice
-187 : rolled oats
-181 : sour cream
-174 : buttermilk
-154 : flaked coconut
-145 : cloves
-134 : peanut butter
-128 : onion
-124 : black pepper
-118 : orange juice
-114 : cream of tartar
-113 : almond extract
-110 : banana
-110 : honey
-108 : cornstarch
-108 : bread flour
-101 : lemon zest
-100 : ginger
-100 : evaporated milk
-95 : orange zest
-95 : yellow cake mix
-89 : heavy cream
-89 : unsalted butter
-87 : whole wheat flour
-87 : apple
-84 : cake flour
-78 : garlic
-75 : sweetened condensed milk
-74 : quick cooking oats
-72 : molasses
-70 : pumpkin puree
-70 : allspice
-69 : dates
-69 : heavy whipping cream
-68 : olive oil
-68 : blueberries
-65 : crushed pineapple
-64 : zucchini
-63 : graham cracker crumbs
-63 : self-rising flour
-60 : light corn syrup
-59 : mayonnaise
-58 : distilled white vinegar
-55 : lemon extract
-54 : applesauce
-54 : almonds
-53 : carrots
-52 : frozen whipped topping
-51 : cheddar cheese
-49 : light brown sugar
-48 : garlic powder
-45 : dried oregano
-43 : cornmeal
-43 : strawberries
-42 : parmesan cheese
-41 : instant vanilla pudding mix
-41 : confectioners' sugar for dusting
-40 : crushed pineapple with juice
-36 : coconut
-36 : paprika
-35 : lemon
-33 : worcestershire sauce
-33 : poppy seeds
-32 : cayenne pepper
-31 : cranberries
-30 : soy sauce
-28 : rhubarb
-28 : cherry pie filling
-27 : sugar
-27 : parsley
-25 : orange
-25 : dark brown sugar
-25 : creamy peanut butter
-24 : ketchup
-24 : dried basil
-24 : beef
-23 : maraschino cherries
-23 : dry mustard
-22 : corn syrup
-22 : sesame seeds
-22 : tomato sauce
-22 : plain yogurt
-21 : butter or margarine
-21 : pecan halves
-20 : onion powder
-20 : chili powder
-20 : cardamom
-20 : vinegar
-20 : miniature marshmallows
-20 : cider vinegar
-19 : tomato paste
-19 : lean beef
-19 : potatoes
-19 : rum
-19 : spaghetti
-19 : uncooked white rice
-18 : whole milk
-18 : pumpkin pie spice
-17 : semi-sweet chocolate chips
-17 : mushrooms
-17 : half-and-half cream
-17 : brandy
-16 : carrot
-15 : peanuts
-15 : cumin
-15 : dried parsley
-15 : mozzarella cheese
-15 : cottage cheese
-15 : ice
-15 : maple syrup
-15 : celery
-14 : dried thyme
-14 : bacon
-14 : frozen spinach
-14 : crushed red pepper flakes
-14 : unflavored gelatin
-14 : ricotta cheese
-14 : white wine
-14 : chicken broth
-13 : oil
-13 : dry bread crumbs
-13 : white cake mix
-13 : frozen orange juice concentrate
-13 : canola oil
-13 : garlic salt
-13 : red wine vinegar
-12 : white wine vinegar
-12 : sharp cheddar cheese
-12 : prepared mustard
-12 : tomatoes
-12 : white vinegar
-12 : instant chocolate pudding mix
-12 : golden raisins
-11 : kosher salt
-11 : green bell pepper
-11 : white pepper
-11 : vanilla
-11 : condensed tomato soup
-11 : dried dill weed
-11 : raspberries
-10 : black olives
-10 : bread crumbs
-10 : beer
-9 : potato
-9 : half-and-half
-9 : seasoning salt
-9 : green onions
-9 : italian seasoning
-9 : ham
-8 : vodka
-8 : dried onion
-8 : garlic crushed
-8 : dried rosemary
+3232 : white sugar
+2993 : egg
+2843 : all-purpose flour
+2621 : salt
+2311 : butter
+1910 : vanilla extract
+1277 : baking powder
+1259 : baking soda
+1233 : milk
+1150 : water
+973 : brown sugar
+952 : cinnamon
+665 : walnuts
+609 : confectioners' sugar
+606 : vegetable oil
+576 : shortening
+381 : semisweet chocolate chips
+365 : unsweetened cocoa powder
+334 : nutmeg
+307 : active dry yeast
+305 : cream cheese
+304 : pecans
+303 : margarine
+289 : raisins
+286 : lemon juice
+239 : sour cream
+228 : onion
+228 : rolled oats
+220 : buttermilk
+210 : black pepper
+197 : cloves
+181 : flaked coconut
+163 : peanut butter
+160 : honey
+158 : orange juice
+145 : garlic
+145 : evaporated milk
+142 : cornstarch
+139 : heavy cream
+135 : ginger
+135 : bread flour
+133 : banana
+129 : almond extract
+128 : cream of tartar
+125 : unsalted butter
+124 : lemon zest
+123 : apple
+118 : whole wheat flour
+117 : orange zest
+116 : yellow cake mix
+116 : olive oil
+103 : quick cooking oats
+101 : mayonnaise
+98 : sweetened condensed milk
+96 : cake flour
+91 : allspice
+86 : molasses
+85 : blueberries
+84 : heavy whipping cream
+84 : crushed pineapple
+82 : pumpkin puree
+80 : graham cracker crumbs
+80 : dates
+80 : zucchini
+79 : garlic powder
+78 : cheddar cheese
+77 : sugar
+76 : distilled white vinegar
+76 : frozen whipped topping
+75 : almonds
+75 : light brown sugar
+75 : self-rising flour
+75 : light corn syrup
+74 : parmesan cheese
+65 : applesauce
+64 : dried oregano
+60 : carrots
+59 : instant vanilla pudding mix
+59 : lemon extract
+58 : lemon
+57 : worcestershire sauce
+55 : soy sauce
+54 : paprika
+53 : strawberries
+51 : cornmeal
+51 : cayenne pepper
+51 : bananas
+49 : ketchup
+49 : beef
+45 : crushed pineapple with juice
+45 : coconut
+45 : parsley
+45 : confectioners' sugar for dusting
+42 : butter or margarine
+41 : cranberries
+38 : mushrooms
+38 : poppy seeds
+37 : rhubarb
+36 : orange
+36 : chili powder
+35 : miniature marshmallows
+34 : pumpkin
+34 : cherry pie filling
+33 : tomato sauce
+33 : plain yogurt
+33 : creamy peanut butter
+32 : lean beef
+32 : sweet potatoes
+32 : dark brown sugar
+31 : sesame seeds
+31 : maraschino cherries
+31 : dried basil
+30 : milk chocolate chips
+30 : cumin
+30 : marshmallow creme
+29 : semi-sweet chocolate chips
+29 : vinegar
+29 : dry milk powder
+28 : pecan halves
+28 : butterscotch chips
+27 : onion powder
+27 : cardamom
+27 : dry mustard
+27 : pumpkin pie spice
+26 : apples
+26 : white vinegar
+26 : uncooked white rice
+25 : whole milk
+25 : cider vinegar
+25 : lard
+24 : carrot
+24 : tomato paste
+23 : crunchy peanut butter
+23 : dried thyme
+23 : corn syrup
+23 : frozen spinach
+23 : dried parsley
+23 : mozzarella cheese
+23 : canola oil
+23 : rum
+23 : brandy
+23 : golden raisins
+23 : white chocolate chips
+23 : spaghetti
+22 : sharp cheddar cheese
+22 : half-and-half cream
+22 : potatoes
+22 : pepper
+22 : celery
+22 : chicken broth
+22 : red wine vinegar
+22 : unbleached all-purpose flour
+21 : prepared mustard
+20 : mustard powder
+20 : blackberries
+20 : cottage cheese
+20 : maple syrup
+20 : cocoa powder
+19 : vodka
+19 : oil
+19 : bacon
+19 : chocolate syrup
+19 : instant chocolate pudding mix
+19 : ricotta cheese
+19 : white wine
+18 : white wine vinegar
+18 : dry bread crumbs
+18 : instant coffee granules
+18 : tomatoes
+18 : peanuts
+18 : black olives
+18 : condensed tomato soup
+18 : garlic salt
+17 : semisweet chocolate
+17 : white cake mix
+17 : white pepper
+17 : crushed red pepper flakes
+16 : egg noodles
+16 : ginger root
+16 : dark rum
+16 : bread crumbs
+16 : dried cranberries
+16 : ham
+16 : ice
+15 : green bell pepper
+15 : frozen orange juice concentrate
+15 : italian seasoning
+15 : vanilla
+15 : unflavored gelatin
+15 : amaretto liqueur
+15 : balsamic vinegar
+15 : apricot preserves
+15 : dried dill weed
+15 : raspberries
+14 : kosher salt
+14 : basil
+14 : vegetable shortening
+14 : pork
+13 : green onions
+13 : nuts
+13 : rosemary
+13 : dried apricots
+13 : skim milk
+13 : pepper sauce
+13 : vanilla ice cream
+13 : lime juice
+13 : apple juice
+13 : dried currants
+13 : beer
+13 : condensed cream of mushroom soup
+12 : dried tarragon
+12 : potato
+12 : pineapple juice
+12 : half-and-half
+12 : turkey
+12 : coffee flavored liqueur
+11 : hazelnuts
+11 : seasoning salt
+11 : orange marmalade
+11 : granulated sugar
+11 : dried rosemary
+11 : apple cider vinegar
+11 : swiss cheese
+11 : sesame oil
+11 : beef bouillon
+10 : dijon mustard
+10 : dried onion
+10 : garlic crushed
+10 : tahini
+10 : garlic peeled
+10 : dried marjoram
+10 : light cream
+10 : coconut milk
+9 : skinless boneless chicken breast halves
+9 : crushed tomatoes
+9 : spinach
+9 : curry powder
+9 : artichoke hearts
+9 : orange peel
+9 : coriander
+9 : beef broth
+9 : mandarin oranges
+9 : cilantro
+9 : whole kernel corn
+9 : elbow macaroni
+9 : chives
+9 : dry onion soup mix
+9 : pineapple chunks
+9 : salsa
+9 : crushed garlic
+9 : frozen green peas
+8 : sea salt
+8 : tuna
+8 : romano cheese
+8 : mustard
+8 : pork sausage
+8 : red wine
+8 : white rice
+8 : prepared yellow mustard
+8 : red pepper flakes
 8 : chicken bouillon
-8 : skim milk
-8 : coconut milk
-8 : elbow macaroni
-8 : pork
-8 : dry onion soup mix
-8 : lime juice
-8 : apple juice
-8 : crushed garlic
-7 : pork sausage
-7 : red wine
-7 : spinach
-7 : pineapple juice
-7 : apple cider vinegar
-7 : rosemary
-7 : swiss cheese
-7 : balsamic vinegar
-7 : condensed cream of mushroom soup
-6 : stewed tomatoes
-6 : basil
-6 : ginger root
-6 : crabmeat
+8 : thyme
+7 : sauerkraut
+7 : stewed tomatoes
+7 : splenda
+7 : frozen corn kernels
+7 : sherry
+7 : prepared horseradish
+7 : chicken meat
+7 : crabmeat
+7 : cabbage
+7 : monterey jack cheese
+7 : tomato juice
+7 : onions
+7 : baby carrots
+7 : lemon peel
+7 : dry sherry
+6 : oregano
+6 : condensed cream of chicken soup
+6 : whipped cream
+6 : red bell pepper
+6 : taco seasoning mix
+6 : spaghetti sauce
 6 : flour
 6 : green onion
-6 : cabbage
-6 : dried marjoram
-6 : pepper sauce
-6 : chives
-5 : sea salt
-5 : beef broth
-5 : cilantro
-5 : pepper
-5 : turkey
-5 : salsa
-5 : water chestnuts
-4 : crushed red pepper
-4 : romano cheese
-4 : curry powder
-4 : red bell pepper
-4 : poultry seasoning
-4 : coriander
+6 : cashews
+6 : teriyaki sauce
+6 : broccoli
+6 : water chestnuts
+6 : green chiles
+5 : firmly brown sugar
+5 : celery seed
+5 : celery salt
+5 : red pepper
+5 : crushed red pepper
+5 : steak sauce
+5 : poultry seasoning
+5 : crumbled blue cheese
+5 : dried sage
+5 : chicken stock
+5 : turmeric
+5 : pinto beans
+5 : cooking oil
+5 : chicken bouillon granules
+5 : ice cubes
+5 : peanut oil
+4 : condensed cream of celery soup
+4 : 2% milk
+4 : virgin olive oil
+4 : shallots
+4 : crumbled feta cheese
+4 : seasoned salt
+4 : rice wine vinegar
+4 : lemon pepper
+4 : rice vinegar
 4 : dry white wine
-4 : garlic peeled
-4 : red pepper flakes
-4 : shrimp peeled deveined
-4 : onions
-4 : thyme
-4 : dry sherry
-3 : condensed cream of celery soup
-3 : celery seed
-3 : dijon mustard
-3 : celery salt
-3 : condensed cream of chicken soup
-3 : prepared horseradish
-3 : crushed tomatoes
-3 : dried sage
-3 : chicken stock
-3 : rice vinegar
-3 : taco seasoning mix
-3 : spaghetti sauce
-3 : dried cranberries
-3 : monterey jack cheese
+4 : dill weed
+4 : italian seasoned bread crumbs
+4 : garbanzo beans
+4 : red onion
+4 : cranberry juice
+3 : pine nuts
+3 : sweet pickle relish
+3 : mint leaves
+3 : tomato puree
+3 : kidney beans
+3 : vegetable broth
+3 : whipping cream
+3 : margarine or butter
+3 : dill
 3 : green chile peppers
-3 : whole kernel corn
-3 : sesame oil
-3 : garbanzo beans
-3 : frozen green peas
-2 : oregano
-2 : crumbled feta cheese
-2 : granulated sugar
+3 : pepperoni
+3 : cajun seasoning
+2 : kalamata olives
+2 : green beans
+2 : shrimp
+2 : mustard seed
+2 : barbeque sauce
+2 : sage
+2 : black beans
+2 : cilantro leaves
+2 : tarragon
+2 : basil leaves
+2 : powdered sugar
 2 : extra-virgin olive oil
+2 : rice
+2 : fish sauce
+2 : green olives
+2 : angel hair pasta
+2 : lime zest
 2 : pizza sauce
+2 : olives
 2 : frozen mixed vegetables
-1 : virgin olive oil
-1 : green beans
-1 : black beans
-1 : kidney beans
-1 : vegetable broth
-1 : basil leaves
-1 : turmeric
-1 : tomatoes with green chile peppers
-1 : pepperoni
-1 : red onion
-1 : capers
-1 : broccoli florets
+2 : capers
+2 : broccoli florets
+1 : beef stock
+1 : chickpeas
+1 : frozen peas
+1 : dry red wine
+1 : lettuce
+1 : peas
+1 : garam masala
+1 : slivered almonds
+1 : tequila
+1 : penne pasta

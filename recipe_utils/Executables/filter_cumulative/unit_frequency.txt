@@ -1,14 +1,14 @@
-14167 : cup
-7564 : teaspoon
-2798 : tablespoon
-2741 : unit
-1115 : ounce
-252 : pinch
-182 : pound
-73 : clove
-53 : quart
-39 : pint
-32 : can
-19 : cube
-4 : 
-1 : package
+18595 : cup
+9948 : teaspoon
+3884 : tablespoon
+3514 : unit
+1625 : ounce
+358 : pinch
+297 : pound
+128 : clove
+78 : quart
+54 : pint
+49 : can
+29 : cube
+9 : 
+2 : package
